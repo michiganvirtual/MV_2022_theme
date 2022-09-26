@@ -235,5 +235,5 @@ $(document).ready(function () {
     e.preventDefault();
     $("#answers-table").addClass("hidden");
   });
-  //mvtest12345
+  console.log("mv_test_12345");
 });
