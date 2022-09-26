@@ -4,7 +4,7 @@ require("jquery-ui/ui/widgets/draggable");
 require("jquery-ui/ui/widgets/droppable");
 
 $(document).ready(function () {
-  var bsContainer = true;
+  var bsContainer = false;
   var bsStyles = {
     "max-width": "1230px",
     margin: "0 auto",
@@ -200,6 +200,7 @@ $(document).ready(function () {
     $(".food-allergens__answer").text(answer);
   });
 
+  /* Matching Dropdown Activity */
   $("#matching_dropdown").on("submit", function (e) {
     e.preventDefault();
 
@@ -207,16 +208,31 @@ $(document).ready(function () {
     var answer = "";
     var submittedAnswer = "";
     var numCorrect = 0;
+    var validationMessage = "";
     for (var i = 0; i < questions.length; i++) {
-      $(questions[i]).removeClass("bg-red-500 text-white border-white");
+      $(questions[i]).removeClass("text-red-500 font-bold");
       var answer = $(questions[i]).children("label").attr("data-answer");
       var submittedAnswer = $(questions[i]).children("select").val();
       if (answer == submittedAnswer) {
         numCorrect++;
       } else {
-        $(questions[i]).addClass("bg-red-500 text-white border-white");
+        $(questions[i]).children("label").addClass("text-red-500 font-bold");
       }
     }
-    console.log("Number Correct: " + numCorrect);
+    if (numCorrect == questions.length) {
+      validationMessage = "Great Job! You answered each question correctly.";
+    } else {
+      validationMessage =
+        "It looks like you missed a questions. We've highlighted them in red for you. \n\nIf you're stuck, click the 'Display Answers' button below to review information.";
+    }
+    alert(validationMessage);
+  });
+  $("#display-answers").on("click", function (e) {
+    e.preventDefault();
+    $("#answers-table").removeClass("hidden");
+  });
+  $("#answers-table .close-btn").on("click", function (e) {
+    e.preventDefault();
+    $("#answers-table").addClass("hidden");
   });
 });
