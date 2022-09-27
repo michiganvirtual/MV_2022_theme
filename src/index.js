@@ -223,7 +223,7 @@ $(document).ready(function () {
       validationMessage = "Great Job! You answered each question correctly.";
     } else {
       validationMessage =
-        "It looks like you missed a questions. We've highlighted them in red for you. \n\nIf you're stuck, click the 'Display Answers' button below to review information.";
+        "It looks like you didn't get the answer to all of the questions correct. We have highlighted the missed questions in red. \n\nIf you're stuck, click the 'Display Answers' button below to review information.";
     }
     alert(validationMessage);
   });
@@ -235,5 +235,4 @@ $(document).ready(function () {
     e.preventDefault();
     $("#answers-table").addClass("hidden");
   });
-  console.log("mv_test_12345");
 });
