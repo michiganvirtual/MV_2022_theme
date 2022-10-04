@@ -2,6 +2,7 @@ const { event } = require("jquery");
 const $ = require("jquery");
 require("jquery-ui/ui/widgets/draggable");
 require("jquery-ui/ui/widgets/droppable");
+require("jquery-ui-touch-punch/jquery.ui.touch-punch");
 
 $(document).ready(function () {
   var bsContainer = false;
