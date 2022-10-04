@@ -1023,6 +1023,10 @@ video {
   min-height: 12rem;
 }
 
+.min-h-full {
+  min-height: 100%;
+}
+
 .w-full {
   width: 100%;
 }
@@ -1332,6 +1336,11 @@ video {
 .object-bottom {
   -o-object-position: bottom;
      object-position: bottom;
+}
+
+.object-center {
+  -o-object-position: center;
+     object-position: center;
 }
 
 .p-12 {
