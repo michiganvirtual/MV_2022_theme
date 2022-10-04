@@ -1,12 +1,11 @@
 //const { event } = require("jquery");
 import * as $ from "jquery";
-import * as jQuery from "jquery";
 import "jquery-ui/ui/widgets/mouse";
 import "jquery-ui/ui/widget";
 
 import "jquery-ui/ui/widgets/draggable";
 import "jquery-ui/ui/widgets/droppable";
-require("jquery-ui-touch-punch");
+require("./touch-punch");
 
 $(document).ready(function () {
   var bsContainer = false;
