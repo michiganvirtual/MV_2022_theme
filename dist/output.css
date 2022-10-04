@@ -1019,6 +1019,10 @@ video {
   min-height: fit-content;
 }
 
+.min-h-\[12rem\] {
+  min-height: 12rem;
+}
+
 .w-full {
   width: 100%;
 }
@@ -1611,6 +1615,10 @@ video {
 
   .md\:h-96 {
     height: 24rem;
+  }
+
+  .md\:min-h-\[24rem\] {
+    min-height: 24rem;
   }
 
   .md\:w-3\/4 {
