@@ -985,20 +985,16 @@ video {
   height: 7rem;
 }
 
-.h-48 {
-  height: 12rem;
-}
-
 .h-80 {
   height: 20rem;
 }
 
-.h-3 {
-  height: 0.75rem;
+.h-48 {
+  height: 12rem;
 }
 
-.h-1 {
-  height: 0.25rem;
+.h-3 {
+  height: 0.75rem;
 }
 
 .max-h-full {
@@ -1013,6 +1009,10 @@ video {
   max-height: 18rem;
 }
 
+.min-h-full {
+  min-height: 100%;
+}
+
 .min-h-fit {
   min-height: -webkit-fit-content;
   min-height: -moz-fit-content;
@@ -1021,10 +1021,6 @@ video {
 
 .min-h-\[12rem\] {
   min-height: 12rem;
-}
-
-.min-h-full {
-  min-height: 100%;
 }
 
 .w-full {
@@ -1333,14 +1329,14 @@ video {
      object-fit: cover;
 }
 
-.object-bottom {
-  -o-object-position: bottom;
-     object-position: bottom;
-}
-
 .object-center {
   -o-object-position: center;
      object-position: center;
+}
+
+.object-bottom {
+  -o-object-position: bottom;
+     object-position: bottom;
 }
 
 .p-12 {
@@ -1573,14 +1569,6 @@ video {
   transition-duration: 150ms;
 }
 
-.transition {
-  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
 .duration-500 {
   transition-duration: 500ms;
 }
@@ -1608,12 +1596,6 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-@media (min-width: 640px) {
-  .sm\:w-1\/2 {
-    width: 50%;
-  }
-}
-
 @media (min-width: 768px) {
   .md\:mx-0 {
     margin-left: 0px;
@@ -1628,12 +1610,12 @@ video {
     margin-bottom: 0px;
   }
 
-  .md\:h-96 {
-    height: 24rem;
-  }
-
   .md\:h-full {
     height: 100%;
+  }
+
+  .md\:h-96 {
+    height: 24rem;
   }
 
   .md\:min-h-\[24rem\] {

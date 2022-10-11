@@ -1,8 +1,7 @@
-//const { event } = require("jquery");
-import * as $ from "jquery";
+const { event } = require("jquery");
+const $ = require("jquery");
 import "jquery-ui/ui/widgets/mouse";
 import "jquery-ui/ui/widget";
-
 import "jquery-ui/ui/widgets/draggable";
 import "jquery-ui/ui/widgets/droppable";
 require("./touch-punch");
@@ -37,15 +36,16 @@ $(document).ready(function () {
 
   $(".accordion-controls li a").on("click", function (e) {
     e.preventDefault();
-    $control = $(this);
-    accordionContent = $control.attr("aria-controls");
+    var $control = $(this);
+    var accordionContent = $control.attr("aria-controls");
+
     checkOthers($control[0]);
 
-    isAriaExp = $control.attr("aria-expanded");
-    newAriaExp = isAriaExp == "false" ? "true" : "false";
+    var isAriaExp = $control.attr("aria-expanded");
+    var newAriaExp = isAriaExp == "false" ? "true" : "false";
     $control.attr("aria-expanded", newAriaExp);
 
-    isAriaHid = $("#" + accordionContent).attr("aria-hidden");
+    var isAriaHid = $("#" + accordionContent).attr("aria-hidden");
     if (isAriaHid == "true") {
       $("#" + accordionContent).attr("aria-hidden", "false");
       $("#" + accordionContent).toggleClass("max-h-full");
@@ -65,15 +65,15 @@ $(document).ready(function () {
   $(".accordion-controls li a").keypress(function (e) {
     e.preventDefault();
     if (e.which == 13) {
-      $control = $(this);
-      accordionContent = $control.attr("aria-controls");
+      var $control = $(this);
+      var accordionContent = $control.attr("aria-controls");
       checkOthers($control[0]);
 
-      isAriaExp = $control.attr("aria-expanded");
-      newAriaExp = isAriaExp == "false" ? "true" : "false";
+      var isAriaExp = $control.attr("aria-expanded");
+      var newAriaExp = isAriaExp == "false" ? "true" : "false";
       $control.attr("aria-expanded", newAriaExp);
 
-      isAriaHid = $("#" + accordionContent).attr("aria-hidden");
+      var isAriaHid = $("#" + accordionContent).attr("aria-hidden");
       if (isAriaHid == "true") {
         $("#" + accordionContent).attr("aria-hidden", "false");
         $("#" + accordionContent).toggleClass("max-h-full");
@@ -100,7 +100,7 @@ $(document).ready(function () {
       if (accordionButtons[i] != elem) {
         if ($(accordionButtons[i]).attr("aria-expanded") == "true") {
           $(accordionButtons[i]).attr("aria-expanded", "false");
-          content = $(accordionButtons[i]).attr("aria-controls");
+          var content = $(accordionButtons[i]).attr("aria-controls");
           $("#" + content).attr("aria-hidden", "true");
           $("#" + content).toggleClass("h-auto");
           $(accordionButtons[i])
@@ -204,7 +204,7 @@ $(document).ready(function () {
     $(".food-allergens__answer").text(answer);
   });
 
-  /* Matching Dropdown Activity */
+  /* Matching Dropdown Activity 
   $("#matching_dropdown").on("submit", function (e) {
     e.preventDefault();
 
@@ -239,4 +239,5 @@ $(document).ready(function () {
     e.preventDefault();
     $("#answers-table").addClass("hidden");
   });
+  */
 });
