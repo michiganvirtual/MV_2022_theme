@@ -204,10 +204,9 @@ $(document).ready(function () {
     $(".food-allergens__answer").text(answer);
   });
 
-  /* Matching Dropdown Activity 
+  /* Matching Dropdown Activity */
   $("#matching_dropdown").on("submit", function (e) {
     e.preventDefault();
-
     var questions = $(".question_wrapper");
     var answer = "";
     var submittedAnswer = "";
@@ -219,6 +218,10 @@ $(document).ready(function () {
       var submittedAnswer = $(questions[i]).children("select").val();
       if (answer == submittedAnswer) {
         numCorrect++;
+        $(questions[i])
+          .children("label")
+          .removeClass("text-red-500 font-bold")
+          .addClass("text-green-400 line-through");
       } else {
         $(questions[i]).children("label").addClass("text-red-500 font-bold");
       }
@@ -239,5 +242,4 @@ $(document).ready(function () {
     e.preventDefault();
     $("#answers-table").addClass("hidden");
   });
-  */
 });
