@@ -221,7 +221,7 @@ $(document).ready(function () {
         $(questions[i])
           .children("label")
           .removeClass("text-red-500 font-bold")
-          .addClass("text-green-400 line-through");
+          .addClass("text-ada-green line-through");
       } else {
         $(questions[i]).children("label").addClass("text-red-500 font-bold");
       }
