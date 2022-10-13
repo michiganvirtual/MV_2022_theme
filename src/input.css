@@ -83,6 +83,13 @@ ul li::before {
   color: #6d6e71;
 }
 
+.fa {
+  font-size: 2em;
+}
+.tiny {
+  font-size: 1em;
+}
+
 @media screen and (max-width: 767px) {
   table thead {
     display: none;

@@ -7,7 +7,7 @@ import "jquery-ui/ui/widgets/droppable";
 require("./touch-punch");
 
 $(document).ready(function () {
-  var bsContainer = false;
+  var bsContainer = true;
   var bsStyles = {
     "max-width": "1230px",
     margin: "0 auto",
