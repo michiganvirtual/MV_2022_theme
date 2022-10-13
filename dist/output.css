@@ -128,7 +128,8 @@
   font-style: normal;
 }
 
-ul li::before {
+ul li::before,
+li::marker {
   color: #6d6e71;
 }
 
