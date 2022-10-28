@@ -79,9 +79,16 @@
   font-style: normal;
 }
 
-ul li::before,
-li::marker {
+ul li::before {
   color: #6d6e71;
+}
+.bg-deep-teal ul li::before,
+.bg-dark-teal ul li::before,
+.bg-light-teal ul li::before,
+.bg-ada-orange ul li::before,
+.bg-ada-green ul li::before,
+.bg-dark-grey ul li::before {
+  color: #ffffff;
 }
 
 .fa {
