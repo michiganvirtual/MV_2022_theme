@@ -223,6 +223,9 @@ $(document).ready(function () {
           .removeClass("text-red-500 font-bold")
           .addClass("text-ada-green line-through");
       } else {
+        $(questions[i])
+          .children("label")
+          .removeClass("text-ada-green line-through");
         $(questions[i]).children("label").addClass("text-red-500 font-bold");
       }
     }
