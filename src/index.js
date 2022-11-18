@@ -1,10 +1,10 @@
 const { event } = require("jquery");
 const $ = require("jquery");
 require("jquery-ui");
-//import "jquery-ui/ui/widgets/mouse";
-//import "jquery-ui/ui/widget";
-import "jquery-ui/ui/widgets/draggable";
-import "jquery-ui/ui/widgets/droppable";
+//import "jquery-ui/themes/base/all.css";
+require("jquery-ui/ui/widgets/draggable");
+require("jquery-ui/ui/widgets/droppable");
+require("jquery-ui/ui/widgets/slider");
 require("./touch-punch");
 
 $(document).ready(function () {
@@ -39,7 +39,6 @@ $(document).ready(function () {
     //e.preventDefault();
     var $control = $(this);
     var accordionContent = $control.attr("aria-controls");
-
     checkOthers($control[0]);
 
     var isAriaExp = $control.attr("aria-expanded");
