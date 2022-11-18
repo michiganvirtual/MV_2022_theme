@@ -1,7 +1,8 @@
 const { event } = require("jquery");
 const $ = require("jquery");
-import "jquery-ui/ui/widgets/mouse";
-import "jquery-ui/ui/widget";
+require("jquery-ui");
+//import "jquery-ui/ui/widgets/mouse";
+//import "jquery-ui/ui/widget";
 import "jquery-ui/ui/widgets/draggable";
 import "jquery-ui/ui/widgets/droppable";
 require("./touch-punch");
