@@ -31,10 +31,10 @@ $(document).ready(function () {
     $(this).children(".flip-card-inner").toggleClass("flipped");
   });
 
-  var accordionButtons = $(".accordion-controls li a");
+  var accordionButtons = $(".accordion-controls li > a.block");
   accordionButtons.attr("tabindex", "0");
 
-  $(".accordion-controls li a").on("click", function (e) {
+  $(".accordion-controls li > a.block").on("click", function (e) {
     e.preventDefault();
     var $control = $(this);
     var accordionContent = $control.attr("aria-controls");
@@ -62,7 +62,7 @@ $(document).ready(function () {
     }
   });
 
-  $(".accordion-controls li a").keypress(function (e) {
+  $(".accordion-controls li > a.block").keypress(function (e) {
     e.preventDefault();
     if (e.which == 13) {
       var $control = $(this);

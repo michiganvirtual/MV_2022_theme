@@ -907,6 +907,10 @@ video {
   margin-bottom: 2rem;
 }
 
+.mr-4 {
+  margin-right: 1rem;
+}
+
 .mb-12 {
   margin-bottom: 3rem;
 }
@@ -949,10 +953,6 @@ video {
 
 .mt-2 {
   margin-top: 0.5rem;
-}
-
-.mr-4 {
-  margin-right: 1rem;
 }
 
 .block {
@@ -1045,6 +1045,10 @@ video {
   width: 3rem;
 }
 
+.w-11\/12 {
+  width: 91.666667%;
+}
+
 .w-28 {
   width: 7rem;
 }
@@ -1063,10 +1067,6 @@ video {
 
 .w-1\/2 {
   width: 50%;
-}
-
-.w-11\/12 {
-  width: 91.666667%;
 }
 
 .grow {
@@ -1251,12 +1251,12 @@ video {
   border-bottom-width: 1px;
 }
 
-.border-l {
-  border-left-width: 1px;
-}
-
 .border-l-4 {
   border-left-width: 4px;
+}
+
+.border-l {
+  border-left-width: 1px;
 }
 
 .border-dashed {
@@ -1273,29 +1273,9 @@ video {
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
 
-.border-dark-gray {
-  --tw-border-opacity: 1;
-  border-color: rgb(65 64 66 / var(--tw-border-opacity));
-}
-
-.border-light-teal {
-  --tw-border-opacity: 1;
-  border-color: rgb(47 141 152 / var(--tw-border-opacity));
-}
-
-.border-ada-orange {
-  --tw-border-opacity: 1;
-  border-color: rgb(172 102 16 / var(--tw-border-opacity));
-}
-
 .border-deep-teal {
   --tw-border-opacity: 1;
   border-color: rgb(9 60 68 / var(--tw-border-opacity));
-}
-
-.border-white {
-  --tw-border-opacity: 1;
-  border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
 .border-dark-teal {
@@ -1303,9 +1283,29 @@ video {
   border-color: rgb(17 94 110 / var(--tw-border-opacity));
 }
 
+.border-light-teal {
+  --tw-border-opacity: 1;
+  border-color: rgb(47 141 152 / var(--tw-border-opacity));
+}
+
 .border-orange {
   --tw-border-opacity: 1;
   border-color: rgb(247 148 30 / var(--tw-border-opacity));
+}
+
+.border-dark-gray {
+  --tw-border-opacity: 1;
+  border-color: rgb(65 64 66 / var(--tw-border-opacity));
+}
+
+.border-ada-orange {
+  --tw-border-opacity: 1;
+  border-color: rgb(172 102 16 / var(--tw-border-opacity));
+}
+
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
 .bg-deep-teal {
