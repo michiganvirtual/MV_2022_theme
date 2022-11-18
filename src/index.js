@@ -26,6 +26,10 @@ $(document).ready(function () {
     }
   }
 
+  $("a").on("click", function () {
+    console.log("link click");
+  });
+
   $(".flip-card").attr("tabindex", "0");
   $(".flip-card").keypress(function (e) {
     e.preventDefault();
