@@ -35,7 +35,7 @@ $(document).ready(function () {
   accordionButtons.attr("tabindex", "0");
 
   $(".accordion-controls li > a.block").on("click", function (e) {
-    e.preventDefault();
+    //e.preventDefault();
     var $control = $(this);
     var accordionContent = $control.attr("aria-controls");
 
@@ -63,7 +63,7 @@ $(document).ready(function () {
   });
 
   $(".accordion-controls li > a.block").keypress(function (e) {
-    e.preventDefault();
+    //e.preventDefault();
     if (e.which == 13) {
       var $control = $(this);
       var accordionContent = $control.attr("aria-controls");
@@ -90,10 +90,6 @@ $(document).ready(function () {
       }
     }
   });
-
-  function accordionAction(e) {
-    console.log(e);
-  }
 
   function checkOthers(elem) {
     for (var i = 0; i < accordionButtons.length; i++) {
