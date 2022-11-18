@@ -1,139 +1,87 @@
-/* Commenting everthing but tailwind */
-
-@font-face {
+/* @font-face {
   font-family: "Gotham";
-
   font-display: swap;
-
   src: url(//lsp.michiganvirtual.org/d2l/lor/viewer/viewFile.d2lfile/6606/661,1/Gotham-XLightItalic.woff)
     format("woff");
-
   font-weight: 100;
-
   font-style: italic;
 }
-
 @font-face {
   font-family: "Gotham";
-
   font-display: swap;
-
   src: url(//lsp.michiganvirtual.org/d2l/lor/viewer/viewFile.d2lfile/6606/660,1/Gotham-XLight.woff)
     format("woff");
-
   font-weight: 100;
-
   font-style: normal;
 }
-
 @font-face {
   font-family: "Gotham";
-
   font-display: swap;
-
   src: url(//lsp.michiganvirtual.org/d2l/lor/viewer/viewFile.d2lfile/6606/663,1/GothamLight.woff)
     format("woff");
-
   font-weight: 300;
-
   font-style: normal;
 }
-
 @font-face {
   font-family: "Gotham";
-
   font-display: swap;
-
   src: url(//lsp.michiganvirtual.org/d2l/lor/viewer/viewFile.d2lfile/6606/663,1/GothamLight.woff)
     format("woff");
-
   font-weight: 300;
-
   font-style: italic;
 }
-
 @font-face {
   font-family: "Gotham";
-
   font-display: swap;
-
   src: url(//lsp.michiganvirtual.org/d2l/lor/viewer/viewFile.d2lfile/6606/662,1/GothamBook.woff)
     format("woff");
-
   font-weight: 400;
-
   font-style: normal;
 }
-
 @font-face {
   font-family: "Gotham";
-
   font-display: swap;
-
   src: url(//lsp.michiganvirtual.org/d2l/lor/viewer/viewFile.d2lfile/6606/658,1/Gotham-BookItalic.woff2)
     format("woff2");
-
   font-weight: 400;
-
   font-style: italic;
 }
-
 @font-face {
   font-family: "Gotham";
-
   font-display: swap;
-
   src: url(//lsp.michiganvirtual.org/d2l/lor/viewer/viewFile.d2lfile/6606/659,1/Gotham-Medium.woff2)
     format("woff2");
-
   font-weight: 500;
-
   font-style: normal;
 }
-
 @font-face {
   font-family: "Gotham";
-
   font-display: swap;
-
   src: url(//lsp.michiganvirtual.org/d2l/lor/viewer/viewFile.d2lfile/6606/655,1/Gotham-Bold.woff2)
     format("woff2");
-
   font-weight: 700;
-
   font-style: normal;
 }
-
 @font-face {
   font-family: "Gotham";
-
   font-display: swap;
-
   src: url(//lsp.michiganvirtual.org/d2l/lor/viewer/viewFile.d2lfile/6606/656,1/Gotham-BoldItalic.woff2)
     format("woff2");
-
   font-weight: 700;
-
   font-style: italic;
 }
-
 @font-face {
   font-family: "Gotham";
-
   font-display: swap;
-
   src: url(//lsp.michiganvirtual.org/d2l/lor/viewer/viewFile.d2lfile/6606/654,1/Gotham-Black.woff2)
     format("woff2");
-
   font-weight: 800;
-
   font-style: normal;
 }
 
 ul li::before {
   color: #6d6e71;
 }
-
 .bg-deep-teal ul li::before,
 .bg-dark-teal ul li::before,
 .bg-light-teal ul li::before,
@@ -143,10 +91,32 @@ ul li::before {
   color: #ffffff;
 }
 
+.video-container {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  max-width: 550px;
+  width: 100%;
+}
+
+.video-container::after {
+  padding-top: 56.25%;
+  display: block;
+  content: "";
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .fa {
   font-size: 2em;
 }
-
 .tiny {
   font-size: 1em;
 }
@@ -155,7 +125,6 @@ ul li::before {
   table thead {
     display: none;
   }
-
   table td {
     display: flex;
     justify-content: space-between;
@@ -163,7 +132,6 @@ ul li::before {
     text-align: right;
     align-items: flex-start;
   }
-
   table tr {
     border: solid 2px #093c44;
     margin: 20px;
@@ -171,6 +139,7 @@ ul li::before {
 
   table td::before {
     content: attr(data-label);
+    font-weight: bold;
     min-width: 50%;
     text-align: left;
     font-weight: bold;
@@ -178,41 +147,42 @@ ul li::before {
   }
 }
 
-/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+*/
 
-.flip-cards {
-}
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 
 .flip-card {
   background-color: transparent;
-  height: 100%;
 }
 
 /* This container is needed to position the front and back side */
 
 .flip-card-inner {
-  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-  height: 100%;
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
 
 .flip-card:hover .flip-card-inner {
-  transform: rotateX(-180deg);
+  transform: rotateY(180deg);
 }
 
 .flipped {
-  transform: rotateX(-180deg);
+  transform: rotateY(180deg);
 }
 
 /* Position the front and back side */
 
 .flip-card-front,
 .flip-card-back {
-  min-width: 100%;
-  min-height: 100%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   -webkit-backface-visibility: hidden;
   /* Safari */
   backface-visibility: hidden;
@@ -221,15 +191,161 @@ ul li::before {
 /* Style the front side (fallback if image is missing) */
 
 .flip-card-front {
+  background-color: #bbb;
+  color: black;
 }
 
 /* Style the back side */
 
 .flip-card-back {
-  transform: rotateX(-180deg) translate(-100%, 0);
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
 }
 
-/* ! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com */
+/*Slider Styles*/
+
+/*!
+ * jQuery UI Slider 1.13.2
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/slider/#theming
+ */
+
+.ui-slider {
+  position: relative;
+  text-align: left;
+}
+
+.ui-slider .ui-slider-handle {
+  position: absolute;
+  z-index: 2;
+  width: 1.2em;
+  height: 1.2em;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.ui-slider .ui-slider-range {
+  position: absolute;
+  z-index: 1;
+  font-size: 0.7em;
+  display: block;
+  border: 0;
+  background-position: 0 0;
+}
+
+/* support: IE8 - See #6727 */
+
+.ui-slider.ui-state-disabled .ui-slider-handle,
+.ui-slider.ui-state-disabled .ui-slider-range {
+  filter: inherit;
+}
+
+.ui-slider-horizontal {
+  height: 0.8em;
+  min-height: 30px;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+  top: -5px;
+  height: 40px;
+  width: 40px;
+}
+
+.ui-slider-horizontal .ui-slider-range {
+  top: 0;
+  height: 100%;
+}
+
+.ui-slider-horizontal .ui-slider-range-min {
+  left: 0;
+}
+
+.ui-slider-horizontal .ui-slider-range-max {
+  right: 0;
+}
+
+.ui-slider-vertical {
+  width: 0.8em;
+  height: 100px;
+}
+
+.ui-slider-vertical .ui-slider-handle {
+  left: -0.3em;
+  margin-left: 0;
+  margin-bottom: -0.6em;
+}
+
+.ui-slider-vertical .ui-slider-range {
+  left: 0;
+  width: 100%;
+}
+
+.ui-slider-vertical .ui-slider-range-min {
+  bottom: 0;
+}
+
+.ui-slider-vertical .ui-slider-range-max {
+  top: 0;
+}
+
+/* Socratic Reflection */
+
+#save {
+  display: inline-block;
+  text-transform: uppercase;
+  background-color: #fd6000;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 1rem 1.5rem;
+  border-radius: 0.375rem;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+#save:hover {
+  cursor: pointer;
+  background-color: #14a0c6;
+}
+
+#save:disabled {
+  background-color: #ebebe4;
+  color: #6d6e71;
+  cursor: not-allowed;
+}
+
+#restore {
+  display: inline-block;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 700;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+#restore:hover {
+  text-decoration: underline;
+}
+
+#unsaved {
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+#text_input {
+  padding: 1rem;
+  margin-bottom: 20px;
+}
+
+/* ! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com
+
+*/
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -686,53 +802,6 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-::-webkit-backdrop {
-  --tw-border-spacing-x: 0;
-  --tw-border-spacing-y: 0;
-  --tw-translate-x: 0;
-  --tw-translate-y: 0;
-  --tw-rotate: 0;
-  --tw-skew-x: 0;
-  --tw-skew-y: 0;
-  --tw-scale-x: 1;
-  --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
-  --tw-scroll-snap-strictness: proximity;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
-  --tw-ring-offset-width: 0px;
-  --tw-ring-offset-color: #fff;
-  --tw-ring-color: rgb(59 130 246 / 0.5);
-  --tw-ring-offset-shadow: 0 0 #0000;
-  --tw-ring-shadow: 0 0 #0000;
-  --tw-shadow: 0 0 #0000;
-  --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
-}
-
 ::backdrop {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -1030,7 +1099,6 @@ video {
 }
 
 .min-h-fit {
-  min-height: -webkit-fit-content;
   min-height: -moz-fit-content;
   min-height: fit-content;
 }
@@ -1105,7 +1173,6 @@ video {
 }
 
 .auto-rows-max {
-  grid-auto-rows: -webkit-max-content;
   grid-auto-rows: max-content;
 }
 
@@ -1590,13 +1657,11 @@ video {
 }
 
 .underline {
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
+  text-decoration-line: underline;
 }
 
 .line-through {
-  -webkit-text-decoration-line: line-through;
-          text-decoration-line: line-through;
+  text-decoration-line: line-through;
 }
 
 .shadow-md {
@@ -1654,8 +1719,7 @@ video {
 }
 
 .hover\:no-underline:hover {
-  -webkit-text-decoration-line: none;
-          text-decoration-line: none;
+  text-decoration-line: none;
 }
 
 @media (min-width: 768px) {
