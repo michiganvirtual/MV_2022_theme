@@ -8,7 +8,7 @@ require("jquery-ui/ui/widgets/slider");
 require("./touch-punch");
 
 $(document).ready(function () {
-  var bsContainer = true;
+  var bsContainer = false;
   var bsStyles = {
     "max-width": "1230px",
     margin: "0 auto",
