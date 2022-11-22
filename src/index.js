@@ -67,7 +67,7 @@ $(document).ready(function () {
   });
 
   $(".accordion-controls li > a.block").keypress(function (e) {
-    //e.preventDefault();
+    e.preventDefault();
     if (e.which == 13) {
       var $control = $(this);
       var accordionContent = $control.attr("aria-controls");
@@ -244,5 +244,25 @@ $(document).ready(function () {
   $("#answers-table .close-btn").on("click", function (e) {
     e.preventDefault();
     $("#answers-table").addClass("hidden");
+  });
+
+  /*    Food Allergens Participation Exercise     */
+  $("#pros-cons").on("submit", function (e) {
+    e.preventDefault();
+    var selects = $("select");
+    var unselected = 0;
+    for (let i = 0; i < selects.length; i++) {
+      if (selects[i].value == "") {
+        unselected++;
+      }
+    }
+    if (unselected > 0) {
+      alert("Please complete the form.");
+      unselected = 0;
+      return;
+    }
+    $("select").attr("disabled", true);
+    $(":submit").addClass("invisible");
+    $(".validation").removeClass("invisible");
   });
 });
