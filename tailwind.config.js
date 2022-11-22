@@ -22,6 +22,9 @@ module.exports = {
         "ada-green": "#6a7f17",
         "ada-orange": "#ac6610",
       },
+      borderWidth: {
+        10: "10px",
+      },
     },
   },
   plugins: [],
