@@ -1,0 +1,62 @@
+{
+  "setup": "Setup: Dana enters Mr. C's counseling office to discuss post-secondary options. She explains that she wants to be a paramedic, but her parents spent her college fund to rebuild their house after it burned down. Select the video below to see how Mr. C responds to Dana.   <br><br>Mr. C: Hi Dana, What can I help you with today?   <br><br>Dana: I want to be a paramedic, but my parents had to spend my college fund to rebuild our house after it burned down. What should I do now?   <br><br>Mr. C: There are many ways to pay for college - scholarships, financial aid, military benefits. Here's a pamphlet with more information. Take some time to explore them and then set up another meeting with me.   <br><br>Select the Begin Scenario button below to follow Dana on her journey to following her dream of becoming a paramedic.    Dana: Okay, thanks Mr. C.",
+  "events": [
+    {
+      "body": "Dana: This is so confusing! I don't have time to apply for a million scholarships, and if I use financial aid I'll be in debt forever! <br><br>Mr. C: Did you look into the military education benefits? There are lots of different options you could take advantage of. They'll pay for your education and training and you'll be debt free at the end of your service. <br><br>Dana: Are you crazy? I don't want to kill people!",
+      "options": [
+        {
+          "text": "Actually, 85% of military jobs do not involve direct combat. Check out this video to learn more about working in the military.",
+          "response": "Dana: Oh wow! The military is a lot different than I thought. Can you tell me more about it?",
+          "ending": "",
+          "correct": true
+        },
+        {
+          "text": "Well, combat is part of being in the military. Why don’t I pull together a list of scholarships you might be eligible for while you gather the information needed to apply for financial aid.",
+          "response": "Parents: We'd rather not set our daughter up for a lifetime of debt, but it sounds like this is our only option.<br><br>Mr. C: Let me know if you have any questions or need help applying for FASFA.",
+          "ending": "This response provides the family with helpful resources, which we don't want to discourage! However, it doesn't dispel their myths about the military or encourage them to research all the options available for Dana to reach her post-secondary dream.",
+          "correct": false
+        },
+        {
+          "text": "You do have to be okay with violence to join the military. But if you’re not willing to use scholarships, financial aid, or military benefits, I think you’re out of options. Would you like to explore careers that don’t require a college education?",
+          "response": "Parents: That's not an option! A college education is necessary to be successful in today's world.<br><br>Mr. C: Actually, that's not true. There are plenty of jobs that don't require a college degree. Here's a website that will help you explore thee careers.<br><br>Parents: I don't know. That doesn't seem like the right path for our daughter, but I guess we could look at the website",
+          "ending": "This response provides the family with helpful resources, which we don't want to discourage! However, it doesn't dispel their myths about the military or encourage them to research all the options available for Dana to reach her post-secondary dream.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "body": "Mr. C: Let me show you how to use the Careers in the Military website to search for military careers.<br><br>Dana: Check it out! I could be an emergency medical technician. Thanks, Mr. C! I'm going to look into this more.<br><br>[new scene]<br><br>Dana: Mom, Dad, check it out! I could be an emergency medical technician in the military. They would pay for my education and training, too!<br><br>Parents: Absolutely not! No way, no how! You are not joining the military and we will not hear another word about it!<br><br>Dana: I hate you! You used all my college money without asking me and now you won't let me become a paramedic! I'm never talking to you again!<br><br>[new scene]<br><br>Parents: Mr. C, what were you thinking? How could you suggest that our daughter join the military? There is absolutely no way that is going to happen. We're reporting you to the school principal!<br><br>Mr. C: I see you have strong feelings about this. Can I ask why you're so opposed to the military?<br><br>Parents: Well, for one, we don't want our daughter to die! And for two, we don't want her to be sent away to who knows where for the rest of her life. It's safe here in the mid-west and that's where she's going to stay.",
+      "options": [
+        {
+          "text": "Actually, 85% of military jobs do not involve direct combat. And after serving 3-8 years, most service members leverage their education and training for civilian careers. Only about 20% stay in the military until retirement. Here are some stories from real service members that you may want to take a look at.",
+          "response": "Parents: Those stories were interesting. There are a lot more jobs in the military than I thought. But our daughter wants to be a paramedic. How is she going to do that without being on the front lines?<br><br>Mr. C: There are two types of emergency medical jobs in the military: Emergency Medical Technicians and Field/Combat Medics. You're thinking of Field/Combat Medics. If Dana served as an Emergency Medical Technician she would be working in a hospital or clinic. Here's more info about this job.<br><br>Parents: Okay, we'll look into it. We're not saying we'll let Dana join the military, but we'll research the options.<br><br>Mr. C: Let me know if you have any questions or need help navigating the resources.",
+          "ending": "",
+          "correct": true
+        },
+        {
+          "text": "Well, those are valid concerns. Dana didn’t seem interested in scholarships or financial aid, but maybe you can convince her. Here’s some information about those options.",
+          "response": "Ugh! I already told you I don't want to be in debt forever. you never listen!",
+          "ending": "This response perpetuates the myths Dana has about the military. It also does not address her concerns about student debt.",
+          "correct": false
+        },
+        {
+          "text": "I understand your concerns. Dana said she’s not interested in scholarships or financial aid either, so I think you’re out of options. Would you like me to provide some career exploration tools? Maybe you could help Dana choose a career that doesn’t require a college education.",
+          "response": "Dana: I'll never amount to anything without a college degree. My whole life is ruined! This is so not fair.",
+          "ending": "This response perpetuates the myths Dana has about the military. It also presents post-secondary options that are not in line with her career goals.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "body": "Dana: Hey Mr. C. Thanks for talking my parents off the ledge. I'm really interested in the Emergency Medical Technician job. What do I have to do to apply?<br><br>Mr. C: The first step would be to meet with Education Services Specialists and Recruiters from various branches of the military. They can help you understand the options, requirements, and benefits of their specific branch of service.<br><br>Here's the contact info for the Education Service Specialists and Recruiters in our area.<br><br>Dana: Great, thanks Mr. C.",
+      "options": [
+        {
+          "text": "End of scenario.",
+          "response": "",
+          "ending": "Dana met with Education Service Specialists and Recruiters from three different branches of the military before deciding to enlist in the Air Force as an Aerospace Medical Service Specialist.<br><br>After fulfilling her service commitment, Dana moved back home to Michigan and got her dream job as a paramedic in her local community.<br><br>---<br><br>Not all students who research military options or meet with Education Service Specialists and/or Recruiters will join the military. The same way not all students will attend every college they research or apply for.<br><br>The important thing is that counselors provide students and families with a comprehensive view of post-secondary education and career options, which include, but are not limited to military offerings.",
+          "correct": true
+        }
+      ]
+    }
+  ]
+}

@@ -5,7 +5,9 @@ require("jquery-ui");
 require("jquery-ui/ui/widgets/draggable");
 require("jquery-ui/ui/widgets/droppable");
 require("jquery-ui/ui/widgets/slider");
+require("jquery-ui/ui/widgets/selectable");
 require("./touch-punch");
+import scenario from "./military-scenario.json";
 
 $(document).ready(function () {
   var bsContainer = false;
@@ -25,10 +27,6 @@ $(document).ready(function () {
       $("body").css(bsMobileStyles);
     }
   }
-
-  $("a").on("click", function () {
-    console.log("link click");
-  });
 
   $(".flip-card").attr("tabindex", "0");
   $(".flip-card").keypress(function (e) {
@@ -265,4 +263,51 @@ $(document).ready(function () {
     $(":submit").addClass("invisible");
     $(".validation").removeClass("invisible");
   });
+
+  /****   Scenarios Logic  *****/
+  let eventCount = 0;
+
+  $(".response-container").selectable({
+    create: function (event, ui) {
+      let events = scenario.events;
+      $("#scenario-body").html(scenario.setup);
+    },
+    selected: function (event, ui) {
+      $(ui.selected).toggleClass("bg-deep-teal text-white text-deep-teal");
+      $(ui.selected)
+        .addClass("ui-selected")
+        .siblings()
+        .removeClass("ui-selected");
+      $("#next-btn").attr("disabled", false);
+    },
+    unselected: function (event, ui) {
+      $(ui.unselected).toggleClass("bg-deep-teal text-white text-deep-teal");
+    },
+  });
+
+  //Button Logic
+  $("#next-btn").on("click", function () {
+    updateEvent(eventCount);
+    eventCount++;
+  });
 });
+
+//Function to Update Event Body and Responses
+function updateEvent(count) {
+  $("#scenario-body").html(scenario.events[count].body);
+  $(".response-container").html("");
+  let options = scenario.events[count].options;
+  if (count < 1) {
+    $("#next-btn").text("Respond");
+  }
+  for (let i = 0; i < options.length; i++) {
+    let optionBody =
+      "<li class='w-full text-center border-2 border-deep-teal text-deep-teal py-4 mb-4'>" +
+      options[i].text +
+      "</li>";
+    $(".response-container").append(optionBody);
+    $("#next-btn").attr("disabled", true);
+  }
+
+  return;
+}
