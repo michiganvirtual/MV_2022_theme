@@ -7,7 +7,7 @@
         {
           "text": "Actually, 85% of military jobs do not involve direct combat. Check out this video to learn more about working in the military.",
           "response": "Dana: Oh wow! The military is a lot different than I thought. Can you tell me more about it?",
-          "ending": "",
+          "ending": "Well done! Click the button to move onto the next event.",
           "correct": true
         },
         {
@@ -19,7 +19,7 @@
         {
           "text": "You do have to be okay with violence to join the military. But if you’re not willing to use scholarships, financial aid, or military benefits, I think you’re out of options. Would you like to explore careers that don’t require a college education?",
           "response": "Parents: That's not an option! A college education is necessary to be successful in today's world.<br><br>Mr. C: Actually, that's not true. There are plenty of jobs that don't require a college degree. Here's a website that will help you explore thee careers.<br><br>Parents: I don't know. That doesn't seem like the right path for our daughter, but I guess we could look at the website",
-          "ending": "This response provides the family with helpful resources, which we don't want to discourage! However, it doesn't dispel their myths about the military or encourage them to research all the options available for Dana to reach her post-secondary dream.",
+          "ending": "This response perpetuates the myths Dana has about the military. It also presents post-secondary options that are not in line with her career goals.",
           "correct": false
         }
       ]
@@ -30,7 +30,7 @@
         {
           "text": "Actually, 85% of military jobs do not involve direct combat. And after serving 3-8 years, most service members leverage their education and training for civilian careers. Only about 20% stay in the military until retirement. Here are some stories from real service members that you may want to take a look at.",
           "response": "Parents: Those stories were interesting. There are a lot more jobs in the military than I thought. But our daughter wants to be a paramedic. How is she going to do that without being on the front lines?<br><br>Mr. C: There are two types of emergency medical jobs in the military: Emergency Medical Technicians and Field/Combat Medics. You're thinking of Field/Combat Medics. If Dana served as an Emergency Medical Technician she would be working in a hospital or clinic. Here's more info about this job.<br><br>Parents: Okay, we'll look into it. We're not saying we'll let Dana join the military, but we'll research the options.<br><br>Mr. C: Let me know if you have any questions or need help navigating the resources.",
-          "ending": "",
+          "ending": "Well done! Click the button to move onto the next event.",
           "correct": true
         },
         {

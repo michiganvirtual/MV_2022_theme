@@ -283,12 +283,29 @@ $(document).ready(function () {
     unselected: function (event, ui) {
       $(ui.unselected).toggleClass("bg-deep-teal text-white text-deep-teal");
     },
+    stop: function () {},
   });
 
   //Button Logic
   $("#next-btn").on("click", function () {
     updateEvent(eventCount);
-    eventCount++;
+    $("#respond-btn").removeClass("hidden");
+    $(".response-container").selectable("enable");
+  });
+
+  $("#respond-btn").on("click", function () {
+    let optionIndex = $(".ui-selected").index();
+    $("#scenario-body").html(
+      scenario.events[eventCount].options[optionIndex].ending
+    );
+    if ($(".ui-selected").attr("data-answer") == "true") {
+      eventCount++;
+      $("#next-btn").text("Next Scene").removeClass("hidden");
+    } else {
+      $("#next-btn").text("Try Again").removeClass("hidden");
+    }
+    $("#respond-btn").addClass("hidden");
+    $(".response-container").selectable("disable");
   });
 });
 
@@ -297,17 +314,25 @@ function updateEvent(count) {
   $("#scenario-body").html(scenario.events[count].body);
   $(".response-container").html("");
   let options = scenario.events[count].options;
-  if (count < 1) {
-    $("#next-btn").text("Respond");
-  }
+
+  $("#next-btn").addClass("hidden");
+
   for (let i = 0; i < options.length; i++) {
+    console.log(options[i].correct);
     let optionBody =
-      "<li class='w-full text-center border-2 border-deep-teal text-deep-teal py-4 mb-4'>" +
+      "<li class='w-full text-center border-2 border-deep-teal text-deep-teal p-4 mb-4' data-answer='" +
+      options[i].correct +
+      "'>" +
       options[i].text +
       "</li>";
     $(".response-container").append(optionBody);
-    $("#next-btn").attr("disabled", true);
   }
-
   return;
+}
+
+function checkResponse(count) {}
+
+function submitEvent(count) {
+  $("#scenario-body").html(scenario.events[count].ending);
+  $(".response-container").selectable({});
 }
