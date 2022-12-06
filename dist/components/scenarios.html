@@ -10,7 +10,14 @@
       sizes="32x32"
     />
     <link rel="stylesheet" href="../output.css" />
-    <script src="../main.js"></script>
+    <script id="scenario">
+      var scenario = {};
+      fetch("./military-scenario.json")
+        .then((response) => response.json())
+        .then((data) => {
+          scenario = data;
+        });
+    </script>
   </head>
   <body class="font-body w-full overflow-x-hidden">
     <header
@@ -99,5 +106,6 @@
         </div>
       </div>
     </main>
+    <script src="../main.js" defer></script>
   </body>
 </html>

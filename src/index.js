@@ -6,10 +6,10 @@ require("jquery-ui/ui/widgets/draggable");
 require("jquery-ui/ui/widgets/droppable");
 require("jquery-ui/ui/widgets/slider");
 require("jquery-ui/ui/widgets/selectable");
-require("./touch-punch");
-import scenario from "./military-scenario.json";
+require("./js/touch-punch");
 
 $(document).ready(function () {
+  console.log("doc ready");
   var bsContainer = false;
   var bsStyles = {
     "max-width": "1230px",
@@ -213,7 +213,8 @@ $(document).ready(function () {
     for (var i = 0; i < questions.length; i++) {
       $(questions[i]).removeClass("text-red-500 font-bold");
       var answer = $(questions[i]).children("label").attr("data-answer");
-      var submittedAnswer = $(questions[i]).children("select").val();
+      var submittedAnswer = $(questions[i]).find("select").val();
+      console.log(submittedAnswer);
       if (answer == submittedAnswer) {
         numCorrect++;
         $(questions[i])
@@ -318,7 +319,6 @@ function updateEvent(count) {
   $("#next-btn").addClass("hidden");
 
   for (let i = 0; i < options.length; i++) {
-    console.log(options[i].correct);
     let optionBody =
       "<li class='w-full text-center border-2 border-deep-teal text-deep-teal p-4 mb-4' data-answer='" +
       options[i].correct +
