@@ -151,8 +151,13 @@ $(document).ready(function () {
   /* Drag & Drop Activity */
   var wrongCount = 0;
   var rightCount = 0;
+  var answerCount = $("#answer-count")[0];
+  var totalExamples = $(".draggable>span").length;
+  var examplesRemaining = totalExamples;
 
-  $(".draggable span").draggable({
+  $("#answer-count")[0].innerHTML = totalExamples;
+
+  $(".draggable>span").draggable({
     revert: function (droppableContainer) {
       if (!droppableContainer) {
         if (wrongCount < 3) {
@@ -168,13 +173,27 @@ $(document).ready(function () {
 
   $(".droppable").droppable({
     drop: function (event, ui) {
-      ui.draggable.detach().appendTo($(this));
+      ui.draggable.detach().appendTo($(this).children("div"));
       ui.draggable
         .css("position", "initial")
         .css("display", "inline-block")
         .removeClass("bg-deep-teal")
         .addClass("bg-light-teal");
-      rightCount++;
+      ui.draggable.draggable({ disabled: true });
+
+      if ($(this)[0].id == ui.draggable[0].getAttribute("data-answer")) {
+        rightCount++;
+        ui.draggable.addClass("right-answer");
+      } else {
+        ui.draggable.addClass("wrong-answer");
+      }
+      $(".examples span:first-child").removeClass("hidden");
+      examplesRemaining--;
+      answerCount.innerHTML = examplesRemaining;
+
+      if (examplesRemaining === 0) {
+        $("#check-answers").removeClass("hidden invisible");
+      }
       /* Logic for 3-13  */
       if (rightCount == 4) {
         $(".terms").addClass("invisible");
@@ -196,6 +215,56 @@ $(document).ready(function () {
       }
     },
   });
+
+  //Retry Function
+  $("#retry").on("click", function (e) {
+    e.preventDefault();
+    $(".droppable")
+      .find("span.ui-draggable")
+      .detach()
+      .appendTo($(".draggable.examples")[0]);
+    $("#total-answers")[0].innerHTML =
+      'Examples Remaining: <span id="answer-count"></span>';
+    answerCount = $("#answer-count")[0];
+    totalExamples = $(".draggable>span").length;
+    examplesRemaining = totalExamples;
+    rightCount = 0;
+    $("#answer-count")[0].innerHTML = totalExamples;
+    $(".examples>span")
+      .css({
+        display: "",
+        position: "relative",
+        left: "",
+        top: "",
+      })
+      .removeClass("wrong-answer right-answer bg-red-500 bg-green bg-mp-blue ")
+      .addClass("hidden bg-mp-teal");
+    $(".examples>span>span").removeClass("line-through");
+    $(".examples>span>i")
+      .removeClass("fa-times fa-check mr-8")
+      .addClass("hidden");
+    $(".examples span:first-child").removeClass("hidden");
+    $(this).addClass("invisible");
+    $(".draggable>span").draggable({ disabled: false });
+  });
+
+  //Check Answer function
+  $("#check-answers").on("click", function (e) {
+    e.preventDefault();
+
+    $(this).addClass("hidden");
+    $("#retry").removeClass("invisible hidden");
+    if (rightCount < totalExamples) {
+    }
+    $("#total-answers")[0].innerHTML =
+      "Correct Answers: " + rightCount + "/" + totalExamples;
+    $("span.wrong-answer").addClass("bg-red-500").css("display", "");
+    $("span.wrong-answer>span").addClass("line-through");
+    $("span.wrong-answer i").addClass("fa-times mr-8").removeClass("hidden");
+    $("span.right-answer").addClass("bg-green").css("display", "");
+    $("span.right-answer i").addClass("fa-check mr-8").removeClass("hidden");
+  });
+
   $("#oral").droppable({ accept: "span.oral" });
   $("#topical").droppable({ accept: "span.topical" });
   $("#inhalant").droppable({ accept: "span.inhalant" });

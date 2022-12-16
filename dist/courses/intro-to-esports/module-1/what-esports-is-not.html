@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="w-full overflow-x-hidden">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="../../../output.css" />
+    <link
+      rel="icon"
+      href="https://michiganvirtual.org/wp-content/uploads/2021/10/cropped-mv-favicon-32x32.png"
+      sizes="32x32"
+    />
+
+    <script defer src="../../../main.js"></script>
+  </head>
+  <body class="font-body w-full overflow-x-hidden">
+    <header
+    class="flex justify-center"
+    style="
+      background-image: linear-gradient(180deg, #115e6e 0%, #093c44 100%);
+    "
+  >
+    <div class="text-white container p-12 mx-auto">
+      <span>Introduction to Esports</span><br />
+      <span class="text-lg md:text-xl font-body font-extrabold lg:w-2/3">
+        Module 1: Defining Esports
+      </span>
+    </div>
+  </header>
+    <main>
+      <div class="container mx-auto px-4 lg:px-24 py-12"><h1
+        class="text-4xl font-bold text-deep-teal tracking-tighter uppercase md:mt-6 mb-4"
+      >
+      What Esports is Not
+
+      </h1>
+      <hr class="border-4 border-green w-12 mb-4" />
+      <p class="text-dark-gray font-normal text-lg mb-4">
+        There are many misconceptions out there with regard to esports, one of which is that this sport is unstructured and individually focused. Another misconception is this is just an individual playing a video game. On the contrary, organized esports programs provide a safe, competitive, and extra curricular environment that allows student-athletes the opportunity to build critical skill sets, explore vast career paths, and contribute to their school’s culture.
+
+      </p>
+      <p class="text-dark-gray font-normal text-lg mb-4">
+        Esports is organized, competitive gameplay between teams that has its own strict set of rules and guidelines. It is about teamwork, communication, strategic thinking, and leadership, similar to traditional sports…and then some.  
+
+        </p>
+
+      <h2 id="total-answers" class="text-2xl text-dark-teal font-bold mb-4">
+        Examples Remaining: <span id="answer-count"></span>
+      </h2>
+      <a
+        href="#"
+        id="check-answers"
+        class="inline-block bg-ada-orange text-white font-bold px-8 py-4 mb-4 rounded-md hover:bg-dark-gray invisible"
+        >Check Answers</a
+      >
+      <a
+        href="#"
+        id="retry"
+        class="inline-block bg-ada-orange text-white font-bold px-8 py-4 mb-4 rounded-md hover:bg-dark-gray invisible"
+        >Retry</a
+      >
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+        <div
+          class="flex flex-col col-span-2 md:col-span-1 text-center font-bold text-lg text-white draggable examples"
+        >
+          <span
+            class="flex justify-around items-center p-4 m-2 bg-dark-teal"
+            data-answer="video-games"
+            ><i class="fa hidden text-2xl"></i
+            ><span>Recreational</span></span
+          ><span
+            class="flex justify-around items-center p-4 m-2 bg-dark-teal hidden"
+            data-answer="video-games"
+            ><i class="fa hidden text-2xl"></i
+            ><span>Personal Enjoyment</span></span
+          ><span
+            class="flex justify-around items-center p-4 m-2 bg-dark-teal hidden"
+            data-answer="esports"
+            ><i class="fa hidden text-2xl"></i><span>Team Based</span></span
+          ><span
+            class="flex justify-around items-center p-4 m-2 bg-dark-teal hidden"
+            data-answer="esports"
+            ><i class="fa hidden text-2xl"></i><span>Competitive</span></span
+          ><span
+            class="flex justify-around items-center p-4 m-2 bg-dark-teal hidden"
+            data-answer="esports"
+            ><i class="fa hidden text-2xl"></i><span>Structured</span></span
+          ><span
+            class="flex justify-around items-center p-4 m-2 bg-dark-teal hidden"
+            data-answer="video-games"
+            ><i class="fa hidden text-2xl"></i><span>Individual Focused</span
+          >
+        </div>
+        <div
+          id="video-games"
+          class="border-dashed border-dark-gray border-2 py-2 min-h-[600px] md:min-h-[400px] droppable"
+        >
+          <h3 class="text-center text-xl text-mp-teal uppercase font-bold">
+            Video Games
+          </h3>
+         
+          <div
+            class="flex flex-col min-h-full text-center font-bold text-lg text-white"
+          ></div>
+        </div>
+        <div
+          id="esports"
+          class="border-dashed border-dark-gray border-2 py-2 min-h-[600px] md:min-h-[400px] droppable"
+        >
+          <h3 class="text-center text-xl text-mp-teal uppercase font-bold">
+            Esports
+          </h3>
+          
+          <div
+            class="flex flex-col min-h-full text-center font-bold text-lg text-white"
+          ></div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
