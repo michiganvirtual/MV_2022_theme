@@ -1344,8 +1344,8 @@ video {
   border-left-width: 1px;
 }
 
-.border-b-0 {
-  border-bottom-width: 0px;
+.border-l-2 {
+  border-left-width: 2px;
 }
 
 .border-dashed {
@@ -1400,6 +1400,11 @@ video {
 .border-gray-100 {
   --tw-border-opacity: 1;
   border-color: rgb(243 244 246 / var(--tw-border-opacity));
+}
+
+.border-l-ada-orange {
+  --tw-border-opacity: 1;
+  border-left-color: rgb(172 102 16 / var(--tw-border-opacity));
 }
 
 .bg-deep-teal {
@@ -1632,6 +1637,10 @@ video {
   text-transform: uppercase;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 .italic {
   font-style: italic;
 }
@@ -1825,6 +1834,10 @@ video {
 
   .md\:w-1\/2 {
     width: 50%;
+  }
+
+  .md\:w-auto {
+    width: auto;
   }
 
   .md\:grid-cols-2 {
