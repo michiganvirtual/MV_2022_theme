@@ -151,7 +151,7 @@ $(document).ready(function () {
   var wrongCount = 0;
   var rightCount = 0;
   var answerCount = $("#answer-count")[0];
-  var totalExamples = $(".draggable>span").length;
+  var totalExamples = $(".draggable > span").length;
   var examplesRemaining = totalExamples;
 
   if ($("#answer-count").length) {
@@ -166,7 +166,7 @@ $(document).ready(function () {
         }
       }
       if (wrongCount === 3) {
-        $(".feedback").removeClass("invisible");
+        $(".feedback.review").removeClass("invisible");
       }
       return !droppableContainer; //returns the draggable to its original position
     },
@@ -191,7 +191,6 @@ $(document).ready(function () {
       }
       $(".examples span:first-child").removeClass("hidden");
       examplesRemaining--;
-      console.log(examplesRemaining);
       answerCount.innerHTML = examplesRemaining;
 
       if (examplesRemaining === 0) {
@@ -209,10 +208,16 @@ $(document).ready(function () {
         .removeClass("bg-deep-teal")
         .addClass("bg-light-teal");
       rightCount++;
+      examplesRemaining--;
       /* Logic for 3-13  */
-      if (rightCount == 4) {
+      if (examplesRemaining === 0) {
+        $(".feedback.complete").removeClass("invisible");
+        $(".feedback.review").addClass("hidden");
+        $(".terms").addClass("hidden");
+      }
+      /* if (rightCount == 4) {
         $(".terms").addClass("invisible");
-        $(".feedback")
+        $(".complete.feedback")
           .removeClass("invisible text-xl text-red-500")
           .addClass("text-deep-teal text-2xl")
           .text(
@@ -227,7 +232,7 @@ $(document).ready(function () {
           .text(
             "Nice job! You have correctly identified the medication with the route of administration!"
           );
-      }
+      } */
     },
   });
 

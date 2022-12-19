@@ -115,6 +115,10 @@ ul li::before {
   height: 100%;
 }
 
+.draggable > span:hover {
+  cursor: pointer;
+}
+
 blockquote {
   quotes: "\201C""\201D""\2018""\2019";
 }
