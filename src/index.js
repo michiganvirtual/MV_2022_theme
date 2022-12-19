@@ -174,7 +174,6 @@ $(document).ready(function () {
 
   $(".droppable.validate").droppable({
     drop: function (event, ui) {
-      console.log("dropped");
       ui.draggable.detach().appendTo($(this).children("div"));
       ui.draggable
         .css("position", "initial")
@@ -209,30 +208,11 @@ $(document).ready(function () {
         .addClass("bg-light-teal");
       rightCount++;
       examplesRemaining--;
-      /* Logic for 3-13  */
       if (examplesRemaining === 0) {
         $(".feedback.complete").removeClass("invisible");
         $(".feedback.review").addClass("hidden");
         $(".terms").addClass("hidden");
       }
-      /* if (rightCount == 4) {
-        $(".terms").addClass("invisible");
-        $(".complete.feedback")
-          .removeClass("invisible text-xl text-red-500")
-          .addClass("text-deep-teal text-2xl")
-          .text(
-            "Nice job! You have correctly matched the surface hygiene terms to their definitions!"
-          );
-      }
-      if (rightCount == 14) {
-        $(".examples").addClass("hidden");
-        $(".feedback")
-          .removeClass("invisible text-xl text-red-500")
-          .addClass("text-deep-teal text-2xl")
-          .text(
-            "Nice job! You have correctly identified the medication with the route of administration!"
-          );
-      } */
     },
   });
 
