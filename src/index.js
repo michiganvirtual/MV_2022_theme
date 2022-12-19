@@ -157,7 +157,7 @@ $(document).ready(function () {
 
   $("#answer-count")[0].innerHTML = totalExamples;
 
-  $(".draggable>span").draggable({
+  $(".draggable>span, .draggable span").draggable({
     revert: function (droppableContainer) {
       if (!droppableContainer) {
         if (wrongCount < 3) {
