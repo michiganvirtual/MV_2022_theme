@@ -9,7 +9,6 @@ require("jquery-ui/ui/widgets/selectable");
 require("./js/touch-punch");
 
 $(document).ready(function () {
-  console.log("doc ready");
   var bsContainer = false;
   var bsStyles = {
     "max-width": "1230px",
@@ -155,9 +154,11 @@ $(document).ready(function () {
   var totalExamples = $(".draggable>span").length;
   var examplesRemaining = totalExamples;
 
-  $("#answer-count")[0].innerHTML = totalExamples;
+  if ($("#answer-count").length) {
+    $("#answer-count")[0].innerHTML = totalExamples;
+  }
 
-  $(".draggable>span, .draggable span").draggable({
+  $(".draggable>span").draggable({
     revert: function (droppableContainer) {
       if (!droppableContainer) {
         if (wrongCount < 3) {
@@ -171,14 +172,15 @@ $(document).ready(function () {
     },
   });
 
-  $(".droppable").droppable({
+  $(".droppable.validate").droppable({
     drop: function (event, ui) {
+      console.log("dropped");
       ui.draggable.detach().appendTo($(this).children("div"));
       ui.draggable
         .css("position", "initial")
         .css("display", "inline-block")
-        .removeClass("bg-deep-teal")
-        .addClass("bg-light-teal");
+        .removeClass("bg-dark-teal")
+        .addClass("bg-deep-teal");
       ui.draggable.draggable({ disabled: true });
 
       if ($(this)[0].id == ui.draggable[0].getAttribute("data-answer")) {
@@ -189,11 +191,24 @@ $(document).ready(function () {
       }
       $(".examples span:first-child").removeClass("hidden");
       examplesRemaining--;
+      console.log(examplesRemaining);
       answerCount.innerHTML = examplesRemaining;
 
       if (examplesRemaining === 0) {
         $("#check-answers").removeClass("hidden invisible");
       }
+    },
+  });
+
+  $(".droppable.revert").droppable({
+    drop: function (event, ui) {
+      ui.draggable.detach().appendTo($(this).children("div"));
+      ui.draggable
+        .css("position", "initial")
+        .css("display", "inline-block")
+        .removeClass("bg-deep-teal")
+        .addClass("bg-light-teal");
+      rightCount++;
       /* Logic for 3-13  */
       if (rightCount == 4) {
         $(".terms").addClass("invisible");
@@ -237,7 +252,9 @@ $(document).ready(function () {
         left: "",
         top: "",
       })
-      .removeClass("wrong-answer right-answer bg-red-500 bg-green bg-mp-blue ")
+      .removeClass(
+        "wrong-answer right-answer bg-red-500 bg-ada-green bg-mp-blue "
+      )
       .addClass("hidden bg-mp-teal");
     $(".examples>span>span").removeClass("line-through");
     $(".examples>span>i")
@@ -261,7 +278,7 @@ $(document).ready(function () {
     $("span.wrong-answer").addClass("bg-red-500").css("display", "");
     $("span.wrong-answer>span").addClass("line-through");
     $("span.wrong-answer i").addClass("fa-times mr-8").removeClass("hidden");
-    $("span.right-answer").addClass("bg-green").css("display", "");
+    $("span.right-answer").addClass("bg-ada-green").css("display", "");
     $("span.right-answer i").addClass("fa-check mr-8").removeClass("hidden");
   });
 

@@ -42,12 +42,12 @@
         </h3>
         <div class="grid grid-cols-4 gap-2">
           <div
-            class="flex flex-col items-center border-dashed border-dark-gray border-2 py-2 col-span-4 examples"
+            class="flex flex-col items-center border-dashed border-dark-gray border-2 py-2 col-span-4"
           >
             <h3 class="text-2xl text-deep-teal font-bold uppercase">
               Examples
             </h3>
-            <div class="flex flex-wrap lg:justify-center draggable">
+            <div class="flex flex-wrap lg:justify-center draggable examples">
               <span class="p-4 m-2 text-lg bg-deep-teal text-white oral"
                 >Liquid</span
               ><span class="p-4 m-2 text-lg bg-deep-teal text-white oral"
@@ -74,36 +74,40 @@
             </div>
           </div>
           <div
-            class="col-span-2 lg:col-span-1 min-h-96 border-dashed border-dark-gray border-2 py-2"
+            id="oral"
+            class="col-span-2 lg:col-span-1 min-h-96 border-dashed border-dark-gray border-2 py-2 droppable revert"
           >
             <h3 class="text-center text-lg text-deep-teal uppercase font-bold">
               Oral
             </h3>
-            <div id="oral" class="p-4 droppable h-48 md:h-96"></div>
+            <div class="p-4 h-48 flex flex-wrap md:h-96"></div>
           </div>
           <div
-            class="col-span-2 lg:col-span-1 min-h-96 border-dashed border-dark-gray border-2 py-2"
+            id="topical"
+            class="col-span-2 lg:col-span-1 min-h-96 border-dashed border-dark-gray border-2 py-2 droppable revert"
           >
             <h3 class="text-center text-lg text-deep-teal uppercase font-bold">
               Topical
             </h3>
-            <div id="topical" class="p-4 droppable h-48 md:h-96"></div>
+            <div class="p-4 h-48 flex flex-wrap md:h-96"></div>
           </div>
           <div
-            class="col-span-2 lg:col-span-1 min-h-96 border-dashed border-dark-gray border-2 py-2"
+            id="inhalant"
+            class="col-span-2 lg:col-span-1 min-h-96 border-dashed border-dark-gray border-2 py-2 droppable revert"
           >
             <h3 class="text-center text-lg text-deep-teal uppercase font-bold">
               Inhalants
             </h3>
-            <div id="inhalant" class="p-4 droppable h-48 md:h-96"></div>
+            <div class="p-4 h-48 flex flex-wrap md:h-96"></div>
           </div>
           <div
-            class="col-span-2 lg:col-span-1 border-dashed border-dark-gray border-2 py-2"
+            id="injectable"
+            class="col-span-2 lg:col-span-1 min-h-96 border-dashed border-dark-gray border-2 py-2 droppable revert"
           >
             <h3 class="text-center text-lg text-deep-teal uppercase font-bold">
               Automatic Injectable
             </h3>
-            <div id="injectable" class="p-4 droppable h-48 md:h-96"></div>
+            <div class="p-4 h-48 flex flex-wrap md:h-96"></div>
           </div>
         </div>
       </div>
