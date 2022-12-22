@@ -37,7 +37,7 @@ $(document).ready(function () {
   accordionButtons.attr("tabindex", "0");
 
   $(".accordion-controls li > a.block").on("click", function (e) {
-    //e.preventDefault();
+    e.preventDefault();
     var $control = $(this);
     var accordionContent = $control.attr("aria-controls");
     checkOthers($control[0]);

@@ -98,7 +98,7 @@ ul li::before {
   overflow: hidden;
   position: relative;
   margin: 0 auto;
-  max-width: 550px;
+  max-width: 750px;
   width: 100%;
 }
 
@@ -1380,10 +1380,6 @@ video {
 
 .border-l {
   border-left-width: 1px;
-}
-
-.border-b-0 {
-  border-bottom-width: 0px;
 }
 
 .border-t {
