@@ -9,7 +9,7 @@ require("jquery-ui/ui/widgets/selectable");
 require("./js/touch-punch");
 
 $(document).ready(function () {
-  var bsContainer = true;
+  var bsContainer = false;
   var bsStyles = {
     "max-width": "1230px",
     margin: "0 auto",
