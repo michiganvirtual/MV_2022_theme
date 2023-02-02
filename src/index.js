@@ -387,7 +387,7 @@ $(document).ready(function () {
   $("#respond-btn").on("click", function () {
     let optionIndex = $(".ui-selected").index();
     $("#scenario-body").html(
-      scenario.events[eventCount].options[optionIndex].ending
+      `${scenario.events[eventCount].options[optionIndex].response}<br><br><span class='font-bold'>${scenario.events[eventCount].options[optionIndex].ending}</span>`
     );
     if ($(".ui-selected").attr("data-answer") == "true") {
       eventCount++;
