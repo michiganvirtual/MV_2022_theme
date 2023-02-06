@@ -380,18 +380,21 @@ $(document).ready(function () {
   //Button Logic
   $("#next-btn").on("click", function () {
     updateEvent(eventCount);
-    $("#respond-btn").removeClass("hidden");
-    $(".response-container").selectable("enable");
+    if (eventCount + 1 < scenario.events.length) {
+      $("#respond-btn").removeClass("hidden");
+      $(".response-container").selectable("enable");
+    }
   });
 
   $("#respond-btn").on("click", function () {
+    console.log(eventCount);
     let optionIndex = $(".ui-selected").index();
     $("#scenario-body").html(
       `${scenario.events[eventCount].options[optionIndex].response}<br><br><span class='font-bold'>${scenario.events[eventCount].options[optionIndex].ending}</span>`
     );
     if ($(".ui-selected").attr("data-answer") == "true") {
       eventCount++;
-      $("#next-btn").text("Next Scene").removeClass("hidden");
+      $("#next-btn").text("Next Scenario").removeClass("hidden");
     } else {
       $("#next-btn").text("Try Again").removeClass("hidden");
     }
