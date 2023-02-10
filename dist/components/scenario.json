@@ -1,8 +1,8 @@
 {
-  "setup": "Setup: Dana enters Mr. C's counseling office to discuss post-secondary options. She explains that she wants to be a paramedic, but her parents spent her college fund to rebuild their house after it burned down. Select the video below to see how Mr. C responds to Dana.   <br><br>Mr. C: Hi Dana, What can I help you with today?   <br><br>Dana: I want to be a paramedic, but my parents had to spend my college fund to rebuild our house after it burned down. What should I do now?   <br><br>Mr. C: There are many ways to pay for college - scholarships, financial aid, military benefits. Here's a pamphlet with more information. Take some time to explore them and then set up another meeting with me.   <br><br>Select the Begin Scenario button below to follow Dana on her journey to following her dream of becoming a paramedic.    Dana: Okay, thanks Mr. C.",
+  "setup": "<div class='video-container'><iframe width='560' height='315' src='https://www.youtube.com/embed/HFqYEXyNZeY' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>",
   "events": [
     {
-      "body": "Dana: This is so confusing! I don't have time to apply for a million scholarships, and if I use financial aid I'll be in debt forever! <br><br>Mr. C: Did you look into the military education benefits? There are lots of different options you could take advantage of. They'll pay for your education and training and you'll be debt free at the end of your service. <br><br>Dana: Are you crazy? I don't want to kill people!",
+      "body": "<div class='video-container'><iframe width='560' height='315' src='https://www.youtube.com/embed/1xVDA6EVgVc' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>",
       "options": [
         {
           "text": "Actually, 85% of military jobs do not involve direct combat. Check out this video to learn more about working in the military.",
@@ -25,7 +25,7 @@
       ]
     },
     {
-      "body": "Mr. C: Let me show you how to use the Careers in the Military website to search for military careers.<br><br>Dana: Check it out! I could be an emergency medical technician. Thanks, Mr. C! I'm going to look into this more.<br><br>[new scene]<br><br>Dana: Mom, Dad, check it out! I could be an emergency medical technician in the military. They would pay for my education and training, too!<br><br>Parents: Absolutely not! No way, no how! You are not joining the military and we will not hear another word about it!<br><br>Dana: I hate you! You used all my college money without asking me and now you won't let me become a paramedic! I'm never talking to you again!<br><br>[new scene]<br><br>Parents: Mr. C, what were you thinking? How could you suggest that our daughter join the military? There is absolutely no way that is going to happen. We're reporting you to the school principal!<br><br>Mr. C: I see you have strong feelings about this. Can I ask why you're so opposed to the military?<br><br>Parents: Well, for one, we don't want our daughter to die! And for two, we don't want her to be sent away to who knows where for the rest of her life. It's safe here in the mid-west and that's where she's going to stay.",
+      "body": "<div class='video-container'><iframe width='560' height='315' src='https://www.youtube.com/embed/RztQpCKPw3M' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>",
       "options": [
         {
           "text": "Actually, 85% of military jobs do not involve direct combat. And after serving 3-8 years, most service members leverage their education and training for civilian careers. Only about 20% stay in the military until retirement. Here are some stories from real service members that you may want to take a look at.",
@@ -48,7 +48,18 @@
       ]
     },
     {
-      "body": "Dana: Hey Mr. C. Thanks for talking my parents off the ledge. I'm really interested in the Emergency Medical Technician job. What do I have to do to apply?<br><br>Mr. C: The first step would be to meet with Education Services Specialists and Recruiters from various branches of the military. They can help you understand the options, requirements, and benefits of their specific branch of service.<br><br>Here's the contact info for the Education Service Specialists and Recruiters in our area.<br><br>Dana: Great, thanks Mr. C.",
+      "body": "<div class='video-container'><iframe width='560' height='315' src='https://www.youtube.com/embed/BGPYm7baN2M' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>",
+      "options": [
+        {
+          "text": "Complete Scenario",
+          "response": "",
+          "ending": "<div class='video-container'><iframe width='560' height='315' src='https://www.youtube.com/embed/Gin8IlZoL10' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "body": "<span class='font-bold'>You have reached the end of the Scenario</span>",
       "options": [
         {
           "text": "End of scenario.",
