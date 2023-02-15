@@ -1,4 +1,4 @@
-/* @font-face {
+@font-face {
   font-family: "Gotham";
   font-display: swap;
   src: url(//lsp.michiganvirtual.org/d2l/lor/viewer/viewFile.d2lfile/6606/661,1/Gotham-XLightItalic.woff)
@@ -78,7 +78,6 @@
   font-weight: 800;
   font-style: normal;
 }
-*/
 
 ul li::before {
   color: #6d6e71;
