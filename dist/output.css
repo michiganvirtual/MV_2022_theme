@@ -3,8 +3,7 @@
 
   font-display: swap;
 
-  src: url(//lsp.michiganvirtual.org/d2l/lor/viewer/viewFile.d2lfile/6606/661,1/Gotham-XLightItalic.woff)
-    format("woff");
+  src: url(/dist/assets/fonts/Gotham-XLightItalic.woff) format("woff");
 
   font-weight: 100;
 
@@ -16,8 +15,7 @@
 
   font-display: swap;
 
-  src: url(//lsp.michiganvirtual.org/d2l/lor/viewer/viewFile.d2lfile/6606/660,1/Gotham-XLight.woff)
-    format("woff");
+  src: url(/dist/assets/fonts/Gotham-XLight.woff) format("woff");
 
   font-weight: 100;
 
@@ -29,8 +27,7 @@
 
   font-display: swap;
 
-  src: url(//lsp.michiganvirtual.org/d2l/lor/viewer/viewFile.d2lfile/6606/663,1/GothamLight.woff)
-    format("woff");
+  src: url(/dist/assets/fonts/GothamLight.woff) format("woff");
 
   font-weight: 300;
 
@@ -42,8 +39,7 @@
 
   font-display: swap;
 
-  src: url(//lsp.michiganvirtual.org/d2l/lor/viewer/viewFile.d2lfile/6606/663,1/GothamLight.woff)
-    format("woff");
+  src: url(/dist/assets/fonts/GothamLight.woff) format("woff");
 
   font-weight: 300;
 
@@ -55,8 +51,7 @@
 
   font-display: swap;
 
-  src: url(//lsp.michiganvirtual.org/d2l/lor/viewer/viewFile.d2lfile/6606/662,1/GothamBook.woff)
-    format("woff");
+  src: url(/dist/assets/fonts/GothamBook.woff) format("woff");
 
   font-weight: 400;
 
@@ -68,8 +63,7 @@
 
   font-display: swap;
 
-  src: url(//lsp.michiganvirtual.org/d2l/lor/viewer/viewFile.d2lfile/6606/658,1/Gotham-BookItalic.woff2)
-    format("woff2");
+  src: url(/dist/assets/fonts/Gotham-BookItalic.woff2) format("woff2");
 
   font-weight: 400;
 
@@ -81,8 +75,7 @@
 
   font-display: swap;
 
-  src: url(//lsp.michiganvirtual.org/d2l/lor/viewer/viewFile.d2lfile/6606/659,1/Gotham-Medium.woff2)
-    format("woff2");
+  src: url(/dist/assets/fonts/Gotham-Medium.woff2) format("woff2");
 
   font-weight: 500;
 
@@ -94,8 +87,7 @@
 
   font-display: swap;
 
-  src: url(//lsp.michiganvirtual.org/d2l/lor/viewer/viewFile.d2lfile/6606/655,1/Gotham-Bold.woff2)
-    format("woff2");
+  src: url(/dist/assets/fonts/Gotham-Bold.woff2) format("woff2");
 
   font-weight: 700;
 
@@ -107,8 +99,7 @@
 
   font-display: swap;
 
-  src: url(//lsp.michiganvirtual.org/d2l/lor/viewer/viewFile.d2lfile/6606/656,1/Gotham-BoldItalic.woff2)
-    format("woff2");
+  src: url(/dist/assets/fonts/Gotham-BoldItalic.woff2) format("woff2");
 
   font-weight: 700;
 
@@ -120,8 +111,7 @@
 
   font-display: swap;
 
-  src: url(//lsp.michiganvirtual.org/d2l/lor/viewer/viewFile.d2lfile/6606/654,1/Gotham-Black.woff2)
-    format("woff2");
+  src: url(/dist/assets/fonts/Gotham-Black.woff2) format("woff2");
 
   font-weight: 800;
 
@@ -1659,7 +1649,7 @@ video {
 }
 
 .font-body {
-  font-family: Roboto, Noto Sans, Helvetica, Calibri;
+  font-family: Gotham, Roboto, Noto Sans, Helvetica, Calibri;
 }
 
 .text-lg {
