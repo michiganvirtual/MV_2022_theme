@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        body: ["Gotham", "Roboto", "Noto Sans", "Helvetica", "Calibri"],
+        body: ["Roboto", "Noto Sans", "Helvetica", "Calibri"],
       },
       colors: {
         "deep-teal": "#093c44",
