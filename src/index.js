@@ -151,6 +151,8 @@ $(document).ready(function () {
   var wrongCount = 0;
   var rightCount = 0;
   var answerCount = $("#answer-count")[0];
+  var totalExamplesInit = $("#total-answers")[0].innerHTML;
+  console.log(totalExamplesInit);
   var totalExamples = $(".draggable > span").length;
   var examplesRemaining = totalExamples;
 
@@ -223,8 +225,7 @@ $(document).ready(function () {
       .find("span.ui-draggable")
       .detach()
       .appendTo($(".draggable.examples")[0]);
-    $("#total-answers")[0].innerHTML =
-      'Examples Remaining: <span id="answer-count"></span>';
+    $("#total-answers")[0].innerHTML = totalExamplesInit;
     answerCount = $("#answer-count")[0];
     totalExamples = $(".draggable>span").length;
     examplesRemaining = totalExamples;
@@ -238,9 +239,9 @@ $(document).ready(function () {
         top: "",
       })
       .removeClass(
-        "wrong-answer right-answer bg-red-500 bg-ada-green bg-mp-blue "
+        "wrong-answer right-answer bg-red-500 bg-ada-green bg-deep-teal "
       )
-      .addClass("hidden bg-mp-teal");
+      .addClass("hidden bg-dark-teal");
     $(".examples>span>span").removeClass("line-through");
     $(".examples>span>i")
       .removeClass("fa-times fa-check mr-8")
