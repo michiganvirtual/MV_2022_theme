@@ -1201,6 +1201,10 @@ video {
   min-height: 600px;
 }
 
+.min-h-\[250px\] {
+  min-height: 250px;
+}
+
 .w-full {
   width: 100%;
 }
