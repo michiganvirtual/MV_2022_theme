@@ -104,6 +104,7 @@ $(document).ready(function () {
             .find("img.accordion__toggle")
             .toggleClass("rotate-180");
           $("#" + content).css("max-height", 0);
+          $("iframe").attr("src", $("iframe").attr("src"));
         }
       }
     }
@@ -126,6 +127,7 @@ $(document).ready(function () {
 
       $(".tabs__content>div").addClass("hidden");
       $(".tabs__content>#" + t).removeClass("hidden");
+      $("iframe").attr("src", $("iframe").attr("src"));
     }
   });
 
@@ -144,6 +146,25 @@ $(document).ready(function () {
 
       $(".tabs-white__content>div").addClass("hidden");
       $(".tabs-white__content>#" + t).removeClass("hidden");
+      $("iframe").attr("src", $("iframe").attr("src"));
+    }
+  });
+  /* Tabs but Dark Teal */
+  $(".tabs-dark-teal li a:not(:first)").addClass("inactive");
+  $(".tabs-dark-teal li a:first").addClass("font-bold underline");
+  $(".tabs-dark-teal__content>div:not(:first)").addClass("hidden");
+  $(".tabs-dark-teal li a").on("click", function () {
+    var t = $(this).attr("id");
+    if ($(this).hasClass("inactive")) {
+      //this is the start of our condition
+      $(".tabs-dark-teal li a")
+        .removeClass("font-bold underline")
+        .addClass("inactive");
+      $(this).removeClass("inactive").addClass("underline font-bold");
+
+      $(".tabs-dark-teal__content>div").addClass("hidden");
+      $(".tabs-dark-teal__content>#" + t).removeClass("hidden");
+      $("iframe").attr("src", $("iframe").attr("src"));
     }
   });
 

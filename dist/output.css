@@ -162,9 +162,8 @@ blockquote {
   quotes: "\201C""\201D""\2018""\2019";
 }
 
-blockquote:before {
+blockquote::before {
   color: #ccc;
-  content: open-quote;
   font-size: 4em;
   line-height: 0.1em;
   margin-right: 0.25em;
@@ -1197,14 +1196,6 @@ video {
   min-height: 6rem;
 }
 
-.min-h-\[600px\] {
-  min-height: 600px;
-}
-
-.min-h-\[250px\] {
-  min-height: 250px;
-}
-
 .min-h-\[280px\] {
   min-height: 280px;
 }
@@ -1921,6 +1912,36 @@ video {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
+.before\:content-\[\'Hello_World\'\]::before {
+  --tw-content: 'Hello World';
+  content: var(--tw-content);
+}
+
+.before\:content-\[\'\&quot\;\'\]::before {
+  --tw-content: '&quot;';
+  content: var(--tw-content);
+}
+
+.before\:content-\[\'\&\#8220\;\'\]::before {
+  --tw-content: '&#8220;';
+  content: var(--tw-content);
+}
+
+.before\:content-\[\'test\'\]::before {
+  --tw-content: 'test';
+  content: var(--tw-content);
+}
+
+.before\:content-\[\'\"\'\]::before {
+  --tw-content: '"';
+  content: var(--tw-content);
+}
+
+.before\:content-\[\]::before {
+  --tw-content: ;
+  content: var(--tw-content);
+}
+
 .hover\:-translate-y-1:hover {
   --tw-translate-y: -0.25rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -2001,10 +2022,6 @@ video {
 
   .md\:min-h-\[24rem\] {
     min-height: 24rem;
-  }
-
-  .md\:min-h-\[400px\] {
-    min-height: 400px;
   }
 
   .md\:w-3\/4 {
