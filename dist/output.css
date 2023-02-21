@@ -1468,6 +1468,10 @@ video {
   border-top-width: 1px;
 }
 
+.border-t-2 {
+  border-top-width: 2px;
+}
+
 .border-dashed {
   border-style: dashed;
 }
@@ -1960,6 +1964,11 @@ video {
 .hover\:bg-light-gray:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(109 110 113 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-dark-teal:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 94 110 / var(--tw-bg-opacity));
 }
 
 .hover\:text-white:hover {
