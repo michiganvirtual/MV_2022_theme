@@ -185,8 +185,9 @@ $(document).ready(function () {
   var wrongCount = 0;
   var rightCount = 0;
   var answerCount = $("#answer-count")[0];
-  var totalExamplesInit = $("#total-answers")[0].innerHTML;
-  console.log(totalExamplesInit);
+  if ($("#total-answers").length) {
+    var totalExamplesInit = $("#total-answers")[0].innerHTML;
+  }
   var totalExamples = $(".draggable > span").length;
   var examplesRemaining = totalExamples;
 
@@ -370,7 +371,9 @@ $(document).ready(function () {
     $("#answers-table").addClass("hidden");
   });
 
-  /*    Food Allergens Participation Exercise     */
+  /* End Matching Dropdown Activity */
+
+  /*  Begin Food Allergens Participation Exercise     */
   $("#pros-cons").on("submit", function (e) {
     e.preventDefault();
     var selects = $("select");
