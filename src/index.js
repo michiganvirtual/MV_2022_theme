@@ -104,7 +104,10 @@ $(document).ready(function () {
             .find("img.accordion__toggle")
             .toggleClass("rotate-180");
           $("#" + content).css("max-height", 0);
-          $("iframe").attr("src", $("iframe").attr("src"));
+          $(".video-container iframe").each(function () {
+            var el_src = $(this).attr("src");
+            $(this).attr("src", el_src);
+          });
         }
       }
     }
@@ -127,7 +130,10 @@ $(document).ready(function () {
 
       $(".tabs__content>div").addClass("hidden");
       $(".tabs__content>#" + t).removeClass("hidden");
-      $("iframe").attr("src", $("iframe").attr("src"));
+      $(".video-container iframe").each(function () {
+        var el_src = $(this).attr("src");
+        $(this).attr("src", el_src);
+      });
     }
   });
 
@@ -146,7 +152,10 @@ $(document).ready(function () {
 
       $(".tabs-white__content>div").addClass("hidden");
       $(".tabs-white__content>#" + t).removeClass("hidden");
-      $("iframe").attr("src", $("iframe").attr("src"));
+      $(".video-container iframe").each(function () {
+        var el_src = $(this).attr("src");
+        $(this).attr("src", el_src);
+      });
     }
   });
 
@@ -165,7 +174,10 @@ $(document).ready(function () {
 
       $(".tabs-dark-teal__content>div").addClass("hidden");
       $(".tabs-dark-teal__content>#" + t).removeClass("hidden");
-      $("iframe").attr("src", $("iframe").attr("src"));
+      $(".video-container iframe").each(function () {
+        var el_src = $(this).attr("src");
+        $(this).attr("src", el_src);
+      });
     }
   });
 
