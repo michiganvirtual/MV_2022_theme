@@ -159,11 +159,12 @@ ul li::before {
 }
 
 blockquote {
-  quotes: "\201C""\201D""\2018""\2019";
+  quotes: "\201C""\201D";
 }
 
 blockquote::before {
   color: #ccc;
+  content: open-quote;
   font-size: 4em;
   line-height: 0.1em;
   margin-right: 0.25em;
@@ -1914,31 +1915,6 @@ video {
 
 .ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-}
-
-.before\:content-\[\'Hello_World\'\]::before {
-  --tw-content: 'Hello World';
-  content: var(--tw-content);
-}
-
-.before\:content-\[\'\&quot\;\'\]::before {
-  --tw-content: '&quot;';
-  content: var(--tw-content);
-}
-
-.before\:content-\[\'\&\#8220\;\'\]::before {
-  --tw-content: '&#8220;';
-  content: var(--tw-content);
-}
-
-.before\:content-\[\'test\'\]::before {
-  --tw-content: 'test';
-  content: var(--tw-content);
-}
-
-.before\:content-\[\'\"\'\]::before {
-  --tw-content: '"';
-  content: var(--tw-content);
 }
 
 .before\:content-\[\]::before {
