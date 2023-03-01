@@ -422,18 +422,26 @@ $(document).ready(function () {
       $("#respond-btn").removeClass("hidden");
       $(".response-container").selectable("enable");
     }
+    if (eventCount + 1 == scenario.events.length) {
+      eventCount = 0;
+      $("#scenario-body").html(scenario.setup);
+      $(".response-container").html("");
+      $("#next-btn").html("Begin");
+    }
   });
 
   $("#respond-btn").on("click", function () {
-    console.log(eventCount);
     let optionIndex = $(".ui-selected").index();
     $("#scenario-body").html(
       `${scenario.events[eventCount].options[optionIndex].response}<br><br><span class='font-bold'>${scenario.events[eventCount].options[optionIndex].ending}</span>`
     );
     if ($(".ui-selected").attr("data-answer") == "true") {
       eventCount++;
+      console.log(eventCount);
       $("#next-btn").text("Next Scenario").removeClass("hidden");
+      $(".ui-selected").addClass("bg-light-teal border-light-teal");
     } else {
+      $(".ui-selected").addClass("bg-red-500 border-red-500 line-through");
       $("#next-btn").text("Try Again").removeClass("hidden");
     }
     $("#respond-btn").addClass("hidden");
@@ -446,9 +454,11 @@ function updateEvent(count) {
   $("#scenario-body").html(scenario.events[count].body);
   $(".response-container").html("");
   let options = scenario.events[count].options;
-
   $("#next-btn").addClass("hidden");
-
+  if (count + 1 == scenario.events.length) {
+    $("#next-btn").removeClass("hidden");
+    $("#next-btn").html("Restart Scenario");
+  }
   for (let i = 0; i < options.length; i++) {
     let optionBody =
       "<li class='w-full text-center border-2 border-deep-teal text-deep-teal p-4 mb-4' data-answer='" +
@@ -456,14 +466,8 @@ function updateEvent(count) {
       "'>" +
       options[i].text +
       "</li>";
+
     $(".response-container").append(optionBody);
   }
   return;
-}
-
-function checkResponse(count) {}
-
-function submitEvent(count) {
-  $("#scenario-body").html(scenario.events[count].ending);
-  $(".response-container").selectable({});
 }
