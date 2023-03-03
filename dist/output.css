@@ -118,6 +118,13 @@
   font-style: normal;
 }
 
+h1 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
 ul li::before {
   color: #6d6e71;
 }
@@ -1482,6 +1489,16 @@ video {
   border-color: rgb(9 60 68 / var(--tw-border-opacity));
 }
 
+.border-light-teal {
+  --tw-border-opacity: 1;
+  border-color: rgb(47 141 152 / var(--tw-border-opacity));
+}
+
+.border-red-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(239 68 68 / var(--tw-border-opacity));
+}
+
 .border-green {
   --tw-border-opacity: 1;
   border-color: rgb(181 205 52 / var(--tw-border-opacity));
@@ -1502,11 +1519,6 @@ video {
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
 
-.border-light-teal {
-  --tw-border-opacity: 1;
-  border-color: rgb(47 141 152 / var(--tw-border-opacity));
-}
-
 .border-orange {
   --tw-border-opacity: 1;
   border-color: rgb(247 148 30 / var(--tw-border-opacity));
@@ -1525,11 +1537,6 @@ video {
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
-}
-
-.border-red-500 {
-  --tw-border-opacity: 1;
-  border-color: rgb(239 68 68 / var(--tw-border-opacity));
 }
 
 .bg-deep-teal {
@@ -1579,11 +1586,6 @@ video {
 .bg-dark-gray {
   --tw-bg-opacity: 1;
   background-color: rgb(65 64 66 / var(--tw-bg-opacity));
-}
-
-.bg-green {
-  --tw-bg-opacity: 1;
-  background-color: rgb(181 205 52 / var(--tw-bg-opacity));
 }
 
 .bg-cover {
@@ -1659,6 +1661,11 @@ video {
   padding-bottom: 0.5rem;
 }
 
+.py-16 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -1672,11 +1679,6 @@ video {
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-}
-
-.py-16 {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
 }
 
 .py-24 {
@@ -2043,16 +2045,20 @@ video {
     align-items: center;
   }
 
+  .md\:justify-between {
+    justify-content: space-between;
+  }
+
+  .md\:p-12 {
+    padding: 3rem;
+  }
+
   .md\:p-0 {
     padding: 0px;
   }
 
   .md\:p-8 {
     padding: 2rem;
-  }
-
-  .md\:p-12 {
-    padding: 3rem;
   }
 
   .md\:px-12 {
@@ -2070,8 +2076,16 @@ video {
     padding-right: 1.5rem;
   }
 
+  .md\:pl-8 {
+    padding-left: 2rem;
+  }
+
   .md\:text-left {
     text-align: left;
+  }
+
+  .md\:text-right {
+    text-align: right;
   }
 
   .md\:text-4xl {

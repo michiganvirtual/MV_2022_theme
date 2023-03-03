@@ -422,7 +422,7 @@ $(document).ready(function () {
       $("#respond-btn").removeClass("hidden");
       $(".response-container").selectable("enable");
     }
-    if (eventCount + 1 == scenario.events.length) {
+    if (eventCount == scenario.events.length - 1) {
       eventCount = 0;
       $("#scenario-body").html(scenario.setup);
       $(".response-container").html("");
