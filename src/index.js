@@ -241,7 +241,7 @@ $(document).ready(function () {
       if (wrongCount === 3) {
         $(".feedback.review").removeClass("invisible");
       }
-      return !droppableContainer; //returns the draggable to its original position
+      //return !droppableContainer; //returns the draggable to its original position
     },
   });
 
