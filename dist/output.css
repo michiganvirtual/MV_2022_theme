@@ -1244,6 +1244,10 @@ video {
   width: 400px;
 }
 
+.w-auto {
+  width: auto;
+}
+
 .max-w-3xl {
   max-width: 48rem;
 }
@@ -1313,6 +1317,10 @@ video {
   flex-direction: column;
 }
 
+.flex-col-reverse {
+  flex-direction: column-reverse;
+}
+
 .flex-wrap {
   flex-wrap: wrap;
 }
@@ -1331,6 +1339,10 @@ video {
 
 .items-center {
   align-items: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
 }
 
 .justify-center {
@@ -2011,6 +2023,10 @@ video {
 
   .md\:mb-0 {
     margin-bottom: 0px;
+  }
+
+  .md\:mt-0 {
+    margin-top: 0px;
   }
 
   .md\:h-full {
