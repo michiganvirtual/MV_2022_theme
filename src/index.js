@@ -468,13 +468,17 @@ $(document).ready(function () {
 
   $("#respond-btn").on("click", function () {
     let optionIndex = $(".ui-selected").index();
+    let nextBtnText = "Next Scenario";
     $("#scenario-body").html(
       `${scenario.events[eventCount].options[optionIndex].response}<br><br><span class='font-bold'>${scenario.events[eventCount].options[optionIndex].ending}</span>`
     );
     if ($(".ui-selected").attr("data-answer") == "true") {
       eventCount++;
       console.log(eventCount);
-      $("#next-btn").text("Next Scenario").removeClass("hidden");
+      if (eventCount == scenario.events.length - 1) {
+        nextBtnText = "Retry from Begining";
+      }
+      $("#next-btn").text(nextBtnText).removeClass("hidden");
       $(".ui-selected").addClass("bg-light-teal border-light-teal");
     } else {
       $(".ui-selected").addClass("bg-red-500 border-red-500 line-through");
