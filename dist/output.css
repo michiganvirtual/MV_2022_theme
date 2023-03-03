@@ -1248,8 +1248,20 @@ video {
   width: auto;
 }
 
+.w-4\/5 {
+  width: 80%;
+}
+
 .max-w-3xl {
   max-width: 48rem;
+}
+
+.max-w-lg {
+  max-width: 32rem;
+}
+
+.max-w-\[3\/4\] {
+  max-width: 3/4;
 }
 
 .flex-grow {
