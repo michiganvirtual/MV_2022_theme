@@ -9,7 +9,7 @@ require("jquery-ui/ui/widgets/selectable");
 require("./js/touch-punch");
 
 $(document).ready(function () {
-  var bsContainer = false;
+  var bsContainer = true;
   var bsStyles = {
     "max-width": "1230px",
     margin: "0 auto",
@@ -199,7 +199,7 @@ $(document).ready(function () {
 
     // Mimic native vertical scrolling where scrolling only starts after the
     // cursor has moved up or down from its original position by ~30 pixels.
-    if (vertScroll == false && Math.abs(currentY - firstY) > 30) {
+    if (vertScroll == false && Math.abs(currentY - firstY) > 500) {
       vertScroll = true;
       initAdjustment = currentY - firstY;
     }
