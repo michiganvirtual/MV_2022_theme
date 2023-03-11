@@ -279,6 +279,8 @@ $(document).ready(function () {
         .css("display", "inline-block")
         .removeClass("bg-deep-teal")
         .addClass("bg-light-teal");
+      ui.draggable.draggable({ disabled: true });
+
       rightCount++;
       examplesRemaining--;
       if (examplesRemaining === 0) {

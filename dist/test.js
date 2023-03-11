@@ -24,8 +24,7 @@ dropZone.addEventListener("drop", (event) => {
   event.preventDefault();
 
   // get the id of the dropped element
-  let droppedElementId = "";
-  droppedElementId.innerHTML = event.dataTransfer.getData("text/plain");
+  let droppedElementId = event.dataTransfer.getData("text/plain");
 
   // get the dragged element using the id
   const draggedElement = document.getElementById(droppedElementId);
