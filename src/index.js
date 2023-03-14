@@ -273,13 +273,38 @@ $(document).ready(function () {
 
   $(".droppable.revert").droppable({
     drop: function (event, ui) {
-      ui.draggable.detach().appendTo($(this).children("div"));
-      ui.draggable
-        .css("position", "initial")
-        .css("display", "inline-block")
-        .removeClass("bg-deep-teal")
-        .addClass("bg-light-teal");
-      ui.draggable.draggable({ disabled: true });
+      //console.log(ui.draggable[0].getAttribute("data-answer"));
+      if ($(this)[0].id == ui.draggable[0].getAttribute("data-answer")) {
+        ui.draggable.detach().appendTo($(this).children("div"));
+        ui.draggable
+          .css("position", "initial")
+          .css("display", "inline-block")
+          .removeClass("bg-deep-teal")
+          .addClass("bg-light-teal");
+        ui.draggable.draggable({ disabled: true });
+      }
+
+      rightCount++;
+      examplesRemaining--;
+      if (examplesRemaining === 0) {
+        $(".feedback.complete").removeClass("invisible");
+        $(".feedback.review").addClass("hidden");
+        $(".terms").addClass("hidden");
+      }
+    },
+  });
+  $(".droppable.revert-test").droppable({
+    drop: function (event, ui) {
+      console.log(ui.draggable[0].getAttribute("data-answer"));
+      if ($(this)[0].id == ui.draggable[0].getAttribute("data-answer")) {
+        ui.draggable.detach().appendTo($(this).children("div"));
+        ui.draggable
+          .css("position", "initial")
+          .css("display", "inline-block")
+          .removeClass("bg-deep-teal")
+          .addClass("bg-light-teal");
+        ui.draggable.draggable({ disabled: true });
+      }
 
       rightCount++;
       examplesRemaining--;
@@ -339,13 +364,6 @@ $(document).ready(function () {
     $("span.wrong-answer i").addClass("fa-times mr-8").removeClass("hidden");
     $("span.right-answer").addClass("bg-ada-green").css("display", "");
     $("span.right-answer i").addClass("fa-check mr-8").removeClass("hidden");
-  });
-
-  $("#oral").droppable({ accept: "span.oral" });
-  $("#topical").droppable({ accept: "span.topical" });
-  $("#inhalant").droppable({ accept: "span.inhalant" });
-  $("#injectable").droppable({
-    accept: "span.injectable",
   });
 
   $("#bodily-fluids").droppable({ accept: "span.bodily-fluids" });
