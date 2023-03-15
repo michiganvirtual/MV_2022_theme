@@ -282,11 +282,11 @@ $(document).ready(function () {
           .removeClass("bg-deep-teal")
           .addClass("bg-light-teal");
         ui.draggable.draggable({ disabled: true });
-      }
 
-      rightCount++;
-      examplesRemaining--;
-      if (examplesRemaining === -1) {
+        rightCount++;
+        examplesRemaining--;
+      }
+      if (examplesRemaining === 0) {
         $(".feedback.complete").removeClass("invisible");
         $(".feedback.review").addClass("hidden");
         $(".terms").addClass("hidden");
