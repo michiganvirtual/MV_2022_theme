@@ -286,29 +286,7 @@ $(document).ready(function () {
 
       rightCount++;
       examplesRemaining--;
-      if (examplesRemaining === 0) {
-        $(".feedback.complete").removeClass("invisible");
-        $(".feedback.review").addClass("hidden");
-        $(".terms").addClass("hidden");
-      }
-    },
-  });
-  $(".droppable.revert-test").droppable({
-    drop: function (event, ui) {
-      console.log(ui.draggable[0].getAttribute("data-answer"));
-      if ($(this)[0].id == ui.draggable[0].getAttribute("data-answer")) {
-        ui.draggable.detach().appendTo($(this).children("div"));
-        ui.draggable
-          .css("position", "initial")
-          .css("display", "inline-block")
-          .removeClass("bg-deep-teal")
-          .addClass("bg-light-teal");
-        ui.draggable.draggable({ disabled: true });
-      }
-
-      rightCount++;
-      examplesRemaining--;
-      if (examplesRemaining === 0) {
+      if (examplesRemaining === -1) {
         $(".feedback.complete").removeClass("invisible");
         $(".feedback.review").addClass("hidden");
         $(".terms").addClass("hidden");
@@ -366,12 +344,14 @@ $(document).ready(function () {
     $("span.right-answer i").addClass("fa-check mr-8").removeClass("hidden");
   });
 
+  /*
   $("#bodily-fluids").droppable({ accept: "span.bodily-fluids" });
   $("#clean").droppable({ accept: "span.clean" });
   $("#sanitize").droppable({ accept: "span.sanitize" });
   $("#disinfect").droppable({
     accept: "span.disinfect",
   });
+  */
 
   /*    Food Allergens Participation Exercise     */
   $(".food-allergens__form").on("submit", function (e) {
