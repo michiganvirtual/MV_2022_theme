@@ -68,7 +68,7 @@
 
     // Prevent "Ignored attempt to cancel a touchmove event with cancelable=false" errors
     if (event.cancelable) {
-      //event.preventDefault();
+      event.preventDefault();
     }
 
     var touch = event.originalEvent.changedTouches[0],
