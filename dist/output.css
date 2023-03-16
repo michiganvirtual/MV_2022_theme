@@ -1191,13 +1191,13 @@ video {
   min-height: 100%;
 }
 
+.min-h-\[12rem\] {
+  min-height: 12rem;
+}
+
 .min-h-fit {
   min-height: -moz-fit-content;
   min-height: fit-content;
-}
-
-.min-h-\[12rem\] {
-  min-height: 12rem;
 }
 
 .min-h-\[6rem\] {
@@ -1430,12 +1430,12 @@ video {
   border-radius: 9999px;
 }
 
-.rounded-sm {
-  border-radius: 0.125rem;
-}
-
 .rounded {
   border-radius: 0.25rem;
+}
+
+.rounded-sm {
+  border-radius: 0.125rem;
 }
 
 .rounded-t-md {
@@ -1647,16 +1647,16 @@ video {
   padding: 2rem;
 }
 
+.p-1 {
+  padding: 0.25rem;
+}
+
 .p-6 {
   padding: 1.5rem;
 }
 
 .p-2 {
   padding: 0.5rem;
-}
-
-.p-1 {
-  padding: 0.25rem;
 }
 
 .px-4 {
@@ -2090,6 +2090,10 @@ video {
          column-gap: 0.5rem;
   }
 
+  .md\:p-4 {
+    padding: 1rem;
+  }
+
   .md\:p-12 {
     padding: 3rem;
   }
@@ -2100,10 +2104,6 @@ video {
 
   .md\:p-8 {
     padding: 2rem;
-  }
-
-  .md\:p-4 {
-    padding: 1rem;
   }
 
   .md\:px-12 {
@@ -2143,6 +2143,11 @@ video {
     line-height: 1.75rem;
   }
 
+  .md\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
   .md\:text-7xl {
     font-size: 4.5rem;
     line-height: 1;
@@ -2156,11 +2161,6 @@ video {
   .md\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
-  }
-
-  .md\:text-lg {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
   }
 }
 

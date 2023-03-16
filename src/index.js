@@ -180,7 +180,7 @@ $(document).ready(function () {
       });
     }
   });
-
+  /*
   var firstY = null;
   var lastY = null;
   var currentY = null;
@@ -199,7 +199,7 @@ $(document).ready(function () {
 
     // Mimic native vertical scrolling where scrolling only starts after the
     // cursor has moved up or down from its original position by ~30 pixels.
-    if (vertScroll == false && Math.abs(currentY - firstY) > 500) {
+    if (vertScroll == false && Math.abs(currentY - firstY) > -100) {
       vertScroll = true;
       initAdjustment = currentY - firstY;
     }
@@ -216,7 +216,7 @@ $(document).ready(function () {
   $(".draggable>span").on("touchend", function (event) {
     vertScroll = false;
   });
-
+*/
   /* Drag & Drop Activity */
   var wrongCount = 0;
   var rightCount = 0;
@@ -244,6 +244,34 @@ $(document).ready(function () {
       //return !droppableContainer; //returns the draggable to its original position
     },
   });
+  var stop = true;
+  $(".draggable>span").on("drag", function (e) {
+    stop = true;
+
+    if (e.originalEvent.clientY < 150) {
+      stop = false;
+      scroll(-1);
+    }
+
+    if (e.originalEvent.clientY > $(window).height() - 150) {
+      stop = false;
+      scroll(1);
+    }
+  });
+
+  $(".draggable>span").on("dragend", function (e) {
+    stop = true;
+  });
+
+  var scroll = function (step) {
+    var scrollY = $(window).scrollTop();
+    $(window).scrollTop(scrollY + step);
+    if (!stop) {
+      setTimeout(function () {
+        scroll(step);
+      }, 20);
+    }
+  };
 
   $(".droppable.validate").droppable({
     drop: function (event, ui) {
