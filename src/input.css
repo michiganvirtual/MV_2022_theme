@@ -336,4 +336,12 @@ blockquote::before {
   p {
     @apply md:text-lg text-dark-gray mb-4;
   }
+  .bg-deep-teal,
+  .bg-dark-teal,
+  .bg-light-teal,
+  .bg-ada-orange,
+  .bg-ada-green,
+  .bg-dark-grey {
+    @apply text-white;
+  }
 }

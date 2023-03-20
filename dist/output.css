@@ -849,6 +849,16 @@ p {
   }
 }
 
+.bg-deep-teal, 
+  .bg-dark-teal, 
+  .bg-light-teal, 
+  .bg-ada-orange, 
+  .bg-ada-green, 
+  .bg-dark-grey {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -1993,6 +2003,16 @@ p {
 .before\:content-\[\]::before {
   --tw-content: ;
   content: var(--tw-content);
+}
+
+.hover\:bg-deep-teal:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.hover\:bg-dark-teal:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .hover\:-translate-y-1:hover {
