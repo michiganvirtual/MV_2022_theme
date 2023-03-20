@@ -849,12 +849,12 @@ p {
   }
 }
 
-.bg-deep-teal, 
-  .bg-dark-teal, 
-  .bg-light-teal, 
-  .bg-ada-orange, 
-  .bg-ada-green, 
-  .bg-dark-grey {
+.bg-deep-teal p, 
+  .bg-dark-teal p, 
+  .bg-light-teal p, 
+  .bg-ada-orange p, 
+  .bg-ada-green p, 
+  .bg-dark-grey p {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
@@ -2005,12 +2005,12 @@ p {
   content: var(--tw-content);
 }
 
-.hover\:bg-deep-teal:hover {
+.hover\:bg-deep-teal:hover p {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.hover\:bg-dark-teal:hover {
+.hover\:bg-dark-teal:hover p {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
