@@ -836,6 +836,19 @@ header h1 {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+p {
+  margin-bottom: 1rem;
+  --tw-text-opacity: 1;
+  color: rgb(65 64 66 / var(--tw-text-opacity));
+}
+
+@media (min-width: 768px) {
+  p {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;

@@ -333,4 +333,7 @@ blockquote::before {
   header h1 {
     @apply text-white;
   }
+  p {
+    @apply md:text-lg text-dark-gray mb-4;
+  }
 }
