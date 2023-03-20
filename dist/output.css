@@ -119,10 +119,6 @@
 }
 
 h1 {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  -webkit-hyphens: auto;
-  hyphens: auto;
 }
 
 ul li::before {
@@ -1714,6 +1710,11 @@ video {
   padding-bottom: 6rem;
 }
 
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
 .pl-8 {
   padding-left: 2rem;
 }
@@ -2161,6 +2162,11 @@ video {
   .md\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
+  }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 }
 

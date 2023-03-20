@@ -70,11 +70,6 @@
 }
 
 h1 {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  hyphens: auto;
 }
 
 ul li::before {
