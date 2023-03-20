@@ -325,3 +325,9 @@ blockquote::before {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-xl md:text-3xl font-bold text-deep-teal tracking-tighter uppercase md:mt-6 mb-4;
+  }
+}
