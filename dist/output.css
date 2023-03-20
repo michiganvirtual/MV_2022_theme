@@ -849,12 +849,12 @@ p {
   }
 }
 
-.bg-deep-teal p, 
-  .bg-dark-teal p, 
-  .bg-light-teal p, 
-  .bg-ada-orange p, 
-  .bg-ada-green p, 
-  .bg-dark-grey p {
+.bg-deep-teal *, 
+  .bg-dark-teal *, 
+  .bg-light-teal *, 
+  .bg-ada-orange *, 
+  .bg-ada-green *, 
+  .bg-dark-grey * {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
@@ -2005,12 +2005,12 @@ p {
   content: var(--tw-content);
 }
 
-.hover\:bg-deep-teal:hover p {
+.hover\:bg-deep-teal:hover * {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.hover\:bg-dark-teal:hover p {
+.hover\:bg-dark-teal:hover * {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
