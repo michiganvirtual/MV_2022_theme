@@ -328,7 +328,7 @@ blockquote::before {
 
 @layer base {
   h1 {
-    @apply text-xl md:text-3xl font-bold text-deep-teal tracking-tighter uppercase md:mt-6 mb-4;
+    @apply text-2xl md:text-3xl font-bold text-deep-teal tracking-tighter uppercase md:mt-6 mb-4;
   }
   header h1 {
     @apply text-white;
