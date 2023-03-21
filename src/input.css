@@ -344,4 +344,7 @@ blockquote::before {
   .bg-dark-grey * {
     @apply text-white;
   }
+  .bg-white * {
+    @apply text-dark-gray;
+  }
 }
