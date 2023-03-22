@@ -838,6 +838,8 @@ header h1 {
 
 p {
   margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
   --tw-text-opacity: 1;
   color: rgb(65 64 66 / var(--tw-text-opacity));
 }
@@ -2209,6 +2211,11 @@ p {
   .md\:text-7xl {
     font-size: 4.5rem;
     line-height: 1;
+  }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 
   .md\:text-5xl {

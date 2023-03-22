@@ -334,7 +334,7 @@ blockquote::before {
     @apply text-white;
   }
   p {
-    @apply md:text-lg text-dark-gray mb-4;
+    @apply text-base md:text-lg text-dark-gray mb-4;
   }
   .bg-deep-teal *,
   .bg-dark-teal *,
