@@ -333,11 +333,17 @@ blockquote::before {
   h2 {
     @apply text-xl md:text-2xl font-bold text-dark-teal tracking-tighter mb-4;
   }
-  header h1 {
-    @apply text-white;
+  h3 {
+    @apply text-lg md:text-xl font-bold text-dark-teal tracking-tighter mb-4;
+  }
+  h4 {
+    @apply text-base md:text-lg font-bold text-dark-gray tracking-tighter mb-4;
   }
   p {
     @apply text-base md:text-lg text-dark-gray mb-4;
+  }
+  header h1 {
+    @apply text-white;
   }
   .bg-deep-teal *,
   .bg-dark-teal *,
