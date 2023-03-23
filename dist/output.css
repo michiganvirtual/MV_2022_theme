@@ -1843,6 +1843,10 @@ header h1 {
   text-align: right;
 }
 
+.align-middle {
+  vertical-align: middle;
+}
+
 .font-body {
   font-family: Roboto, Noto Sans, Helvetica, Calibri;
 }
