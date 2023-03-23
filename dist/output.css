@@ -1605,6 +1605,10 @@ header h1 {
   border-top-width: 2px;
 }
 
+.border-b-0 {
+  border-bottom-width: 0px;
+}
+
 .border-dashed {
   border-style: dashed;
 }
@@ -2152,6 +2156,14 @@ header h1 {
     margin-top: 0px;
   }
 
+  .md\:mr-2 {
+    margin-right: 0.5rem;
+  }
+
+  .md\:inline-block {
+    display: inline-block;
+  }
+
   .md\:h-full {
     height: 100%;
   }
@@ -2174,6 +2186,15 @@ header h1 {
 
   .md\:w-2\/3 {
     width: 66.666667%;
+  }
+
+  .md\:w-fit {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+
+  .md\:w-auto {
+    width: auto;
   }
 
   .md\:grid-cols-2 {
@@ -2289,12 +2310,24 @@ header h1 {
     grid-column: span 2 / span 2;
   }
 
+  .lg\:mr-2 {
+    margin-right: 0.5rem;
+  }
+
+  .lg\:inline-block {
+    display: inline-block;
+  }
+
   .lg\:w-2\/3 {
     width: 66.666667%;
   }
 
   .lg\:w-3\/4 {
     width: 75%;
+  }
+
+  .lg\:w-auto {
+    width: auto;
   }
 
   .lg\:grid-cols-2 {
