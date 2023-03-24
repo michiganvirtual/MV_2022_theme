@@ -916,11 +916,13 @@ p:last-child {
 }
 
 ul {
+  margin-left: 1rem;
   margin-bottom: 1rem;
   list-style-type: disc;
 }
 
 ol {
+  margin-left: 1rem;
   margin-bottom: 1rem;
   list-style-type: decimal;
 }

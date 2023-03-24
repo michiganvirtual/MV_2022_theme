@@ -351,10 +351,10 @@ blockquote::before {
     @apply mb-4;
   }
   ul {
-    @apply list-disc mb-4;
+    @apply list-disc ml-4 mb-4;
   }
   ol {
-    @apply list-decimal mb-4;
+    @apply list-decimal ml-4 mb-4;
   }
   ul > li > ul {
     @apply list-square ml-4 my-4;

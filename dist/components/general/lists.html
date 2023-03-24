@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="w-full overflow-x-hidden">
+<html lang="en" class="w-full">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
@@ -17,45 +17,171 @@
     <header
       class="flex justify-center"
       style="
-        background-image: linear-gradient(
-          180deg,
-          hsl(190, 73%, 25%) 0%,
-          #093c44 100%
-        );
+        background-image: linear-gradient(180deg, #115e6e 0%, #093c44 100%);
       "
     >
-      <div class="text-white container px-4 py-12 md:p-12 mx-auto">
-        <span>General Text Templates</span><br />
-        <span class="text-lg md:text-xlfont-body font-extrabold lg:w-2/3">
-          Lists
+      <div class="container mx-auto px-4 lg:px-24 py-12">
+        <span>General Text Templates</span><br /><span
+          class="text-lg md:text-xl font-body font-extrabold lg:w-2/3"
+        >
+          Ordered & Unordered Lists
         </span>
       </div>
     </header>
     <main>
       <div class="container mx-auto px-4 lg:px-24 py-12">
-        <h1
-          class="text-3xl md:text-4xl font-bold text-deep-teal tracking-tighter uppercase md:mt-6 mb-4"
-        >
-          Lists
-        </h1>
-        <hr class="border-4 border-green w-12 mb-8" />
-        <h2 class="text-3xl font-bold text-dark-teal mb-2">Unordered List</h2>
-
-        <ul class="text-lg text-dark-gray list-disc pl-8 mb-4">
-          <li class="mb-2">List Item</li>
-          <li class="mb-2">List Item</li>
-          <li class="mb-2">List Item</li>
-          <li class="mb-2">List Item</li>
-          <li class="mb-2">List Item</li>
+        <h1>Ordered & Unordered Lists</h1>
+        <hr class="border-t-10 border-green w-12 mb-4" />
+        <h2>Unordered Lists</h2>
+        <h3>Basic Text List</h3>
+        <ul class="">
+          <li>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Pellentesque quis diam eget nunc cursus semper. Pellentesque feugiat
+            tortor semper neque maximus, suscipit interdum tortor faucibus.
+          </li>
+          <li>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Pellentesque quis diam eget nunc cursus semper. Pellentesque feugiat
+            tortor semper neque maximus, suscipit interdum tortor faucibus.
+          </li>
         </ul>
-        <h2 class="text-3xl font-bold text-dark-teal mb-2">Ordered List</h2>
-        <ol class="text-lg text-dark-gray list-decimal pl-8 mb-4">
-          <li class="mb-2">List Item</li>
-          <li class="mb-2">List Item</li>
-          <li class="mb-2">List Item</li>
-          <li class="mb-2">List Item</li>
-          <li class="mb-2">List Item</li>
+        <h3>Linked List</h3>
+        <ul>
+          <li class="">
+            <a href="https://www.google.com/" class="">Linked List Item</a>
+          </li>
+          <li class="">
+            <a href="https://www.google.com/" class="">Linked List Item</a>
+          </li>
+        </ul>
+
+        <h3>List with Child Lists</h3>
+        <ul class="">
+          <li>List Item 1</li>
+          <li>List Item 2</li>
+
+          <li class="">
+            Child List
+            <ul>
+              <li>Child List Item 1</li>
+              <li>Child List Item 2</li>
+              <li>
+                Inner Child List Item 3
+
+                <ul>
+                  <li>Inner Child List Item 1</li>
+                  <li>Inner Child List Item 2</li>
+                  <li>Inner Child List Item 3</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <h2>Ordered Lists</h2>
+        <h3>Basic Ordered List</h3>
+        <ol class="">
+          <li>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Pellentesque quis diam eget nunc cursus semper. Pellentesque feugiat
+            tortor semper neque maximus, suscipit interdum tortor faucibus.
+          </li>
+          <li>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Pellentesque quis diam eget nunc cursus semper. Pellentesque feugiat
+            tortor semper neque maximus, suscipit interdum tortor faucibus.
+          </li>
         </ol>
+        <h3>Ordered List with Child List</h3>
+        <ol class="">
+          <li>List Item</li>
+          <li>
+            List Item
+            <ol>
+              <li>Child List Item</li>
+              <li>Child List Item</li>
+              <li>Child List Item</li>
+            </ol>
+          </li>
+        </ol>
+        <div class="bg-dark-teal rounded-md p-8">
+          <h2>Lists on a Colored Background</h2>
+          <h3>Basic Text List</h3>
+          <ul class="">
+            <li>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Pellentesque quis diam eget nunc cursus semper. Pellentesque
+              feugiat tortor semper neque maximus, suscipit interdum tortor
+              faucibus.
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Pellentesque quis diam eget nunc cursus semper. Pellentesque
+              feugiat tortor semper neque maximus, suscipit interdum tortor
+              faucibus.
+            </li>
+          </ul>
+          <h3>Linked List</h3>
+          <ul>
+            <li class="">
+              <a href="https://www.google.com/" class="">Linked List Item</a>
+            </li>
+            <li class="">
+              <a href="https://www.google.com/" class="">Linked List Item</a>
+            </li>
+          </ul>
+
+          <h3>List with Child Lists</h3>
+          <ul class="">
+            <li>List Item 1</li>
+            <li>List Item 2</li>
+
+            <li class="">
+              Child List
+              <ul>
+                <li>Child List Item 1</li>
+                <li>Child List Item 2</li>
+                <li>
+                  Inner Child List Item 3
+
+                  <ul>
+                    <li>Inner Child List Item 1</li>
+                    <li>Inner Child List Item 2</li>
+                    <li>Inner Child List Item 3</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <h2>Ordered Lists</h2>
+          <h3>Basic Ordered List</h3>
+          <ol class="">
+            <li>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Pellentesque quis diam eget nunc cursus semper. Pellentesque
+              feugiat tortor semper neque maximus, suscipit interdum tortor
+              faucibus.
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Pellentesque quis diam eget nunc cursus semper. Pellentesque
+              feugiat tortor semper neque maximus, suscipit interdum tortor
+              faucibus.
+            </li>
+          </ol>
+          <h3>Ordered List with Child List</h3>
+          <ol class="">
+            <li>List Item</li>
+            <li>
+              List Item
+              <ol>
+                <li>Child List Item</li>
+                <li>Child List Item</li>
+                <li>Child List Item</li>
+              </ol>
+            </li>
+          </ol>
+        </div>
       </div>
     </main>
   </body>
