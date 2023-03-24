@@ -397,6 +397,11 @@ blockquote::before {
     @apply list-none;
   }
 
+  /* Scenario Rules */
+  ul.response-container {
+    @apply list-none;
+  }
+
   .bg-deep-teal *,
   .bg-dark-teal *,
   .bg-light-teal *,

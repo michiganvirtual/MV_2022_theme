@@ -984,6 +984,12 @@ ol.relative {
   list-style-type: none;
 }
 
+/* Scenario Rules */
+
+ul.response-container {
+  list-style-type: none;
+}
+
 .tabs li > a.bg-deep-teal *, .tabs li > a
   .bg-dark-teal *, .tabs li > a
   .bg-light-teal *, .tabs li > a
