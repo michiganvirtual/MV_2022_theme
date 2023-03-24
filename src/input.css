@@ -339,18 +339,43 @@ blockquote::before {
   h4 {
     @apply text-base md:text-lg font-bold text-dark-gray tracking-tighter mb-4;
   }
-  p {
-    @apply text-base md:text-lg text-dark-gray mb-4;
+  a {
+    @apply text-ada-orange underline hover:no-underline;
   }
-  header h1 {
-    @apply text-white;
+  p,
+  ul,
+  ol {
+    @apply text-base md:text-lg text-dark-gray mb-2;
   }
+  p:last-child {
+    @apply mb-4;
+  }
+  ul {
+    @apply list-disc mb-4;
+  }
+  ol {
+    @apply list-decimal mb-4;
+  }
+  ul > li > ul {
+    @apply list-square ml-4 my-4;
+  }
+  ol > li > ol {
+    @apply list-roman ml-4 my-4;
+  }
+  li {
+    @apply mb-2;
+  }
+  .accordion-controls {
+    @apply list-none;
+  }
+
   .bg-deep-teal *,
   .bg-dark-teal *,
   .bg-light-teal *,
   .bg-ada-orange *,
   .bg-ada-green *,
-  .bg-dark-grey * {
+  .bg-dark-grey *,
+  header * {
     @apply text-white;
   }
   .bg-white * {
