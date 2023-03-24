@@ -951,7 +951,7 @@ li {
   margin-bottom: 0px;
 }
 
-.accordion-controls a {
+li.accordion-controls a {
   text-decoration-line: none;
 }
 

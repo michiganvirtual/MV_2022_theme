@@ -371,7 +371,7 @@ blockquote::before {
   .accordion-controls li {
     @apply mb-0;
   }
-  .accordion-controls a {
+  li.accordion-controls a {
     @apply no-underline;
   }
 
