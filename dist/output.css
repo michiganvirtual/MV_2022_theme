@@ -951,6 +951,10 @@ li {
   margin-bottom: 0px;
 }
 
+.accordion-controls a {
+  text-decoration-line: none;
+}
+
 .bg-deep-teal *, 
   .bg-dark-teal *, 
   .bg-light-teal *, 
