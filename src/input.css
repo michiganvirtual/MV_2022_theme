@@ -334,10 +334,10 @@ blockquote::before {
     @apply text-xl md:text-2xl font-bold text-dark-teal tracking-tighter mb-4;
   }
   h3 {
-    @apply text-lg md:text-xl font-bold text-dark-teal tracking-tighter mb-4;
+    @apply text-lg md:text-xl font-bold text-dark-teal tracking-tighter mb-2;
   }
   h4 {
-    @apply text-base md:text-lg font-bold text-dark-gray tracking-tighter mb-4;
+    @apply text-base md:text-lg font-bold text-dark-gray tracking-tighter mb-2;
   }
   a {
     @apply text-ada-orange underline hover:no-underline;
