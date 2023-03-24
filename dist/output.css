@@ -947,6 +947,10 @@ li {
   list-style-type: none;
 }
 
+.accordion-controls li {
+  margin-bottom: 0px;
+}
+
 .bg-deep-teal *, 
   .bg-dark-teal *, 
   .bg-light-teal *, 

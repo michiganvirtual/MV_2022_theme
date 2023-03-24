@@ -368,6 +368,9 @@ blockquote::before {
   .accordion-controls {
     @apply list-none;
   }
+  .accordion-controls li {
+    @apply mb-0;
+  }
 
   .bg-deep-teal *,
   .bg-dark-teal *,
