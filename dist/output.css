@@ -934,6 +934,13 @@ ul > li > ul {
   list-style-type: square;
 }
 
+ul > li > ul > li > ul {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  list-style-type: circle;
+}
+
 ol > li > ol {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -941,11 +948,18 @@ ol > li > ol {
   list-style-type: upper-roman;
 }
 
+ol > li > ol > li > ol {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  list-style-type: lower-roman;
+}
+
 li {
   margin-bottom: 0.5rem;
 }
 
-/* accordion rules */
+/* Accordion Rules */
 
 .accordion-controls, 
   .tabs {

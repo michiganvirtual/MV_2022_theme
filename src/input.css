@@ -359,13 +359,20 @@ blockquote::before {
   ul > li > ul {
     @apply list-square ml-4 my-4;
   }
+  ul > li > ul > li > ul {
+    @apply list-circle ml-4 my-4;
+  }
   ol > li > ol {
     @apply list-roman ml-4 my-4;
+  }
+  ol > li > ol > li > ol {
+    @apply list-lower-roman ml-4 my-4;
   }
   li {
     @apply mb-2;
   }
-  /* accordion rules */
+
+  /* Accordion Rules */
 
   .accordion-controls,
   .tabs {
