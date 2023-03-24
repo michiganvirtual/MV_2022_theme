@@ -945,7 +945,11 @@ li {
   margin-bottom: 0.5rem;
 }
 
-.accordion-controls {
+/* accordion rules */
+
+.accordion-controls, 
+  .tabs {
+  margin-left: 0px;
   list-style-type: none;
 }
 
@@ -953,8 +957,41 @@ li {
   margin-bottom: 0px;
 }
 
-li.accordion-controls a {
+li.accordion-controls a, 
+  .tabs li > a {
   text-decoration-line: none;
+}
+
+/* Tabs Rules */
+
+.tabs, 
+  .tabs li {
+  margin-bottom: 0px;
+}
+
+.tabs li > a {
+  color: inherit;
+  text-decoration-line: none;
+}
+
+.tabs li > a.text-white {
+  color: #ffffff !important;
+}
+
+/* Timeline Rules */
+
+ol.relative {
+  list-style-type: none;
+}
+
+.tabs li > a.bg-deep-teal *, .tabs li > a
+  .bg-dark-teal *, .tabs li > a
+  .bg-light-teal *, .tabs li > a
+  .bg-ada-orange *, .tabs li > a
+  .bg-ada-green *, .tabs li > a
+  .bg-dark-grey *, .tabs li > a
+  header * {
+  color: #ffffff;
 }
 
 .bg-deep-teal *, 
@@ -2127,9 +2164,21 @@ li.accordion-controls a {
   content: var(--tw-content);
 }
 
+.tabs li > a.hover\:text-white:hover {
+  color: #ffffff !important;
+}
+
+.tabs li > a.hover\:bg-deep-teal:hover * {
+  color: #ffffff;
+}
+
 .hover\:bg-deep-teal:hover * {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.tabs li > a.hover\:bg-dark-teal:hover * {
+  color: #ffffff;
 }
 
 .hover\:bg-dark-teal:hover * {

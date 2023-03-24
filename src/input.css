@@ -365,14 +365,36 @@ blockquote::before {
   li {
     @apply mb-2;
   }
-  .accordion-controls {
-    @apply list-none;
+  /* accordion rules */
+
+  .accordion-controls,
+  .tabs {
+    @apply list-none ml-0;
   }
   .accordion-controls li {
     @apply mb-0;
   }
-  li.accordion-controls a {
+  li.accordion-controls a,
+  .tabs li > a {
     @apply no-underline;
+  }
+
+  /* Tabs Rules */
+
+  .tabs,
+  .tabs li {
+    @apply mb-0;
+  }
+  .tabs li > a {
+    @apply no-underline text-inherit;
+  }
+  .tabs li > a.text-white {
+    color: #ffffff !important;
+  }
+
+  /* Timeline Rules */
+  ol.relative {
+    @apply list-none;
   }
 
   .bg-deep-teal *,
