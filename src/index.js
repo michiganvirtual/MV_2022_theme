@@ -28,7 +28,9 @@ $(document).ready(function () {
   }
 
   //Add aria-hidden=true to all H1 tags
-  document.querySelectorAll("h1")[0].setAttribute("aria-hidden", true);
+  if ($("h1").length) {
+    $("h1")[0].setAttribute("aria-hidden", true);
+  }
 
   $(".flip-card").attr("tabindex", "0");
   $(".flip-card").keypress(function (e) {
