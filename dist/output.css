@@ -817,7 +817,6 @@ h1 {
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: -0.05em;
   --tw-text-opacity: 1;
   color: rgb(9 60 68 / var(--tw-text-opacity));
@@ -1513,10 +1512,6 @@ ul.response-container {
 
 .list-decimal {
   list-style-type: decimal;
-}
-
-.list-none {
-  list-style-type: none;
 }
 
 .auto-rows-max {
