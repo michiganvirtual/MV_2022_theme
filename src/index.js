@@ -450,10 +450,12 @@ $(document).ready(function () {
   $("#display-answers").on("click", function (e) {
     e.preventDefault();
     $("#answers-table").removeClass("hidden");
+    //$("body").addClass("fixed");
   });
   $("#answers-table .close-btn").on("click", function (e) {
     e.preventDefault();
     $("#answers-table").addClass("hidden");
+    //$("body").removeClass("fixed");
   });
 
   /* End Matching Dropdown Activity */
