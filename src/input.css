@@ -1,3 +1,11 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0");
+
+@font-face {
+  font-family: "FontAwesome";
+  src: url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0)
+    format("woff");
+}
+
 @font-face {
   font-family: "Gotham";
   font-display: swap;
@@ -319,6 +327,11 @@ blockquote::before {
   margin-bottom: 20px;
 }
 
+a[target="_blank"]:after {
+  font-family: "FontAwesome";
+  content: " \f08e ";
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -415,7 +428,15 @@ blockquote::before {
   header * {
     @apply text-white;
   }
-  .bg-white * {
+  a.bg-deep-teal,
+  a.bg-dark-teal,
+  a.bg-light-teal,
+  a.bg-ada-orange,
+  a.bg-ada-green,
+  a.bg-dark-grey {
+    @apply text-white;
+  }
+  a.bg-white {
     @apply text-dark-gray;
   }
 }
