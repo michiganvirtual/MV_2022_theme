@@ -148,6 +148,7 @@ table tbody tr {
     min-width: 100%;
     text-align: right;
     align-items: flex-start;
+    border-bottom: #6d6e71 solid 1px;
   }
   table tr {
     border: solid 2px #093c44;

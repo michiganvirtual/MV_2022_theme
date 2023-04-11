@@ -203,6 +203,7 @@ table tbody tr {
     min-width: 100%;
     text-align: right;
     align-items: flex-start;
+    border-bottom: #6d6e71 solid 1px;
   }
 
   table tr {
@@ -2398,14 +2399,6 @@ a.hover\:bg-deep-teal:hover{
 
   .md\:w-2\/3{
     width: 66.666667%;
-  }
-
-  .md\:min-w-\[33\.3\%\]{
-    min-width: 33.3%;
-  }
-
-  .md\:min-w-\[33\%\]{
-    min-width: 33%;
   }
 
   .md\:min-w-\[200px\]{
