@@ -135,6 +135,9 @@ blockquote::before {
   font-size: 1em;
 }
 
+table tbody tr {
+  border-bottom: #6d6e71 solid 1px;
+}
 @media screen and (max-width: 767px) {
   table thead {
     display: none;

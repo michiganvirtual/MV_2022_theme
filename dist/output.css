@@ -188,6 +188,10 @@ blockquote::before {
   font-size: 1em;
 }
 
+table tbody tr {
+  border-bottom: #6d6e71 solid 1px;
+}
+
 @media screen and (max-width: 767px) {
   table thead {
     display: none;
@@ -2394,6 +2398,18 @@ a.hover\:bg-deep-teal:hover{
 
   .md\:w-2\/3{
     width: 66.666667%;
+  }
+
+  .md\:min-w-\[33\.3\%\]{
+    min-width: 33.3%;
+  }
+
+  .md\:min-w-\[33\%\]{
+    min-width: 33%;
+  }
+
+  .md\:min-w-\[200px\]{
+    min-width: 200px;
   }
 
   .md\:grid-cols-2{
