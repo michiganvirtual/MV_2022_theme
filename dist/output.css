@@ -1059,7 +1059,7 @@ a.bg-deep-teal,
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.bg-white{
+.bg-white *{
   --tw-text-opacity: 1;
   color: rgb(65 64 66 / var(--tw-text-opacity));
 }
