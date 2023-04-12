@@ -440,6 +440,9 @@ a[target="_blank"]:after {
   a.bg-dark-grey {
     @apply text-white;
   }
+  .bg-white {
+    @apply text-dark-gray;
+  }
   a.bg-white {
     @apply text-dark-gray;
   }
