@@ -1024,7 +1024,7 @@ ul.response-container{
   .bg-light-teal *, .tabs li > a
   .bg-ada-orange *, .tabs li > a
   .bg-ada-green *, .tabs li > a
-  .bg-dark-grey *, .tabs li > a
+  .bg-dark-gray *, .tabs li > a
   header * {
   color: #ffffff;
 }
@@ -1034,7 +1034,7 @@ ul.response-container{
   .bg-light-teal *, 
   .bg-ada-orange *, 
   .bg-ada-green *, 
-  .bg-dark-grey *, 
+  .bg-dark-gray *, 
   header *{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -2279,6 +2279,15 @@ a.bg-white{
 }
 
 .hover\:bg-dark-teal:hover *{
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.tabs li > a.hover\:bg-dark-gray:hover * {
+  color: #ffffff;
+}
+
+.hover\:bg-dark-gray:hover *{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
