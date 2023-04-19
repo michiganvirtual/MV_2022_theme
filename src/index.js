@@ -421,22 +421,40 @@ $(document).ready(function () {
     var submittedAnswer = "";
     var numCorrect = 0;
     var validationMessage = "";
+    var correctIcon = "";
+    var incorrectIcon = "";
+
     for (var i = 0; i < questions.length; i++) {
       $(questions[i]).removeClass("text-red-500 font-bold");
       var answer = $(questions[i]).children("label").attr("data-answer");
       var submittedAnswer = $(questions[i]).find("select").val();
-      console.log(submittedAnswer);
+
       if (answer == submittedAnswer) {
         numCorrect++;
+
         $(questions[i])
-          .children("label")
-          .removeClass("text-red-500 font-bold")
-          .addClass("text-ada-green line-through");
+          .find(".feedback-icon>img")
+          .attr(
+            "src",
+            "https://mv-2022-theme.netlify.app/assets/images/icons/checkmark-icon.png"
+          );
+        $(questions[i])
+          .children(".feedback-icon")
+          .removeClass("bg-red-500")
+          .addClass("bg-ada-green")
+          .removeClass("hidden");
       } else {
         $(questions[i])
-          .children("label")
-          .removeClass("text-ada-green line-through");
-        $(questions[i]).children("label").addClass("text-red-500 font-bold");
+          .children(".feedback-icon")
+          .removeClass("bg-ada-green")
+          .addClass("bg-red-500")
+          .removeClass("hidden");
+        $(questions[i])
+          .children(".feedback-icon > img")
+          .attr(
+            "src",
+            "https://mv-2022-theme.netlify.app/assets/images/icons/x-icon.png"
+          );
       }
     }
     if (numCorrect == questions.length) {
@@ -525,7 +543,6 @@ $(document).ready(function () {
     );
     if ($(".ui-selected").attr("data-answer") == "true") {
       eventCount++;
-      console.log(eventCount);
       if (eventCount == scenario.events.length - 1) {
         nextBtnText = "Retry from Begining";
       }
