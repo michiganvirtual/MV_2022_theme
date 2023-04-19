@@ -418,10 +418,12 @@ $(document).ready(function () {
       var answer = $(questions[i]).children("label").attr("data-answer");
       var submittedAnswer = $(questions[i]).find("select").val();
 
+      //Add feedback icon container to each question row
       feedbackIcon = document.createElement("div");
 
+      //Add classes to the
       $(feedbackIcon).addClass(
-        "feedback-icon flex basis-16 justify-center items-center w-16 h-16 rounded-full mx-auto mb-4 md:mb-0 md:mr-8 hidden"
+        "feedback-icon flex shrink-0 justify-center items-center w-16 h-16 rounded-full mx-auto mb-4 md:mb-0 md:mr-8 hidden"
       );
       $("<img class='w-1/2 h-auto'> ").appendTo(feedbackIcon);
 
