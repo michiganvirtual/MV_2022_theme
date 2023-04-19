@@ -2495,6 +2495,10 @@ a.hover\:bg-deep-teal:hover{
     margin-left: 2rem;
   }
 
+  .md\:mr-8{
+    margin-right: 2rem;
+  }
+
   .md\:h-96{
     height: 24rem;
   }

@@ -9,7 +9,7 @@ require("jquery-ui/ui/widgets/selectable");
 require("./js/touch-punch");
 
 $(document).ready(function () {
-  var bsContainer = false;
+  var bsContainer = true;
   var bsStyles = {
     "max-width": "1230px",
     margin: "0 auto",
@@ -393,15 +393,6 @@ $(document).ready(function () {
     $("span.right-answer i").addClass("fa-check mr-8").removeClass("hidden");
   });
 
-  /*
-  $("#bodily-fluids").droppable({ accept: "span.bodily-fluids" });
-  $("#clean").droppable({ accept: "span.clean" });
-  $("#sanitize").droppable({ accept: "span.sanitize" });
-  $("#disinfect").droppable({
-    accept: "span.disinfect",
-  });
-  */
-
   /*    Food Allergens Participation Exercise     */
   $(".food-allergens__form").on("submit", function (e) {
     e.preventDefault();
@@ -421,13 +412,23 @@ $(document).ready(function () {
     var submittedAnswer = "";
     var numCorrect = 0;
     var validationMessage = "";
-    var correctIcon = "";
-    var incorrectIcon = "";
+    var feedbackIcon;
 
     for (var i = 0; i < questions.length; i++) {
-      $(questions[i]).removeClass("text-red-500 font-bold");
       var answer = $(questions[i]).children("label").attr("data-answer");
       var submittedAnswer = $(questions[i]).find("select").val();
+
+      feedbackIcon = document.createElement("div");
+
+      $(feedbackIcon).addClass(
+        "feedback-icon flex justify-center items-center w-16 h-16 rounded-full mx-auto mb-4 md:mb-0 md:mr-8 hidden"
+      );
+      $("<img class='w-1/2 h-auto'> ").appendTo(feedbackIcon);
+
+      if (!$(questions)[i].children[0].classList.contains("feedback-icon")) {
+        $(questions[i]).prepend(feedbackIcon);
+        console.log("test");
+      }
 
       if (answer == submittedAnswer) {
         numCorrect++;
@@ -463,17 +464,18 @@ $(document).ready(function () {
       validationMessage =
         "It looks like you didn't get the answer to all of the questions correct. We have highlighted the missed questions in red. \n\nIf you're stuck, click the 'Display Answers' button below to review information.";
     }
-    alert(validationMessage);
+    //alert(validationMessage);
   });
   $("#display-answers").on("click", function (e) {
     e.preventDefault();
     $("#answers-table").removeClass("hidden");
     //$("body").addClass("fixed");
   });
-  $("#answers-table .close-btn").on("click", function (e) {
-    e.preventDefault();
+  $("#answers-table").on("click", function (e) {
     $("#answers-table").addClass("hidden");
-    //$("body").removeClass("fixed");
+  });
+  $("#answers-table table").on("click", function (e) {
+    e.stopPropagation();
   });
 
   /* End Matching Dropdown Activity */
