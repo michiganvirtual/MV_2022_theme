@@ -421,7 +421,7 @@ $(document).ready(function () {
       feedbackIcon = document.createElement("div");
 
       $(feedbackIcon).addClass(
-        "feedback-icon flex justify-center items-center w-16 h-16 rounded-full mx-auto mb-4 md:mb-0 md:mr-8 hidden"
+        "feedback-icon flex basis-16 justify-center items-center w-16 h-16 rounded-full mx-auto mb-4 md:mb-0 md:mr-8 hidden"
       );
       $("<img class='w-1/2 h-auto'> ").appendTo(feedbackIcon);
 

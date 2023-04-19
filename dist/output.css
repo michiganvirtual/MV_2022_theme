@@ -1516,6 +1516,10 @@ a.bg-white{
   height: 4rem;
 }
 
+.h-\[24px\]{
+  height: 24px;
+}
+
 .max-h-full{
   max-height: 100%;
 }
@@ -1601,6 +1605,10 @@ a.bg-white{
   width: 4rem;
 }
 
+.w-\[24px\]{
+  width: 24px;
+}
+
 .max-w-3xl{
   max-width: 48rem;
 }
@@ -1611,6 +1619,14 @@ a.bg-white{
 
 .grow{
   flex-grow: 1;
+}
+
+.basis-1\/4{
+  flex-basis: 25%;
+}
+
+.basis-16{
+  flex-basis: 4rem;
 }
 
 .table-fixed{
@@ -2497,6 +2513,10 @@ a.hover\:bg-deep-teal:hover{
 
   .md\:mr-8{
     margin-right: 2rem;
+  }
+
+  .md\:mr-4{
+    margin-right: 1rem;
   }
 
   .md\:h-96{
