@@ -445,16 +445,16 @@ $(document).ready(function () {
           .removeClass("hidden");
       } else {
         $(questions[i])
-          .children(".feedback-icon")
-          .removeClass("bg-ada-green")
-          .addClass("bg-red-500")
-          .removeClass("hidden");
-        $(questions[i])
-          .children(".feedback-icon > img")
+          .find(".feedback-icon>img")
           .attr(
             "src",
             "https://mv-2022-theme.netlify.app/assets/images/icons/x-icon.png"
           );
+        $(questions[i])
+          .children(".feedback-icon")
+          .removeClass("bg-ada-green")
+          .addClass("bg-red-500")
+          .removeClass("hidden");
       }
     }
     if (numCorrect == questions.length) {
