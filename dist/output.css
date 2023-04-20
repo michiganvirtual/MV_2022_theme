@@ -1882,6 +1882,22 @@ a.bg-white{
   border-top-width: 2px;
 }
 
+.border-l-8{
+  border-left-width: 8px;
+}
+
+.border-l-2{
+  border-left-width: 2px;
+}
+
+.border-l-\[24px\]{
+  border-left-width: 24px;
+}
+
+.border-l-\[36px\]{
+  border-left-width: 36px;
+}
+
 .border-dashed{
   border-style: dashed;
 }
