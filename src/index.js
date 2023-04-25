@@ -42,15 +42,12 @@ $(document).ready(function () {
       );
     }
   }
-  $(".pausable-gif button").on("click", function () {
+  $(".pausable-gif details").on("click", function () {
     var img = $(this).siblings("img");
     var gif = img.attr("data-gif-src");
     var still = img.attr("data-still-src");
     img.attr("src", function (index, attr) {
       return attr == gif ? still : gif;
-    });
-    $(this).text(function (index, text) {
-      return text == "Play" ? "Pause" : "Play";
     });
   });
 

@@ -289,6 +289,34 @@ table tbody tr {
   top: 0;
 }
 
+/* Pausable Gif Styles */
+div.pausable-gif {
+  position: relative;
+}
+
+.pausable-gif [open] summary {
+  background-image: url("https://assets.codepen.io/128034/pause_circle_filled-24px.svg");
+  box-shadow: 0 0 0 2px #fff;
+  background-color: white;
+}
+.pausable-gif summary {
+  color: #fff;
+  background: #fff;
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 2;
+  border-radius: 50%;
+  background-image: url("https://assets.codepen.io/128034/play_circle_filled-24px.svg");
+  background-size: 90% auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+  list-style: none;
+}
+
 /* Socratic Reflection */
 #save {
   display: inline-block;
