@@ -33,12 +33,20 @@ $(document).ready(function () {
   }
 
   //Add pause function to Gifs
+  if ($(".pausable-gif").length) {
+    for (var i = 0; i < $(".pausable-gif").length; i++) {
+      console.log();
+      $(".pausable-gif img").attr(
+        "src",
+        $(".pausable-gif img").attr("data-gif-src")
+      );
+    }
+  }
   $(".pausable-gif button").on("click", function () {
     var img = $(this).siblings("img");
     var gif = img.attr("data-gif-src");
     var still = img.attr("data-still-src");
     img.attr("src", function (index, attr) {
-      console.log(attr);
       return attr == gif ? still : gif;
     });
     $(this).text(function (index, text) {
