@@ -32,6 +32,20 @@ $(document).ready(function () {
     $("h1")[0].setAttribute("aria-hidden", true);
   }
 
+  //Add pause function to Gifs
+  $(".pausable-gif button").on("click", function () {
+    var img = $(this).siblings("img");
+    var gif = img.attr("data-gif-src");
+    var still = img.attr("data-still-src");
+    img.attr("src", function (index, attr) {
+      console.log(attr);
+      return attr == gif ? still : gif;
+    });
+    $(this).text(function (index, text) {
+      return text == "Play" ? "Pause" : "Play";
+    });
+  });
+
   $(".flip-card").attr("tabindex", "0");
   $(".flip-card").keypress(function (e) {
     e.preventDefault();
