@@ -220,6 +220,13 @@ table tbody tr {
   }
 }
 
+/*  Matching Dropdown Styles  */
+
+.question_wrapper select {
+  width: 100%;
+  max-width: 200px;
+}
+
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 
 .flip-card {
@@ -448,7 +455,7 @@ a[target="_blank"]:after {
   content: " \f08e ";
 }
 
-/* ! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com */
+/*  ! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com  */
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -1593,10 +1600,6 @@ a.bg-white{
 
 .w-\[400px\]{
   width: 400px;
-}
-
-.min-w-\[300px\]{
-  min-width: 300px;
 }
 
 .max-w-3xl{
