@@ -1595,6 +1595,10 @@ a.bg-white{
   width: 400px;
 }
 
+.min-w-\[300px\]{
+  min-width: 300px;
+}
+
 .max-w-3xl{
   max-width: 48rem;
 }
