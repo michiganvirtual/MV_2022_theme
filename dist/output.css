@@ -2668,6 +2668,10 @@ a.hover\:bg-deep-teal:hover{
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .lg\:flex-nowrap{
+    flex-wrap: nowrap;
+  }
+
   .lg\:justify-center{
     justify-content: center;
   }
@@ -2679,5 +2683,11 @@ a.hover\:bg-deep-teal:hover{
   .lg\:px-24{
     padding-left: 6rem;
     padding-right: 6rem;
+  }
+}
+
+@media (min-width: 1280px){
+  .xl\:flex-nowrap{
+    flex-wrap: nowrap;
   }
 }
