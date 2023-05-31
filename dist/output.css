@@ -2487,6 +2487,14 @@ a.hover\:bg-deep-teal:hover{
     margin-top: 0px;
   }
 
+  .md\:block{
+    display: block;
+  }
+
+  .md\:flex{
+    display: flex;
+  }
+
   .md\:h-96{
     height: 24rem;
   }
@@ -2525,6 +2533,10 @@ a.hover\:bg-deep-teal:hover{
 
   .md\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-1{
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
   .md\:flex-row{
@@ -2666,10 +2678,6 @@ a.hover\:bg-deep-teal:hover{
 
   .lg\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .lg\:flex-nowrap{
-    flex-wrap: nowrap;
   }
 
   .lg\:justify-center{
