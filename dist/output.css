@@ -1023,7 +1023,7 @@ li{
   margin-bottom: 0px;
 }
 
-li.accordion-controls a, 
+li.accordion-controls > a, 
   .tabs li > a{
   text-decoration-line: none;
 }
@@ -2487,10 +2487,6 @@ a.hover\:bg-deep-teal:hover{
     margin-top: 0px;
   }
 
-  .md\:block{
-    display: block;
-  }
-
   .md\:flex{
     display: flex;
   }
@@ -2531,12 +2527,12 @@ a.hover\:bg-deep-teal:hover{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .md\:grid-cols-3{
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .md\:grid-cols-1{
     grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-3{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .md\:flex-row{
