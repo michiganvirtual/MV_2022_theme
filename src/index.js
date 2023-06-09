@@ -204,43 +204,7 @@ $(document).ready(function () {
       });
     }
   });
-  /*
-  var firstY = null;
-  var lastY = null;
-  var currentY = null;
-  var vertScroll = false;
-  var initAdjustment = 0;
 
-  // record the initial position of the cursor on start of the touch
-  $(".draggable>span").on("touchstart", function (event) {
-    lastY = currentY = firstY = event.originalEvent.touches[0].pageY;
-  });
-
-  // fires whenever the cursor moves
-  $(".draggable>span").on("touchmove", function (event) {
-    currentY = event.originalEvent.touches[0].pageY;
-    var adjustment = lastY - currentY;
-
-    // Mimic native vertical scrolling where scrolling only starts after the
-    // cursor has moved up or down from its original position by ~30 pixels.
-    if (vertScroll == false && Math.abs(currentY - firstY) > -100) {
-      vertScroll = true;
-      initAdjustment = currentY - firstY;
-    }
-
-    // only apply the adjustment if the user has met the threshold for vertical scrolling
-    if (vertScroll == true) {
-      window.scrollBy(0, adjustment + initAdjustment);
-      lastY = currentY + adjustment;
-    }
-  });
-
-  // when the user lifts their finger, they will again need to meet the
-  // threshold before vertical scrolling starts.
-  $(".draggable>span").on("touchend", function (event) {
-    vertScroll = false;
-  });
-*/
   /* Drag & Drop Activity */
   var wrongCount = 0;
   var rightCount = 0;
@@ -560,7 +524,7 @@ $(document).ready(function () {
 
   $("#respond-btn").on("click", function () {
     let optionIndex = $(".ui-selected").index();
-    let nextBtnText = "Next Scenario";
+    let nextBtnText = "Next Event";
     $("#scenario-body").html(
       `${scenario.events[eventCount].options[optionIndex].response}<br><br><span class='font-bold'>${scenario.events[eventCount].options[optionIndex].ending}</span>`
     );
@@ -588,7 +552,7 @@ function updateEvent(count) {
   $("#next-btn").addClass("hidden");
   if (count + 1 == scenario.events.length) {
     $("#next-btn").removeClass("hidden");
-    $("#next-btn").html("Restart Scenario");
+    $("#next-btn").html("Restart Event");
   }
   for (let i = 0; i < options.length; i++) {
     let optionBody =
