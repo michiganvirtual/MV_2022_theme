@@ -7,7 +7,7 @@
         {
           "text": "Actually, 85% of military jobs do not involve direct combat.",
           "response": "<img src='https://lsp.michiganvirtual.org/d2l/common/viewFile.d2lfile/Content/L2NvbnRlbnQvZW5mb3JjZWQvMTAzOTMtSVBELURFVjgyL2ltYWdlcy9FdmVudCAxX1Jlc3BvbnNlIEEgTmV3LnBuZw/Event%201_Response%20A%20New.png?ou=10393' alt='A young high school student, Dana, sitting  smiling at her Guidance Counselor Mr. C who are sitting at a round table in his office discussing military options.  Dana is surprised and says \"Oh wow! the military is a lot different than I thought. Can you tell me more about it?\".' class='block w-full h-auto'>",
-          "ending": "Well done! Click the button to move onto the next event.",
+          "ending": "Well done! Select the button to move onto the next event.",
           "correct": true
         },
         {
@@ -30,7 +30,7 @@
         {
           "text": "Actually, 85% of military jobs do not involve direct combat. And after serving 3-8 years, most service members leverage their education and training for civilian careers. Only about 20% stay in the military until retirement. ",
           "response": "<div class='video-container'><iframe width='560' height='315' src='https://www.youtube.com/embed/GENlRCvn6cI' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>",
-          "ending": "Well done! Click the button to move onto the next event.",
+          "ending": "Well done! Select the button to move onto the next event.",
           "correct": true
         },
         {
@@ -51,19 +51,8 @@
       "body": "<div class='video-container'><iframe width='560' height='315' src='https://www.youtube.com/embed/BGPYm7baN2M' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>",
       "options": [
         {
-          "text": "Complete Scenario",
+          "text": "End of scenario",
           "response": "<div class='video-container'><iframe width='560' height='315' src='https://www.youtube.com/embed/Gin8IlZoL10' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>",
-          "ending": "",
-          "correct": true
-        }
-      ]
-    },
-    {
-      "body": "<span class='font-bold'>If you would like to retry the scenario, please refresh the page.</span>",
-      "options": [
-        {
-          "text": "End of scenario.",
-          "response": "",
           "ending": "",
           "correct": true
         }

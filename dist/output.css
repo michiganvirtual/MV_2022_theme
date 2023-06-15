@@ -1053,6 +1053,7 @@ ol.relative{
 /* Scenario Rules */
 
 ul.response-container{
+  margin-left: 0px;
   list-style-type: none;
 }
 

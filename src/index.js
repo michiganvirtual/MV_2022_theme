@@ -35,7 +35,6 @@ $(document).ready(function () {
   //Add pause function to Gifs
   if ($(".pausable-gif").length) {
     for (var i = 0; i < $(".pausable-gif").length; i++) {
-      console.log();
       $(".pausable-gif img").attr(
         "src",
         $(".pausable-gif img").attr("data-gif-src")
@@ -412,7 +411,6 @@ $(document).ready(function () {
 
       if (!$(questions)[i].children[0].classList.contains("feedback-icon")) {
         $(questions[i]).prepend(feedbackIcon);
-        console.log("test");
       }
 
       if (answer == submittedAnswer) {
@@ -494,15 +492,13 @@ $(document).ready(function () {
       $("#scenario-body").html(scenario.setup);
     },
     selected: function (event, ui) {
-      $(ui.selected).toggleClass("bg-deep-teal text-white text-deep-teal");
       $(ui.selected)
-        .addClass("ui-selected")
-        .siblings()
-        .removeClass("ui-selected");
+        .addClass("ui-selected bg-deep-teal text-white")
+        .removeClass("text-deep-teal");
       $("#next-btn").attr("disabled", false);
     },
     unselected: function (event, ui) {
-      $(ui.unselected).toggleClass("bg-deep-teal text-white text-deep-teal");
+      $(ui.unselected).removeClass("bg-deep-teal text-white");
     },
     stop: function () {},
   });
@@ -528,10 +524,11 @@ $(document).ready(function () {
     $("#scenario-body").html(
       `${scenario.events[eventCount].options[optionIndex].response}<br><br><span class='font-bold'>${scenario.events[eventCount].options[optionIndex].ending}</span>`
     );
+
     if ($(".ui-selected").attr("data-answer") == "true") {
       eventCount++;
       if (eventCount == scenario.events.length - 1) {
-        nextBtnText = "Retry from Begining";
+        nextBtnText = "Retry Scenario from Beginning";
       }
       $("#next-btn").text(nextBtnText).removeClass("hidden");
       $(".ui-selected").addClass("bg-light-teal border-light-teal");
@@ -543,6 +540,25 @@ $(document).ready(function () {
     $(".response-container").selectable("disable");
   });
 });
+
+//Add keyboard navigation functionality
+window.addEventListener(
+  "focus",
+  function (e) {
+    if ($(e.target).parent().hasClass("response-container"))
+      $(e.target).on("keypress", function (e) {
+        if (e.which == 13) {
+          $(e.target)
+            .addClass("ui-selected bg-deep-teal text-white")
+            .removeClass("text-deep-teal");
+          $(e.target)
+            .siblings()
+            .removeClass("ui-selected bg-deep-teal text-white");
+        }
+      });
+  },
+  true
+);
 
 //Function to Update Event Body and Responses
 function updateEvent(count) {
@@ -556,7 +572,7 @@ function updateEvent(count) {
   }
   for (let i = 0; i < options.length; i++) {
     let optionBody =
-      "<li class='w-full text-center border-2 border-deep-teal text-deep-teal p-4 mb-4' data-answer='" +
+      "<li tabindex='0' class='w-full text-center border-2 border-deep-teal text-deep-teal p-4 mb-4' data-answer='" +
       options[i].correct +
       "'>" +
       options[i].text +
