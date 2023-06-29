@@ -12,14 +12,16 @@
     <link rel="stylesheet" href="../output.css" />
     <script id="scenario">
       var scenario = {};
-      fetch("./scenario.json")
+      fetch(
+        "https://lsp.michiganvirtual.org/content/enforced/10393-IPD-DEV82/scenario-1.json"
+      )
         .then((response) => response.json())
         .then((data) => {
           scenario = data;
         });
     </script>
   </head>
-  <body class="font-body w-full overflow-x-hidden">
+  <body class="font-body">
     <header
       class="flex justify-center"
       style="
@@ -27,64 +29,72 @@
       "
     >
       <div class="text-white container p-12 mx-auto">
-        <span>Participation Exercises</span><br /><span
-          class="text-lg md:text-xl font-body font-extrabold lg:w-2/3"
+        Understanding the Modern Military<br /><strong
+          >Scenario Activity&nbsp;</strong
         >
-          Scenarios
-        </span>
       </div>
     </header>
     <main>
       <div class="container mx-auto px-4 lg:px-24 py-12">
-        <h1
-          class="text-3xl md:text-4xl font-bold text-deep-teal tracking-tighter uppercase md:mt-6 mb-4"
-        >
-          Participation Exercise:<br /><span class="font-normal">Scenario</span>
-        </h1>
+        <h1>Scenario Activity</h1>
         <hr class="border-t-10 border-green w-12 mb-4" />
         <p class="text-lg text-dark-gray mb-4">
-          Here are four routes of administering medications that you as a child
-          care provider will be using. When each medication comes up move it to
-          the box for the category it belongs to. If you need an alternative
-          learning activity, you can complete
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfzaHJz8lQ_XEmVAdHDSKqEqlQiF9_PM8pXWgHxBRxkwnqa3A/viewform?usp=sf_link"
-            target="_blank"
-            rel="noopener"
-            class="underline"
-            >this quiz</a
-          >.&nbsp;
+          In a world full of possibilities, where dreams intersect with
+          determination, one individual finds herself at a crossroads, ready to
+          embark on a unique path to fulfill her calling. Meet Dana, a resilient
+          young woman with unwavering aspirations of becoming a paramedic.
+          Though her dreams seemed shattered as her parents depleted her college
+          fund to rebuild their house after it burned down, Dana is still
+          determined to follow her dreams. As she steps into Mr. C's counseling
+          office, armed with determination and an unwavering desire for success,
+          she discovers a compelling alternative for her future.&nbsp;
+          <strong>Watch the video below, then select the Begin Scenario</strong>
+          button to follow Dana on her journey to follow her dream of becoming a
+          paramedic.&nbsp;
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8">
+        <div class="grid grid-cols-1 gap-x-8">
           <div class="prompts p-4">
-            <h2 class="text-2xl text-dark-teal font-bold mb-4">Prompt</h2>
             <div class="text-dark-gray text-lg" id="scenario-body">
               <div class="video-container">
                 <iframe
                   width="560"
                   height="315"
                   src="https://www.youtube.com/embed/HFqYEXyNZeY"
-                  title="YouTube video player"
+                  title="YouTube video player?wmode=opaque"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
+                  allowfullscreen="allowfullscreen"
                 ></iframe>
               </div>
             </div>
           </div>
+          <p class="dvl" style="text-align: center">
+            <span style="font-size: 16px"
+              ><em
+                >Direct Video Link:
+                <a
+                  href="https://youtu.be/HFqYEXyNZeY"
+                  target="_blank"
+                  rel="noopener"
+                  class="text-ada-orange underline hover:no-underline"
+                  >Understanding the Modern Military: Military Scenario Setup</a
+                >
+                opens in new window (0:34)</em
+              ></span
+            ><br /><span style="font-size: 16px"
+              ><em>(Download: Video Transcript)</em></span
+            >
+          </p>
           <div class="responses p-4">
-            <h2 class="text-2xl text-dark-teal font-bold mb-4">
-              How Do You Respond?
-            </h2>
             <ul class="response-container text-lg font-bold"></ul>
             <button
-              class="bg-ada-orange text-white font-bold py-4 px-8 rounded-md shadow-md hover:bg-dark-gray"
+              class="bg-ada-orange text-white font-bold text-right text-xl py-4 px-8 rounded-md shadow-md hover:bg-dark-gray"
               id="next-btn"
             >
-              Begin
+              Begin Scenario
             </button>
             <button
-              class="bg-ada-orange text-white font-bold py-4 px-8 rounded-md shadow-md hover:bg-dark-gray hidden"
+              class="bg-ada-orange text-white font-bold text-xl py-4 px-8 rounded-md shadow-md hover:bg-dark-gray hidden"
               id="respond-btn"
             >
               Respond
@@ -93,6 +103,8 @@
         </div>
       </div>
     </main>
-    <script src="../main.js" defer></script>
+    <p>
+      <script src="../main.js" defer="defer"></script>
+    </p>
   </body>
 </html>

@@ -1603,6 +1603,10 @@ a.bg-white{
   width: 400px;
 }
 
+.w-\[80vw\]{
+  width: 80vw;
+}
+
 .max-w-3xl{
   max-width: 48rem;
 }
