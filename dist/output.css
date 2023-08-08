@@ -1607,6 +1607,10 @@ a.bg-white{
   width: 400px;
 }
 
+.w-5\/6{
+  width: 83.333333%;
+}
+
 .max-w-3xl{
   max-width: 48rem;
 }
@@ -1678,6 +1682,10 @@ a.bg-white{
 
 .grid-cols-2{
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.flex-row{
+  flex-direction: row;
 }
 
 .flex-col{
@@ -1831,6 +1839,10 @@ a.bg-white{
 
 .border-4{
   border-width: 4px;
+}
+
+.border-10{
+  border-width: 10px;
 }
 
 .border-y{

@@ -1,15 +1,9 @@
 {
-  "setup": "<div class='video-container'><iframe width='560' height='315' src='https://www.youtube.com/embed/HFqYEXyNZeY' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>",
+  "setup": "<div class='video-container'><iframe width='560' height='315' src='https://www.youtube.com/embed/HFqYEXyNZeY' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div><p class='dvl' style='text-align: center;'><span style='font-size: 16px;'><em>Direct Video Link: <a href='https://youtu.be/HFqYEXyNZeY' target='_blank' rel='noopener' class='text-ada-orange underline hover:no-underline'>Understanding the Modern Military: Military Scenario Setup</a> opens in new window (0:34)</em></span><br><span style='font-size: 16px;'><em>(Download: <a href='https://drive.google.com/file/d/1-n3nYWVMLugjEOzV0Wlss4o5w561Ig47/view?usp=sharing' target='_blank' rel='noopener'>Video Transcript</a>)</em></span></p>",
   "events": [
     {
-      "body": "<div class='video-container mb-4'><iframe width='560' height='315' src='https://www.youtube.com/embed/1xVDA6EVgVc' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div><p class='text-lg font-bold text-dark-gray'>How should Mr. C respond?</p>",
+      "body": "<div class='video-container mb-4'><iframe width='560' height='315' src='https://www.youtube.com/embed/1xVDA6EVgVc' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div><p class='dvl' style='text-align: center;'><span style='font-size: 16px;'><em>Direct Video Link: <a href='https://youtu.be/1xVDA6EVgVc' target='_blank' rel='noopener' class='text-ada-orange underline hover:no-underline'>Understanding the Modern Military: Military Scenario Event #1</a> opens in new window (0:28)</em></span><br><span style='font-size: 16px;'><em>(Download: <a href='https://drive.google.com/file/d/1XSxyIo7KZrjqIfbWp2l3WJQSOLLa0V8C/view?usp=sharing' target='_blank' rel='noopener'>Video Transcript</a>)</em></span></p><p class='text-lg font-bold text-dark-gray'>How should Mr. C respond?</p>",
       "options": [
-        {
-          "text": "Actually, 85% of military jobs do not involve direct combat.",
-          "response": "<img src='https://lsp.michiganvirtual.org/d2l/common/viewFile.d2lfile/Content/L2NvbnRlbnQvZW5mb3JjZWQvMTAzOTMtSVBELURFVjgyL2ltYWdlcy9FdmVudCAxX1Jlc3BvbnNlIEEgTmV3LnBuZw/Event%201_Response%20A%20New.png?ou=10393' alt='A young high school student, Dana, sitting  smiling at her Guidance Counselor Mr. C who are sitting at a round table in his office discussing military options.  Dana is surprised and says \"Oh wow! the military is a lot different than I thought. Can you tell me more about it?\".' class='block w-full h-auto'>",
-          "ending": "Well done! Select the button to move onto the next event.",
-          "correct": true
-        },
         {
           "text": "Well, combat is part of being in the military. Why don’t I pull together a list of scholarships you might be eligible for while you gather the information needed to apply for financial aid.",
           "response": "<img src='https://lsp.michiganvirtual.org/d2l/common/viewFile.d2lfile/Content/L2NvbnRlbnQvZW5mb3JjZWQvMTAzOTMtSVBELURFVjgyL2ltYWdlcy9FdmVudCAxX3Jlc3BvbnNlIEIgTmV3LnBuZw/Event%201_response%20B%20New.png?ou=10393' alt='A young high school student, Dana, standing up with a frown on her face facing her  Guidance Counselor Mr. C who is sitting at a round table in his office discussing with a shocked expression on his face. .  Dana is frustrated and says \"Ugh! I already told you I don't want to be in debt forever. You never listen!\".' class='block w-full h-auto'>",
@@ -21,38 +15,55 @@
           "response": "<img src='https://lsp.michiganvirtual.org/d2l/common/viewFile.d2lfile/Content/L2NvbnRlbnQvZW5mb3JjZWQvMTAzOTMtSVBELURFVjgyL2ltYWdlcy9FdmVudCAxX1Jlc3BvbmNlIEMgTmV3LnBuZw/Event%201_Responce%20C%20New.png?ou=10393' alt='A young high school student, Dana, is sitting at a round table with her Guidance Counselor Mr. C with her head in her lap and hands covering her eyes.  Dana is frustrated and says \"I'll never amount to anything without a college degree. My whole life is ruined! This is so not fair.\" Mr. C is sitting across from her with a worried expression on his face.' class='block w-full h-auto'>",
           "ending": "This response perpetuates the myths Dana has about the military. It also presents post-secondary options that are not in line with her career goals.",
           "correct": false
+        },
+        {
+          "text": "Actually, 85% of military jobs do not involve direct combat.",
+          "response": "<img src='https://lsp.michiganvirtual.org/d2l/common/viewFile.d2lfile/Content/L2NvbnRlbnQvZW5mb3JjZWQvMTAzOTMtSVBELURFVjgyL2ltYWdlcy9FdmVudCAxX1Jlc3BvbnNlIEEgTmV3LnBuZw/Event%201_Response%20A%20New.png?ou=10393' alt='A young high school student, Dana, sitting  smiling at her Guidance Counselor Mr. C who are sitting at a round table in his office discussing military options.  Dana is surprised and says \"Oh wow! the military is a lot different than I thought. Can you tell me more about it?\".' class='block w-full h-auto'>",
+          "ending": "Well done! Select the button to move onto the next event.",
+          "correct": true
         }
       ]
     },
     {
-      "body": "<div class='video-container mb-4'><iframe width='560' height='315' src='https://www.youtube.com/embed/RztQpCKPw3M' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div><p class='text-lg font-bold text-dark-gray'>How should Mr. C respond?</p>",
+      "body": "<div class='video-container mb-4'><iframe width='560' height='315' src='https://www.youtube.com/embed/RztQpCKPw3M' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div><p class='dvl' style='text-align: center;'><span style='font-size: 16px;'><em>Direct Video Link: <a href='https://youtu.be/RztQpCKPw3M' target='_blank' rel='noopener' class='text-ada-orange underline hover:no-underline'>Understanding the Modern Military: Military Scenario Event #2</a> opens in new window (1:33)</em></span><br><span style='font-size: 16px;'><em>(Download: <a href='https://drive.google.com/file/d/14IRRqk3MD9mpPGt4jtdk8yiqfJcCkZO5/view?usp=sharing' target='_blank' rel='noopener'>Video Transcript</a>)</em></span></p><p class='text-lg font-bold text-dark-gray'>How should Mr. C respond?</p>",
       "options": [
         {
-          "text": "Actually, 85% of military jobs do not involve direct combat. And after serving 3-8 years, most service members leverage their education and training for civilian careers. Only about 20% stay in the military until retirement. ",
-          "response": "<div class='video-container'><iframe width='560' height='315' src='https://www.youtube.com/embed/GENlRCvn6cI' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>",
-          "ending": "Well done! Select the button to move onto the next event.",
-          "correct": true
-        },
-        {
           "text": "Well, those are valid concerns. Dana didn’t seem interested in scholarships or financial aid, but maybe you can convince her. Here’s some information about those options.",
-          "response": "<div class='video-container'><iframe width='560' height='315' src='https://www.youtube.com/embed/7NXPgHN3iOw' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>",
+          "response": "<div class='video-container'><iframe width='560' height='315' src='https://www.youtube.com/embed/7NXPgHN3iOw' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div><p class='dvl' style='text-align: center;'><span style='font-size: 16px;'><em>Direct Video Link: <a href='https://youtu.be/7NXPgHN3iOw' target='_blank' rel='noopener' class='text-ada-orange underline hover:no-underline'>Understanding the Modern Military: Military Scenario Event #2</a> opens in new window (0:11)</em></span><br><span style='font-size: 16px;'><em>(Download: <a href='https://drive.google.com/file/d/1JrARTUuNVd3lsnmC7FYGg8tiyJtyKKZ_/view?usp=sharing' target='_blank' rel='noopener'>Video Transcript</a>)</em></span></p>",
           "ending": "This response perpetuates the myths Dana has about the military. It also does not address her concerns about student debt.",
           "correct": false
         },
         {
+          "text": "Actually, 85% of military jobs do not involve direct combat. And after serving 3-8 years, most service members leverage their education and training for civilian careers. Only about 20% stay in the military until retirement. ",
+          "response": "<div class='video-container'><iframe width='560' height='315' src='https://www.youtube.com/embed/GENlRCvn6cI' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div><p class='dvl' style='text-align: center;'><span style='font-size: 16px;'><em>Direct Video Link: <a href='https://youtu.be/GENlRCvn6cI' target='_blank' rel='noopener' class='text-ada-orange underline hover:no-underline'>Understanding the Modern Military: Military Scenario Event #2 Response A</a> opens in new window (0:49)</em></span><br><span style='font-size: 16px;'><em>(Download: <a href='https://drive.google.com/file/d/1NFZ1V-KyFbV4JcARgaOM6eM8OjLqtSbm/view?usp=sharing' target='_blank' rel='noopener'>Video Transcript</a>)</em></span></p>",
+          "ending": "Well done! Select the button to move onto the next event.",
+          "correct": true
+        },
+        {
           "text": "I understand your concerns. Dana said she’s not interested in scholarships or financial aid either, so I think you’re out of options. Would you like me to provide some career exploration tools? Maybe you could help Dana choose a career that doesn’t require a college education.",
-          "response": "<div class='video-container'><iframe width='560' height='315' src='https://www.youtube.com/embed/f_WrCk-ezi0' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>",
+          "response": "<div class='video-container'><iframe width='560' height='315' src='https://www.youtube.com/embed/f_WrCk-ezi0' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div><p class='dvl' style='text-align: center;'><span style='font-size: 16px;'><em>Direct Video Link: <a href='https://youtu.be/f_WrCk-ezi0' target='_blank' rel='noopener' class='text-ada-orange underline hover:no-underline'>Understanding the Modern Military: Military Scenario Event #2 Response C</a> opens in new window (0:25)</em></span><br><span style='font-size: 16px;'><em>(Download: <a href='https://drive.google.com/file/d/1GfkVtq-lR_0ocCOdp8S0hsvMTgARPxQU/view?usp=sharing' target='_blank' rel='noopener'>Video Transcript</a>)</em></span></p>",
           "ending": "This response perpetuates the myths Dana has about the military. It also presents post-secondary options that are not in line with her career goals.",
           "correct": false
         }
       ]
     },
     {
-      "body": "<div class='video-container'><iframe width='560' height='315' src='https://www.youtube.com/embed/BGPYm7baN2M' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>",
+      "body": "<div class='video-container'><iframe width='560' height='315' src='https://www.youtube.com/embed/BGPYm7baN2M' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div><p class='dvl' style='text-align: center;'><span style='font-size: 16px;'><em>Direct Video Link: <a href='https://youtu.be/f_WrCk-ezi0' target='_blank' rel='noopener' class='text-ada-orange underline hover:no-underline'>Understanding the Modern Military: Military Scenario Event #3</a> opens in new window (0:38)</em></span><br><span style='font-size: 16px;'><em>(Download: <a href='https://drive.google.com/file/d/1-n-4M7Skut1FBl43kfGxcwQ-uDU65amh/view?usp=sharing' target='_blank' rel='noopener'>Video Transcript</a>)</em></span></p>",
       "options": [
         {
-          "text": "End of scenario",
-          "response": "<div class='video-container'><iframe width='560' height='315' src='https://www.youtube.com/embed/Gin8IlZoL10' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>",
+          "text": "You have reached the end of this scenario",
+          "response": "<div class='video-container'><iframe width='560' height='315' src='https://www.youtube.com/embed/Gin8IlZoL10' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div><p class='dvl' style='text-align: center;'><span style='font-size: 16px;'><em>Direct Video Link: <a href='https://youtu.be/Gin8IlZoL10' target='_blank' rel='noopener' class='text-ada-orange underline hover:no-underline'>Understanding the Modern Military: Military Scenario End</a> opens in new window (0:45)</em></span><br><span style='font-size: 16px;'><em>(Download: <a href='https://drive.google.com/file/d/1-n-4M7Skut1FBl43kfGxcwQ-uDU65amh/view?usp=sharing' target='_blank' rel='noopener'>Video Transcript</a>)</em></span></p>",
+          "ending": "",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "body": "<div class='video-container'><iframe width='560' height='315' src='https://www.youtube.com/embed/BGPYm7baN2M' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div><p class='dvl' style='text-align: center;'><span style='font-size: 16px;'><em>Direct Video Link: <a href='https://youtu.be/f_WrCk-ezi0' target='_blank' rel='noopener' class='text-ada-orange underline hover:no-underline'>Understanding the Modern Military: Military Scenario Event #3</a> opens in new window (0:38)</em></span><br><span style='font-size: 16px;'><em>(Download: <a href='https://drive.google.com/file/d/1-n-4M7Skut1FBl43kfGxcwQ-uDU65amh/view?usp=sharing' target='_blank' rel='noopener'>Video Transcript</a>)</em></span></p>",
+      "options": [
+        {
+          "text": "You have reached the end of this scenario",
+          "response": "<div class='video-container'><iframe width='560' height='315' src='https://www.youtube.com/embed/Gin8IlZoL10' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div><p class='dvl' style='text-align: center;'><span style='font-size: 16px;'><em>Direct Video Link: <a href='https://youtu.be/Gin8IlZoL10' target='_blank' rel='noopener' class='text-ada-orange underline hover:no-underline'>Understanding the Modern Military: Military Scenario End</a> opens in new window (0:45)</em></span><br><span style='font-size: 16px;'><em>(Download: <a href='https://drive.google.com/file/d/1-n-4M7Skut1FBl43kfGxcwQ-uDU65amh/view?usp=sharing' target='_blank' rel='noopener'>Video Transcript</a>)</em></span></p>",
           "ending": "",
           "correct": true
         }

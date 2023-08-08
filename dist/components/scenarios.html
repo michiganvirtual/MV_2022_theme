@@ -12,9 +12,7 @@
     <link rel="stylesheet" href="../output.css" />
     <script id="scenario">
       var scenario = {};
-      fetch(
-        "https://lsp.michiganvirtual.org/content/enforced/10393-IPD-DEV82/scenario-1.json"
-      )
+      fetch("scenario.json")
         .then((response) => response.json())
         .then((data) => {
           scenario = data;
@@ -66,25 +64,34 @@
                   allowfullscreen="allowfullscreen"
                 ></iframe>
               </div>
+              <p class="dvl" style="text-align: center">
+                <span style="font-size: 16px"
+                  ><em
+                    >Direct Video Link:
+                    <a
+                      href="https://youtu.be/HFqYEXyNZeY"
+                      target="_blank"
+                      rel="noopener"
+                      class="text-ada-orange underline hover:no-underline"
+                      >Understanding the Modern Military: Military Scenario
+                      Setup</a
+                    >
+                    opens in new window (0:34)</em
+                  ></span
+                ><br /><span style="font-size: 16px"
+                  ><em
+                    >(Download:
+                    <a
+                      href="https://drive.google.com/file/d/1-n3nYWVMLugjEOzV0Wlss4o5w561Ig47/view?usp=sharing"
+                      target="_blank"
+                      rel="noopener"
+                      >Video Transcript</a
+                    >)</em
+                  ></span
+                >
+              </p>
             </div>
           </div>
-          <p class="dvl" style="text-align: center">
-            <span style="font-size: 16px"
-              ><em
-                >Direct Video Link:
-                <a
-                  href="https://youtu.be/HFqYEXyNZeY"
-                  target="_blank"
-                  rel="noopener"
-                  class="text-ada-orange underline hover:no-underline"
-                  >Understanding the Modern Military: Military Scenario Setup</a
-                >
-                opens in new window (0:34)</em
-              ></span
-            ><br /><span style="font-size: 16px"
-              ><em>(Download: Video Transcript)</em></span
-            >
-          </p>
           <div class="responses p-4">
             <ul class="response-container text-lg font-bold"></ul>
             <button
