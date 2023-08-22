@@ -375,6 +375,9 @@ a[target="_blank"]:after {
 @tailwind utilities;
 
 @layer base {
+  body {
+    @apply font-body md:pb-96;
+  }
   h1 {
     @apply text-2xl md:text-3xl font-bold text-deep-teal tracking-tighter md:mt-6 mb-4;
   }

@@ -865,6 +865,16 @@ video {
   height: auto;
 }
 
+body{
+  font-family: Roboto, Noto Sans, Helvetica, Calibri;
+}
+
+@media (min-width: 768px){
+  body{
+    padding-bottom: 24rem;
+  }
+}
+
 h1{
   margin-bottom: 1rem;
   font-size: 1.5rem;
