@@ -871,7 +871,7 @@ body{
 
 @media (min-width: 768px){
   body{
-    padding-bottom: 24rem;
+    padding-bottom: 96px;
   }
 }
 
