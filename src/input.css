@@ -376,7 +376,7 @@ a[target="_blank"]:after {
 
 @layer base {
   body {
-    @apply font-body md:pb-12;
+    @apply font-body overflow-auto md:pb-12;
   }
   h1 {
     @apply text-2xl md:text-3xl font-bold text-deep-teal tracking-tighter md:mt-6 mb-4;
