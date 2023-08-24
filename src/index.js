@@ -539,9 +539,6 @@ $(window).load(function () {
     $("#respond-btn").addClass("hidden");
     $(".response-container").selectable("disable");
   });
-
-  //Body Overflow Reset
-  $("body").style.overflow = "auto";
 });
 
 //Add keyboard navigation functionality
