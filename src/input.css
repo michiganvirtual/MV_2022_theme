@@ -368,7 +368,7 @@ a[target="_blank"]:after {
 
 @layer base {
   body {
-    @apply m-0 overflow-hidden w-full;
+    @apply m-0 w-full;
   }
   body {
     @apply font-body md:pb-12;

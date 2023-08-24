@@ -859,7 +859,6 @@ video {
 body {
   margin: 0px;
   width: 100%;
-  overflow: hidden;
   font-family: Roboto, Noto Sans, Helvetica, Calibri;
 }
 
