@@ -539,6 +539,12 @@ $(document).ready(function () {
     $("#respond-btn").addClass("hidden");
     $(".response-container").selectable("disable");
   });
+
+  window.addEventListener("load", function () {
+    var footer = "<footer class='h-2 bg-deep-teal'></footer>";
+    $(footer).appendTo("body");
+    //alert("It's loaded!");
+  });
 });
 
 //Add keyboard navigation functionality
