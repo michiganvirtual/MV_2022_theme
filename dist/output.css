@@ -856,14 +856,10 @@ video {
   height: auto;
 }
 
-body, 
-  html {
+body {
   margin: 0px;
   width: 100%;
   overflow: hidden;
-}
-
-body {
   font-family: Roboto, Noto Sans, Helvetica, Calibri;
 }
 
