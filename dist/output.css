@@ -869,10 +869,10 @@ body,
   html{
   margin: 0px;
   width: 100%;
-  overflow-x: hidden;
 }
 
 body{
+  overflow-x: hidden;
   font-family: Roboto, Noto Sans, Helvetica, Calibri;
 }
 
@@ -1493,10 +1493,6 @@ a.bg-white{
   height: 4rem;
 }
 
-.h-2{
-  height: 0.5rem;
-}
-
 .h-48{
   height: 12rem;
 }
@@ -1792,10 +1788,6 @@ a.bg-white{
 
 .overflow-x-hidden{
   overflow-x: hidden;
-}
-
-.overflow-y-hidden{
-  overflow-y: hidden;
 }
 
 .overflow-y-scroll{
