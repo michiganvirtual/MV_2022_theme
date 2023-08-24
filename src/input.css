@@ -375,8 +375,12 @@ a[target="_blank"]:after {
 @tailwind utilities;
 
 @layer base {
+  body,
+  html {
+    @apply m-0 overflow-hidden w-full;
+  }
   body {
-    @apply font-body overflow-auto md:pb-12;
+    @apply font-body md:pb-12;
   }
   h1 {
     @apply text-2xl md:text-3xl font-bold text-deep-teal tracking-tighter md:mt-6 mb-4;
