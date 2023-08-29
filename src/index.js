@@ -79,6 +79,7 @@ $(document).ready(function () {
     var isAriaExp = $control.attr("aria-expanded");
     var newAriaExp = isAriaExp == "false" ? "true" : "false";
     $control.attr("aria-expanded", newAriaExp);
+    $control.parent().attr("aria-expanded", newAriaExp);
 
     var isAriaHid = $("#" + accordionContent).attr("aria-hidden");
     if (isAriaHid == "true") {
@@ -107,6 +108,7 @@ $(document).ready(function () {
       var isAriaExp = $control.attr("aria-expanded");
       var newAriaExp = isAriaExp == "false" ? "true" : "false";
       $control.attr("aria-expanded", newAriaExp);
+      $control.parent().attr("aria-expanded", newAriaExp);
 
       var isAriaHid = $("#" + accordionContent).attr("aria-hidden");
       if (isAriaHid == "true") {
