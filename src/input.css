@@ -375,6 +375,9 @@ a[target="_blank"]:after {
 @tailwind utilities;
 
 @layer base {
+  html {
+    overflow: hidden !important;
+  }
   body,
   html {
     @apply m-0 w-full;
