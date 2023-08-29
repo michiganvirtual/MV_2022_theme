@@ -56,6 +56,17 @@ $(document).ready(function () {
     $(this).children(".flip-card-inner").toggleClass("flipped");
   });
 
+  if ($("ul.accordion-controls").length) {
+    for (var i = 0; i < $("ul.accordion-controls").length; i++) {
+      $("ul.accordion-controls")[i].setAttribute("role", "menu");
+    }
+  }
+  if ($("ul.accordion-controls>li").length) {
+    for (var i = 0; i < $("ul.accordion-controls>li").length; i++) {
+      $("ul.accordion-controls>li")[i].setAttribute("role", "menuitem");
+    }
+  }
+
   var accordionButtons = $(".accordion-controls li > a.block");
   accordionButtons.attr("tabindex", "0");
 
