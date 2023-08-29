@@ -64,13 +64,15 @@ $(document).ready(function () {
   if ($("ul.accordion-controls>li").length) {
     for (var i = 0; i < $("ul.accordion-controls>li").length; i++) {
       $("ul.accordion-controls>li")[i].setAttribute("role", "menuitem");
+      $("ul.accordion-controls>li")[i].setAttribute("aria-hidden", "false");
+      $("ul.accordion-controls>li>a.block")[i].removeAttribute("aria-expanded");
     }
   }
 
-  var accordionButtons = $(".accordion-controls li > a.block");
+  var accordionButtons = $("ul.accordion-controls li");
   accordionButtons.attr("tabindex", "0");
 
-  $(".accordion-controls li > a.block").on("click", function (e) {
+  /* $(".accordion-controls li > a.block").on("click", function (e) {
     e.preventDefault();
     var $control = $(this);
     var accordionContent = $control.attr("aria-controls");
@@ -79,11 +81,14 @@ $(document).ready(function () {
     var isAriaExp = $control.attr("aria-expanded");
     var newAriaExp = isAriaExp == "false" ? "true" : "false";
     $control.attr("aria-expanded", newAriaExp);
-    $control.parent().attr("aria-expanded", newAriaExp);
 
-    var isAriaHid = $("#" + accordionContent).attr("aria-hidden");
-    if (isAriaHid == "true") {
-      $("#" + accordionContent).attr("aria-hidden", "false");
+    var isAriaHid = $("#" + accordionContent)
+      .parent()
+      .attr("aria-hidden");
+    if (isAriaHid == "false") {
+      $("#" + accordionContent)
+        .parent()
+        .attr("aria-hidden", "true");
       $("#" + accordionContent).toggleClass("max-h-full");
       $control.find("img.accordion__toggle").toggleClass("rotate-180");
       $("#" + accordionContent).css(
@@ -91,28 +96,34 @@ $(document).ready(function () {
         $("#" + accordionContent)[0].scrollHeight
       );
     } else {
-      $("#" + accordionContent).attr("aria-hidden", "true");
+      $("#" + accordionContent)
+        .parent()
+        .attr("aria-hidden", "false");
       $("#" + accordionContent).toggleClass("max-h-full");
       $control.find("img.accordion__toggle").toggleClass("rotate-180");
       $("#" + accordionContent).css("max-height", 0);
     }
+    console.log(accordionButtons);
   });
 
   $(".accordion-controls li > a.block").keypress(function (e) {
     e.preventDefault();
     if (e.which == 13) {
-      var $control = $(this);
+      var $control = $(this).parent();
       var accordionContent = $control.attr("aria-controls");
       checkOthers($control[0]);
 
       var isAriaExp = $control.attr("aria-expanded");
       var newAriaExp = isAriaExp == "false" ? "true" : "false";
       $control.attr("aria-expanded", newAriaExp);
-      $control.parent().attr("aria-expanded", newAriaExp);
 
-      var isAriaHid = $("#" + accordionContent).attr("aria-hidden");
-      if (isAriaHid == "true") {
-        $("#" + accordionContent).attr("aria-hidden", "false");
+      var isAriaHid = $("#" + accordionContent)
+        .parent()
+        .attr("aria-hidden");
+      if (isAriaHid == "false") {
+        $("#" + accordionContent)
+          .parent()
+          .attr("aria-hidden", "true");
         $("#" + accordionContent).toggleClass("max-h-full");
         $control.find("img.accordion__toggle").toggleClass("rotate-180");
         $("#" + accordionContent).css(
@@ -120,7 +131,9 @@ $(document).ready(function () {
           $("#" + accordionContent)[0].scrollHeight
         );
       } else {
-        $("#" + accordionContent).attr("aria-hidden", "true");
+        $("#" + accordionContent)
+          .parent()
+          .attr("aria-hidden", "false");
         $("#" + accordionContent).toggleClass("max-h-full");
         $control.find("img.accordion__toggle").toggleClass("rotate-180");
         $("#" + accordionContent).css("max-height", 0);
@@ -131,10 +144,10 @@ $(document).ready(function () {
   function checkOthers(elem) {
     for (var i = 0; i < accordionButtons.length; i++) {
       if (accordionButtons[i] != elem) {
-        if ($(accordionButtons[i]).attr("aria-expanded") == "true") {
-          $(accordionButtons[i]).attr("aria-expanded", "false");
+        if ($(accordionButtons[i]).attr("aria-hidden") == "false") {
+          $(accordionButtons[i]).attr("aria-hidden", "true");
           var content = $(accordionButtons[i]).attr("aria-controls");
-          $("#" + content).attr("aria-hidden", "true");
+          $("#" + content).attr("aria-hidden", "false");
           $("#" + content).toggleClass("h-auto");
           $(accordionButtons[i])
             .find("img.accordion__toggle")
@@ -148,7 +161,52 @@ $(document).ready(function () {
       }
     }
   }
+ */
 
+  $(".accordion-controls > li > a").on("click", function (e) {
+    e.preventDefault();
+    var $control = $(this);
+    var $content = $("#" + $control.attr("aria-controls"));
+    var $toggleIcon = $control.find("img.accordion__toggle");
+    var isExpanded = $control.attr("aria-expanded") === "true";
+
+    // Close currently open accordions
+    closeOpenAccordions($control);
+
+    // Toggle aria-expanded attribute
+    $control.attr("aria-expanded", !isExpanded);
+
+    // Toggle aria-hidden attribute and max-height for content
+    $content.attr("aria-hidden", isExpanded);
+    $content.toggleClass("max-h-full");
+
+    if (!isExpanded) {
+      $content.css("max-height", $content[0].scrollHeight);
+      $toggleIcon.addClass("rotate-180");
+    } else {
+      $content.css("max-height", 0);
+      $toggleIcon.removeClass("rotate-180");
+    }
+  });
+
+  $(".accordion-controls > li > a").keypress(function (e) {
+    if (e.which === 13) {
+      $(this).click();
+    }
+  });
+
+  function closeOpenAccordions(excludedControl) {
+    var allControls = $(".accordion-controls > li > a");
+    allControls.each(function () {
+      var $this = $(this);
+      if (
+        $this.attr("aria-expanded") === "true" &&
+        !$this.is(excludedControl)
+      ) {
+        $this.click();
+      }
+    });
+  }
   /* Tabs  */
   $(".tabs li a:not(:first)").addClass("inactive");
   $(".tabs li a:first").addClass("bg-deep-teal text-white");
