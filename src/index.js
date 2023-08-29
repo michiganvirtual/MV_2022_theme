@@ -62,11 +62,11 @@ $(document).ready(function () {
     }
   }
   if ($("ul.accordion-controls>li").length) {
-    for (var i = 0; i < $("ul.accordion-controls>li").length; i++) {
-      $("ul.accordion-controls>li")[i].setAttribute("role", "menuitem");
-      $("ul.accordion-controls>li")[i].setAttribute("aria-hidden", "false");
-      $("ul.accordion-controls>li>a.block")[i].removeAttribute("aria-expanded");
-    }
+    $("ul.accordion-controls>li")
+      .attr("role", "menuitem")
+      .attr("aria-hidden", "false")
+      .find("a.block")
+      .removeAttr("aria-expanded");
   }
 
   var accordionButtons = $("ul.accordion-controls li");
