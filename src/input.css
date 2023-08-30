@@ -376,15 +376,14 @@ a[target="_blank"]:after {
 
 @layer base {
   html {
-    overflow-x: hidden !important;
+    @apply overflow-visible;
   }
   body,
   html {
     @apply m-0 w-full;
   }
   body {
-    @apply font-body overflow-x-hidden;
-    overflow-y: auto !important;
+    @apply font-body;
   }
   h1 {
     @apply text-2xl md:text-3xl font-bold text-deep-teal tracking-tighter md:mt-6 mb-4;

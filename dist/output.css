@@ -865,8 +865,8 @@ video {
   height: auto;
 }
 
-html {
-  overflow-x: hidden !important;
+html{
+  overflow: visible;
 }
 
 body, 
@@ -876,9 +876,7 @@ body,
 }
 
 body{
-  overflow-x: hidden;
   font-family: Roboto, Noto Sans, Helvetica, Calibri;
-  overflow-y: auto !important;
 }
 
 h1{
