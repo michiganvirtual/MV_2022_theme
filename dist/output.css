@@ -866,7 +866,7 @@ video {
 }
 
 html {
-  overflow: hidden !important;
+  overflow-x: hidden !important;
 }
 
 body, 
@@ -1490,12 +1490,12 @@ a.bg-white{
   display: none;
 }
 
-.h-auto{
-  height: auto;
-}
-
 .h-16{
   height: 4rem;
+}
+
+.h-auto{
+  height: auto;
 }
 
 .h-48{
