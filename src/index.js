@@ -183,7 +183,7 @@ $(document).ready(function () {
       });
     }
   });
-
+  /* 
   // Drag-and-drop logic
   const draggableElements = document.querySelectorAll(".draggable > span");
   const droppableContainers = document.querySelectorAll(".droppable");
@@ -274,10 +274,47 @@ $(document).ready(function () {
     return window.scrollY + window.innerHeight >= document.body.scrollHeight;
   }
 
+  let touchedElement = null; // Store the currently touched element
+  let initialX = 0; // Store the initial X position of the touched element
+  let initialY = 0; // Store the initial Y position of the touched element
+  let offsetX = 0; // Store the offset between the touch point and the element's left edge
+  let offsetY = 0; // Store the offset between the touch point and the element's top edge
+
+  document.addEventListener("touchstart", (e) => {
+    const touch = e.touches[0];
+    touchedElement = e.target;
+    initialX = touch.clientX;
+    initialY = touch.clientY + window.scrollY;
+    offsetX = touch.clientX - touchedElement.getBoundingClientRect().left;
+    offsetY = touch.clientY - touchedElement.getBoundingClientRect().top;
+    touchedElement.style.zIndex = 9999; // Bring the touched element to the front
+    console.log(initialX + ", " + initialY);
+  });
+
   document.addEventListener("touchmove", (e) => {
     // Check if we should start scrolling
     if (!isAtTop() && !isAtBottom()) {
-      const touch = e.touches[0];
+      if (draggedElement) {
+        const touch = e.touches[0];
+        const draggable = draggedElement;
+
+        // Calculate the new position based on the touch coordinates and scroll position
+        const newLeft = touch.clientX + window.scrollX - offsetX + "px";
+        const newTop = touch.clientY + window.scrollY - offsetY + "px";
+
+        // Update the dragged element's position
+        draggable.style.left = newLeft;
+        draggable.style.top = newTop;
+
+        console.log(window.scrollY);
+        console.log(offsetY);
+
+        e.preventDefault(); // Prevent scrolling while dragging
+
+        return;
+      }
+
+      // Scroll the page
       if (touch.clientY < 50) {
         scrollPage(-5); // Adjust the scroll speed as needed
       } else if (touch.clientY > window.innerHeight - 50) {
@@ -285,6 +322,10 @@ $(document).ready(function () {
       }
     }
   });
+
+  document.addEventListener("touchend", (e) => {
+    touchedElement = null;
+  }); */
 
   // Retry function
   /* const retryButton = document.getElementById("retry");
@@ -336,7 +377,7 @@ $(document).ready(function () {
   */
 
   /* Drag & Drop Activity */
-  /* var wrongCount = 0;
+  var wrongCount = 0;
   var rightCount = 0;
   var answerCount = $("#answer-count")[0];
   if ($("#total-answers").length) {
@@ -505,7 +546,7 @@ $(document).ready(function () {
     $("span.right-answer").addClass("bg-ada-green").css("display", "");
     $("span.right-answer i").addClass("fa-check mr-8").removeClass("hidden");
   });
- */
+
   /*    Food Allergens Participation Exercise     */
   $(".food-allergens__form").on("submit", function (e) {
     e.preventDefault();
