@@ -198,126 +198,92 @@ $(document).ready(function () {
   }
 
   let draggedElement = null; // Store the dragged element
-  let startY = 0;
-  let scrollInterval = null; // Interval for scrolling
-  const scrollSpeed = 5; // Adjust this value to control scroll speed
-  const scrollThreshold = 250; // Adjust this value to control when to start scrolling
-
-  // Function to scroll the page gently
-  function scrollPage(step) {
-    window.scrollBy(0, step);
-  }
-
-  // Function to detect whether the page is at the top or bottom
-  function isAtTop() {
-    return window.scrollY === 0;
-  }
-
-  function isAtBottom() {
-    return window.scrollY + window.innerHeight === document.body.scrollHeight;
-  }
-
   draggableElements.forEach((draggable) => {
     draggable.draggable = true;
 
     draggable.addEventListener("dragstart", (e) => {
       draggedElement = draggable; // Store the dragged element
       e.dataTransfer.setData("text/plain", e.target.dataset.answer);
-
-      // Start scrolling when the element is near the top or bottom of the viewport
-      scrollInterval = setInterval(() => {
-        if (!isAtTop() && !isAtBottom()) {
-          const rect = draggable.getBoundingClientRect();
-          if (rect.top < scrollThreshold) {
-            scrollPage(-scrollSpeed);
-          } else if (rect.bottom > window.innerHeight - scrollThreshold) {
-            scrollPage(scrollSpeed);
-          }
-        }
-      }, 50); // Adjust the interval as needed
-    });
-
-    draggable.addEventListener("dragend", () => {
-      // Stop scrolling when the drag ends
-      clearInterval(scrollInterval);
     });
 
     // Touch event listeners for mobile devices
     draggable.addEventListener("touchstart", (e) => {
       // Prevent the default touch behavior
       e.preventDefault();
-      console.log("touch start");
-      // Store the initial touch position and element position
-      const touch = e.touches[0];
+
+      // Store the dragged element
       draggedElement = draggable;
-      startY = touch.clientY;
-      draggedElement.startY =
-        parseFloat(getComputedStyle(draggedElement).top) || 0;
     });
 
     draggable.addEventListener("touchmove", (e) => {
       // Prevent the default touch behavior
       e.preventDefault();
 
-      // Calculate the vertical distance moved
+      // Update the element's position based on touch movements
       const touch = e.touches[0];
-      const deltaY = touch.clientY - startY;
-
-      // Update the element's position
-      const newPosition = draggedElement.startY + deltaY;
-      draggedElement.style.top = newPosition + "px";
-
-      // Scroll the page if necessary
-      if (!isAtTop() && !isAtBottom()) {
-        if (deltaY < -scrollThreshold) {
-          scrollPage(-scrollSpeed);
-        } else if (deltaY > scrollThreshold) {
-          scrollPage(scrollSpeed);
-        }
-      }
+      draggedElement.style.position = "absolute";
+      draggedElement.style.left = touch.clientX + "px";
+      draggedElement.style.top = touch.clientY + "px";
     });
 
     draggable.addEventListener("touchend", () => {
-      // Stop scrolling when the touch ends
-      clearInterval(scrollInterval);
-      console.log("touch end");
+      // Check if the element was released over a droppable container
+      droppableContainers.forEach((container) => {
+        const rect = container.getBoundingClientRect();
+        if (
+          rect.left <= draggedElement.getBoundingClientRect().left &&
+          rect.right >= draggedElement.getBoundingClientRect().right &&
+          rect.top <= draggedElement.getBoundingClientRect().top &&
+          rect.bottom >= draggedElement.getBoundingClientRect().bottom
+        ) {
+          // Append the dragged element to the inner <div> inside the container
+          const innerDiv = container.querySelector("div");
+          innerDiv.appendChild(draggedElement);
+
+          rightCount++;
+          draggedElement.classList.add("right-answer");
+
+          examplesRemaining--;
+          if (answerCount) {
+            answerCount.innerHTML = examplesRemaining;
+          }
+
+          draggedElement.style.position = "initial";
+          draggedElement.style.display = "inline-block";
+          draggedElement.draggable = false;
+
+          if (examplesRemaining === 0) {
+            document.getElementById("check-answers").classList.remove("hidden");
+          }
+        }
+      });
     });
   });
 
-  droppableContainers.forEach((container) => {
-    container.addEventListener("dragover", (e) => {
-      e.preventDefault();
-    });
+  // Function to scroll the page gently
+  function scrollPage(step) {
+    window.scrollBy(0, step);
+  }
 
-    container.addEventListener("drop", (e) => {
-      e.preventDefault();
+  // Check if the page is at the top or bottom
+  function isAtTop() {
+    return window.scrollY === 0;
+  }
 
-      const answer = e.dataTransfer.getData("text/plain");
+  function isAtBottom() {
+    return window.scrollY + window.innerHeight >= document.body.scrollHeight;
+  }
 
-      if (draggedElement && container.id === answer) {
-        // Append the dragged element to the inner <div> inside the container
-        const innerDiv = container.querySelector("div");
-        innerDiv.appendChild(draggedElement);
-
-        rightCount++;
-        draggedElement.classList.add("right-answer");
-
-        examplesRemaining--;
-        if (answerCount) {
-          answerCount.innerHTML = examplesRemaining;
-        }
-
-        draggedElement.style.position = "initial";
-        draggedElement.style.display = "inline-block";
-        draggedElement.classList.remove("bg-deep-teal");
-        draggedElement.classList.add("bg-dark-teal");
-        draggedElement.draggable = false;
-
-        if (examplesRemaining === 0) {
-          document.getElementById("check-answers").classList.remove("hidden");
-        }
+  document.addEventListener("touchmove", (e) => {
+    // Check if we should start scrolling
+    if (!isAtTop() && !isAtBottom()) {
+      const touch = e.touches[0];
+      if (touch.clientY < 50) {
+        scrollPage(-5); // Adjust the scroll speed as needed
+      } else if (touch.clientY > window.innerHeight - 50) {
+        scrollPage(5); // Adjust the scroll speed as needed
       }
-    });
+    }
   });
 
   // Retry function
