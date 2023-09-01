@@ -1,20 +1,12 @@
-<!DOCTYPE html>
 <html lang="en" class="w-full overflow-x-hidden">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
-
     <link rel="stylesheet" href="../output.css" />
     <link
       rel="icon"
       href="https://michiganvirtual.org/wp-content/uploads/2021/10/cropped-mv-favicon-32x32.png"
       sizes="32x32"
     />
-    <script
-      id="DragDropTouch"
-      src="https://bernardo-castilho.github.io/DragDropTouch/DragDropTouch.js"
-    ></script>
-
     <script src="../main.js"></script>
   </head>
   <body class="font-body w-full overflow-x-hidden">
@@ -24,22 +16,60 @@
         background-image: linear-gradient(180deg, #115e6e 0%, #093c44 100%);
       "
     >
-      <div class="text-white container p-12 mx-auto">
-        <span>Michigan Initial Health & Safety Training Module B </span><br />
-        <span class="text-lg md:text-xl font-body font-extrabold lg:w-2/3">
+      <div class="text-white container px-4 lg:px-24 py-12 mx-auto">
+        <span>Michigan Ongoing Health &amp; Safety Training Refresher 2023</span
+        ><br /><span class="font-extrabold lg:w-2/3">
           Section 1: Administration of Medications
         </span>
       </div>
     </header>
     <main>
       <div class="container mx-auto px-4 lg:px-24 py-12">
-        <h1
-          class="text-3xl md:text-4xl font-bold text-deep-teal tracking-tighter uppercase md:mt-6 mb-4"
-        >
-          Participation Exercise:<br />
-          <span class="font-normal">Routes of Administration</span>
+        <h1 aria-hidden="true">
+          Participation Exercise:<br /><span class="font-normal"
+            >Routes of Administration</span
+          >
         </h1>
         <hr class="border-4 border-green w-12 mb-4" />
+        <p class="text-lg text-dark-gray mb-4">
+          Here are four routes of administering medications that you as a child
+          care provider will be using. When each medication comes up move it to
+          the box for the category it belongs to. If you need an alternative
+          learning activity, you can complete
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfzaHJz8lQ_XEmVAdHDSKqEqlQiF9_PM8pXWgHxBRxkwnqa3A/viewform?usp=sf_link"
+            target="_blank"
+            rel="noopener"
+            class="underline"
+            >this quiz</a
+          >.&nbsp;
+        </p>
+        <ol>
+          <li>
+            Look at the examples and containers. The examples are represented as
+            small blocks that you can drag, while the containers will be
+            represented as larger boxes with dashed borders that you need to
+            drop the examples into.
+          </li>
+          <li>
+            Click and hold the example you want to move with your mouse or touch
+            screen. The example should now follow your cursor or finger.
+          </li>
+          <li>
+            Drag the example with your mouse or touch screen over the container
+            in which you think it belongs.
+          </li>
+          <li>
+            Release the example into the container by letting go of the mouse
+            button or lifting your finger off the screen. The example should
+            snap into place and change color to indicate that it's been dropped
+            into the correct container.
+          </li>
+          <li>
+            Repeat steps 1 to 4 for each example until you've completed the
+            activity.
+          </li>
+        </ol>
         <h3
           class="text-xl text-center font-bold text-red-500 invisible mb-4 feedback"
         >
@@ -47,157 +77,101 @@
         </h3>
         <div class="grid grid-cols-4 gap-2">
           <div
-            class="flex flex-col items-center border-dashed border-dark-gray border-2 py-2 col-span-4"
+            class="flex flex-col items-center border-dashed border-dark-gray border-2 py-2 col-span-4 examples"
           >
             <h3 class="text-2xl text-deep-teal font-bold uppercase">
               Examples
             </h3>
             <div class="flex flex-wrap lg:justify-center draggable examples">
               <span
-                draggable="true"
                 data-answer="inhalant"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white"
+                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white ui-draggable ui-draggable-handle"
+                style="position: relative"
                 >Steroid Nasal Spray</span
               >
               <span
-                draggable="true"
                 data-answer="oral"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white"
+                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white ui-draggable ui-draggable-handle"
+                style="position: relative"
                 >Prescription Capsule</span
               >
               <span
-                draggable="true"
                 data-answer="oral"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white"
+                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white ui-draggable ui-draggable-handle"
+                style="position: relative"
                 >Antibiotic</span
               >
               <span
-                draggable="true"
                 data-answer="topical"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white"
+                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white ui-draggable ui-draggable-handle"
+                style="position: relative"
                 >Steroid Cream</span
               >
               <span
-                draggable="true"
-                data-answer=""
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white"
+                data-answer="oral"
+                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white ui-draggable ui-draggable-handle"
+                style="position: relative"
                 >Cough Medicine</span
               >
               <span
-                draggable="true"
                 data-answer="oral"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white"
+                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white ui-draggable ui-draggable-handle"
+                style="position: relative"
                 >Ritalin Pill</span
               >
               <span
-                draggable="true"
                 data-answer="topical"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white"
+                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white ui-draggable ui-draggable-handle"
+                style="position: relative"
                 >Ointment for Rash</span
               >
               <span
-                draggable="true"
                 data-answer="injectable"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white"
+                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white ui-draggable ui-draggable-handle"
+                style="position: relative"
                 >Twinject Injector</span
               >
               <span
-                draggable="true"
                 data-answer="topical"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white"
+                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white ui-draggable ui-draggable-handle"
+                style="position: relative"
                 >Desitin Diaper Cream</span
               >
               <span
-                draggable="true"
                 data-answer="oral"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white"
+                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white ui-draggable ui-draggable-handle"
+                style="position: relative"
                 >Liquid Tylenol</span
               >
               <span
-                draggable="true"
                 data-answer="topical"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white"
+                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white ui-draggable ui-draggable-handle"
+                style="position: relative"
                 >Eye Drops</span
               >
               <span
-                draggable="true"
                 data-answer="topical"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white"
+                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white ui-draggable ui-draggable-handle"
+                style="position: relative"
                 >Sunscreen</span
               >
               <span
-                draggable="true"
                 data-answer="inhalant"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white"
+                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white ui-draggable ui-draggable-handle"
+                style="position: relative"
                 >Ventolin Inhaler</span
               >
               <span
-                draggable="true"
                 data-answer="injectable"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white"
+                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white ui-draggable ui-draggable-handle"
+                style="position: relative"
                 >EpiPen</span
-              >
-              <span
-                draggable="true"
-                data-answer="oral"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white oral"
-                >Liquid</span
-              ><span
-                draggable="true"
-                data-answer="oral"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white oral"
-                >Tablets</span
-              ><span
-                draggable="true"
-                data-answer="topical"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white topical"
-                >Creams</span
-              ><span
-                draggable="true"
-                data-answer="oral"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white oral"
-                >Capsules</span
-              ><span
-                draggable="true"
-                data-answer="oral"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white oral"
-                >Pills</span
-              ><span
-                draggable="true"
-                data-answer="topical"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white topical"
-                >Ointments</span
-              ><span
-                draggable="true"
-                data-answer="topical"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white topical"
-                >Drops</span
-              ><span
-                draggable="true"
-                data-answer="inhalant"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white inhalant"
-                >Nebulizers</span
-              ><span
-                draggable="true"
-                data-answer="inhalant"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white inhalant"
-                >Sprays</span
-              ><span
-                draggable="true"
-                data-answer="injectable"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white injectable"
-                >EpiPen</span
-              ><span
-                draggable="true"
-                data-answer="injectable"
-                class="p-1 md:p-4 m-2 rounded md:text-lg bg-deep-teal text-white injectable"
-                >Twinject</span
               >
             </div>
           </div>
           <div
             id="oral"
-            class="col-span-4 md:col-span-2 lg:col-span-1 min-h-96 border-dashed border-dark-gray border-2 py-2 droppable revert-test"
+            class="col-span-4 md:col-span-2 lg:col-span-1 min-h-96 border-dashed border-dark-gray border-2 py-2 droppable revert ui-droppable"
           >
             <h3 class="text-center text-lg text-deep-teal uppercase font-bold">
               Oral
@@ -206,7 +180,7 @@
           </div>
           <div
             id="topical"
-            class="col-span-4 md:col-span-2 lg:col-span-1 min-h-96 border-dashed border-dark-gray border-2 py-2 droppable revert-test"
+            class="col-span-4 md:col-span-2 lg:col-span-1 min-h-96 border-dashed border-dark-gray border-2 py-2 droppable revert ui-droppable"
           >
             <h3 class="text-center text-lg text-deep-teal uppercase font-bold">
               Topical
@@ -215,7 +189,7 @@
           </div>
           <div
             id="inhalant"
-            class="col-span-4 md:col-span-2 lg:col-span-1 min-h-96 border-dashed border-dark-gray border-2 py-2 droppable revert-test"
+            class="col-span-4 md:col-span-2 lg:col-span-1 min-h-96 border-dashed border-dark-gray border-2 py-2 droppable revert ui-droppable"
           >
             <h3 class="text-center text-lg text-deep-teal uppercase font-bold">
               Inhalants
@@ -224,7 +198,7 @@
           </div>
           <div
             id="injectable"
-            class="col-span-4 md:col-span-2 lg:col-span-1 min-h-96 border-dashed border-dark-gray border-2 py-2 droppable revert-test"
+            class="col-span-4 md:col-span-2 lg:col-span-1 border-dashed border-dark-gray border-2 py-2 droppable revert ui-droppable"
           >
             <h3 class="text-center text-lg text-deep-teal uppercase font-bold">
               Automatic Injectable
@@ -232,6 +206,7 @@
             <div class="md:p-4 min-h-[12rem] md:min-h-[24rem]"></div>
           </div>
         </div>
+        <span id="answer_count"></span>
       </div>
     </main>
   </body>

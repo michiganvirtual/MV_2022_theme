@@ -72,97 +72,6 @@ $(document).ready(function () {
   var accordionButtons = $("ul.accordion-controls li");
   accordionButtons.attr("tabindex", "0");
 
-  /* $(".accordion-controls li > a.block").on("click", function (e) {
-    e.preventDefault();
-    var $control = $(this);
-    var accordionContent = $control.attr("aria-controls");
-    checkOthers($control[0]);
-
-    var isAriaExp = $control.attr("aria-expanded");
-    var newAriaExp = isAriaExp == "false" ? "true" : "false";
-    $control.attr("aria-expanded", newAriaExp);
-
-    var isAriaHid = $("#" + accordionContent)
-      .parent()
-      .attr("aria-hidden");
-    if (isAriaHid == "false") {
-      $("#" + accordionContent)
-        .parent()
-        .attr("aria-hidden", "true");
-      $("#" + accordionContent).toggleClass("max-h-full");
-      $control.find("img.accordion__toggle").toggleClass("rotate-180");
-      $("#" + accordionContent).css(
-        "max-height",
-        $("#" + accordionContent)[0].scrollHeight
-      );
-    } else {
-      $("#" + accordionContent)
-        .parent()
-        .attr("aria-hidden", "false");
-      $("#" + accordionContent).toggleClass("max-h-full");
-      $control.find("img.accordion__toggle").toggleClass("rotate-180");
-      $("#" + accordionContent).css("max-height", 0);
-    }
-    console.log(accordionButtons);
-  });
-
-  $(".accordion-controls li > a.block").keypress(function (e) {
-    e.preventDefault();
-    if (e.which == 13) {
-      var $control = $(this).parent();
-      var accordionContent = $control.attr("aria-controls");
-      checkOthers($control[0]);
-
-      var isAriaExp = $control.attr("aria-expanded");
-      var newAriaExp = isAriaExp == "false" ? "true" : "false";
-      $control.attr("aria-expanded", newAriaExp);
-
-      var isAriaHid = $("#" + accordionContent)
-        .parent()
-        .attr("aria-hidden");
-      if (isAriaHid == "false") {
-        $("#" + accordionContent)
-          .parent()
-          .attr("aria-hidden", "true");
-        $("#" + accordionContent).toggleClass("max-h-full");
-        $control.find("img.accordion__toggle").toggleClass("rotate-180");
-        $("#" + accordionContent).css(
-          "max-height",
-          $("#" + accordionContent)[0].scrollHeight
-        );
-      } else {
-        $("#" + accordionContent)
-          .parent()
-          .attr("aria-hidden", "false");
-        $("#" + accordionContent).toggleClass("max-h-full");
-        $control.find("img.accordion__toggle").toggleClass("rotate-180");
-        $("#" + accordionContent).css("max-height", 0);
-      }
-    }
-  });
-
-  function checkOthers(elem) {
-    for (var i = 0; i < accordionButtons.length; i++) {
-      if (accordionButtons[i] != elem) {
-        if ($(accordionButtons[i]).attr("aria-hidden") == "false") {
-          $(accordionButtons[i]).attr("aria-hidden", "true");
-          var content = $(accordionButtons[i]).attr("aria-controls");
-          $("#" + content).attr("aria-hidden", "false");
-          $("#" + content).toggleClass("h-auto");
-          $(accordionButtons[i])
-            .find("img.accordion__toggle")
-            .toggleClass("rotate-180");
-          $("#" + content).css("max-height", 0);
-          $(".video-container iframe").each(function () {
-            var el_src = $(this).attr("src");
-            $(this).attr("src", el_src);
-          });
-        }
-      }
-    }
-  }
- */
-
   $(".accordion-controls > li > a").on("click", function (e) {
     e.preventDefault();
     var $control = $(this);
@@ -275,8 +184,151 @@ $(document).ready(function () {
     }
   });
 
+  // Drag-and-drop logic
+  const draggableElements = document.querySelectorAll(".draggable > span");
+  const droppableContainers = document.querySelectorAll(".droppable");
+  let rightCount = 0;
+  let examplesRemaining = draggableElements.length;
+
+  const answerCount = document.getElementById("answer-count");
+
+  // Check if the answerCount element exists before updating its inner HTML
+  if (answerCount) {
+    answerCount.innerHTML = examplesRemaining;
+  }
+
+  let draggedElement = null; // Store the dragged element
+  let scrollInterval = null; // Interval for scrolling
+  const scrollSpeed = 5; // Adjust this value to control scroll speed
+  const scrollThreshold = 250; // Adjust this value to control when to start scrolling
+
+  // Function to scroll the page gently
+  function scrollPage(step) {
+    window.scrollBy(0, step);
+  }
+
+  // Function to detect whether the page is at the top or bottom
+  function isAtTop() {
+    return window.scrollY === 0;
+  }
+
+  function isAtBottom() {
+    return window.scrollY + window.innerHeight === document.body.scrollHeight;
+  }
+
+  draggableElements.forEach((draggable) => {
+    draggable.draggable = true;
+
+    draggable.addEventListener("dragstart", (e) => {
+      draggedElement = draggable; // Store the dragged element
+      e.dataTransfer.setData("text/plain", e.target.dataset.answer);
+
+      // Start scrolling when the element is near the top or bottom of the viewport
+      scrollInterval = setInterval(() => {
+        if (!isAtTop() && !isAtBottom()) {
+          const rect = draggable.getBoundingClientRect();
+          if (rect.top < scrollThreshold) {
+            scrollPage(-scrollSpeed);
+          } else if (rect.bottom > window.innerHeight - scrollThreshold) {
+            scrollPage(scrollSpeed);
+          }
+        }
+      }, 50); // Adjust the interval as needed
+    });
+
+    draggable.addEventListener("dragend", () => {
+      // Stop scrolling when the drag ends
+      clearInterval(scrollInterval);
+    });
+  });
+
+  droppableContainers.forEach((container) => {
+    container.addEventListener("dragover", (e) => {
+      e.preventDefault();
+    });
+
+    container.addEventListener("drop", (e) => {
+      e.preventDefault();
+
+      const answer = e.dataTransfer.getData("text/plain");
+
+      if (draggedElement && container.id === answer) {
+        // Append the dragged element to the inner <div> inside the container
+        const innerDiv = container.querySelector("div");
+        innerDiv.appendChild(draggedElement);
+
+        rightCount++;
+        draggedElement.classList.add("right-answer");
+
+        examplesRemaining--;
+        if (answerCount) {
+          answerCount.innerHTML = examplesRemaining;
+        }
+
+        draggedElement.style.position = "initial";
+        draggedElement.style.display = "inline-block";
+        draggedElement.classList.remove("bg-deep-teal");
+        draggedElement.classList.add("bg-dark-teal");
+        draggedElement.draggable = false;
+
+        if (examplesRemaining === 0) {
+          document.getElementById("check-answers").classList.remove("hidden");
+        }
+      }
+    });
+  });
+
+  // Retry function
+  /* const retryButton = document.getElementById("retry");
+  retryButton.addEventListener("click", () => {
+    rightCount = 0;
+    examplesRemaining = draggableElements.length;
+    answerCount.innerHTML = examplesRemaining;
+
+    draggableElements.forEach((draggable) => {
+      draggable.style.display = "";
+      draggable.style.position = "relative";
+      draggable.classList.remove(
+        "wrong-answer",
+        "right-answer",
+        "bg-red-500",
+        "bg-ada-green",
+        "bg-deep-teal"
+      );
+      draggable.classList.add("bg-dark-teal");
+      draggable.classList.remove("hidden");
+      draggable.draggable = true;
+    });
+
+    document.getElementById("check-answers").classList.add("hidden");
+    retryButton.classList.add("invisible");
+  }); 
+
+  // Check Answer function
+  const checkAnswersButton = document.getElementById("check-answers");
+  checkAnswersButton.addEventListener("click", () => {
+    checkAnswersButton.classList.add("hidden");
+    retryButton.classList.remove("invisible");
+
+    answerCount.innerHTML = `Correct Answers: ${rightCount}/${draggableElements.length}`;
+
+    draggableElements.forEach((draggable) => {
+      if (draggable.classList.contains("wrong-answer")) {
+        draggable.style.display = "";
+        draggable.querySelector("span").classList.add("line-through");
+        draggable.querySelector("i").classList.remove("hidden");
+        draggable.querySelector("i").classList.add("fa-times", "mr-8");
+      } else if (draggable.classList.contains("right-answer")) {
+        draggable.classList.add("bg-ada-green");
+        draggable.querySelector("i").classList.remove("hidden");
+        draggable.querySelector("i").classList.add("fa-check", "mr-8");
+      }
+    });
+  });
+  */
+
   /* Drag & Drop Activity */
-  var wrongCount = 0;
+  /* var wrongCount = 0;
   var rightCount = 0;
   var answerCount = $("#answer-count")[0];
   if ($("#total-answers").length) {
@@ -445,7 +497,7 @@ $(document).ready(function () {
     $("span.right-answer").addClass("bg-ada-green").css("display", "");
     $("span.right-answer i").addClass("fa-check mr-8").removeClass("hidden");
   });
-
+ */
   /*    Food Allergens Participation Exercise     */
   $(".food-allergens__form").on("submit", function (e) {
     e.preventDefault();
@@ -652,41 +704,4 @@ function updateEvent(count) {
     $(".response-container").append(optionBody);
   }
   return;
-}
-
-function touchHandler(event) {
-  var touch = event.changedTouches[0];
-
-  var simulatedEvent = document.createEvent("MouseEvent");
-  simulatedEvent.initMouseEvent(
-    {
-      touchstart: "mousedown",
-      touchmove: "mousemove",
-      touchend: "mouseup",
-    }[event.type],
-    true,
-    true,
-    window,
-    1,
-    touch.screenX,
-    touch.screenY,
-    touch.clientX,
-    touch.clientY,
-    false,
-    false,
-    false,
-    false,
-    0,
-    null
-  );
-
-  touch.target.dispatchEvent(simulatedEvent);
-  event.preventDefault();
-}
-
-function init() {
-  document.addEventListener("touchstart", touchHandler, true);
-  document.addEventListener("touchmove", touchHandler, true);
-  document.addEventListener("touchend", touchHandler, true);
-  document.addEventListener("touchcancel", touchHandler, true);
 }
