@@ -198,6 +198,7 @@ $(document).ready(function () {
   }
 
   let draggedElement = null; // Store the dragged element
+  let startY = 0;
   let scrollInterval = null; // Interval for scrolling
   const scrollSpeed = 5; // Adjust this value to control scroll speed
   const scrollThreshold = 250; // Adjust this value to control when to start scrolling
@@ -240,6 +241,47 @@ $(document).ready(function () {
       // Stop scrolling when the drag ends
       clearInterval(scrollInterval);
     });
+
+    // Touch event listeners for mobile devices
+    draggable.addEventListener("touchstart", (e) => {
+      // Prevent the default touch behavior
+      e.preventDefault();
+      console.log("touch start");
+      // Store the initial touch position and element position
+      const touch = e.touches[0];
+      draggedElement = draggable;
+      startY = touch.clientY;
+      draggedElement.startY =
+        parseFloat(getComputedStyle(draggedElement).top) || 0;
+    });
+
+    draggable.addEventListener("touchmove", (e) => {
+      // Prevent the default touch behavior
+      e.preventDefault();
+
+      // Calculate the vertical distance moved
+      const touch = e.touches[0];
+      const deltaY = touch.clientY - startY;
+
+      // Update the element's position
+      const newPosition = draggedElement.startY + deltaY;
+      draggedElement.style.top = newPosition + "px";
+
+      // Scroll the page if necessary
+      if (!isAtTop() && !isAtBottom()) {
+        if (deltaY < -scrollThreshold) {
+          scrollPage(-scrollSpeed);
+        } else if (deltaY > scrollThreshold) {
+          scrollPage(scrollSpeed);
+        }
+      }
+    });
+
+    draggable.addEventListener("touchend", () => {
+      // Stop scrolling when the touch ends
+      clearInterval(scrollInterval);
+      console.log("touch end");
+    });
   });
 
   droppableContainers.forEach((container) => {
@@ -275,42 +317,6 @@ $(document).ready(function () {
           document.getElementById("check-answers").classList.remove("hidden");
         }
       }
-    });
-  });
-
-  // Add touch event listeners for mobile devices
-  draggableElements.forEach((draggable) => {
-    draggable.addEventListener("touchstart", (e) => {
-      e.preventDefault(); // Prevent default touch behavior
-
-      // Store the initial touch position
-      const touch = e.touches[0];
-      draggedElement = draggable;
-
-      // Store the initial Y coordinate of the touch
-      draggedElement.startY = touch.clientY;
-    });
-
-    draggable.addEventListener("touchmove", (e) => {
-      e.preventDefault(); // Prevent default touch behavior
-
-      // Calculate the vertical distance moved
-      const touch = e.touches[0];
-      const deltaY = touch.clientY - draggedElement.startY;
-
-      // Scroll the page if necessary
-      if (!isAtTop() && !isAtBottom()) {
-        if (deltaY < -scrollThreshold) {
-          scrollPage(-scrollSpeed);
-        } else if (deltaY > scrollThreshold) {
-          scrollPage(scrollSpeed);
-        }
-      }
-    });
-
-    draggable.addEventListener("touchend", () => {
-      // Stop scrolling when the touch ends
-      clearInterval(scrollInterval);
     });
   });
 
