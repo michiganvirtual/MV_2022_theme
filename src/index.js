@@ -278,6 +278,42 @@ $(document).ready(function () {
     });
   });
 
+  // Add touch event listeners for mobile devices
+  draggableElements.forEach((draggable) => {
+    draggable.addEventListener("touchstart", (e) => {
+      e.preventDefault(); // Prevent default touch behavior
+
+      // Store the initial touch position
+      const touch = e.touches[0];
+      draggedElement = draggable;
+
+      // Store the initial Y coordinate of the touch
+      draggedElement.startY = touch.clientY;
+    });
+
+    draggable.addEventListener("touchmove", (e) => {
+      e.preventDefault(); // Prevent default touch behavior
+
+      // Calculate the vertical distance moved
+      const touch = e.touches[0];
+      const deltaY = touch.clientY - draggedElement.startY;
+
+      // Scroll the page if necessary
+      if (!isAtTop() && !isAtBottom()) {
+        if (deltaY < -scrollThreshold) {
+          scrollPage(-scrollSpeed);
+        } else if (deltaY > scrollThreshold) {
+          scrollPage(scrollSpeed);
+        }
+      }
+    });
+
+    draggable.addEventListener("touchend", () => {
+      // Stop scrolling when the touch ends
+      clearInterval(scrollInterval);
+    });
+  });
+
   // Retry function
   /* const retryButton = document.getElementById("retry");
   retryButton.addEventListener("click", () => {
