@@ -183,10 +183,17 @@ $(document).ready(function () {
       });
     }
   });
-  /* 
+
   // Drag-and-drop logic
-  const draggableElements = document.querySelectorAll(".draggable > span");
+  const draggableElements = document.querySelectorAll("span.draggable");
   const droppableContainers = document.querySelectorAll(".droppable");
+
+  /*
+  let touchedElement = null; // Store the currently touched element
+  let initialX = 0; // Store the initial X position of the touched element
+  let initialY = 0; // Store the initial Y position of the touched element
+  let offsetX = 0; // Store the offset between the touch point and the element's left edge
+  let offsetY = 0; // Store the offset between the touch point and the element's top edge
   let rightCount = 0;
   let examplesRemaining = draggableElements.length;
 
@@ -203,7 +210,14 @@ $(document).ready(function () {
 
     draggable.addEventListener("dragstart", (e) => {
       draggedElement = draggable; // Store the dragged element
-      e.dataTransfer.setData("text/plain", e.target.dataset.answer);
+      if (draggedElement.classList.contains("draggable")) {
+        initialX = e.clientX;
+        initialY = e.clientY + window.scrollY;
+        offsetX = initialX - draggedElement.getBoundingClientRect().left;
+        offsetY = initialY - draggedElement.getBoundingClientRect().top;
+        draggedElement.style.zIndex = 9999; // Bring the dragged element to the front
+        e.dataTransfer.setData("text/plain", draggedElement.dataset.answer);
+      }
     });
 
     // Touch event listeners for mobile devices
@@ -211,7 +225,15 @@ $(document).ready(function () {
       // Prevent the default touch behavior
       e.preventDefault();
 
-      // Store the dragged element
+      console.log("touch start");
+
+      const touch = e.touches[0];
+      touchedElement = e.target;
+      initialX = touch.clientX;
+      initialY = touch.clientY + window.scrollY;
+      offsetX = touch.clientX - touchedElement.getBoundingClientRect().left;
+      offsetY = touch.clientY - touchedElement.getBoundingClientRect().top;
+      touchedElement.style.zIndex = 9999; // Bring the touched element to the front
       draggedElement = draggable;
     });
 
@@ -222,11 +244,81 @@ $(document).ready(function () {
       // Update the element's position based on touch movements
       const touch = e.touches[0];
       draggedElement.style.position = "absolute";
-      draggedElement.style.left = touch.clientX + "px";
-      draggedElement.style.top = touch.clientY + "px";
+
+      // Check if we should start scrolling
+      if (!isAtTop() && !isAtBottom()) {
+        if (draggedElement) {
+          const touch = e.touches[0];
+          const draggable = draggedElement;
+
+          // Calculate the new position based on the touch coordinates and scroll position
+          const newLeft = touch.clientX + window.scrollX - offsetX + "px";
+          const newTop = touch.clientY + window.scrollY - offsetY + "px";
+
+          // Update the dragged element's position
+          draggable.style.left = newLeft;
+          draggable.style.top = newTop;
+
+          console.log(window.scrollY);
+          console.log(offsetY);
+
+          e.preventDefault(); // Prevent scrolling while dragging
+
+          return;
+        }
+
+        // Scroll the page
+        if (touch.clientY < 50) {
+          scrollPage(-5); // Adjust the scroll speed as needed
+        } else if (touch.clientY > window.innerHeight - 50) {
+          scrollPage(5); // Adjust the scroll speed as needed
+        }
+      }
+    });
+
+    draggable.addEventListener("drag", (e) => {
+      // Prevent the default drag-and-drop behavior
+      //e.preventDefault();
+
+      // Update the element's position based on mouse movements
+
+      // Adjust the element's position to match the mouse cursor
+      draggedElement.style.position = "absolute";
+
+      // Check if we should start scrolling
+      if (!isAtTop() && !isAtBottom()) {
+        if (draggedElement) {
+          const mouseX = e.clientX;
+          const mouseY = e.clientY;
+          const draggable = draggedElement;
+
+          // Calculate the new position based on the touch coordinates and scroll position
+          const newLeft = mouseX + window.scrollX - offsetX + "px";
+          const newTop = mouseY + window.scrollY - offsetY + "px";
+
+          // Update the dragged element's position
+          draggable.style.left = newLeft;
+          draggable.style.top = newTop;
+
+          //console.log(window.scrollY);
+          //console.log(offsetY);
+
+          e.preventDefault(); // Prevent scrolling while dragging
+
+          return;
+        }
+
+        // Scroll the page
+        if (touch.clientY < 50) {
+          scrollPage(-5); // Adjust the scroll speed as needed
+        } else if (touch.clientY > window.innerHeight - 50) {
+          scrollPage(5); // Adjust the scroll speed as needed
+        }
+      }
     });
 
     draggable.addEventListener("touchend", () => {
+      console.log("touch end");
       // Check if the element was released over a droppable container
       droppableContainers.forEach((container) => {
         const rect = container.getBoundingClientRect();
@@ -236,24 +328,77 @@ $(document).ready(function () {
           rect.top <= draggedElement.getBoundingClientRect().top &&
           rect.bottom >= draggedElement.getBoundingClientRect().bottom
         ) {
-          // Append the dragged element to the inner <div> inside the container
-          const innerDiv = container.querySelector("div");
-          innerDiv.appendChild(draggedElement);
+          // Check if the data-answer attribute matches the container's id
+          const dataAnswer = draggedElement.getAttribute("data-answer");
+          console.log(dataAnswer);
+          if (dataAnswer === container.id) {
+            // Append the dragged element to the inner <div> inside the container
+            console.log("right answer");
+            const innerDiv = container.querySelector("div");
+            innerDiv.appendChild(draggedElement);
 
-          rightCount++;
-          draggedElement.classList.add("right-answer");
+            rightCount++;
+            draggedElement.classList.add("right-answer");
 
-          examplesRemaining--;
-          if (answerCount) {
-            answerCount.innerHTML = examplesRemaining;
+            examplesRemaining--;
+            if (answerCount) {
+              answerCount.innerHTML = examplesRemaining;
+            }
+
+            draggedElement.style.position = "initial";
+            draggedElement.style.display = "inline-block";
+            draggedElement.draggable = false;
+
+            if (examplesRemaining === 0) {
+              document
+                .getElementById("check-answers")
+                .classList.remove("hidden");
+            }
           }
+        }
+      });
+    });
 
-          draggedElement.style.position = "initial";
-          draggedElement.style.display = "inline-block";
-          draggedElement.draggable = false;
+    draggable.addEventListener("dragend", (e) => {
+      // Check if the element was released over a droppable container
+      console.log(offsetY);
+      console.log(window.scrollY);
 
-          if (examplesRemaining === 0) {
-            document.getElementById("check-answers").classList.remove("hidden");
+      droppableContainers.forEach((container) => {
+        const rect = container.getBoundingClientRect();
+        const draggedRect = draggedElement.getBoundingClientRect();
+
+        if (
+          rect.left <= draggedRect.left &&
+          rect.right >= draggedRect.right &&
+          rect.top <= draggedRect.top &&
+          rect.bottom >= draggedRect.bottom
+        ) {
+          // Check if the data-answer attribute matches the container's id
+          const dataAnswer = draggedElement.getAttribute("data-answer");
+          console.log(dataAnswer);
+          if (dataAnswer === container.id) {
+            // Append the dragged element to the inner <div> inside the container
+            const innerDiv = container.querySelector("div");
+            innerDiv.appendChild(draggedElement);
+
+            rightCount++;
+            draggedElement.classList.add("right-answer");
+
+            examplesRemaining--;
+            if (answerCount) {
+              answerCount.innerHTML = examplesRemaining;
+            }
+
+            draggedElement.style.position = "initial";
+            draggedElement.style.display = "inline-block";
+            draggedElement.draggable = false;
+
+            if (examplesRemaining === 0) {
+              document
+                .getElementById("check-answers")
+                .classList.remove("hidden");
+            }
           }
         }
       });
@@ -273,23 +418,6 @@ $(document).ready(function () {
   function isAtBottom() {
     return window.scrollY + window.innerHeight >= document.body.scrollHeight;
   }
-
-  let touchedElement = null; // Store the currently touched element
-  let initialX = 0; // Store the initial X position of the touched element
-  let initialY = 0; // Store the initial Y position of the touched element
-  let offsetX = 0; // Store the offset between the touch point and the element's left edge
-  let offsetY = 0; // Store the offset between the touch point and the element's top edge
-
-  document.addEventListener("touchstart", (e) => {
-    const touch = e.touches[0];
-    touchedElement = e.target;
-    initialX = touch.clientX;
-    initialY = touch.clientY + window.scrollY;
-    offsetX = touch.clientX - touchedElement.getBoundingClientRect().left;
-    offsetY = touch.clientY - touchedElement.getBoundingClientRect().top;
-    touchedElement.style.zIndex = 9999; // Bring the touched element to the front
-    console.log(initialX + ", " + initialY);
-  });
 
   document.addEventListener("touchmove", (e) => {
     // Check if we should start scrolling
@@ -323,12 +451,9 @@ $(document).ready(function () {
     }
   });
 
-  document.addEventListener("touchend", (e) => {
-    touchedElement = null;
-  }); */
 
   // Retry function
-  /* const retryButton = document.getElementById("retry");
+ const retryButton = document.getElementById("retry");
   retryButton.addEventListener("click", () => {
     rightCount = 0;
     examplesRemaining = draggableElements.length;
@@ -376,7 +501,7 @@ $(document).ready(function () {
   });
   */
 
-  /* Drag & Drop Activity */
+  /*  Drag & Drop Activity  */
   var wrongCount = 0;
   var rightCount = 0;
   var answerCount = $("#answer-count")[0];
