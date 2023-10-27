@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" class="w-full">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <link rel="stylesheet" href="../../output.css" />
+    <script src="../../main.js"></script>
+
+    <link
+      rel="icon"
+      href="https://michiganvirtual.org/wp-content/uploads/2021/10/cropped-mv-favicon-32x32.png"
+      sizes="32x32"
+    />
+  </head>
+  <body class="font-body w-full overflow-x-hidden">
+    <header
+      class="flex justify-center"
+      style="
+        background-image: linear-gradient(180deg, #115e6e 0%, #093c44 100%);
+      "
+    >
+      <div class="container mx-auto px-4 lg:px-24 py-12">
+        <span>General Text Templates</span><br /><span
+          class="text-lg md:text-xl font-body font-extrabold lg:w-2/3"
+        >
+          Start Shell
+        </span>
+      </div>
+    </header>
+    <main>
+      <div class="container mx-auto px-4 lg:px-24 py-12">
+        <h1 class="text-2xl font-semibold mb-4">Reflection Form</h1>
+        <form id="reflection-form" class="space-y-4">
+          <div>
+            <label
+              for="reflection"
+              class="block text-sm font-medium text-gray-600"
+              >Reflection:</label
+            >
+            <textarea
+              id="reflection"
+              name="reflection"
+              class="w-full px-4 py-2 rounded border focus:outline-none focus:border-blue-400"
+              rows="4"
+            ></textarea>
+          </div>
+          <div>
+            <button
+              type="submit"
+              class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <script>
+      var scorm = pipwerks.SCORM;
+
+      scorm.init();
+
+      document
+        .getElementById("reflection-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const reflectionTextarea = document.getElementById("reflection");
+          if (reflectionTextarea.value.trim() === "") {
+            alert(
+              "Reflection cannot be empty. Please provide your reflection."
+            );
+            return;
+          } else {
+            scorm.set("cmi.core.score.raw", "100");
+            scorm.set("cmi.core.lesson_status", "complete");
+            alert("Reflection submitted. Thank you!");
+          }
+        });
+    </script>
+  </body>
+</html>
