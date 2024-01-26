@@ -433,7 +433,8 @@ a[target="_blank"]:after {
   /* Accordion Rules */
 
   .accordion-controls,
-  .tabs {
+  .tabs,
+  .tabs-white {
     @apply list-none ml-0;
   }
   .accordion-controls li {
@@ -447,14 +448,18 @@ a[target="_blank"]:after {
   /* Tabs Rules */
 
   .tabs,
-  .tabs li {
+  .tabs li,
+  .tabs-white,
+  .tabs-white li {
     @apply mb-0;
   }
-  .tabs li > a {
-    @apply no-underline text-inherit;
+  .tabs li > a,
+  .tabs-white li > a {
+    @apply no-underline;
   }
-  .tabs li > a.text-white {
-    color: #ffffff !important;
+  .tabs li > a.text-white,
+  .tabs-white li > a.text-white {
+    color: #ffffff;
   }
 
   /* Timeline Rules */
