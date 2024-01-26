@@ -721,7 +721,7 @@ $(document).ready(function () {
           );
         $(questions[i])
           .children(".feedback-icon")
-          .removeClass("bg-red-500")
+          .removeClass("bg-ada-orange")
           .addClass("bg-ada-green")
           .removeClass("hidden");
       } else {
@@ -734,7 +734,7 @@ $(document).ready(function () {
         $(questions[i])
           .children(".feedback-icon")
           .removeClass("bg-ada-green")
-          .addClass("bg-red-500")
+          .addClass("bg-ada-orange")
           .removeClass("hidden");
       }
     }
