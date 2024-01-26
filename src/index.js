@@ -830,7 +830,9 @@ $(document).ready(function () {
       $("#next-btn").text(nextBtnText).removeClass("hidden");
       $(".ui-selected").addClass("bg-light-teal border-light-teal");
     } else {
-      $(".ui-selected").addClass("bg-red-500 border-red-500 line-through");
+      $(".ui-selected").addClass(
+        "bg-ada-orange border-ada-orange line-through"
+      );
       $("#next-btn").text("Try Again").removeClass("hidden");
     }
     $("#respond-btn").addClass("hidden");
