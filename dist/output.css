@@ -1062,6 +1062,21 @@ li.accordion-controls > a,
   color: #ffffff;
 }
 
+.tab-active::after {
+  content: "";
+  display: block;
+  position: relative;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  /* Adjust as necessary to align with the top border of the content container */
+  height: 4px;
+  /* The height of the border of the content container */
+  width: calc(100% - 8px);
+  margin: 0 auto;
+  background: white;
+}
+
 /* Timeline Rules */
 
 ol.relative{
@@ -1472,12 +1487,12 @@ a.bg-white{
   margin-right: 1rem;
 }
 
-.mb-0{
-  margin-bottom: 0px;
-}
-
 .mr-0{
   margin-right: 0px;
+}
+
+.mb-0{
+  margin-bottom: 0px;
 }
 
 .block{

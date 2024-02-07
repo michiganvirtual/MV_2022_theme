@@ -142,6 +142,7 @@ $(document).ready(function () {
 
   /* Tabs but White */
   $(".tabs-white li a:not(:first)").addClass("inactive");
+  $(".tabs-white li:first").addClass("tab-active");
   $(".tabs-white li a:first")
     .addClass("bg-white text-dark-grey")
     .removeClass("text-white");
@@ -149,11 +150,14 @@ $(document).ready(function () {
   $(".tabs-white li a").on("click", function () {
     var t = $(this).attr("id");
     if ($(this).hasClass("inactive")) {
+      // Remove tab-active from all tabs first
+      $(".tabs-white li").removeClass("tab-active");
       //this is the start of our condition
       $(".tabs-white li a")
         .removeClass("bg-white text-dark-gray")
         .addClass("inactive");
       $(this).removeClass("inactive").addClass("bg-white text-dark-gray");
+      $(this).parent().addClass("tab-active");
 
       $(".tabs-white__content>div").addClass("hidden");
       $(".tabs-white__content>#" + t).removeClass("hidden");
