@@ -1487,6 +1487,10 @@ a.bg-white{
   margin-right: 1rem;
 }
 
+.ml-0{
+  margin-left: 0px;
+}
+
 .mr-0{
   margin-right: 0px;
 }
