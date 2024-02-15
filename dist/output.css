@@ -2184,6 +2184,10 @@ a.bg-white{
   padding-left: 1rem;
 }
 
+.pr-4{
+  padding-right: 1rem;
+}
+
 .text-left{
   text-align: left;
 }
@@ -2333,6 +2337,11 @@ a.bg-white{
 .text-green{
   --tw-text-opacity: 1;
   color: rgb(181 205 52 / var(--tw-text-opacity));
+}
+
+.text-ada-green{
+  --tw-text-opacity: 1;
+  color: rgb(106 127 23 / var(--tw-text-opacity));
 }
 
 .underline{
@@ -2638,6 +2647,10 @@ a.hover\:bg-white:hover{
 
   .md\:mt-0{
     margin-top: 0px;
+  }
+
+  .md\:mr-2{
+    margin-right: 0.5rem;
   }
 
   .md\:flex{
