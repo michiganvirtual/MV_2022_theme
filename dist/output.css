@@ -783,11 +783,9 @@ table tbody tr {
   /* Text for "next" button */
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 430px) {
   #slideshow {
-    margin: 24px auto;
-    max-width: 250px;
-    list-style-type: none;
+    max-width: 100%;
   }
 
   .slick-slide img {
@@ -806,6 +804,12 @@ table tbody tr {
 
   .slick-next {
     right: 0px;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  #slideshow {
+    max-width: 150px;
   }
 }
 
