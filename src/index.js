@@ -8,6 +8,7 @@ require("jquery-ui/ui/widgets/slider");
 require("jquery-ui/ui/widgets/selectable");
 require("./js/touch-punch");
 require("./js/slick");
+import Sortable from "sortablejs";
 
 $(document).ready(function () {
   var bsContainer = false;
@@ -132,7 +133,7 @@ $(document).ready(function () {
       '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
   });
 
-  /* Begin Sortable Activity Rules*/
+  /* Begin Sortable Activity Rules
 
   const listItems = document.querySelectorAll("#sortable-list div");
   let draggedItem = null;
@@ -212,7 +213,12 @@ $(document).ready(function () {
   //$("#sortable-list button#submit").on("click", checkOrder());
   $("#sortable-list button.submit").on("click", checkOrder);
 
-  /* End Sortable Activity Rules*/
+ End Sortable Activity Rules*/
+
+  new Sortable(document.getElementById("sortable-list"), {
+    animation: 150, // Animation speed during sorting (in ms)
+    ghostClass: "sortable-ghost", // Class name for the drop placeholder
+  });
 
   /* Tabs  */
   $(".tabs li a:not(:first)").addClass("inactive");
