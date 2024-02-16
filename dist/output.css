@@ -783,6 +783,32 @@ table tbody tr {
   /* Text for "next" button */
 }
 
+@media only screen and (max-width: 425px) {
+  #slideshow {
+    margin: 24px auto;
+    max-width: 250px;
+    list-style-type: none;
+  }
+
+  .slick-slide img {
+    height: 125px;
+  }
+
+  .slick-prev,
+  .slick-next {
+    padding: 4px;
+    font-size: 25px;
+  }
+
+  .slick-prev {
+    left: 0px;
+  }
+
+  .slick-next {
+    right: 0px;
+  }
+}
+
 /* Pausable Gif Styles */
 
 div.pausable-gif {
