@@ -181,7 +181,7 @@ $(document).ready(function () {
     });
   }
   //$("#sortable-list button#submit").on("click", checkOrder());
-  $("#sortable-list button#submit").on("click", checkOrder);
+  $("#sortable-list button.submit").on("click", checkOrder);
 
   /* End Sortable Activity Rules*/
 
