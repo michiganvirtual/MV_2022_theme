@@ -133,92 +133,15 @@ $(document).ready(function () {
       '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
   });
 
-  /* Begin Sortable Activity Rules
-
-  const listItems = document.querySelectorAll("#sortable-list div");
-  let draggedItem = null;
-
-  for (let i = 0; i < listItems.length; i++) {
-    const item = listItems[i];
-
-    item.addEventListener("dragstart", function () {
-      draggedItem = item;
-      setTimeout(() => (item.style.display = "none"), 0);
-    });
-
-    item.addEventListener("dragend", function () {
-      setTimeout(() => {
-        draggedItem.style.display = "block";
-        draggedItem = null;
-      }, 0);
-    });
-
-    item.addEventListener("dragover", function (e) {
-      e.preventDefault();
-    });
-
-    item.addEventListener("dragenter", function (e) {
-      e.preventDefault();
-      this.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
-    });
-
-    item.addEventListener("dragleave", function (e) {
-      this.style.backgroundColor = "#f0f0f0";
-    });
-
-    item.addEventListener("drop", function (e) {
-      this.style.backgroundColor = "#f0f0f0";
-      if (this !== draggedItem) {
-        let allItems = document.querySelectorAll("#sortable-list div");
-        const draggedIndex = [...allItems].indexOf(draggedItem);
-        const droppedIndex = [...allItems].indexOf(this);
-
-        if (draggedIndex < droppedIndex) {
-          this.parentNode.insertBefore(draggedItem, this.nextSibling);
-        } else {
-          this.parentNode.insertBefore(draggedItem, this);
-        }
-      }
-    });
-    // Touch Events for Drag and Drop
-    item.addEventListener(
-      "touchstart",
-      (e) => {
-        draggedItem = e.target.closest(".item"); // Ensure the target is an item
-      },
-      { passive: true }
-    );
-
-    item.addEventListener(
-      "touchmove",
-      (e) => {
-        e.preventDefault(); // Prevent scrolling and other default touch behaviors
-        const touch = e.touches[0];
-        const target = document.elementFromPoint(touch.clientX, touch.clientY);
-        if (
-          target &&
-          target !== draggedItem &&
-          target.classList.contains("item")
-        ) {
-          moveItem(target);
-        }
-      },
-      { passive: false }
-    );
-
-    item.addEventListener("touchend", () => {
-      draggedItem = null;
-    });
-  }
-  //$("#sortable-list button#submit").on("click", checkOrder());
-  $("#sortable-list button.submit").on("click", checkOrder);
-
- End Sortable Activity Rules*/
+  /* Begin Sortable Activity Rules */
 
   new Sortable(document.getElementById("sortable-list"), {
     animation: 150, // Animation speed during sorting (in ms)
     ghostClass: "sortable-ghost", // Class name for the drop placeholder
   });
+  $("#sortable-list+button.submit").on("click", checkOrder);
+
+  /* End Sortable Activity Rules */
 
   /* Tabs  */
   $(".tabs li a:not(:first)").addClass("inactive");
@@ -682,7 +605,7 @@ function updateEvent(count) {
 /* Sortable Checking Function */
 function checkOrder() {
   console.log("submitted the sortable");
-  const listItems = document.querySelectorAll("#sortable-list div");
+  const listItems = document.querySelectorAll("#sortable-list li");
   let correctOrder = true;
 
   for (let i = 0; i < listItems.length; i++) {
