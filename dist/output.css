@@ -992,8 +992,10 @@ span{
   }
 }
 
-p:last-child{
-  margin-bottom: 1rem;
+p + :not(p, ul, ol), 
+  ul + :not(p, ul, ol), 
+  ol + :not(p, ul, ol){
+  margin-top: 2rem;
 }
 
 ul{
