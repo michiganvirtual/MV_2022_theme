@@ -7,6 +7,7 @@ require("jquery-ui/ui/widgets/droppable");
 require("jquery-ui/ui/widgets/slider");
 require("jquery-ui/ui/widgets/selectable");
 require("./js/touch-punch");
+require("./js/slick");
 
 $(document).ready(function () {
   var bsContainer = false;
@@ -116,6 +117,20 @@ $(document).ready(function () {
       }
     });
   }
+
+  /* Slideshow */
+  $("#slideshow").slick({
+    accessibility: true,
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    prevArrow:
+      '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+    nextArrow:
+      '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+  });
+
   /* Tabs  */
   $(".tabs li a:not(:first)").addClass("inactive");
   $(".tabs li a:first").addClass("bg-deep-teal text-white");

@@ -1,4 +1,7 @@
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
+@import url("/css/slick.css");
+@import url("/css/slick-theme.css");
 
 @font-face {
   font-family: "FontAwesome";
@@ -292,6 +295,78 @@ table tbody tr {
 }
 .ui-slider-vertical .ui-slider-range-max {
   top: 0;
+}
+
+/* Slick Slider Default Styles*/
+
+/* Slideshow Container*/
+#slideshow {
+  margin: 24px auto;
+  max-width: 500px;
+  list-style-type: none;
+}
+
+/* Dots */
+.slick-dots li button:before {
+  font-size: 30px;
+}
+.slick-slide img {
+  height: 250px;
+  width: auto;
+  margin: 0 auto;
+}
+.slick-slide p {
+  text-align: center;
+  padding: 1rem;
+}
+.slick-prev,
+.slick-next {
+  color: #ac6610; /* Chevron color */
+  font-size: 40px; /* Chevron size */
+  line-height: 1; /* Button opacity */
+  z-index: 100; /* Ensure it's above other content */
+}
+
+.slick-prev:hover,
+.slick-next:hover,
+.slick-prev:focus,
+.slick-next:focus {
+  /* opacity: 1;  Full opacity on hover */
+  color: #414042;
+}
+
+/* You may need to adjust positioning */
+.slick-prev {
+  left: -25px;
+}
+
+.slick-next {
+  right: -25px;
+}
+
+/* If you need to ensure visibility on all backgrounds */
+.slick-prev,
+.slick-next {
+  background: rgba(255, 255, 255, 0.8); /* White background with some opacity */
+  border-radius: 50%; /* Circular background */
+  padding: 10px; /* Space around the chevron */
+}
+
+/* Ensure the buttons are accessible for screen readers */
+.slick-prev:before,
+.slick-next:before {
+  content: "Previous"; /* Text for "previous" button */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.slick-next:before {
+  content: "Next"; /* Text for "next" button */
 }
 
 /* Pausable Gif Styles */
