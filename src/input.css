@@ -369,7 +369,7 @@ table tbody tr {
   content: "Next"; /* Text for "next" button */
 }
 
-@media only screen and (max-width: 430px) {
+@media screen and (max-width: 430px) {
   #slideshow {
     max-width: 100%;
   }
@@ -390,9 +390,16 @@ table tbody tr {
     right: 0px;
   }
 }
-@media only screen and (max-width: 280px) {
+@media screen and (max-width: 280px) {
   #slideshow {
     max-width: 150px;
+  }
+  .slick-prev {
+    left: -25px;
+  }
+
+  .slick-next {
+    right: -25px;
   }
 }
 

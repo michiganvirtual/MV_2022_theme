@@ -15,6 +15,7 @@ $(document).ready(function () {
     "max-width": "1230px",
     margin: "0 auto",
     padding: "0 30px",
+    overflow: "hidden",
   };
   var bsMobileStyles = {
     padding: "0 54px",
