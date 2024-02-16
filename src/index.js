@@ -10,7 +10,7 @@ require("./js/touch-punch");
 require("./js/slick");
 
 $(document).ready(function () {
-  var bsContainer = true;
+  var bsContainer = false;
   var bsStyles = {
     "max-width": "1230px",
     margin: "0 auto",
