@@ -179,6 +179,35 @@ $(document).ready(function () {
         }
       }
     });
+    // Touch Events for Drag and Drop
+    item.addEventListener(
+      "touchstart",
+      (e) => {
+        draggedItem = e.target.closest(".item"); // Ensure the target is an item
+      },
+      { passive: true }
+    );
+
+    item.addEventListener(
+      "touchmove",
+      (e) => {
+        e.preventDefault(); // Prevent scrolling and other default touch behaviors
+        const touch = e.touches[0];
+        const target = document.elementFromPoint(touch.clientX, touch.clientY);
+        if (
+          target &&
+          target !== draggedItem &&
+          target.classList.contains("item")
+        ) {
+          moveItem(target);
+        }
+      },
+      { passive: false }
+    );
+
+    item.addEventListener("touchend", () => {
+      draggedItem = null;
+    });
   }
   //$("#sortable-list button#submit").on("click", checkOrder());
   $("#sortable-list button.submit").on("click", checkOrder);
