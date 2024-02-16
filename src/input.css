@@ -369,6 +369,7 @@ a[target="_blank"]:after {
   content: " \f08e ";
 }
 
+/* Preflight Class Assignment*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -403,6 +404,9 @@ a[target="_blank"]:after {
   ul,
   ol {
     @apply text-base md:text-lg text-dark-gray mb-2;
+  }
+  span {
+    @apply text-base md:text-lg text-dark-gray;
   }
   p:last-child {
     @apply mb-4;

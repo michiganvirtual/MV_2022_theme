@@ -454,6 +454,8 @@ a[target="_blank"]:after {
   content: " \f08e ";
 }
 
+/* Preflight Class Assignment*/
+
 /*  ! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com  */
 
 /*
@@ -971,6 +973,20 @@ p,
   p, 
   ul, 
   ol{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
+span{
+  font-size: 1rem;
+  line-height: 1.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(65 64 66 / var(--tw-text-opacity));
+}
+
+@media (min-width: 768px){
+  span{
     font-size: 1.125rem;
     line-height: 1.75rem;
   }
@@ -2182,10 +2198,6 @@ a.bg-white{
 
 .pl-4{
   padding-left: 1rem;
-}
-
-.pr-4{
-  padding-right: 1rem;
 }
 
 .text-left{
