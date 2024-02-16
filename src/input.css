@@ -411,7 +411,7 @@ a[target="_blank"]:after {
   p + :not(p, ul, ol),
   ul + :not(p, ul, ol),
   ol + :not(p, ul, ol) {
-    @apply mt-8;
+    @apply mt-6;
   }
 
   ul {

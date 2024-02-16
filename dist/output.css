@@ -995,7 +995,7 @@ span{
 p + :not(p, ul, ol), 
   ul + :not(p, ul, ol), 
   ol + :not(p, ul, ol){
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 ul{
