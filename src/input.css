@@ -302,7 +302,6 @@ table tbody tr {
 /* Slideshow Container*/
 #slideshow {
   margin: 24px auto;
-  max-width: 500px;
   list-style-type: none;
 }
 
