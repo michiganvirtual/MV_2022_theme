@@ -132,6 +132,59 @@ $(document).ready(function () {
       '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
   });
 
+  /* Begin Sortable Activity Rules*/
+
+  const listItems = document.querySelectorAll("#sortable-list div");
+  let draggedItem = null;
+
+  for (let i = 0; i < listItems.length; i++) {
+    const item = listItems[i];
+
+    item.addEventListener("dragstart", function () {
+      draggedItem = item;
+      setTimeout(() => (item.style.display = "none"), 0);
+    });
+
+    item.addEventListener("dragend", function () {
+      setTimeout(() => {
+        draggedItem.style.display = "block";
+        draggedItem = null;
+      }, 0);
+    });
+
+    item.addEventListener("dragover", function (e) {
+      e.preventDefault();
+    });
+
+    item.addEventListener("dragenter", function (e) {
+      e.preventDefault();
+      this.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
+    });
+
+    item.addEventListener("dragleave", function (e) {
+      this.style.backgroundColor = "#f0f0f0";
+    });
+
+    item.addEventListener("drop", function (e) {
+      this.style.backgroundColor = "#f0f0f0";
+      if (this !== draggedItem) {
+        let allItems = document.querySelectorAll("#sortable-list div");
+        const draggedIndex = [...allItems].indexOf(draggedItem);
+        const droppedIndex = [...allItems].indexOf(this);
+
+        if (draggedIndex < droppedIndex) {
+          this.parentNode.insertBefore(draggedItem, this.nextSibling);
+        } else {
+          this.parentNode.insertBefore(draggedItem, this);
+        }
+      }
+    });
+  }
+  //$("#sortable-list button#submit").on("click", checkOrder());
+  $("#sortable-list button#submit").on("click", checkOrder);
+
+  /* End Sortable Activity Rules*/
+
   /* Tabs  */
   $(".tabs li a:not(:first)").addClass("inactive");
   $(".tabs li a:first").addClass("bg-deep-teal text-white");
@@ -902,4 +955,28 @@ function updateEvent(count) {
     $(".response-container").append(optionBody);
   }
   return;
+}
+
+/* Sortable Checking Function */
+function checkOrder() {
+  console.log("submitted the sortable");
+  const listItems = document.querySelectorAll("#sortable-list div");
+  let correctOrder = true;
+
+  for (let i = 0; i < listItems.length; i++) {
+    const item = listItems[i];
+    const correctPosition = parseInt(item.getAttribute("data-order"), 10);
+
+    // Compare the item's current index in the parent container (+1 for 1-based indexing) with its correct position
+    if (i + 1 !== correctPosition) {
+      correctOrder = false;
+      break; // Exit the loop as soon as one item is found out of order
+    }
+  }
+
+  if (correctOrder) {
+    alert("Correct Order!");
+  } else {
+    alert("Incorrect Order, please try again.");
+  }
 }

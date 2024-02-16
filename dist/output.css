@@ -798,11 +798,11 @@ table tbody tr {
   }
 
   .slick-prev {
-    left: 0px;
+    left: -10px;
   }
 
   .slick-next {
-    right: 0px;
+    right: -10px;
   }
 }
 
@@ -819,6 +819,21 @@ table tbody tr {
     right: -25px;
   }
 }
+
+/* End Slideshow Styles */
+
+/* Begin Sortable Styles */
+
+#sortable-list div {
+  cursor: move;
+  /* or cursor: grab; */
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+}
+
+/* End Sortable Styles*/
 
 /* Pausable Gif Styles */
 
