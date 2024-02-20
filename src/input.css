@@ -567,7 +567,7 @@ a[target="_blank"]:after {
   .accordion-controls,
   .tabs,
   .tabs-white {
-    @apply list-none ml-0;
+    @apply list-none ml-0 mb-0;
   }
   .accordion-controls li {
     @apply mb-0;
