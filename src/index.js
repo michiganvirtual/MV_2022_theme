@@ -135,12 +135,6 @@ $(document).ready(function () {
 
   /* Begin Sortable Activity Rules */
 
-  new Sortable(document.getElementById("sortable-list"), {
-    animation: 150, // Animation speed during sorting (in ms)
-    ghostClass: "sortable-ghost", // Class name for the drop placeholder
-  });
-  $("#sortable-list+button.submit").on("click", checkOrder);
-
   /* End Sortable Activity Rules */
 
   /* Tabs  */
@@ -175,6 +169,7 @@ $(document).ready(function () {
     .removeClass("text-white");
   $(".tabs-white__content>div:not(:first)").addClass("hidden");
   $(".tabs-white li a").on("click", function () {
+    console.log("clicked");
     var t = $(this).attr("id");
     if ($(this).hasClass("inactive")) {
       // Remove tab-active from all tabs first
@@ -558,6 +553,12 @@ $(document).ready(function () {
     $("#respond-btn").addClass("hidden");
     $(".response-container").selectable("disable");
   });
+
+  new Sortable(document.getElementById("sortable-list"), {
+    animation: 150, // Animation speed during sorting (in ms)
+    ghostClass: "sortable-ghost", // Class name for the drop placeholder
+  });
+  $("#sortable-list+button.submit").on("click", checkOrder);
 });
 
 //Add keyboard navigation functionality

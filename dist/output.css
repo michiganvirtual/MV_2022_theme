@@ -1583,6 +1583,10 @@ li.accordion-controls > a,
   color: #ffffff;
 }
 
+.tabs-white__content {
+  margin-top: 0px !important;
+}
+
 .tab-active::after {
   content: "";
   display: block;

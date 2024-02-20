@@ -593,6 +593,9 @@ a[target="_blank"]:after {
   .tabs-white li > a.text-white {
     color: #ffffff;
   }
+  .tabs-white__content {
+    margin-top: 0px !important;
+  }
   .tab-active::after {
     content: "";
     display: block;
