@@ -1686,7 +1686,12 @@ a.bg-deep-teal,
 
 a.bg-white{
   --tw-text-opacity: 1;
-  color: rgb(65 64 66 / var(--tw-text-opacity));
+  color: rgb(172 102 16 / var(--tw-text-opacity));
+  text-decoration-line: underline;
+}
+
+a.bg-white:hover{
+  text-decoration-line: none;
 }
 
 *, ::before, ::after{
@@ -2217,6 +2222,10 @@ a.bg-white{
 
 .max-w-3xl{
   max-width: 48rem;
+}
+
+.max-w-full{
+  max-width: 100%;
 }
 
 .shrink{
@@ -2855,6 +2864,11 @@ a.bg-white{
   color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
+.text-gray-700{
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+
 .text-green{
   --tw-text-opacity: 1;
   color: rgb(181 205 52 / var(--tw-text-opacity));
@@ -3054,7 +3068,12 @@ a.bg-white{
 
 .hover\:bg-white:hovera{
   --tw-text-opacity: 1;
-  color: rgb(65 64 66 / var(--tw-text-opacity));
+  color: rgb(172 102 16 / var(--tw-text-opacity));
+  text-decoration-line: underline;
+}
+
+.hover\:bg-white:hovera:hover{
+  text-decoration-line: none;
 }
 
 .before\:content-\[\]::before{

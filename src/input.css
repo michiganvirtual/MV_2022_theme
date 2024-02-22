@@ -640,7 +640,7 @@ a[target="_blank"]:after {
     @apply text-dark-gray;
   }
   a.bg-white {
-    @apply text-dark-gray;
+    @apply text-ada-orange underline hover:no-underline;
   }
 }
 
