@@ -11,12 +11,12 @@ require("./js/slick");
 import Sortable from "sortablejs";
 
 $(document).ready(function () {
-  var bsContainer = false;
+  var bsContainer = true;
   var bsStyles = {
     "max-width": "1230px",
     margin: "0 auto",
     padding: "0 30px",
-    overflow: "hidden",
+    "overflow-x": "hidden",
   };
   var bsMobileStyles = {
     padding: "0 54px",
