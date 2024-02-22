@@ -1686,11 +1686,16 @@ a.bg-deep-teal,
 
 a.bg-white{
   --tw-text-opacity: 1;
+  color: rgb(65 64 66 / var(--tw-text-opacity));
+}
+
+.bg-white a{
+  --tw-text-opacity: 1;
   color: rgb(172 102 16 / var(--tw-text-opacity));
   text-decoration-line: underline;
 }
 
-a.bg-white:hover{
+.bg-white a:hover{
   text-decoration-line: none;
 }
 
@@ -3068,11 +3073,16 @@ a.bg-white:hover{
 
 .hover\:bg-white:hovera{
   --tw-text-opacity: 1;
+  color: rgb(65 64 66 / var(--tw-text-opacity));
+}
+
+.hover\:bg-white:hover a{
+  --tw-text-opacity: 1;
   color: rgb(172 102 16 / var(--tw-text-opacity));
   text-decoration-line: underline;
 }
 
-.hover\:bg-white:hovera:hover{
+.hover\:bg-white:hover a:hover{
   text-decoration-line: none;
 }
 
