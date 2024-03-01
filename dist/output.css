@@ -1608,6 +1608,82 @@ ol.relative{
   list-style-type: none;
 }
 
+/* HotSpot Rules */
+
+.tabs li > a.hotspot button,
+  .tabs-white li > a.hotspot button {
+  color: #ffffff;
+}
+
+.tabs li > a.hotspot button *,
+  .tabs-white li > a.hotspot button * {
+  color: #ffffff;
+}
+
+.hotspot button *{
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.tabs li > a
+  a.hotspot button,
+  .tabs-white li > a
+  a.hotspot button {
+  color: #ffffff;
+}
+
+
+  a.hotspot button{
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.hotspot button{
+  position: absolute;
+  display: flex;
+  height: 1.25rem;
+  width: 1.25rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(172 102 16 / var(--tw-bg-opacity));
+  font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.hotspot button ul li::before {
+  color: #ffffff;
+}
+
+.tabs li > a.hotspot button:hover *,
+  .tabs-white li > a.hotspot button:hover * {
+  color: #ffffff;
+}
+
+.hotspot button:hover *{
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.hotspot button:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(65 64 66 / var(--tw-bg-opacity));
+}
+
+@media (min-width: 768px){
+  .hotspot button{
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+}
+
+.hotspot button span{
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
 /* Scenario Rules */
 
 ul.response-container{
@@ -2229,10 +2305,6 @@ a.bg-white{
   max-width: 48rem;
 }
 
-.max-w-full{
-  max-width: 100%;
-}
-
 .shrink{
   flex-shrink: 1;
 }
@@ -2423,6 +2495,10 @@ a.bg-white{
 
 .rounded-full{
   border-radius: 9999px;
+}
+
+.rounded-lg{
+  border-radius: 0.5rem;
 }
 
 .rounded-md{
@@ -2867,11 +2943,6 @@ a.bg-white{
 .text-gray-600{
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
-}
-
-.text-gray-700{
-  --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 
 .text-green{

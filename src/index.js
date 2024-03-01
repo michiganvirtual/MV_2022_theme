@@ -11,7 +11,7 @@ require("./js/slick");
 import Sortable from "sortablejs";
 
 $(document).ready(function () {
-  var bsContainer = true;
+  var bsContainer = false;
   var bsStyles = {
     "max-width": "1230px",
     margin: "0 auto",
@@ -553,6 +553,16 @@ $(document).ready(function () {
     $("#respond-btn").addClass("hidden");
     $(".response-container").selectable("disable");
   });
+
+  /*  Begin Hotspot Click Actions  */
+  $(".hotspot button").click(function () {
+    var info = $(this).attr("data-info");
+    $(".hotspot + #info-box")
+      .html(info)
+      .removeClass("hidden")
+      .addClass("block");
+  });
+  /*  End Hotspot Click Actions  */
 
   new Sortable(document.getElementById("sortable-list"), {
     animation: 150, // Animation speed during sorting (in ms)
