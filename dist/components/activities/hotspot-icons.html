@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" class="w-full">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <link rel="stylesheet" href="../../output.css" />
+    <script src="../../main.js"></script>
+
+    <link
+      rel="icon"
+      href="https://michiganvirtual.org/wp-content/uploads/2021/10/cropped-mv-favicon-32x32.png"
+      sizes="32x32"
+    />
+  </head>
+  <body class="font-body w-full overflow-x-hidden">
+    <main>
+      <div class="container mx-auto px-4 lg:px-24 py-12">
+        <h1>Hotspot with Icons Activity</h1>
+        <hr class="border-t-10 border-green w-12 mb-4" />
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid hic
+          labore tempora repellat earum optio. Ullam laboriosam enim nulla
+          nobis, libero aut veniam mollitia asperiores corrupti laborum sit,
+          ipsa nesciunt?
+        </p>
+        <div class="hotspot relative">
+          <img
+            src="https://www.ebaymotorsblog.com/motors/blog/wp-content/uploads/2021/08/2001-dyna-1.jpg"
+            alt="Interactive Image"
+            class="w-full h-auto"
+          />
+          <!-- Example of a hotspot -->
+          <button
+            class=""
+            aria-label="Engine Performance Details"
+            data-info="<h3>The Engine</h3><p>Dive into the core of this masterpiece, where engineering meets artistry. Boasting a robust and meticulously designed engine, this motorcycle promises not only thrilling accelerations but also a smooth cruising experience. Whether it's a leisurely ride through the countryside or an adventurous sprint on the highway, the engine's reliable performance and distinctive rumble are sure to elevate every journey.</p>"
+            style="top: 50%; left: 53%"
+          >
+            <img
+              src="https://lsp.michiganvirtual.org/content/enforced/9569-SK-1-S/assets/img/fire-solid.svg"
+              alt=""
+            />
+          </button>
+          <button
+            class=""
+            aria-label="Custom Paint Job Details"
+            data-info="<h3>Custom Paint Job</h3><p>Catch every eye as you glide down the street, thanks to the motorcycle's stunning custom paint job. Reflecting the rider's personality and the bike's unique character, the vibrant hues and intricate designs aren't just paint; they're a statement. Crafted with precision and care, the paint job adds an extra layer of allure, making it not just a bike, but a piece of mobile art.</p>"
+            style="top: 35%; left: 60%"
+          >
+            <img
+              src="https://lsp.michiganvirtual.org/content/enforced/9569-SK-1-S/assets/img/spray-can-solid.svg"
+              alt=""
+            />
+          </button>
+          <button
+            class=""
+            aria-label="Advanced Suspension System Details"
+            data-info="<h3>Advanced Suspension System</h3><p>Experience unmatched comfort and control, even on the roughest roads, with the motorcycle's advanced suspension system. Engineered to absorb shocks and smooth out bumps, the suspension ensures a ride that's as comfortable as it is exhilarating. Whether navigating tight turns or speeding on a straight path, the bike's suspension promises a stable and responsive journey every time.</p>"
+            style="top: 55%; left: 35%"
+          >
+            <img
+              src="https://lsp.michiganvirtual.org/content/enforced/9569-SK-1-S/assets/img/up-right-and-down-left-from-center-solid.svg"
+              alt=""
+            />
+          </button>
+          <button
+            class=""
+            aria-label="Custom Exhaust System Details"
+            data-info="<h3>Custom Exhaust System</h3><p>Unleash the true sound of power with the motorcycle's custom exhaust system. Designed not just for performance but also to make an auditory statement, the exhaust system delivers a deep, resonant roar that announces your presence. Beyond its sonic appeal, the system enhances the bike's overall performance, ensuring that it sounds as good as it rides.</p>"
+            style="top: 70%; left: 35%"
+          >
+            <img
+              src="https://lsp.michiganvirtual.org/content/enforced/9569-SK-1-S/assets/img/wind-solid.svg"
+              alt=""
+            />
+          </button>
+          <button
+            class=""
+            aria-label="Ergonomic Seating Details"
+            data-info="<h3>Ergonomic Seating</h3><p>Embark on long rides without a hint of discomfort, thanks to the motorcycle's ergonomically designed seating. Tailored to support the rider's posture and reduce fatigue on extended journeys, the seat combines comfort with style. Its premium materials and thoughtful design ensure that every ride is a pleasure, from the moment you mount the bike to when you dismount.</p>"
+            style="top: 40%; left: 30%"
+          >
+            <img
+              src="https://lsp.michiganvirtual.org/content/enforced/9569-SK-1-S/assets/img/chair-solid.svg"
+              alt=""
+            />
+          </button>
+        </div>
+        <div
+          id="info-box"
+          aria-live="polite"
+          class="hidden p-4 border-deep-teal border-4 border-t-0 rounded-b-md"
+        >
+          <!-- Info will be displayed here -->
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

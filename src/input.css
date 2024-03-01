@@ -622,6 +622,9 @@ a[target="_blank"]:after {
   .hotspot button span {
     @apply text-sm;
   }
+  .hotspot button img {
+    @apply w-1/2 h-auto;
+  }
 
   /* Scenario Rules */
   ul.response-container {

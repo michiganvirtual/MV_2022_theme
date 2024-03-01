@@ -1699,6 +1699,11 @@ ol.relative{
   line-height: 1.25rem;
 }
 
+.hotspot button img{
+  height: auto;
+  width: 50%;
+}
+
 /* Scenario Rules */
 
 ul.response-container{
