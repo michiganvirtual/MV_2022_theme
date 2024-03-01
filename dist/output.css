@@ -1667,7 +1667,22 @@ ol.relative{
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.tabs li > a.hotspot button:focus *,
+  .tabs-white li > a.hotspot button:focus * {
+  color: #ffffff;
+}
+
+.hotspot button:focus *{
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .hotspot button:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(65 64 66 / var(--tw-bg-opacity));
+}
+
+.hotspot button:focus{
   --tw-bg-opacity: 1;
   background-color: rgb(65 64 66 / var(--tw-bg-opacity));
 }
@@ -2497,10 +2512,6 @@ a.bg-white{
   border-radius: 9999px;
 }
 
-.rounded-lg{
-  border-radius: 0.5rem;
-}
-
 .rounded-md{
   border-radius: 0.375rem;
 }
@@ -2579,16 +2590,16 @@ a.bg-white{
   border-top-width: 1px;
 }
 
+.border-t-0{
+  border-top-width: 0px;
+}
+
 .border-t-10{
   border-top-width: 10px;
 }
 
 .border-t-2{
   border-top-width: 2px;
-}
-
-.border-t-0{
-  border-top-width: 0px;
 }
 
 .border-dashed{

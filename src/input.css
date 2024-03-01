@@ -617,7 +617,7 @@ a[target="_blank"]:after {
   /* HotSpot Rules */
 
   .hotspot button {
-    @apply absolute bg-ada-orange hover:bg-dark-gray w-5 md:w-10 h-5 md:h-10 font-bold rounded-full flex justify-center items-center text-white;
+    @apply absolute bg-ada-orange hover:bg-dark-gray focus:bg-dark-gray w-5 md:w-10 h-5 md:h-10 font-bold rounded-full flex justify-center items-center text-white;
   }
   .hotspot button span {
     @apply text-sm;
