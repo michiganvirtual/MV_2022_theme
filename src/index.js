@@ -83,7 +83,7 @@ $(document).ready(function () {
     var isExpanded = $control.attr("aria-expanded") === "true";
 
     // Close currently open accordions
-    closeOpenAccordions($control);
+    //closeOpenAccordions($control);
 
     // Toggle aria-expanded attribute
     $control.attr("aria-expanded", !isExpanded);
