@@ -564,11 +564,11 @@ $(document).ready(function () {
   });
   /*  End Hotspot Click Actions  */
 
-  new Sortable(document.getElementById("sortable-list"), {
+  /*  new Sortable(document.getElementById("sortable-list"), {
     animation: 150, // Animation speed during sorting (in ms)
     ghostClass: "sortable-ghost", // Class name for the drop placeholder
   });
-  $("#sortable-list+button.submit").on("click", checkOrder);
+  $("#sortable-list+button.submit").on("click", checkOrder); */
 });
 
 //Add keyboard navigation functionality
