@@ -1704,6 +1704,36 @@ ol.relative{
   width: 50%;
 }
 
+#tooltip {
+  /* Adjust these styles as necessary */
+  max-width: 500px;
+  z-index: 10;
+}
+
+#tooltip .close:hover {
+  cursor: pointer;
+}
+
+#tooltip .close{
+  position: absolute;
+  top: 0.75rem;
+  right: 1.25rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+#tooltip h3 {
+  width: 80%;
+}
+
+@media (max-width: 767px) {
+  #tooltip {
+    /* Adjust these styles as necessary */
+    width: 95%;
+    max-width: 95%;
+  }
+}
+
 /* Scenario Rules */
 
 ul.response-container{
@@ -1995,6 +2025,10 @@ a.bg-white{
 
 .top-0{
   top: 0px;
+}
+
+.top-3{
+  top: 0.75rem;
 }
 
 .top-5{
@@ -2297,6 +2331,10 @@ a.bg-white{
   width: 75%;
 }
 
+.w-4{
+  width: 1rem;
+}
+
 .w-4\/5{
   width: 80%;
 }
@@ -2593,10 +2631,6 @@ a.bg-white{
 
 .border-t{
   border-top-width: 1px;
-}
-
-.border-t-0{
-  border-top-width: 0px;
 }
 
 .border-t-10{

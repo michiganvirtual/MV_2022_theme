@@ -557,10 +557,46 @@ $(document).ready(function () {
   /*  Begin Hotspot Click Actions  */
   $(".hotspot button").click(function () {
     var info = $(this).attr("data-info");
-    $(".hotspot + #info-box")
-      .html(info)
+    var tooltip = $("#tooltip");
+    var tooltipInner = $("#tooltip_inner");
+    var containerWidth = $("#hotspot img").width();
+    var closeBtn = $("#tooltip .close");
+    // Set the content of the tooltip
+    tooltipInner.html(info);
+
+    // Calculate position; adjust these values as needed
+
+    var tooltipX = 10;
+    var tooltipY = 10;
+
+    if ($(window).width() >= 768) {
+      tooltipX =
+        $(this).position().left -
+        tooltip.outerWidth() / 2 +
+        $(this).outerWidth() / 2;
+      tooltipY = $(this).position().top + $(this).outerHeight();
+    }
+
+    // Position the tooltip and show it
+    tooltip
+      .css({ top: tooltipY + "px", left: tooltipX + "px" })
       .removeClass("hidden")
       .addClass("block");
+    closeBtn.focus();
+    // Hide the tooltip when clicking anywhere else on the page
+    $(document).on("click", function (e) {
+      if (!$(e.target).closest("#tooltip, .hotspot button").length) {
+        tooltip.addClass("hidden");
+      }
+    });
+    $("span.close").on("click", function (e) {
+      $(this).parent("#tooltip").addClass("hidden");
+    });
+    $("span.close").keypress(function (event) {
+      if (event.which == 13) {
+        $(this).parent("#tooltip").addClass("hidden");
+      }
+    });
   });
   /*  End Hotspot Click Actions  */
 

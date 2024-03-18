@@ -625,6 +625,27 @@ a[target="_blank"]:after {
   .hotspot button img {
     @apply w-1/2 h-auto;
   }
+  #tooltip {
+    /* Adjust these styles as necessary */
+    max-width: 500px;
+    z-index: 10;
+  }
+  #tooltip .close:hover {
+    cursor: pointer;
+  }
+  #tooltip .close {
+    @apply text-2xl absolute top-3 right-5;
+  }
+  #tooltip h3 {
+    width: 80%;
+  }
+  @media (max-width: 767px) {
+    #tooltip {
+      /* Adjust these styles as necessary */
+      width: 95%;
+      max-width: 95%;
+    }
+  }
 
   /* Scenario Rules */
   ul.response-container {

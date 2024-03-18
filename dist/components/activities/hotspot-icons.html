@@ -88,11 +88,12 @@
           </button>
         </div>
         <div
-          id="info-box"
-          aria-live="polite"
-          class="hidden p-4 border-deep-teal border-4 border-t-0 rounded-b-md"
+          id="tooltip"
+          class="hidden absolute p-2 bg-white border border-gray-200 rounded shadow-lg"
         >
-          <!-- Info will be displayed here -->
+          <div id="tooltip_inner" aria-live="polite"></div>
+          <span class="text-2xl absolute top-3 right-5 close">X</span>
+          <!-- Tooltip content will be dynamically inserted here -->
         </div>
       </div>
     </main>
