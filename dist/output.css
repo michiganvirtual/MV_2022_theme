@@ -1963,6 +1963,10 @@ a.bg-white{
   }
 }
 
+.pointer-events-none{
+  pointer-events: none;
+}
+
 .visible{
   visibility: visible;
 }
@@ -1993,6 +1997,11 @@ a.bg-white{
 
 .sticky{
   position: sticky;
+}
+
+.inset-y-0{
+  top: 0px;
+  bottom: 0px;
 }
 
 .-left-1{
@@ -2035,6 +2044,10 @@ a.bg-white{
   top: 1.25rem;
 }
 
+.right-1{
+  right: 0.25rem;
+}
+
 .z-10{
   z-index: 10;
 }
@@ -2049,6 +2062,14 @@ a.bg-white{
 
 .col-span-4{
   grid-column: span 4 / span 4;
+}
+
+.col-start-1{
+  grid-column-start: 1;
+}
+
+.row-start-1{
+  grid-row-start: 1;
 }
 
 .float-right{
@@ -2080,6 +2101,11 @@ a.bg-white{
 .my-2{
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.my-4{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .-mt-4{
@@ -2264,6 +2290,10 @@ a.bg-white{
 
 .h-screen{
   height: 100vh;
+}
+
+.h-4{
+  height: 1rem;
 }
 
 .max-h-0{
@@ -2535,6 +2565,14 @@ a.bg-white{
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
+.self-center{
+  align-self: center;
+}
+
+.justify-self-end{
+  justify-self: end;
+}
+
 .overflow-hidden{
   overflow: hidden;
 }
@@ -2715,6 +2753,11 @@ a.bg-white{
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
 }
 
+.border-light-gray{
+  --tw-border-opacity: 1;
+  border-color: rgb(109 110 113 / var(--tw-border-opacity));
+}
+
 .bg-ada-green{
   --tw-bg-opacity: 1;
   background-color: rgb(106 127 23 / var(--tw-bg-opacity));
@@ -2775,6 +2818,10 @@ a.bg-white{
 
 .bg-center{
   background-position: center;
+}
+
+.fill-current{
+  fill: currentColor;
 }
 
 .object-cover{
@@ -3323,9 +3370,17 @@ a.bg-white{
   border-color: rgb(96 165 250 / var(--tw-border-opacity));
 }
 
+.focus\:to-blue-500:focus{
+  --tw-gradient-to: #3b82f6 var(--tw-gradient-to-position);
+}
+
 .focus\:outline-none:focus{
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.focus\:outline-blue-500:focus{
+  outline-color: #3b82f6;
 }
 
 .group:hover .group-hover\:flex{
@@ -3601,5 +3656,11 @@ a.bg-white{
 @media (min-width: 1280px){
   .xl\:flex-nowrap{
     flex-wrap: nowrap;
+  }
+}
+
+@media (forced-colors: active){
+  .forced-colors\:hidden{
+    display: none;
   }
 }
