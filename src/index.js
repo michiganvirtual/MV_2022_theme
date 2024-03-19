@@ -568,7 +568,7 @@ $(document).ready(function () {
 
     var tooltipX = 10;
     var tooltipY = 10;
-
+    console.log($(this));
     if ($(window).width() >= 768) {
       tooltipX =
         $(this).position().left -
@@ -579,13 +579,15 @@ $(document).ready(function () {
 
     // Ensure the tooltip does not overflow on the left edge
     if (tooltipX < 0) {
-      tooltipX = $(this).position().left;
+      tooltipX = $(this).parent(".hotspot").position().left;
     }
 
     // Ensure the tooltip does not overflow on the right edge
     if (tooltipX + tooltip.outerWidth() > containerWidth) {
       tooltipX =
-        $(this).position().left - tooltip.outerWidth() + $(this).outerWidth();
+        $(this).parent(".hotspot").position().left -
+        tooltip.outerWidth() +
+        $(this).parent(".hotspot").outerWidth();
     }
 
     // Position the tooltip and show it
