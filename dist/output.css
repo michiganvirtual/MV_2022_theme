@@ -1722,6 +1722,10 @@ ol.relative{
   line-height: 2rem;
 }
 
+#tooltip .close:focus {
+  outline: #020202 1px solid;
+}
+
 #tooltip h3 {
   width: 80%;
 }
