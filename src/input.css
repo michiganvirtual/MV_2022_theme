@@ -627,7 +627,7 @@ a[target="_blank"]:after {
   }
   #tooltip {
     /* Adjust these styles as necessary */
-    max-width: 500px;
+    max-width: 400px;
     z-index: 10;
   }
   #tooltip .close:hover {

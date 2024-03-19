@@ -1706,7 +1706,7 @@ ol.relative{
 
 #tooltip {
   /* Adjust these styles as necessary */
-  max-width: 500px;
+  max-width: 400px;
   z-index: 10;
 }
 
@@ -2029,10 +2029,6 @@ a.bg-white{
 
 .top-0{
   top: 0px;
-}
-
-.top-3{
-  top: 0.75rem;
 }
 
 .top-5{
