@@ -577,19 +577,6 @@ $(document).ready(function () {
       tooltipY = $(this).position().top + $(this).outerHeight();
     }
 
-    // Ensure the tooltip does not overflow on the left edge
-    if (tooltipX < 0) {
-      tooltipX = $(this).parent(".hotspot").position().left;
-    }
-
-    // Ensure the tooltip does not overflow on the right edge
-    if (tooltipX + tooltip.outerWidth() > containerWidth) {
-      tooltipX =
-        $(this).parent(".hotspot").position().left -
-        tooltip.outerWidth() +
-        $(this).parent(".hotspot").outerWidth();
-    }
-
     // Position the tooltip and show it
     tooltip
       .css({ top: tooltipY + "px", left: tooltipX + "px" })
