@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" class="w-full">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <link rel="stylesheet" href="../../output.css" />
+    <script src="../../main.js"></script>
+
+    <link
+      rel="icon"
+      href="https://michiganvirtual.org/wp-content/uploads/2021/10/cropped-mv-favicon-32x32.png"
+      sizes="32x32"
+    />
+  </head>
+  <body class="font-body w-full overflow-x-hidden">
+    <main>
+      <div class="container mx-auto px-4 lg:px-24 py-12">
+        <h1>Guidelines for Developmentally Appropriate Practice in Action</h1>
+        <hr class="border-t-10 border-green w-12 mb-4" />
+        <p>
+          Based on the DAP principles outlined in Lesson 2, the following
+          guidelines address decisions that early childhood professionals make
+          in six key and interrelated areas of practice.
+        </p>
+        <form id="guidelines">
+          <div class="mb-4">
+            <label
+              class="block text-dark-gray font-bold mb-2"
+              for="most-effective"
+            >
+              The guideline I feel most effective in is:
+            </label>
+            <div class="relative">
+              <select
+                required
+                name="most-effective"
+                id="most-effective"
+                class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+              >
+                <option>Choose a guideline</option>
+                <option>Create a Caring Community of Learners</option>
+                <option>Engage in Community Relationships</option>
+                <option>Observe and Assess Children’s Development</option>
+                <option>Teach to Enhance Development and Learning</option>
+                <option>Plan an Engaging Curriculum</option>
+                <option>Demonstrate Professionalism</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-8">
+            <label class="block text-dark-gray font-bold mb-2" for="proficient">
+              Three ways I demonstrate proficiency in this are:
+            </label>
+            <textarea
+              required
+              id="assessment"
+              rows="3"
+              name="proficient"
+              id="proficient"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-dark-gray leading-tight focus:outline-none focus:shadow-outline"
+              placeholder="Enter your feedback here"
+            ></textarea>
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-dark-gray font-bold mb-2" for="improve">
+              The guideline I’d most like to work on implementing better is:
+            </label>
+            <div class="relative">
+              <select
+                required
+                name="improve"
+                id="improve"
+                class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+              >
+                <option>Choose a guideline</option>
+                <option>Create a Caring Community of Learners</option>
+                <option>Engage in Community Relationships</option>
+                <option>Observe and Assess Children’s Development</option>
+                <option>Teach to Enhance Development and Learning</option>
+                <option>Plan an Engaging Curriculum</option>
+                <option>Demonstrate Professionalism</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-8">
+            <label
+              class="block text-dark-gray font-bold mb-2"
+              for="three-steps"
+            >
+              Three ways or steps I plan to take to implement this guideline
+              are:
+            </label>
+            <textarea
+              required
+              rows="3"
+              id="three-steps"
+              name="three-steps"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-dark-gray leading-tight focus:outline-none focus:shadow-outline"
+              placeholder="Enter your feedback here"
+            ></textarea>
+          </div>
+
+          <div class="mb-4">
+            <label
+              class="block text-dark-gray font-bold mb-2"
+              for="more-questions"
+            >
+              The guideline I have more questions about is:
+            </label>
+            <div class="relative">
+              <select
+                required
+                name="more-questions"
+                id="more-questions"
+                class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+              >
+                <option>Choose a guideline</option>
+                <option>Create a Caring Community of Learners</option>
+                <option>Engage in Community Relationships</option>
+                <option>Observe and Assess Children’s Development</option>
+                <option>Teach to Enhance Development and Learning</option>
+                <option>Plan an Engaging Curriculum</option>
+                <option>Demonstrate Professionalism</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-8">
+            <label
+              class="block text-dark-gray font-bold mb-2"
+              for="three-questions"
+            >
+              Three questions I have are:
+            </label>
+            <textarea
+              required
+              name="three-questions"
+              id="three-questions"
+              rows="3"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-dark-gray leading-tight focus:outline-none focus:shadow-outline"
+              placeholder="Enter your feedback here"
+            ></textarea>
+          </div>
+
+          <!-- Repeat the above block for 'work on implementing' and 'have more questions' sections -->
+
+          <h2 id="feedback" aria-live="polite" class="invisible">
+            Thank you for submitting your feedback!
+          </h2>
+
+          <div class="flex items-center justify-between mt-8">
+            <button
+              class="bg-ada-orange hover:bg-dark-gray text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <script>
+      document
+        .getElementById("guidelines")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          document.getElementById("feedback").classList.remove("invisible");
+        });
+    </script>
+  </body>
+</html>
