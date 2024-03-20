@@ -559,7 +559,7 @@ $(document).ready(function () {
     var info = $(this).attr("data-info");
     var tooltip = $("#tooltip");
     var tooltipInner = $("#tooltip_inner");
-    var containerWidth = $("#hotspot img").width();
+    var containerWidth = $(".hotspot").width();
     var closeBtn = $("#tooltip .close");
     // Set the content of the tooltip
     tooltipInner.html(info);
@@ -568,13 +568,20 @@ $(document).ready(function () {
 
     var tooltipX = 10;
     var tooltipY = 10;
-    console.log($(this));
     if ($(window).width() >= 768) {
       tooltipX =
         $(this).position().left -
         tooltip.outerWidth() / 2 +
         $(this).outerWidth() / 2;
       tooltipY = $(this).position().top + $(this).outerHeight();
+    }
+    console.log(containerWidth);
+    if (tooltipX < 0) {
+      tooltipX = 0;
+    }
+
+    if (tooltipX + tooltip.outerWidth() > containerWidth) {
+      tooltipX = containerWidth - tooltip.outerWidth();
     }
 
     // Position the tooltip and show it
