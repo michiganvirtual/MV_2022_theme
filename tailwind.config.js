@@ -29,6 +29,8 @@ module.exports = {
       roman: "upper-roman",
       "lower-roman": "lower-roman",
       circle: "circle",
+      uppercase: "upper-alpha",
+      lowercase: "lower-alpha",
     },
   },
   plugins: [],

@@ -561,6 +561,9 @@ a[target="_blank"]:after {
   li {
     @apply mb-2;
   }
+  ol.list-uppercase > li > ol {
+    @apply list-lowercase;
+  }
 
   /* Accordion Rules */
 

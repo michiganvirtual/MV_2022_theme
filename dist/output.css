@@ -1545,6 +1545,10 @@ li{
   margin-bottom: 0.5rem;
 }
 
+ol.list-uppercase > li > ol{
+  list-style-type: lower-alpha;
+}
+
 /* Accordion Rules */
 
 .accordion-controls,
@@ -2428,6 +2432,10 @@ a.bg-white{
 
 .list-disc{
   list-style-type: disc;
+}
+
+.list-uppercase{
+  list-style-type: upper-alpha;
 }
 
 .appearance-none{
