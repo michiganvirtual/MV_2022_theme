@@ -14,29 +14,11 @@
     />
   </head>
   <body class="font-body w-full overflow-x-hidden">
-    <header
-      class="flex justify-center"
-      style="
-        background-image: linear-gradient(180deg, #115e6e 0%, #093c44 100%);
-      "
-    >
-      <div class="container mx-auto px-4 lg:px-24 py-12">
-        <span>Activities</span><br /><span
-          class="text-lg md:text-xl font-body font-extrabold lg:w-2/3"
-        >
-          Matching Dropdown
-        </span>
-      </div>
-    </header>
     <main>
       <div class="container mx-auto px-4 lg:px-24 py-12">
-        <h1
-          class="text-2xl md:text-3xl font-bold text-deep-teal tracking-tighter md:mt-6 mb-4"
-        >
-          Matching Dropdown Activity
-        </h1>
+        <h1 class="">Matching Dropdown Activity</h1>
         <hr class="border-t-10 border-green w-12 mb-4" />
-        <p class="md:text-lg text-dark-gray mb-8">
+        <p class="">
           Now we will do a participation activity to serve as a reinforcement of
           the developmental milestones that we learned about early. Drag each of
           the average ages to the corresponding developmental milestone.
@@ -263,99 +245,88 @@
         </form>
       </div>
     </main>
-    <div
-      class="fixed top-0 left-0 right-0 flex w-full justify-center items-center bg-black/50 z-50 hidden overflow-x-hidden h-screen"
-      id="answers-table"
-    >
-      <div class="relative p-4 h-5/6 mb-8">
-        <a
-          aria-label="Close"
-          class="flex justify-center items-center absolute -top-2 -right-2 bg-dark-teal rounded-full w-12 h-12 text-xl text-white close-btn"
-          >X</a
+    <div class="hidden" id="answers-table" aria-live="polite">
+      <div class="overflow-y-scroll lg:overflow-auto p-4">
+        <table
+          class="table-fixed border-2 border-deep-teal shadow-lg mx-auto mb-24 md:mb-0"
         >
-        <div class="overflow-y-scroll lg:overflow-auto">
-          <table
-            class="table-fixed border-2 border-deep-teal shadow-lg mx-auto mb-24 md:mb-0"
-          >
-            <thead class="bg-deep-teal text-white font-bold">
-              <tr>
-                <td class="px-2 py-4">Age Range</td>
-                <td class="px-2 py-4">Developmental Milestone</td>
-              </tr>
-            </thead>
-            <tbody class="text-dark-gray bg-white">
-              <tr>
-                <td class="font-bold px-2 py-4" data-label="Age Range">
-                  6 Months
-                </td>
-                <td class="px-2 py-4" data-label="Developmental Milestone">
-                  Responds to sounds by making sounds, babbles vowels
-                </td>
-              </tr>
-              <tr>
-                <td class="font-bold px-2 py-4" data-label="Age Range">
-                  12 Months
-                </td>
-                <td class="px-2 py-4" data-label="Developmental Milestone">
-                  Pulls up to stand, gets to sitting without help, may stand
-                  alone
-                </td>
-              </tr>
-              <tr>
-                <td class="font-bold px-2 py-4" data-label="Age Range">
-                  18 Months
-                </td>
-                <td class="px-2 py-4" data-label="Developmental Milestone">
-                  Follows one step commands, points to own body parts, scribbles
-                  on his own
-                </td>
-              </tr>
-              <tr>
-                <td class="font-bold px-2 py-4" data-label="Age Range">
-                  2 Years
-                </td>
-                <td class="px-2 py-4" data-label="Developmental Milestone">
-                  Responds to sounds by making sounds, babbles vowels
-                </td>
-              </tr>
-              <tr>
-                <td class="font-bold px-2 py-4" data-label="Age Range">
-                  3 Years
-                </td>
-                <td class="px-2 py-4" data-label="Developmental Milestone">
-                  Takes turns in games, shows concern for others crying, dresses
-                  &amp; undresses
-                </td>
-              </tr>
-              <tr>
-                <td class="font-bold px-2 py-4" data-label="Age Range">
-                  4-6 Years
-                </td>
-                <td class="px-2 py-4" data-label="Developmental Milestone">
-                  Can typically hop, skip, jump, &amp; dance, copies shapes and
-                  letters
-                </td>
-              </tr>
-              <tr>
-                <td class="font-bold px-2 py-4" data-label="Age Range">
-                  7-9 Years
-                </td>
-                <td class="px-2 py-4" data-label="Developmental Milestone">
-                  Starts narrowing to a few friends, easily influenced by their
-                  peers
-                </td>
-              </tr>
-              <tr>
-                <td class="font-bold px-2 py-4" data-label="Age Range">
-                  10-12 Years
-                </td>
-                <td class="px-2 py-4" data-label="Developmental Milestone">
-                  Able to think about abstract ideas
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+          <thead class="bg-deep-teal text-white font-bold">
+            <tr>
+              <td class="px-2 py-4">Age Range</td>
+              <td class="px-2 py-4">Developmental Milestone</td>
+            </tr>
+          </thead>
+          <tbody class="text-dark-gray bg-white">
+            <tr>
+              <td class="font-bold px-2 py-4" data-label="Age Range">
+                6 Months
+              </td>
+              <td class="px-2 py-4" data-label="Developmental Milestone">
+                Responds to sounds by making sounds, babbles vowels
+              </td>
+            </tr>
+            <tr>
+              <td class="font-bold px-2 py-4" data-label="Age Range">
+                12 Months
+              </td>
+              <td class="px-2 py-4" data-label="Developmental Milestone">
+                Pulls up to stand, gets to sitting without help, may stand alone
+              </td>
+            </tr>
+            <tr>
+              <td class="font-bold px-2 py-4" data-label="Age Range">
+                18 Months
+              </td>
+              <td class="px-2 py-4" data-label="Developmental Milestone">
+                Follows one step commands, points to own body parts, scribbles
+                on his own
+              </td>
+            </tr>
+            <tr>
+              <td class="font-bold px-2 py-4" data-label="Age Range">
+                2 Years
+              </td>
+              <td class="px-2 py-4" data-label="Developmental Milestone">
+                Responds to sounds by making sounds, babbles vowels
+              </td>
+            </tr>
+            <tr>
+              <td class="font-bold px-2 py-4" data-label="Age Range">
+                3 Years
+              </td>
+              <td class="px-2 py-4" data-label="Developmental Milestone">
+                Takes turns in games, shows concern for others crying, dresses
+                &amp; undresses
+              </td>
+            </tr>
+            <tr>
+              <td class="font-bold px-2 py-4" data-label="Age Range">
+                4-6 Years
+              </td>
+              <td class="px-2 py-4" data-label="Developmental Milestone">
+                Can typically hop, skip, jump, &amp; dance, copies shapes and
+                letters
+              </td>
+            </tr>
+            <tr>
+              <td class="font-bold px-2 py-4" data-label="Age Range">
+                7-9 Years
+              </td>
+              <td class="px-2 py-4" data-label="Developmental Milestone">
+                Starts narrowing to a few friends, easily influenced by their
+                peers
+              </td>
+            </tr>
+            <tr>
+              <td class="font-bold px-2 py-4" data-label="Age Range">
+                10-12 Years
+              </td>
+              <td class="px-2 py-4" data-label="Developmental Milestone">
+                Able to think about abstract ideas
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </body>

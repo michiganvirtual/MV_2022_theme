@@ -464,14 +464,17 @@ $(document).ready(function () {
   $("#display-answers").on("click", function (e) {
     e.preventDefault();
     $("#answers-table").removeClass("hidden");
+    document.getElementById("answers-table").scrollIntoView({
+      behavior: "smooth",
+    });
     //$("body").addClass("fixed");
   });
-  $("#answers-table").on("click", function (e) {
+  /* $("#answers-table").on("click", function (e) {
     $("#answers-table").addClass("hidden");
   });
   $("#answers-table table").on("click", function (e) {
     e.stopPropagation();
-  });
+  }); */
 
   /* End Matching Dropdown Activity */
 
