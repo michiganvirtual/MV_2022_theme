@@ -546,21 +546,30 @@ a[target="_blank"]:after {
   ol {
     @apply list-decimal ml-4 mb-4;
   }
+  .accordion-content ul > li > ul,
+  ul > li > ul,
+  ul > li > ul,
   ul > li > ul {
     @apply list-square ml-4 my-4;
   }
+  .accordion-content ul > li > ul > li > ul,
   ul > li > ul > li > ul {
     @apply list-circle ml-4 my-4;
   }
+  .accordion-content ol > li > ol,
+  ol > li > ol,
+  ol > li > ol,
   ol > li > ol {
     @apply list-roman ml-4 my-4;
   }
+  .accordion-content ol > li > ol > li > ol,
   ol > li > ol > li > ol {
     @apply list-lower-roman ml-4 my-4;
   }
   li {
     @apply mb-2;
   }
+  .accordion-content ol.list-uppercase > li > ol,
   ol.list-uppercase > li > ol {
     @apply list-lowercase;
   }
