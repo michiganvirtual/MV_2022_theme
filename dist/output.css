@@ -2447,6 +2447,10 @@ a.bg-white{
   list-style-type: upper-alpha;
 }
 
+.list-lowercase{
+  list-style-type: lower-alpha;
+}
+
 .appearance-none{
   -webkit-appearance: none;
      -moz-appearance: none;
