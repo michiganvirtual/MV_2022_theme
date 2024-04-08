@@ -1513,28 +1513,36 @@ ol{
   list-style-type: decimal;
 }
 
-ul > li > ul{
+.accordion_content ul > li > ul,
+  ul > li > ul,
+  ul > li > ul,
+  ul > li > ul{
   margin-top: 1rem;
   margin-bottom: 1rem;
   margin-left: 1rem;
   list-style-type: square;
 }
 
-ul > li > ul > li > ul{
+.accordion_content ul > li > ul > li > ul,
+  ul > li > ul > li > ul{
   margin-top: 1rem;
   margin-bottom: 1rem;
   margin-left: 1rem;
   list-style-type: circle;
 }
 
-ol > li > ol{
+.accordion_content ol > li > ol,
+  ol > li > ol,
+  ol > li > ol,
+  ol > li > ol{
   margin-top: 1rem;
   margin-bottom: 1rem;
   margin-left: 1rem;
   list-style-type: upper-roman;
 }
 
-ol > li > ol > li > ol{
+.accordion_content ol > li > ol > li > ol,
+  ol > li > ol > li > ol{
   margin-top: 1rem;
   margin-bottom: 1rem;
   margin-left: 1rem;
@@ -1545,7 +1553,8 @@ li{
   margin-bottom: 0.5rem;
 }
 
-ol.list-uppercase > li > ol{
+.accordion_content ol.list-uppercase > li > ol,
+  ol.list-uppercase > li > ol{
   list-style-type: lower-alpha;
 }
 
