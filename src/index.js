@@ -408,58 +408,60 @@ $(document).ready(function () {
     var validationMessage = "";
     var feedbackIcon;
 
-    for (var i = 0; i < questions.length; i++) {
-      var answer = $(questions[i]).children("label").attr("data-answer");
-      var submittedAnswer = $(questions[i]).find("select").val();
+    if ($(this).hasClass("no-icons") == false) {
+      for (var i = 0; i < questions.length; i++) {
+        var answer = $(questions[i]).children("label").attr("data-answer");
+        var submittedAnswer = $(questions[i]).find("select").val();
 
-      //Add feedback icon container to each question row
-      feedbackIcon = document.createElement("div");
+        //Add feedback icon container to each question row
+        feedbackIcon = document.createElement("div");
 
-      //Add classes to the
-      $(feedbackIcon).addClass(
-        "feedback-icon flex shrink-0 justify-center items-center w-16 h-16 rounded-full mx-auto mb-4 md:mb-0 md:mr-8 hidden"
-      );
-      $("<img class='w-1/2 h-auto'> ").appendTo(feedbackIcon);
+        //Add classes to the
+        $(feedbackIcon).addClass(
+          "feedback-icon flex shrink-0 justify-center items-center w-16 h-16 rounded-full mx-auto mb-4 md:mb-0 md:mr-8 hidden"
+        );
+        $("<img class='w-1/2 h-auto'> ").appendTo(feedbackIcon);
 
-      if (!$(questions)[i].children[0].classList.contains("feedback-icon")) {
-        $(questions[i]).prepend(feedbackIcon);
-      }
+        if (!$(questions)[i].children[0].classList.contains("feedback-icon")) {
+          $(questions[i]).prepend(feedbackIcon);
+        }
 
-      if (answer == submittedAnswer) {
-        numCorrect++;
+        if (answer == submittedAnswer) {
+          numCorrect++;
 
-        $(questions[i])
-          .find(".feedback-icon>img")
-          .attr(
-            "src",
-            "https://mv-2022-theme.netlify.app/assets/images/icons/checkmark-icon.png"
-          );
-        $(questions[i])
-          .children(".feedback-icon")
-          .removeClass("bg-ada-orange")
-          .addClass("bg-ada-green")
-          .removeClass("hidden");
-      } else {
-        $(questions[i])
-          .find(".feedback-icon>img")
-          .attr(
-            "src",
-            "https://mv-2022-theme.netlify.app/assets/images/icons/x-icon.png"
-          );
-        $(questions[i])
-          .children(".feedback-icon")
-          .removeClass("bg-ada-green")
-          .addClass("bg-ada-orange")
-          .removeClass("hidden");
+          $(questions[i])
+            .find(".feedback-icon>img")
+            .attr(
+              "src",
+              "https://mv-2022-theme.netlify.app/assets/images/icons/checkmark-icon.png"
+            );
+          $(questions[i])
+            .children(".feedback-icon")
+            .removeClass("bg-ada-orange")
+            .addClass("bg-ada-green")
+            .removeClass("hidden");
+        } else {
+          $(questions[i])
+            .find(".feedback-icon>img")
+            .attr(
+              "src",
+              "https://mv-2022-theme.netlify.app/assets/images/icons/x-icon.png"
+            );
+          $(questions[i])
+            .children(".feedback-icon")
+            .removeClass("bg-ada-green")
+            .addClass("bg-ada-orange")
+            .removeClass("hidden");
+        }
       }
     }
-    if (numCorrect == questions.length) {
-      validationMessage = "Great Job! You answered each question correctly.";
-    } else {
-      validationMessage =
-        "It looks like you didn't get the answer to all of the questions correct. We have highlighted the missed questions in red. \n\nIf you're stuck, click the 'Display Answers' button below to review information.";
+    if ($("#display-answers").length == 0) {
+      e.preventDefault();
+      $("#answers-table").removeClass("hidden");
+      document.getElementById("answers-table").scrollIntoView({
+        behavior: "smooth",
+      });
     }
-    //alert(validationMessage);
   });
   $("#display-answers").on("click", function (e) {
     e.preventDefault();
