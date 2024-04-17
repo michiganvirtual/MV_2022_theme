@@ -399,7 +399,7 @@ $(document).ready(function () {
   });
 
   /* Matching Dropdown Activity */
-  $("#matching_dropdown").on("submit", function (e) {
+  $("#matching_dropdown, .matching_dropdown").on("submit", function (e) {
     e.preventDefault();
     var questions = $(".question_wrapper");
     var answer = "";
