@@ -697,8 +697,9 @@ table tbody tr {
 
 /* Slideshow Container*/
 
-#slideshow {
-  margin: 24px auto;
+#slideshow,
+.slideshow {
+  margin: 24px auto 40px;
   list-style-type: none;
 }
 

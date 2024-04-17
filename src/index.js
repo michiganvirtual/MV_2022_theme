@@ -121,7 +121,7 @@ $(document).ready(function () {
   }
 
   /* Slideshow */
-  $("#slideshow").slick({
+  $("#slideshow, .slideshow").slick({
     accessibility: true,
     dots: true,
     infinite: true,
