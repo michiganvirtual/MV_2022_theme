@@ -401,7 +401,7 @@ $(document).ready(function () {
   /* Matching Dropdown Activity */
   $("#matching_dropdown, .matching_dropdown").on("submit", function (e) {
     e.preventDefault();
-    var questions = $(".question_wrapper");
+    var questions = $(this).children(".question_wrapper");
     var answer = "";
     var submittedAnswer = "";
     var numCorrect = 0;
@@ -457,19 +457,18 @@ $(document).ready(function () {
     }
     if ($("#display-answers").length == 0) {
       e.preventDefault();
-      $("#answers-table").removeClass("hidden");
-      document.getElementById("answers-table").scrollIntoView({
+      $(this).next("#answers-table").removeClass("hidden");
+      $(this).next("#answers-table")[0].scrollIntoView({
         behavior: "smooth",
       });
     }
   });
   $("#display-answers").on("click", function (e) {
     e.preventDefault();
-    $("#answers-table").removeClass("hidden");
-    document.getElementById("answers-table").scrollIntoView({
+    $(this).next("#answers-table").removeClass("hidden");
+    $(this).next("#answers-table")[0].scrollIntoView({
       behavior: "smooth",
     });
-    //$("body").addClass("fixed");
   });
   /* $("#answers-table").on("click", function (e) {
     $("#answers-table").addClass("hidden");

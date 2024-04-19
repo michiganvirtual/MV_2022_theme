@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en" class="w-full">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <link rel="stylesheet" href="../../output.css" />
+    <script src="../../main.js"></script>
+
+    <link
+      rel="icon"
+      href="https://michiganvirtual.org/wp-content/uploads/2021/10/cropped-mv-favicon-32x32.png"
+      sizes="32x32"
+    />
+  </head>
+  <body class="font-body w-full overflow-x-hidden">
+    <main>
+      <div class="container mx-auto px-4 lg:px-24 py-12">
+        <h1>Lesson 3: Expense Categories</h1>
+        <hr class="border-t-10 border-green w-12 mb-4" />
+        <img
+          src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Financial%20Management%20Budgeting%20Module/25450.jpg"
+          alt="Colorful illustrated graphic of 16 people smiling."
+          class="mx-auto md:w-1/2"
+        />
+        <p class="text-sm text-center mb-8">
+          <a
+            href="https://www.freepik.com/free-vector/group-people_2900434.htm#&amp;position=2&amp;from_view=user"
+            target="_blank"
+            rel="noopener"
+            >Image</a
+          >
+          by
+          <a
+            href="https://www.freepik.com/author/rawpixel-com"
+            target="_blank"
+            rel="noopener"
+            >rawpixel.com</a
+          >
+          under
+          <a
+            href="https://www.freepikcompany.com/legal?_gl=1*1ycdh02*_ga*Njg4NDk1NjcyLjE3MTA4NTY5ODI.*_ga_QWX66025LC*MTcxMDk0MzY4My41LjEuMTcxMDk0NTMwNS42MC4wLjA.*_ga_18B6QPTJPC*MTcxMDk0MzY4My41LjEuMTcxMDk0NTMwNS42MC4wLjA.#nav-freepik-license"
+            target="_blank"
+            rel="noopener"
+            >Freepik</a
+          >
+        </p>
+        <p>
+          Let’s deepen our understanding of costs by looking at general expense
+          categories first. There is no perfect standard for how child care
+          business costs are categorized, but these general categories can give
+          us an idea of what to expect.
+        </p>
+        <p>
+          <strong
+            >Instructions: In the list below, identify how expensive program
+            costs are as a percentage of an annual budget. Using the dropdowns
+            select the most expensive, second most expensive, third most
+            expensive, and least expensive for each statement. Select the Check
+            Answers button to check your answers.</strong
+          >
+        </p>
+        <form action="" class="w-full mx-auto matching_dropdown">
+          <div
+            class="flex flex-col md:flex-row justify-between md:items-center border-y border-light-teal text-lg px-4 py-8 question_wrapper"
+          >
+            <label
+              for="question-1"
+              class="grow md:mr-4 mb-4 md:mb-0"
+              data-answer="3"
+              ><strong>Occupancy</strong> (rent/mortgage, maintenance,
+              repairs)</label
+            ><select
+              name="question-1"
+              id="question-1"
+              class="px-4 py-2 bg-deep-teal text-white rounded-md"
+            >
+              <option value="">Select How Expensive</option>
+              <option value="1">Most Expensive</option>
+              <option value="2">Second Most Expensive</option>
+              <option value="3">Third Most Expensive</option>
+              <option value="4">Least Expensive</option>
+            </select>
+          </div>
+          <div
+            class="flex flex-col md:flex-row justify-between md:items-center border-b border-light-teal text-lg px-4 py-8 question_wrapper"
+          >
+            <label
+              for="question-2"
+              class="grow md:mr-4 mb-4 md:mb-0"
+              data-answer="2"
+              ><strong>Office and Administration</strong> (accounting, legal,
+              advertising and operating consultants and fees, internet,
+              phone)</label
+            ><select
+              name="question-2"
+              id="question-2"
+              class="px-4 py-2 bg-deep-teal text-white rounded-md"
+            >
+              <option value="">Select How Expensive</option>
+              <option value="1">Most Expensive</option>
+              <option value="2">Second Most Expensive</option>
+              <option value="3">Third Most Expensive</option>
+              <option value="4">Least Expensive</option>
+            </select>
+          </div>
+          <div
+            class="flex flex-col md:flex-row justify-between md:items-center border-b border-light-teal text-lg px-4 py-8 question_wrapper"
+          >
+            <label
+              for="question-3"
+              class="grow md:mr-4 mb-4 md:mb-0"
+              data-answer="4"
+              ><strong>Supplies</strong> (food services and supplies,
+              educational supplies, health/medical supplies)</label
+            ><select
+              name="question-3"
+              id="question-3"
+              class="px-4 py-2 bg-deep-teal text-white rounded-md"
+            >
+              <option value="">Select How Expensive</option>
+              <option value="1">Most Expensive</option>
+              <option value="2">Second Most Expensive</option>
+              <option value="3">Third Most Expensive</option>
+              <option value="4">Least Expensive</option>
+            </select>
+          </div>
+          <div
+            class="flex flex-col md:flex-row justify-between md:items-center border-b border-light-teal text-lg px-4 py-8 question_wrapper"
+          >
+            <label
+              for="question-4"
+              class="grow md:mr-4 mb-4 md:mb-0"
+              data-answer="1"
+              ><strong>Staffing Costs</strong> (salary and benefits for
+              administrative, child care, and other program staff)</label
+            ><select
+              name="question-4"
+              id="question-4"
+              class="px-4 py-2 bg-deep-teal text-white rounded-md"
+            >
+              <option value="">Select How Expensive</option>
+              <option value="1">Most Expensive</option>
+              <option value="2">Second Most Expensive</option>
+              <option value="3">Third Most Expensive</option>
+              <option value="4">Least Expensive</option>
+            </select>
+          </div>
+          <br /><button
+            type="submit"
+            class="text-white bg-ada-orange hover:bg-dark-gray hover:underline font-bold md:text-xl rounded-md py-4 px-8 mb-4"
+          >
+            Check Answers
+          </button>
+        </form>
+        <div class="hidden" id="answers-table" aria-live="polite">
+          <div class="p-4">
+            <table
+              class="table-fixed border-2 border-deep-teal shadow-lg mx-auto mb-24 md:mb-0"
+            >
+              <thead class="bg-deep-teal text-white font-bold">
+                <tr>
+                  <td class="px-2 py-4">How Expensive</td>
+                  <td class="px-2 py-4">General Expense Category</td>
+                  <td class="px-2 py-4">Feedback</td>
+                </tr>
+              </thead>
+              <tbody class="text-dark-gray bg-white">
+                <tr>
+                  <td class="px-2 py-4 font-bold" data-label="How Expensive">
+                    Most Expensive
+                  </td>
+                  <td class="px-2 py-4" data-label="General Expense Category">
+                    <strong>Staffing Costs</strong> (salary and benefits for
+                    administrative, child care, and other program staff)
+                  </td>
+                  <td class="px-2 py-4" data-label="Feedback">
+                    The most expensive category of costs in child care is
+                    <strong>staffing</strong>, accounting for 60-80% of annual
+                    costs. Child care is extremely labor intensive and costs can
+                    go up depending on the educator’s qualifications and
+                    benefits like health care, retirement, etc.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-2 py-4 font-bold" data-label="How Expensive">
+                    Second Most Expensive
+                  </td>
+                  <td class="px-2 py-4" data-label="General Expense Category">
+                    <strong>Office and Administration</strong> (accounting,
+                    legal, advertising and operating consultants and fees,
+                    internet, phone)
+                  </td>
+                  <td class="px-2 py-4" data-label="Feedback">
+                    <strong>Office and Administration</strong> costs fluctuate
+                    between 5-15% and can vary depending on program type and
+                    location.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-2 py-4 font-bold" data-label="How Expensive">
+                    Third Most Expensive
+                  </td>
+                  <td class="px-2 py-4" data-label="General Expense Category">
+                    <strong>Occupancy</strong> (rent/mortgage, maintenance,
+                    repairs)
+                  </td>
+                  <td class="px-2 py-4" data-label="Feedback">
+                    <strong>Occupancy</strong> can vary greatly depending on
+                    program type and location also.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-2 py-4 font-bold" data-label="How Expensive">
+                    Least Expensive
+                  </td>
+                  <td class="px-2 py-4" data-label="General Expense Category">
+                    <strong>Supplies</strong> (food services and supplies,
+                    educational supplies, health/medical supplies)
+                  </td>
+                  <td class="px-2 py-4" data-label="Feedback">
+                    <strong>Supplies</strong> usually take the smallest portion
+                    of the budget and are largely dependent on the services
+                    offered, like meals and snacks, and dependent on enrollment
+                    and age of children served.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <p><strong>Specific Expense Categories and Cost Type</strong></p>
+        <p>
+          Now let’s get more detailed about what each general expense category
+          may include. The
+          <a
+            href="https://drive.google.com/file/d/1rkvTyP4oB71NL2xMugZDcXN5grr63Hcn/view?usp=sharing"
+            target="_blank"
+            rel="noopener"
+            >Expense Categories handout</a
+          >
+          includes this information and can be referenced as needed.
+        </p>
+        <p>
+          <strong
+            >Instructions: Select the left and right arrow to navigate through
+            the slideshow on what general expense categories may
+            include.</strong
+          >
+        </p>
+        <ul id="slideshow">
+          <li>
+            <div class="grid grid-cols-1 lg:grid-cols-1 gap-4 mb-12">
+              <div
+                class="border-4 rounded-md border-light-teal flex flex-col h-full w-full shadow-lg rounded-b-md"
+              >
+                <div
+                  class="bg-light-teal flex justify-between items-center w-full"
+                >
+                  <h2 class="mb-0 p-4">Fixed Expenses</h2>
+                </div>
+                <p class="text-lg font-normal p-4">
+                  Fringe Benefits, Occupancy, and Insurance
+                </p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img
+              src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Financial%20Management%20Budgeting%20Module/suitcase-medical-solid.png"
+              alt="medical bag with cross on the side"
+            />
+            <p class="font-bold">Fringe Benefits</p>
+            <p style="text-align: left">
+              Includes the cost of any benefits provided for program staff
+              applicable to the program including but not limited to: social
+              security insurance (FICA), unemployment insurance, retirement
+              contributions, health insurance, workers compensation, retirement
+              contributions, and reduced tuition for employee children. Even if
+              the business increases its revenue, fringe benefits won’t change.
+            </p>
+          </li>
+          <li>
+            <img
+              src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Financial%20Management%20Budgeting%20Module/house-solid.png"
+              alt="house with an open front door"
+            />
+            <p class="font-bold">Occupancy</p>
+            <p style="text-align: left">
+              Includes space rental or mortgage and utilities. Regardless of
+              enrollment or revenue, these costs remain the same.
+            </p>
+          </li>
+          <li>
+            <img
+              src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Financial%20Management%20Budgeting%20Module/house-crack-solid.png"
+              alt="house with crack on the side"
+            />
+            <p class="font-bold">Insurance</p>
+            <p style="text-align: left">
+              Includes liability and accident insurance. Premiums for
+              business-related insurances recur in regular intervals and
+              amounts.
+            </p>
+          </li>
+          <li>
+            <div class="grid grid-cols-1 lg:grid-cols-1 gap-4 mb-12">
+              <div
+                class="border-4 rounded-md border-ada-green flex flex-col h-full w-full shadow-lg rounded-b-md"
+              >
+                <div
+                  class="bg-ada-green flex justify-between items-center w-full"
+                >
+                  <h2 class="mb-0 p-4">Variable Expenses</h2>
+                </div>
+                <p class="text-lg font-normal p-4">
+                  Personnel, Travel, Printing/Reproduction, and Other Expenses
+                </p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img
+              src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Financial%20Management%20Budgeting%20Module/people-roof-solid.png"
+              alt="three people standing under the roof of a building"
+            />
+            <p class="font-bold">Personnel</p>
+            <p style="text-align: left">
+              While an owner’s salary is fixed, other personnel costs will
+              likely be variable unless it is a very small program, like a
+              family child care without additional staff or just one assistant
+              and/or all staff are on salaries that do not change based on hours
+              worked. Wages paid hourly will fluctuate depending on how much
+              time is spent on the job.
+            </p>
+          </li>
+          <li>
+            <img
+              src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Financial%20Management%20Budgeting%20Module/car-solid.png"
+              alt="front of a car"
+            />
+            <p class="font-bold">Travel</p>
+            <p style="text-align: left">
+              Includes staff travel for program related activities such as field
+              trips or professional development sponsored or required by the
+              program and school field trips. Some activities may or may not be
+              done based on overall budget and enrollment could easily impact
+              this cost.
+            </p>
+          </li>
+          <li>
+            <img
+              src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Financial%20Management%20Budgeting%20Module/print-solid.png"
+              alt="front of printer with a sheet of paper in it"
+            />
+            <p class="font-bold">Printing/Reproduction</p>
+            <p style="text-align: left">
+              Includes flyers, brochures, and reproduction of materials. The
+              needs of the business, including enrollment, will determine what
+              and how much gets printed/reproduced.
+            </p>
+          </li>
+          <li>
+            <img
+              src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Financial%20Management%20Budgeting%20Module/receipt-solid.png"
+              alt="receipt with three blank line items"
+            />
+            <p class="font-bold">Other Expenses</p>
+            <p style="text-align: left">
+              Includes any other expense, such as criminal history/child abuse
+              clearance. By nature, these costs don’t fall neatly into other
+              categories and therefore are variable.
+            </p>
+          </li>
+          <li>
+            <div class="grid grid-cols-1 lg:grid-cols-1 gap-4 mb-12">
+              <div
+                class="border-4 rounded-md border-ada-orange flex flex-col h-full w-full shadow-lg rounded-b-md"
+              >
+                <div
+                  class="bg-ada-orange flex justify-between items-center w-full"
+                >
+                  <h2 class="mb-0 p-4">Either Fixed or Variable Cost</h2>
+                </div>
+                <p class="text-lg font-normal p-4">
+                  Supplies, Equipment, Consultants, Advertising/Promotion, Staff
+                  Training, and Transportation
+                </p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <img
+              src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Financial%20Management%20Budgeting%20Module/stapler-solid.png"
+              alt="side view of a stapler"
+            />
+            <p class="font-bold">Supplies</p>
+            <p style="text-align: left">
+              Includes expenses for all supplies needed to operate, including
+              but not limited to the following categories: Educational
+              (classroom curriculum, materials for arts projects, science
+              experiments, etc.), Administrative/Office (pens and paper, filing
+              cabinets in the program director’s office), Cleaning and Health
+              (cleaning and sanitation supplies, health/medical supplies), and
+              Food (snacks, ingredients for in-house meal preparation,
+              consumable products and related serving supplies). Supply costs
+              can be fixed or variable. If enrollment changes, the amount and
+              thus the cost of food will change. Things like classroom
+              curriculum and office supplies remain consistent regardless of
+              enrollment.
+            </p>
+          </li>
+          <li>
+            <img
+              src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Financial%20Management%20Budgeting%20Module/desktop-solid.png"
+              alt="front view of a computer monitor"
+            />
+            <p class="font-bold">Equipment</p>
+            <p style="text-align: left">
+              Includes purchased or rented equipment for program operation
+              including any associated maintenance and repair costs. Equipment
+              (as opposed to supplies) are high cost items valued over $500, for
+              example computers or playgrounds. While the price for equipment
+              will remain consistent, maintenance and repair costs can vary,
+              meaning it can fall into fixed or variable costs.
+            </p>
+          </li>
+          <li>
+            <img
+              src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Financial%20Management%20Budgeting%20Module/user-tie-solid.png"
+              alt="person with tie on"
+            />
+            <p class="font-bold">Consultants</p>
+            <p style="text-align: left">
+              Includes CPA, legal, and advertising consultants. While you may
+              plan for basic accounting expenses to help with taxes, you may
+              need to hire consultants throughout the year that you never
+              anticipated for legal advice or improving enrollment.
+            </p>
+          </li>
+          <li>
+            <img
+              src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Financial%20Management%20Budgeting%20Module/bullhorn-solid.png"
+              alt="side view of a bullhorn"
+            />
+            <p class="font-bold">Advertising/Promotion</p>
+            <p style="text-align: left">
+              Includes advertising and marketing to recruit families and/or hire
+              for new positions. Some advertising costs will largely stay the
+              same. For example, website hosting and social media management, if
+              applicable, will usually be charged as recurring costs at the same
+              rates. However, a drop in enrollment might require more investment
+              in advertising costs.
+            </p>
+          </li>
+          <li>
+            <img
+              src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Financial%20Management%20Budgeting%20Module/person-chalkboard-solid.png"
+              alt="person pointing at a whiteboard"
+            />
+            <p class="font-bold">Staff Training</p>
+            <p style="text-align: left">
+              Includes the costs of instructional materials, equipment, and time
+              for formal training in addition to speaker fees. New employees
+              hired outside of timelines for routine staff training may incur
+              additional fees to be trained.
+            </p>
+          </li>
+          <li>
+            <img
+              src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Financial%20Management%20Budgeting%20Module/bus-solid.png"
+              alt="front view of school bus"
+            />
+            <p class="font-bold">Transportation</p>
+            <p style="text-align: left">
+              If applicable, includes transportation for children to or from the
+              program. If the fee for transportation is per student, the total
+              cost will fluctuate with enrollment. If there is a flat fee for a
+              bus that will hold up to all students, the total cost will not
+              change unless enrollment changes significantly.
+            </p>
+          </li>
+        </ul>
+        <p>
+          <strong
+            >Instructions: Are the following expense categories variable or
+            fixed? In the list below, identify which are variable and which are
+            fixed. Using the dropdowns select variable or fixed for each expense
+            category. Select the Check Answers button to check your
+            answers.</strong
+          >
+        </p>
+        <form action="" class="w-full mx-auto matching_dropdown">
+          <div
+            class="flex flex-col md:flex-row justify-between md:items-center border-y border-light-teal text-lg px-4 py-8 question_wrapper"
+          >
+            <label
+              for="question-1"
+              class="grow md:mr-4 mb-4 md:mb-0"
+              data-answer="2"
+              >Fringe Benefits</label
+            ><select
+              name="question-1"
+              id="question-1"
+              class="px-4 py-2 bg-deep-teal text-white rounded-md"
+            >
+              <option value="">Select Expense</option>
+              <option value="1">Variable</option>
+              <option value="2">Fixed</option>
+            </select>
+          </div>
+          <div
+            class="flex flex-col md:flex-row justify-between md:items-center border-b border-light-teal text-lg px-4 py-8 question_wrapper"
+          >
+            <label
+              for="question-2"
+              class="grow md:mr-4 mb-4 md:mb-0"
+              data-answer="1"
+              >Personnel</label
+            ><select
+              name="question-2"
+              id="question-2"
+              class="px-4 py-2 bg-deep-teal text-white rounded-md"
+            >
+              <option value="">Select Expense</option>
+              <option value="1">Variable</option>
+              <option value="2">Fixed</option>
+            </select>
+          </div>
+          <div
+            class="flex flex-col md:flex-row justify-between md:items-center border-b border-light-teal text-lg px-4 py-8 question_wrapper"
+          >
+            <label
+              for="question-3"
+              class="grow md:mr-4 mb-4 md:mb-0"
+              data-answer="1"
+              >Supplies</label
+            ><select
+              name="question-3"
+              id="question-3"
+              class="px-4 py-2 bg-deep-teal text-white rounded-md"
+            >
+              <option value="">Select Expense</option>
+              <option value="1">Variable</option>
+              <option value="2">Fixed</option>
+            </select>
+          </div>
+          <div
+            class="flex flex-col md:flex-row justify-between md:items-center border-b border-light-teal text-lg px-4 py-8 question_wrapper"
+          >
+            <label
+              for="question-4"
+              class="grow md:mr-4 mb-4 md:mb-0"
+              data-answer="1"
+              >Printing</label
+            ><select
+              name="question-4"
+              id="question-4"
+              class="px-4 py-2 bg-deep-teal text-white rounded-md"
+            >
+              <option value="">Select Expense</option>
+              <option value="1">Variable</option>
+              <option value="2">Fixed</option>
+            </select>
+          </div>
+          <div
+            class="flex flex-col md:flex-row justify-between md:items-center border-b border-light-teal text-lg px-4 py-8 question_wrapper"
+          >
+            <label
+              for="question-5"
+              class="grow md:mr-4 mb-4 md:mb-0"
+              data-answer="2"
+              >Occupancy</label
+            ><select
+              name="question-5"
+              id="question-5"
+              class="px-4 py-2 bg-deep-teal text-white rounded-md"
+            >
+              <option value="">Select Expense</option>
+              <option value="1">Variable</option>
+              <option value="2">Fixed</option>
+            </select>
+          </div>
+          <br /><button
+            type="submit"
+            class="text-white bg-ada-orange hover:bg-dark-gray hover:underline font-bold md:text-xl rounded-md py-4 px-8 mb-4"
+          >
+            Check Answers
+          </button>
+        </form>
+        <div class="hidden" id="answers-table" aria-live="polite">
+          <div class="p-4">
+            <table
+              class="table-fixed border-2 border-deep-teal shadow-lg mx-auto mb-24 md:mb-0"
+            >
+              <thead class="bg-deep-teal text-white font-bold">
+                <tr>
+                  <td class="px-2 py-4">Expense</td>
+                  <td class="px-2 py-4">Expense Category</td>
+                  <td class="px-2 py-4">Feedback</td>
+                </tr>
+              </thead>
+              <tbody class="text-dark-gray bg-white">
+                <tr>
+                  <td class="px-2 py-4 font-bold" data-label="Expense">
+                    Fixed
+                  </td>
+                  <td class="px-2 py-4" data-label="Expense Category">
+                    Fringe Benefits
+                  </td>
+                  <td class="px-2 py-4" data-label="Feedback">
+                    Remains consistent regardless of enrollment.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-2 py-4 font-bold" data-label="Expense">
+                    Variable
+                  </td>
+                  <td class="px-2 py-4" data-label="Expense Category">
+                    Personnel
+                  </td>
+                  <td class="px-2 py-4" data-label="Feedback">
+                    Variable because it usually fluctuates depending on
+                    enrollments.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-2 py-4 font-bold" data-label="Expense">
+                    Variable
+                  </td>
+                  <td class="px-2 py-4" data-label="Expense Category">
+                    Supplies
+                  </td>
+                  <td class="px-2 py-4" data-label="Feedback">
+                    Variable because it usually fluctuates depending on
+                    enrollments.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-2 py-4 font-bold" data-label="Expense">
+                    Variable
+                  </td>
+                  <td class="px-2 py-4" data-label="Expense Category">
+                    Printing
+                  </td>
+                  <td class="px-2 py-4" data-label="Feedback">
+                    Variable because it usually fluctuates depending on
+                    enrollments.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-2 py-4 font-bold" data-label="Expense">
+                    Fixed
+                  </td>
+                  <td class="px-2 py-4" data-label="Expense Category">
+                    Occupancy
+                  </td>
+                  <td class="px-2 py-4" data-label="Feedback">
+                    Remains consistent regardless of enrollment.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
