@@ -1616,6 +1616,12 @@ li.accordion-controls > a,
   background: white;
 }
 
+/* Table Rules */
+
+table{
+  width: 100%;
+}
+
 /* Timeline Rules */
 
 ol.relative{

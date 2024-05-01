@@ -622,6 +622,11 @@ a[target="_blank"]:after {
     background: white;
   }
 
+  /* Table Rules */
+  table {
+    @apply w-full;
+  }
+
   /* Timeline Rules */
   ol.relative {
     @apply list-none;
