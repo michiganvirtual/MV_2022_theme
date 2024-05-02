@@ -590,6 +590,12 @@ a[target="_blank"]:after {
     @apply no-underline;
   }
 
+  /* Reflection Rules */
+
+  textarea {
+    @apply border border-light-gray w-full p-4 rounded-md;
+  }
+
   /* Tabs Rules */
 
   .tabs,

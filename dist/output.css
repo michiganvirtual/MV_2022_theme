@@ -1578,6 +1578,17 @@ li.accordion-controls > a,
   text-decoration-line: none;
 }
 
+/* Reflection Rules */
+
+textarea{
+  width: 100%;
+  border-radius: 0.375rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(109 110 113 / var(--tw-border-opacity));
+  padding: 1rem;
+}
+
 /* Tabs Rules */
 
 .tabs,
