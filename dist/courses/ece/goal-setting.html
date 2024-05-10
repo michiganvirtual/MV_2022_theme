@@ -2,11 +2,8 @@
 <html lang="en" class="w-full overflow-x-hidden">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://mv-2022-theme.netlify.app/output.css"
-    />
-    <script src="https://mv-2022-theme.netlify.app/main.js"></script>
+    <link rel="stylesheet" href="../../output.css" />
+    <script src="../../main.js"></script>
     <link
       rel="icon"
       href="https://michiganvirtual.org/wp-content/uploads/2021/10/cropped-mv-favicon-32x32.png"
@@ -383,41 +380,80 @@
           to fully explain one of your goals on paper. Once you’ve finished,
           share and reflect below:
         </p>
-        <form
-          class="max-w-2xl mx-auto bg-white p-8 shadow-lg rounded-md"
-          id="goal-setting"
-        >
+        <form class="mb-4 goal-setting goal-setting" id="">
           <h2 class="mb-6">Goal Setting Form</h2>
+          <p>What statement is most applicable to your goal and key results?</p>
+          <div class="mb-4">
+            <label class="inline-flex items-center">
+              <input
+                type="radio"
+                required
+                name="goals-1"
+                value="option1"
+                class="form-radio text-blue-500"
+              />
+              <span class="ml-2"
+                >I have a clear goal and key results. I feel confident moving
+                forward.</span
+              >
+            </label>
+          </div>
 
-          <label for="objective" class="block mb-2"
-            >Name one of your objectives here:</label
-          >
-          <textarea
-            id="objective"
-            name="objective"
-            rows="2"
-            class="w-full p-2 border rounded mb-4"
-          ></textarea>
+          <div class="mb-4">
+            <label class="inline-flex items-center">
+              <input
+                type="radio"
+                required
+                name="goals-1"
+                value="option2"
+                class="form-radio text-blue-500"
+              />
+              <span class="ml-2"
+                >I have a goal and an idea of key results, but I feel unsure
+                that I have this right.</span
+              >
+            </label>
+          </div>
 
-          <label for="keyResult" class="block mb-2"
-            >What is one key result of this objective?</label
+          <div class="mb-4">
+            <label class="inline-flex items-center">
+              <input
+                type="radio"
+                required
+                name="goals-1"
+                value="option3"
+                class="form-radio text-blue-500"
+              />
+              <span class="ml-2"
+                >I don’t have a clear goal and/or key results. I may need more
+                support.</span
+              >
+            </label>
+          </div>
+          <button
+            type="submit"
+            class="text-white bg-ada-orange hover:bg-dark-gray hover:underline font-bold md:text-xl rounded-md py-4 px-8 mb-4"
           >
-          <textarea
-            id="keyResult"
-            name="keyResult"
-            rows="2"
-            class="w-full p-2 border rounded mb-4"
-          ></textarea>
-
-          <label class="block mb-2"
-            >What stakeholders will have to be involved to reach your key
-            result?</label
-          >
+            Submit
+          </button>
+          <h4 class="validation hidden">
+            Goal setting can be challenging! Wherever you are in the process,
+            it’s always helpful to take a break and return to your goals later
+            to gain deeper perspective and insight. Talking with a colleague or
+            mentor can shed additional light on what you are trying to achieve
+            and how you can do it
+          </h4>
+        </form>
+        <form class="mb-4 goal-setting">
+          <p>
+            What stakeholders will have to be involved to reach your key result?
+            Check all the apply:
+          </p>
           <div class="flex flex-col mb-4">
             <label
               ><input
                 type="checkbox"
-                name="stakeholders"
+                name="goals-2"
                 value="administrativeStaff"
                 class="mr-2"
               />Administrative staff</label
@@ -425,7 +461,7 @@
             <label
               ><input
                 type="checkbox"
-                name="stakeholders"
+                name="goals-2"
                 value="teachers"
                 class="mr-2"
               />Teachers</label
@@ -433,7 +469,7 @@
             <label
               ><input
                 type="checkbox"
-                name="stakeholders"
+                name="goals-2"
                 value="children"
                 class="mr-2"
               />Children</label
@@ -441,7 +477,7 @@
             <label
               ><input
                 type="checkbox"
-                name="stakeholders"
+                name="goals-2"
                 value="families"
                 class="mr-2"
               />Families</label
@@ -449,7 +485,7 @@
             <label
               ><input
                 type="checkbox"
-                name="stakeholders"
+                name="goals-2"
                 value="communityMembers"
                 class="mr-2"
               />Community members</label
@@ -457,7 +493,7 @@
             <label
               ><input
                 type="checkbox"
-                name="stakeholders"
+                name="goals-2"
                 value="other"
                 class="mr-2"
               />Other</label
@@ -465,52 +501,176 @@
             <label
               ><input
                 type="checkbox"
-                name="stakeholders"
+                name="goals-2"
                 value="none"
                 class="mr-2"
               />None of the above — I can accomplish these key results
               myself.</label
             >
           </div>
-
-          <label for="other" class="block mb-2"
-            >If you selected "Other", please explain why you chose this
-            option:</label
-          >
-          <textarea
-            id="other"
-            name="other"
-            rows="2"
-            class="w-full p-2 border rounded mb-4"
-          ></textarea>
-          <label for="obstacles" class="block mb-2"
-            >What factors are most likely to stand in your way of achieving your
-            goal?</label
-          >
-          <textarea
-            id="obstacles"
-            name="obstacles"
-            rows="2"
-            class="w-full p-2 border rounded mb-4"
-          ></textarea>
-
-          <label for="accountability" class="block mb-2"
-            >How will you hold yourself accountable to this goal?</label
-          >
-          <textarea
-            id="accountability"
-            name="accountability"
-            rows="3"
-            class="w-full p-2 border rounded mb-6"
-          ></textarea>
-
           <button
             type="submit"
             class="text-white bg-ada-orange hover:bg-dark-gray hover:underline font-bold md:text-xl rounded-md py-4 px-8 mb-4"
           >
             Submit
           </button>
-          <h4 id="goal-validation"></h4>
+          <h4 class="validation hidden">
+            Great job thinking through who needs to be involved now to help you
+            plan for success.
+          </h4>
+        </form>
+        <form class="mb-4 goal-setting">
+          <p>
+            What factors are most likely to stand in your way of achieving your
+            goal? Check all that apply.
+          </p>
+          <div class="flex flex-col mb-4">
+            <label
+              ><input
+                type="checkbox"
+                name="goals-3"
+                value="administrativeStaff"
+                class="mr-2"
+              />Time — Do I have enough of it?</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="goals-3"
+                value="teachers"
+                class="mr-2"
+              />Resources — Where do I get what I need to accomplish this
+              goal?</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="goals-3"
+                value="children"
+                class="mr-2"
+              />Skills — I may need to build skills to make my goal
+              happen.</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="goals-3"
+                value="families"
+                class="mr-2"
+              />Lack of a clear plan — I know what I want to achieve, I’m just
+              not sure how to get there.
+            </label>
+            <label
+              ><input
+                type="checkbox"
+                name="goals-3"
+                value="communityMembers"
+                class="mr-2"
+              />Motivation — My goal doesn’t feel inspiring to me. I may need to
+              rewrite it.
+            </label>
+            <label
+              ><input
+                type="checkbox"
+                name="goals-3"
+                value="other"
+                class="mr-2"
+              />Other</label
+            >
+          </div>
+          <button
+            type="submit"
+            class="text-white bg-ada-orange hover:bg-dark-gray hover:underline font-bold md:text-xl rounded-md py-4 px-8 mb-4"
+          >
+            Submit
+          </button>
+          <h4 class="validation hidden">
+            Knowing what's holding you back is an important step in your
+            planning process. If you can anticipate hurdles, you can prepare for
+            them by troubleshooting sooner rather than later.
+          </h4>
+        </form>
+        <form class="mb-4 goal-setting">
+          <p>
+            Accountability is an important part of succeeding at achieving your
+            goals. What will you do in order to hold yourself accountable? Check
+            all that apply.
+          </p>
+          <div class="flex flex-col mb-4">
+            <label
+              ><input
+                type="checkbox"
+                name="goals-4"
+                value="administrativeStaff"
+                class="mr-2"
+              />Share with a colleague or mentor.</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="goals-4"
+                value="teachers"
+                class="mr-2"
+              />Share with a friend, family member, or someone else in my social
+              network.</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="goals-4"
+                value="children"
+                class="mr-2"
+              />Share with staff and/or the families of children at my
+              center.</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="goals-4"
+                value="families"
+                class="mr-2"
+              />Check my progress at routine intervals (for example, the last
+              Friday of every month)</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="goals-4"
+                value="communityMembers"
+                class="mr-2"
+              />Create weekly benchmarks to ensure I am making progress towards
+              my goal</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="goals-4"
+                value="communityMembers"
+                class="mr-2"
+              />Post my goal in a highly-visible location where I can see it
+              frequently</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="goals-4"
+                value="other"
+                class="mr-2"
+              />Other</label
+            >
+          </div>
+          <button
+            type="submit"
+            class="text-white bg-ada-orange hover:bg-dark-gray hover:underline font-bold md:text-xl rounded-md py-4 px-8 mb-4"
+          >
+            Submit
+          </button>
+          <h4 class="validation hidden">
+            Sharing your goal with others brings your goals to light, making
+            them more visible and creating a natural network of accountability.
+            Be sure to think through the best person to share your goal with,
+            how you’ll share it and when.
+          </h4>
         </form>
       </div>
     </main>
@@ -539,42 +699,28 @@
               reflectionTextarea.value = "";
             }
           });
-        document
-          .getElementById("goal-setting")
-          .addEventListener("submit", function (e) {
+        document.querySelectorAll(".goal-setting").forEach(function (form) {
+          form.addEventListener("submit", function (e) {
             e.preventDefault();
 
-            // Getting the values from the form
-            var objective = document.getElementById("objective").value.trim();
-            var keyResult = document.getElementById("keyResult").value.trim();
-            var stakeholders = document.querySelectorAll(
-              'input[name="stakeholders"]:checked'
-            ).length;
-            var otherStakeholders = document
-              .querySelector('input[name="stakeholders"]')
-              .value.trim();
-            var obstacles = document.getElementById("obstacles").value.trim();
-            var accountability = document
-              .getElementById("accountability")
-              .value.trim();
+            // Finding all checkboxes within this form
+            const checkboxes = this.querySelectorAll("input[type='checkbox']");
 
-            // Check if any required fields are empty
-            if (
-              !objective ||
-              !keyResult ||
-              stakeholders === 0 ||
-              (!otherStakeholders && stakeholders === 1) ||
-              !obstacles ||
-              !accountability
-            ) {
-              alert("Please complete all fields before submitting.");
+            // Check if at least one checkbox is checked
+            const isAnyCheckboxChecked = Array.from(checkboxes).some(
+              (checkbox) => checkbox.checked
+            );
+
+            if (!isAnyCheckboxChecked) {
+              alert("Please select at least one checkbox before submitting.");
               return;
             }
 
             // If all fields are valid, proceed with this code
-            document.getElementById("goal-validation").innerHTML =
-              "You’ve taken a great first step toward creating meaningful goals. Before we move forward, be sure to ask yourself if this goal aligns with your mission. If not, revise as much as you need. Once you’ve settled on a goal, we’ll move on and unpack it further.";
+            let validation = this.querySelector("h4.validation");
+            validation.classList.remove("hidden");
           });
+        });
       </script>
     </p>
   </body>

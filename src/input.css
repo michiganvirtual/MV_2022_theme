@@ -532,7 +532,8 @@ a[target="_blank"]:after {
   ol {
     @apply text-base md:text-lg text-dark-gray mb-2;
   }
-  span {
+  span,
+  label {
     @apply text-base md:text-lg text-dark-gray;
   }
   p + :not(p, ul, ol),

@@ -479,6 +479,21 @@ $(document).ready(function () {
 
   /* End Matching Dropdown Activity */
 
+  /* Begin Multiple Choice */
+
+  $(".quiz-form").submit(function (event) {
+    event.preventDefault();
+    const formId = $(this).data("form-id");
+    const selectedValue = $(this).find('input[type="radio"]:checked').val();
+
+    if (selectedValue !== undefined) {
+      alert("Form " + formId + " selected: " + selectedValue);
+    } else {
+      alert("Form " + formId + ": Please select an option!");
+    }
+  });
+  /* End Multiple Choice */
+
   /*  Begin Food Allergens Participation Exercise     */
   $("#pros-cons").on("submit", function (e) {
     e.preventDefault();
