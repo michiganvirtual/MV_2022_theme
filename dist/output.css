@@ -1997,6 +1997,15 @@ body.rtl-language{
   ul.accordion-controls{
     margin-right: 0px;
   }
+  ul.tabs-white{
+    margin-bottom: 0px;
+  }
+  ul.tabs-white{
+    margin-right: 0px;
+  }
+  ul.tabs-white{
+    list-style-type: none;
+  }
 }
 
 *, ::before, ::after{

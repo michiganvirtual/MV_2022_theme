@@ -790,6 +790,9 @@ a[target="_blank"]:after {
     ul.accordion-controls {
       @apply mr-0;
     }
+    ul.tabs-white {
+      @apply mb-0 mr-0 list-none;
+    }
   }
 }
 
