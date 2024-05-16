@@ -793,6 +793,9 @@ a[target="_blank"]:after {
     ul.tabs-white {
       @apply mb-0 mr-0 list-none;
     }
+    #tooltip .close {
+      @apply left-5 right-auto;
+    }
   }
 }
 
