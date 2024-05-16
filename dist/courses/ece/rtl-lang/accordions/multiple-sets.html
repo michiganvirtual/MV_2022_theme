@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" class="w-full overflow-x-hidden">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <link
+      rel="icon"
+      href="https://michiganvirtual.org/wp-content/uploads/2021/10/cropped-mv-favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link rel="stylesheet" href="../../../../output.css" />
+    <script src="../../../../main.js"></script>
+  </head>
+  <body class="font-body w-full overflow-x-hidden rtl-language">
+    <main>
+      <!-- Please don't alter anything above this line  -->
+      <div class="container mx-auto px-4 lg:px-24 py-12">
+        <h1>Multiple Accordion Sets</h1>
+        <hr class="border-4 border-green w-12 mb-4" />
+        <p>
+          This page shows an example of multiple accordion sets used on a single
+          page. Each set is built as a separate unordered list &lt;ul&gt; in the
+          code. Each individual accordion still needs its own unique identifiers
+          in order to function properly.
+        </p>
+        <p class="mb-8">
+          <strong
+            >Learn
+            <a
+              href="https://drive.google.com/file/d/1ngjLbHtVpbx5YT05l9v6X4DtZP1-0vS6/view?usp=drive_link"
+              target="_blank"
+              rel="noopener"
+              >how to add accordions to a set</a
+            >
+            in this video tutorial.</strong
+          >
+        </p>
+        <h2>First Accordion Set</h2>
+        <!-- BEGINNING of Acordion Set 1 -->
+        <ul
+          class="shadow-box mb-8 accordion-controls"
+          aria-label="Accordion Control Group Buttons"
+        >
+          <!-- ACCORDION 1 -->
+          <li
+            class="accordion-controls relative bg-deep-teal w-full text-left font-bold text-xl border-b border-gray-200 rounded-t-md"
+          >
+            <a
+              class="block flex items-center justify-between w-full h-full p-4"
+              aria-controls="content-1"
+              aria-expanded="false"
+              id="accordion-control-1"
+            >
+              <span class="w-3/4">Accordion 1</span>
+              <img
+                src="https://mv-2022-theme.netlify.app/assets/images/icons/expand-arrow-white.svg"
+                class="accordion__toggle transition-all ease-in-out duration-500"
+                alt=""
+                width="30px"
+                srcset=""
+              />
+            </a>
+            <div
+              class="accordion__content bg-white font-normal max-h-0 transition-all duration-300 ease-in-out overflow-hidden"
+              aria-hidden="true"
+              id="content-1"
+            >
+              <div class="px-8 py-4 border-4 border-deep-teal">
+                <p class="font-normal">Insert accordion content here.</p>
+              </div>
+            </div>
+          </li>
+          <!-- ACCORDION 2 -->
+          <li
+            class="accordion-controls relative bg-deep-teal w-full text-left font-bold text-xl border-b border-gray-200"
+          >
+            <a
+              class="block flex items-center justify-between w-full h-full p-4"
+              aria-controls="content-2"
+              aria-expanded="false"
+              id="accordion-control-2"
+            >
+              <span class="w-3/4">Accordion 2</span>
+              <img
+                src="https://mv-2022-theme.netlify.app/assets/images/icons/expand-arrow-white.svg"
+                class="accordion__toggle transition-all ease-in-out duration-500"
+                alt=""
+                width="30px"
+              />
+            </a>
+            <div
+              class="accordion__content bg-white font-normal max-h-0 transition-all duration-300 ease-in-out overflow-hidden"
+              aria-hidden="true"
+              id="content-2"
+            >
+              <div class="px-8 py-4 border-4 border-deep-teal">
+                <p class="font-normal mb-2">Insert accordion content here.</p>
+              </div>
+            </div>
+          </li>
+          <!-- ACCORDION 3 -->
+          <li
+            class="accordion-controls relative bg-deep-teal w-full text-left font-bold text-xl border-b border-gray-200 rounded-b-md"
+          >
+            <a
+              class="block flex items-center justify-between w-full h-full p-4"
+              aria-controls="content-3"
+              aria-expanded="false"
+              id="accordion-control-3"
+            >
+              <span class="w-3/4">Accordion 3</span>
+              <img
+                src="https://mv-2022-theme.netlify.app/assets/images/icons/expand-arrow-white.svg"
+                class="accordion__toggle transition-all ease-in-out duration-500"
+                alt=""
+                width="30px"
+              />
+            </a>
+            <div
+              class="accordion__content bg-white font-normal max-h-0 transition-all duration-300 ease-in-out overflow-hidden rounded-b-md"
+              aria-hidden="true"
+              id="content-3"
+            >
+              <div class="px-8 py-4 border-4 border-deep-teal">
+                <p class="font-normal mb-2">Insert accordion content here.</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <!-- END of Acordion Set 1 -->
+        <h2>Second Accordion Set</h2>
+        <!-- BEGINNING of Acordion Set 2 -->
+        <ul
+          class="shadow-box mb-8 accordion-controls"
+          aria-label="Accordion Control Group Buttons"
+        >
+          <!-- ACCORDION 4 -->
+          <li
+            class="accordion-controls relative bg-deep-teal w-full text-left font-bold text-xl border-b border-gray-200 rounded-t-md"
+          >
+            <a
+              class="block flex items-center justify-between w-full h-full p-4"
+              aria-controls="content-4"
+              aria-expanded="false"
+              id="accordion-control-4"
+            >
+              <span class="w-3/4">Accordion 4</span>
+              <img
+                src="https://mv-2022-theme.netlify.app/assets/images/icons/expand-arrow-white.svg"
+                class="accordion__toggle transition-all ease-in-out duration-500"
+                alt=""
+                width="30px"
+                srcset=""
+              />
+            </a>
+            <div
+              class="accordion__content bg-white font-normal max-h-0 transition-all duration-300 ease-in-out overflow-hidden"
+              aria-hidden="true"
+              id="content-4"
+            >
+              <div class="px-8 py-4 border-4 border-deep-teal">
+                <p class="font-normal">Insert accordion content here.</p>
+              </div>
+            </div>
+          </li>
+          <!-- ACCORDION 5 -->
+          <li
+            class="accordion-controls relative bg-deep-teal w-full text-left font-bold text-xl border-b border-gray-200"
+          >
+            <a
+              class="block flex items-center justify-between w-full h-full p-4"
+              aria-controls="content-5"
+              aria-expanded="false"
+              id="accordion-control-5"
+            >
+              <span class="w-3/4">Accordion 5</span>
+              <img
+                src="https://mv-2022-theme.netlify.app/assets/images/icons/expand-arrow-white.svg"
+                class="accordion__toggle transition-all ease-in-out duration-500"
+                alt=""
+                width="30px"
+              />
+            </a>
+            <div
+              class="accordion__content bg-white font-normal max-h-0 transition-all duration-300 ease-in-out overflow-hidden"
+              aria-hidden="true"
+              id="content-5"
+            >
+              <div class="px-8 py-4 border-4 border-deep-teal">
+                <p class="font-normal mb-2">Insert accordion content here.</p>
+              </div>
+            </div>
+          </li>
+          <!-- ACCORDION 6 -->
+          <li
+            class="accordion-controls relative bg-deep-teal w-full text-left font-bold text-xl border-b border-gray-200 rounded-b-md"
+          >
+            <a
+              class="block flex items-center justify-between w-full h-full p-4"
+              aria-controls="content-6"
+              aria-expanded="false"
+              id="accordion-control-6"
+            >
+              <span class="w-3/4">Accordion 6</span>
+              <img
+                src="https://mv-2022-theme.netlify.app/assets/images/icons/expand-arrow-white.svg"
+                class="accordion__toggle transition-all ease-in-out duration-500"
+                alt=""
+                width="30px"
+              />
+            </a>
+            <div
+              class="accordion__content bg-white font-normal max-h-0 transition-all duration-300 ease-in-out overflow-hidden rounded-b-md"
+              aria-hidden="true"
+              id="content-6"
+            >
+              <div class="px-8 py-4 border-4 border-deep-teal">
+                <p class="font-normal mb-2">Insert accordion content here.</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <!-- END of Acordion Set 2 -->
+        <h2>Third Accordion Set</h2>
+        <!-- BEGINNING of Acordion Set 3 -->
+        <ul
+          class="shadow-box mb-8 accordion-controls"
+          aria-label="Accordion Control Group Buttons"
+        >
+          <!-- ACCORDION 7 -->
+          <li
+            class="accordion-controls relative bg-deep-teal w-full text-left font-bold text-xl border-b border-gray-200 rounded-t-md"
+          >
+            <a
+              class="block flex items-center justify-between w-full h-full p-4"
+              aria-controls="content-7"
+              aria-expanded="false"
+              id="accordion-control-7"
+            >
+              <span class="w-3/4">Accordion 7</span>
+              <img
+                src="https://mv-2022-theme.netlify.app/assets/images/icons/expand-arrow-white.svg"
+                class="accordion__toggle transition-all ease-in-out duration-500"
+                alt=""
+                width="30px"
+                srcset=""
+              />
+            </a>
+            <div
+              class="accordion__content bg-white font-normal max-h-0 transition-all duration-300 ease-in-out overflow-hidden"
+              aria-hidden="true"
+              id="content-7"
+            >
+              <div class="px-8 py-4 border-4 border-deep-teal">
+                <p class="font-normal">Insert accordion content here.</p>
+              </div>
+            </div>
+          </li>
+          <!-- ACCORDION 8 -->
+          <li
+            class="accordion-controls relative bg-deep-teal w-full text-left font-bold text-xl border-b border-gray-200"
+          >
+            <a
+              class="block flex items-center justify-between w-full h-full p-4"
+              aria-controls="content-8"
+              aria-expanded="false"
+              id="accordion-control-8"
+            >
+              <span class="w-3/4">Accordion 8</span>
+              <img
+                src="https://mv-2022-theme.netlify.app/assets/images/icons/expand-arrow-white.svg"
+                class="accordion__toggle transition-all ease-in-out duration-500"
+                alt=""
+                width="30px"
+              />
+            </a>
+            <div
+              class="accordion__content bg-white font-normal max-h-0 transition-all duration-300 ease-in-out overflow-hidden"
+              aria-hidden="true"
+              id="content-8"
+            >
+              <div class="px-8 py-4 border-4 border-deep-teal">
+                <p class="font-normal mb-2">Insert accordion content here.</p>
+              </div>
+            </div>
+          </li>
+          <!-- ACCORDION 9 -->
+          <li
+            class="accordion-controls relative bg-deep-teal w-full text-left font-bold text-xl border-b border-gray-200 rounded-b-md"
+          >
+            <a
+              class="block flex items-center justify-between w-full h-full p-4"
+              aria-controls="content-9"
+              aria-expanded="false"
+              id="accordion-control-9"
+            >
+              <span class="w-3/4">Accordion 9</span>
+              <img
+                src="https://mv-2022-theme.netlify.app/assets/images/icons/expand-arrow-white.svg"
+                class="accordion__toggle transition-all ease-in-out duration-500"
+                alt=""
+                width="30px"
+              />
+            </a>
+            <div
+              class="accordion__content bg-white font-normal max-h-0 transition-all duration-300 ease-in-out overflow-hidden rounded-b-md"
+              aria-hidden="true"
+              id="content-9"
+            >
+              <div class="px-8 py-4 border-4 border-deep-teal">
+                <p class="font-normal mb-2">Insert accordion content here.</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <!-- END of Acordion Set 3 -->
+      </div>
+    </main>
+  </body>
+</html>

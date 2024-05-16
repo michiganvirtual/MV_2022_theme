@@ -705,15 +705,17 @@
 
             // Finding all checkboxes within this form
             const checkboxes = this.querySelectorAll("input[type='checkbox']");
+            console.log(checkboxes.length);
 
             // Check if at least one checkbox is checked
             const isAnyCheckboxChecked = Array.from(checkboxes).some(
               (checkbox) => checkbox.checked
             );
-
-            if (!isAnyCheckboxChecked) {
-              alert("Please select at least one checkbox before submitting.");
-              return;
+            if (checkboxes.length > 0) {
+              if (!isAnyCheckboxChecked) {
+                alert("Please select at least one checkbox before submitting.");
+                return;
+              }
             }
 
             // If all fields are valid, proceed with this code

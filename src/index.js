@@ -132,6 +132,20 @@ $(document).ready(function () {
     nextArrow:
       '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
   });
+  $("body.rtl-language #slideshow, body.rtl-language .slideshow").slick(
+    "slickSetOption",
+    {
+      rtl: true,
+      prevArrow:
+        '<button type="button" class="slick-prev" tabindex="2"><i class="fas fa-chevron-right"></i></button>',
+      nextArrow:
+        '<button type="button" class="slick-next" tabindex="1"><i class="fas fa-chevron-left"></i></button>',
+    },
+    true
+  );
+
+  $("body.rtl-language #slideshow .slick-next").attr("tabindex", "1");
+  $("body.rtl-language #slideshow .slick-prev").attr("tabindex", "2");
 
   /* Begin Sortable Activity Rules */
 

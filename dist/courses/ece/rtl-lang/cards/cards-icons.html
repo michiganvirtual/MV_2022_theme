@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" class="w-full overflow-x-hidden">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../../output.css" />
+    <link
+      rel="icon"
+      href="https://michiganvirtual.org/wp-content/uploads/2021/10/cropped-mv-favicon-32x32.png"
+      sizes="32x32"
+    />
+    <script src="../../../../main.js"></script>
+  </head>
+  <body class="font-body w-full overflow-x-hidden rtl-language">
+    <main>
+      <div class="container mx-auto px-4 lg:px-24 py-12">
+        <h1 aria-hidden="true">Cards With Icons</h1>
+        <hr class="border-4 border-green w-12 mb-4" />
+        <h2>General Info</h2>
+        <p>
+          This feature highlights and organizes information into groups and adds
+          some visual cues with icons.
+        </p>
+        <p>
+          By default, cards are arranged into columns on a grid. In the source
+          code, the columns are governed by classes applied to each card set's
+          div container. The class "grid-cols-1" dictates that they be displayed
+          in one column on small screens, while "lg:grid-cols-2" makes them
+          display in two columns on large (lg) screens.
+        </p>
+        <p>
+          <strong>Accessibility Note</strong>: Only use this card design if you
+          intend to use proper heading text in the cards' title fields. Doing so
+          renders the icons<a
+            href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html#:~:text=would%20still%20conform.-,Required%20for%20Understanding,logo%20or%20brand%20name%20(which%20is%20considered%20%22essential%22%20to%20its%20presentation).,-Gradients"
+            target="_blank"
+            rel="noopener"
+            >purely decorative</a
+          >, meaning that alt text is <strong>not </strong>required.
+        </p>
+        <p class="mb-8">
+          <strong>Style Note</strong>: These icons must remain white (hex code
+          #ffffff) in color. Learn<a
+            href="https://drive.google.com/file/d/1oPdBCmq1CiqYfxiTRMUkQSqpX3cSnUAK/view?usp=drive_link"
+            target="_blank"
+            rel="noopener"
+            >how to change icons and icon color</a
+          >
+          in this video tutorial!
+        </p>
+        <h2>Preferred Color Option (Deep Teal)</h2>
+        <!-- START CARD SET -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center mb-12">
+          <!-- CARD 1 -->
+          <div
+            class="flex flex-col min-h-full justify-evenly bg-deep-teal border-4 border-deep-teal rounded-md w-full"
+          >
+            <div class="flex flex-col md:flex-row items-center w-full p-4">
+              <img
+                src="/content/enforced/9569-SK-1-S/assets/img/circle-info-solid-white.svg"
+                width="30px"
+                class="mb-4 md:mb-0 ml-0 md:ml-4 ml-0 md:ml-4"
+                alt=""
+              />
+              <h2 class="text-center md:text-right md:w-3/4 mb-0">
+                Card Title 1
+              </h2>
+            </div>
+            <div class="bg-white p-4">
+              <p class="font-normal">Insert card content here.</p>
+            </div>
+          </div>
+          <!-- CARD 2 -->
+          <div
+            class="flex flex-col min-h-full justify-evenly bg-deep-teal border-4 border-deep-teal rounded-md w-full"
+          >
+            <div class="flex flex-col md:flex-row items-center w-full p-4">
+              <img
+                src="/content/enforced/9569-SK-1-S/assets/img/star-solid.svg"
+                width="30px"
+                class="mb-4 md:mb-0 ml-0 md:ml-4"
+                alt=""
+              />
+              <h2 class="text-center md:text-right md:w-3/4 mb-0">
+                Card Title 2
+              </h2>
+            </div>
+            <div class="bg-white p-4">
+              <p class="font-normal">Insert card content here.</p>
+            </div>
+          </div>
+        </div>
+        <!-- END CARD SET -->
+        <h2>Additional Color Options</h2>
+        <h3>Dark Teal</h3>
+        <!-- START CARD SET -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center mb-12">
+          <!-- CARD 3 -->
+          <div
+            class="flex flex-col min-h-full justify-evenly bg-dark-teal border-4 border-dark-teal rounded-md w-full"
+          >
+            <div class="flex flex-col md:flex-row items-center w-full p-4">
+              <img
+                src="/content/enforced/9569-SK-1-S/assets/img/earth-americas-solid.svg"
+                width="30px"
+                class="mb-4 md:mb-0 ml-0 md:ml-4 ml-0 md:ml-4"
+                alt=""
+              />
+              <h2 class="text-center md:text-right md:w-3/4 mb-0">
+                Card Title 1
+              </h2>
+            </div>
+            <div class="bg-white p-4">
+              <p class="font-normal">Insert card content here.</p>
+            </div>
+          </div>
+          <!-- CARD 4 -->
+          <div
+            class="flex flex-col min-h-full justify-evenly bg-dark-teal border-4 border-dark-teal rounded-md w-full"
+          >
+            <div class="flex flex-col md:flex-row items-center w-full p-4">
+              <img
+                src="/content/enforced/9569-SK-1-S/assets/img/wheelchair-move-solid.svg"
+                width="30px"
+                class="mb-4 md:mb-0 ml-0 md:ml-4"
+                alt=""
+              />
+              <h2 class="text-center md:text-right md:w-3/4 mb-0">
+                Card Title 2
+              </h2>
+            </div>
+            <div class="bg-white p-4">
+              <p class="font-normal">Insert card content here.</p>
+            </div>
+          </div>
+        </div>
+        <!-- END CARD SET -->
+        <h3>A11y Green</h3>
+        <!-- START CARD SET -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center mb-12">
+          <!-- CARD 5 -->
+          <div
+            class="flex flex-col min-h-full justify-evenly bg-ada-green border-4 border-ada-green rounded-md w-full"
+          >
+            <div class="flex flex-col md:flex-row items-center w-full p-4">
+              <img
+                src="/content/enforced/9569-SK-1-S/assets/img/map-location-dot-solid.svg"
+                width="30px"
+                class="mb-4 md:mb-0 ml-0 md:ml-4 ml-0 md:ml-4"
+                alt=""
+              />
+              <h2 class="text-center md:text-right md:w-3/4 mb-0">
+                Card Title 1
+              </h2>
+            </div>
+            <div class="bg-white p-4">
+              <p class="font-normal">Insert card content here.</p>
+            </div>
+          </div>
+          <!-- CARD 6 -->
+          <div
+            class="flex flex-col min-h-full justify-evenly bg-ada-green border-4 border-ada-green rounded-md w-full"
+          >
+            <div class="flex flex-col md:flex-row items-center w-full p-4">
+              <img
+                src="/content/enforced/9569-SK-1-S/assets/img/gear-solid.svg"
+                width="30px"
+                class="mb-4 md:mb-0 ml-0 md:ml-4"
+                alt=""
+              />
+              <h2 class="text-center md:text-right md:w-3/4 mb-0">
+                Card Title 2
+              </h2>
+            </div>
+            <div class="bg-white p-4">
+              <p class="font-normal">Insert card content here.</p>
+            </div>
+          </div>
+        </div>
+        <!-- END CARD SET -->
+        <h3>A11y Orange</h3>
+        <!-- START CARD SET -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center mb-12">
+          <!-- CARD 7 -->
+          <div
+            class="flex flex-col min-h-full justify-evenly bg-ada-orange border-4 border-ada-orange rounded-md w-full"
+          >
+            <div class="flex flex-col md:flex-row items-center w-full p-4">
+              <img
+                src="/content/enforced/9569-SK-1-S/assets/img/circle-info-solid-white.svg"
+                width="30px"
+                class="mb-4 md:mb-0 ml-0 md:ml-4 ml-0 md:ml-4"
+                alt=""
+              />
+              <h2 class="text-center md:text-right md:w-3/4 mb-0">
+                Card Title 1
+              </h2>
+            </div>
+            <div class="bg-white p-4">
+              <p class="font-normal">Insert card content here.</p>
+            </div>
+          </div>
+          <!-- CARD 8 -->
+          <div
+            class="flex flex-col min-h-full justify-evenly bg-ada-orange border-4 border-ada-orange rounded-md w-full"
+          >
+            <div class="flex flex-col md:flex-row items-center w-full p-4">
+              <img
+                src="/content/enforced/9569-SK-1-S/assets/img/star-solid.svg"
+                width="30px"
+                class="mb-4 md:mb-0 ml-0 md:ml-4"
+                alt=""
+              />
+              <h2 class="text-center md:text-right md:w-3/4 mb-0">
+                Card Title 2
+              </h2>
+            </div>
+            <div class="bg-white p-4">
+              <p class="font-normal">Insert card content here.</p>
+            </div>
+          </div>
+        </div>
+        <!-- END CARD SET -->
+        <h3>Dark Gray</h3>
+        <!-- START CARD SET -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center mb-12">
+          <!-- CARD 9 -->
+          <div
+            class="flex flex-col min-h-full justify-evenly bg-dark-gray border-4 border-dark-gray rounded-md w-full"
+          >
+            <div class="flex flex-col md:flex-row items-center w-full p-4">
+              <img
+                src="/content/enforced/9569-SK-1-S/assets/img/earth-americas-solid.svg"
+                width="30px"
+                class="mb-4 md:mb-0 ml-0 md:ml-4 ml-0 md:ml-4"
+                alt=""
+              />
+              <h2 class="text-center md:text-right md:w-3/4 mb-0">
+                Card Title 1
+              </h2>
+            </div>
+            <div class="bg-white p-4">
+              <p class="font-normal">Insert card content here.</p>
+            </div>
+          </div>
+          <!-- CARD 10 -->
+          <div
+            class="flex flex-col min-h-full justify-evenly bg-dark-gray border-4 border-dark-gray rounded-md w-full"
+          >
+            <div class="flex flex-col md:flex-row items-center w-full p-4">
+              <img
+                src="/content/enforced/9569-SK-1-S/assets/img/wheelchair-move-solid.svg"
+                width="30px"
+                class="mb-4 md:mb-0 ml-0 md:ml-4"
+                alt=""
+              />
+              <h2 class="text-center md:text-right md:w-3/4 mb-0">
+                Card Title 2
+              </h2>
+            </div>
+            <div class="bg-white p-4">
+              <p class="font-normal">Insert card content here.</p>
+            </div>
+          </div>
+        </div>
+        <!-- END CARD SET -->
+      </div>
+    </main>
+  </body>
+</html>

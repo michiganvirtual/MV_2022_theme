@@ -706,6 +706,91 @@ a[target="_blank"]:after {
   .bg-white a {
     @apply text-ada-orange underline hover:no-underline;
   }
+
+  /* Right to Left Template Rules */
+
+  body.rtl-language {
+    @apply text-right;
+    direction: rtl;
+
+    h1 + hr {
+      @apply ml-auto;
+    }
+    .accordion-controls {
+      @apply text-right !important;
+    }
+
+    /* You may need to adjust positioning */
+    .slick-prev {
+      right: -25px;
+    }
+    .slick-next {
+      left: -25px;
+    }
+
+    .slick-next:before {
+      content: "Next"; /* Text for "next" button */
+    }
+
+    @media screen and (max-width: 430px) {
+      .slick-prev {
+        right: -10px;
+      }
+
+      .slick-next {
+        left: -10px;
+      }
+    }
+    @media screen and (max-width: 280px) {
+      .slick-prev {
+        right: -25px;
+      }
+
+      .slick-next {
+        left: -25px;
+      }
+    }
+    @media screen and (max-width: 767px) {
+      table td::before {
+        text-align: right;
+        padding-left: 27%;
+        padding-right: 0;
+      }
+    }
+
+    ul {
+      @apply list-disc mr-4 mb-4;
+    }
+    ol {
+      @apply list-decimal mr-4 mb-4;
+    }
+    ol.relative {
+      @apply list-none;
+    }
+    .accordion__content ul > li > ul,
+    ul > li > ul,
+    ul > li > ul,
+    ul > li > ul {
+      @apply list-square mr-4 my-4;
+    }
+    .accordion__content ul > li > ul > li > ul,
+    ul > li > ul > li > ul {
+      @apply list-circle mr-4 my-4;
+    }
+    .accordion__content ol > li > ol,
+    ol > li > ol,
+    ol > li > ol,
+    ol > li > ol {
+      @apply list-roman mr-4 my-4;
+    }
+    .accordion__content ol > li > ol > li > ol,
+    ol > li > ol > li > ol {
+      @apply list-lower-roman mr-4 my-4;
+    }
+    ul.accordion-controls {
+      @apply mr-0;
+    }
+  }
 }
 
 #overlay-container {

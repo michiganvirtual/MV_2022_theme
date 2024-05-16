@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" class="w-full">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <link rel="stylesheet" href="../../../../output.css" />
+    <script src="../../../../main.js"></script>
+
+    <link
+      rel="icon"
+      href="https://michiganvirtual.org/wp-content/uploads/2021/10/cropped-mv-favicon-32x32.png"
+      sizes="32x32"
+    />
+  </head>
+  <body class="font-body w-full overflow-x-hidden rtl-language">
+    <main>
+      <div class="container mx-auto px-4 lg:px-24 py-12">
+        <h1>Images</h1>
+        <hr class="border-t-10 border-green w-12 mb-4" />
+        <h2>How to Insert Images</h2>
+        <p>
+          <strong
+            >Inserting images into HTML pages must not be done using the "Insert
+            Stuff" button.</strong
+          >
+        </p>
+        <p>
+          Watch this short tutorial video to learn
+          <a
+            href="https://drive.google.com/file/d/1ORXQQhQXCDzmpDZ0aF_txV-VGGVUEMl4/view?usp=drive_link"
+            target="_blank"
+            rel="noopener"
+            >how to properly insert images</a
+          >
+          in place of the placeholder images found in this template page.
+        </p>
+        <h2>Default Image</h2>
+        <p>
+          This is an image that is left-aligned. This is the default style for
+          an image.
+        </p>
+        <div class="inline-flex flex-col">
+          <img src="https://via.placeholder.com/400" alt="Placeholder Image" />
+          <p class="text-sm mb-8 text-center">Image Attribution</p>
+        </div>
+        <h2>Center Aligned Image</h2>
+        <p>
+          This is an image that is center-aligned. To center align the image,
+          add the class "mx-auto" to the image element. This automatically
+          adjusts the margin along the horizontal plane to center the image.
+        </p>
+        <img
+          src="https://via.placeholder.com/400"
+          alt="Placeholder Image"
+          class="mx-auto"
+        />
+        <p class="text-sm text-center mb-8">Image Attribution</p>
+        <h2>2-Column Layout</h2>
+        <div class="grid md:grid-cols-2 gap-4 mb-8">
+          <div class="flex items-center">
+            <p>
+              This paragraph is part of a two-column layout that will stack on
+              tablet and mobile screens.
+            </p>
+          </div>
+          <div class="flex flex-col justify-center items-center">
+            <img
+              src="https://via.placeholder.com/400"
+              alt="Placeholder Image"
+            />
+            <p class="text-sm">Image Attribution</p>
+          </div>
+        </div>
+        <h2>Reversed 2-Column Layout</h2>
+        <div class="grid md:grid-cols-2 gap-4 mb-8">
+          <div class="flex flex-col justify-center items-center">
+            <img
+              src="https://via.placeholder.com/400"
+              alt="Placeholder Image"
+            />
+            <p class="text-sm">Image Attribution</p>
+          </div>
+          <div class="flex items-center">
+            <p>
+              This paragraph is part of a two-column layout that will stack on
+              tablet and mobile screens.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
