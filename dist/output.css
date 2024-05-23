@@ -2293,6 +2293,10 @@ body.rtl-language{
   margin-bottom: 0px;
 }
 
+.mb-1{
+  margin-bottom: 0.25rem;
+}
+
 .mb-12{
   margin-bottom: 3rem;
 }
@@ -2307,6 +2311,10 @@ body.rtl-language{
 
 .mb-4{
   margin-bottom: 1rem;
+}
+
+.mb-5{
+  margin-bottom: 1.25rem;
 }
 
 .mb-6{
@@ -3681,6 +3689,10 @@ body.rtl-language{
 
   .md\:w-\[400px\]{
     width: 400px;
+  }
+
+  .md\:min-w-\[150px\]{
+    min-width: 150px;
   }
 
   .md\:min-w-\[200px\]{

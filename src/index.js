@@ -434,7 +434,9 @@ $(document).ready(function () {
         $(feedbackIcon).addClass(
           "feedback-icon flex shrink-0 justify-center items-center w-16 h-16 rounded-full mx-auto mb-4 md:mb-0 md:mr-8 hidden"
         );
-        $("<img class='w-1/2 h-auto'> ").appendTo(feedbackIcon);
+        $("<img class='w-1/2 h-auto' aria-hidden='true'> ").appendTo(
+          feedbackIcon
+        );
 
         if (!$(questions)[i].children[0].classList.contains("feedback-icon")) {
           $(questions[i]).prepend(feedbackIcon);

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" class="w-full">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <link
+      rel="stylesheet"
+      href="https://mv-2022-theme.netlify.app/output.css"
+    />
+    <script src="https://mv-2022-theme.netlify.app/main.js"></script>
+
+    <link
+      rel="icon"
+      href="https://michiganvirtual.org/wp-content/uploads/2021/10/cropped-mv-favicon-32x32.png"
+      sizes="32x32"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.3/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  </head>
+  <body class="font-body w-full overflow-x-hidden rtl-language">
+    <main>
+      <div class="container mx-auto px-4 lg:px-24 py-12">
+        <h1>Lesson 3: SWOT Analysis</h1>
+        <hr class="border-t-10 border-green w-12 mb-4" />
+        <!--Text-->
+        <div style="margin-top: 2em">
+          <p>
+            This is just one leadership assessment that gives you a lens to view
+            how you lead at work. Are you focused more on tasks than you are
+            focused on people? Are you able to shift quickly between tasks and
+            people (transactional)? Review the strengths and challenges for each
+            style on the slide.
+          </p>
+        </div>
+        <!--Table-->
+        <div
+          class="border-4 border-deep-teal rounded-md shadow-lg mb-8"
+          style="margin-top: 2em"
+        >
+          <table
+            class="border-2 border-deep-teal table-fixed text-dark-gray mx-auto"
+            style="width: 100%"
+          >
+            <thead class="bg-deep-teal text-white font-bold">
+              <tr>
+                <td class="md:min-w-[200px] px-2 py-4">Leadership Style</td>
+                <td class="px-2 py-4">Strengths</td>
+                <td class="px-2 py-4">Challenges</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-bold px-2 py-4" data-label="Leadership Style">
+                  Task-Oriented
+                </td>
+                <td
+                  class="px-2 py-4"
+                  style="padding-top: 1em"
+                  data-label="Strengths"
+                >
+                  <ul>
+                    <li>High performance</li>
+                    <li>Accomplishes goals</li>
+                    <li>Clear directions and plans</li>
+                  </ul>
+                </td>
+                <td class="px-2 py-4" data-label="Challenges">
+                  <ul>
+                    <li>Inflexible "by the book"</li>
+                    <li>Impersonal</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="font-bold px-2 py-4" data-label="Leadership Style">
+                  People-Oriented
+                </td>
+                <td
+                  class="px-2 py-4"
+                  style="padding-top: 1em"
+                  data-label="Strengths"
+                >
+                  <ul>
+                    <li>Emphasizes teamwork</li>
+                    <li>Builds trust easily</li>
+                    <li>Works to maintain harmony</li>
+                  </ul>
+                </td>
+                <td class="px-2 py-4" data-label="Challenges">
+                  <ul>
+                    <li>Goals take "back seat"</li>
+                    <li>Conflict management</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="font-bold px-2 py-4" data-label="Leadership Style">
+                  Transactional
+                </td>
+                <td
+                  class="px-2 py-4"
+                  style="padding-top: 1em"
+                  data-label="Strengths"
+                >
+                  <ul>
+                    <li>Able to switch between task and people orientation</li>
+                    <li>Balances goals with morale</li>
+                    <li>Flexible and fair</li>
+                  </ul>
+                </td>
+                <td class="px-2 py-4" data-label="Challenges">
+                  <ul>
+                    <li>Burn-out</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!--Writing blocks-->
+        <p>
+          Once you’ve identified and reflected on your own leadership style, you
+          can use a tool like the SWOT Analysis to identify your strengths and
+          opportunities for leadership growth. Take a moment to use this tool to
+          analyze yourself, your organization, or challenging situations.
+        </p>
+        <h2>Reflection</h2>
+        <p>
+          <strong
+            >Instructions: Place your responses to the corresponding questions
+            in the text boxes below. If you'd like to save your answers, select
+            the Download PDF button. Then, select the Submit button.</strong
+          >
+        </p>
+        <ol
+          class="relative border-r border-deep-teal"
+          id="reflection-form"
+          style="margin-top: 1.5em; margin-bottom: -1.5em"
+        >
+          <li class="mr-4">
+            <div
+              class="absolute w-3 h-3 bg-light-teal rounded-full mt-1.5 -right-1.5 border border-white"
+            ></div>
+            <h2
+              class="text-2xl text-deep-teal font-bold"
+              style="letter-spacing: normal"
+            >
+              Internal
+            </h2>
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center md:p-4 mb-12"
+            >
+              <div
+                class="border-4 rounded-md border-ada-orange flex flex-col h-full mb-4 w-full shadow-lg rounded-b-md"
+              >
+                <div
+                  class="bg-ada-orange flex justify-between items-center w-full p-4"
+                >
+                  <h3 class="mb-0" style="letter-spacing: normal">Helpful</h3>
+                </div>
+                <div style="margin: 1em 1em 0">
+                  <h3 style="letter-spacing: normal">Strengths</h3>
+                  <div class="mb-1">
+                    <label
+                      class="block text-dark-gray font-bold mb-2 text-sm"
+                      for="proficient"
+                      >What do you do well?</label
+                    >
+                    <textarea
+                      required=""
+                      id="strengths-text"
+                      rows="3"
+                      name="proficient"
+                      class="shadow appearance-none border rounded w-full py-2 px-3 text-dark-gray leading-tight focus:outline-none focus:shadow-outline text-sm"
+                      placeholder="Enter your feedback here"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="border-4 rounded-md border-dark-teal flex flex-col h-full mb-4 w-full shadow-lg rounded-b-md"
+              >
+                <div
+                  class="bg-dark-teal flex justify-between items-center w-full p-4"
+                >
+                  <h3 class="mb-0" style="letter-spacing: normal">Harmful</h3>
+                </div>
+                <div style="margin: 1em 1em 0">
+                  <h3 style="letter-spacing: normal">Weaknesses</h3>
+                  <div class="mb-1">
+                    <label
+                      class="block text-dark-gray font-bold mb-2 text-sm"
+                      for="proficient"
+                      >Where do you need to grow?</label
+                    >
+                    <textarea
+                      required=""
+                      id="weaknesses-text"
+                      rows="3"
+                      name="proficient"
+                      class="shadow appearance-none border rounded w-full py-2 px-3 text-dark-gray leading-tight focus:outline-none focus:shadow-outline text-sm"
+                      placeholder="Enter your feedback here"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="mr-4">
+            <div
+              class="absolute w-3 h-3 bg-light-teal rounded-full mt-1.5 -right-1.5 border border-white"
+            ></div>
+            <h2
+              class="text-2xl text-deep-teal font-bold"
+              style="letter-spacing: normal"
+            >
+              External
+            </h2>
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center md:p-4 mb-12"
+            >
+              <div
+                class="border-4 rounded-md border-ada-orange flex flex-col h-full mb-4 w-full shadow-lg rounded-b-md"
+              >
+                <div
+                  class="bg-ada-orange flex justify-between items-center w-full p-4"
+                >
+                  <h3 class="mb-0" style="letter-spacing: normal">Helpful</h3>
+                </div>
+                <div style="margin: 1em 1em 0">
+                  <h3 style="letter-spacing: normal">Opportunities</h3>
+                  <div class="mb-1">
+                    <label
+                      class="block text-dark-gray font-bold mb-2 text-sm"
+                      for="proficient"
+                      >What industry trends/needs can you meet?</label
+                    >
+                    <textarea
+                      required=""
+                      id="opportunities-text"
+                      rows="3"
+                      name="proficient"
+                      class="shadow appearance-none border rounded w-full py-2 px-3 text-dark-gray leading-tight focus:outline-none focus:shadow-outline text-sm"
+                      placeholder="Enter your feedback here"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="border-4 rounded-md border-deep-teal flex flex-col h-full mb-4 w-full shadow-lg rounded-b-md"
+              >
+                <div
+                  class="bg-deep-teal flex justify-between items-center w-full p-4"
+                >
+                  <h3 class="mb-0" style="letter-spacing: normal">Harmful</h3>
+                </div>
+                <div style="margin: 1em 1em 0">
+                  <h3 style="letter-spacing: normal">Threats</h3>
+                  <div class="mb-1">
+                    <label
+                      class="block text-dark-gray font-bold mb-2 text-sm"
+                      for="proficient"
+                      >What is an industry change/challenge that you will need
+                      to face?</label
+                    >
+                    <textarea
+                      required=""
+                      id="threats-text"
+                      rows="3"
+                      name="proficient"
+                      class="shadow appearance-none border rounded w-full py-2 px-3 text-dark-gray leading-tight focus:outline-none focus:shadow-outline text-sm"
+                      placeholder="Enter your feedback here"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ol>
+        <p>
+          <em
+            >Source: Leadership Participant Guide MDE Child Care Center
+            Administration 2020</em
+          >
+        </p>
+        <div class="mb-1">
+          <button
+            id="overall-submit"
+            class="bg-ada-orange text-white hover:bg-dark-gray font-bold py-4 px-8 rounded-md"
+            style="margin-right: 0.5em"
+          >
+            Submit</button
+          ><button
+            class="bg-ada-orange text-white hover:bg-dark-gray font-bold py-4 px-8 rounded-md md:mr-4"
+            id="download-pdf"
+          >
+            Download PDF
+          </button>
+        </div>
+        <div>
+          <h4
+            aria-live="polite"
+            id="card-validation"
+            class=""
+            style="letter-spacing: normal; margin: 1.5em 0 1.5em 1em"
+          ></h4>
+        </div>
+        <!--End Container-->
+      </div>
+    </main>
+    <p>
+      <script>
+        var interaction = {
+          id: "1", // Unique identifier for the interaction
+          type: "fill-in", // Type of interaction (fill-in is used for text input)
+          student_response: "User's response", // The learner's response from the form field
+          result: "correct", // The result of the interaction (can be "correct," "incorrect," or "neutral")
+        };
+        document
+          .getElementById("overall-submit")
+          .addEventListener("click", function (e) {
+            e.preventDefault();
+            const strengthsText = document.getElementById("strengths-text");
+            const weaknessesText = document.getElementById("weaknesses-text");
+            const opportunitiesText =
+              document.getElementById("opportunities-text");
+            const threatsText = document.getElementById("threats-text");
+
+            if (
+              strengthsText.value.trim() === "" ||
+              weaknessesText.value.trim() === "" ||
+              opportunitiesText.value.trim() === "" ||
+              threatsText.value.trim() === ""
+            ) {
+              alert("Please provide feedback for each section.");
+              return;
+            } else {
+              document.getElementById("card-validation").innerHTML =
+                '"The best thing leaders can do to improve their effectiveness is to become more aware of what motivates them and their decision-making." -Anthony Tjan';
+              document
+                .getElementById("card-validation")
+                .scrollIntoView({ behavior: "smooth" });
+              strengthsText.value = "";
+              weaknessesText.value = "";
+              opportunitiesText.value = "";
+              threatsText.value = "";
+            }
+          });
+        $(document).ready(function () {
+          $("#download-pdf").click(function () {
+            html2canvas(document.getElementById("reflection-form")).then(
+              (canvas) => {
+                // Convert canvas to an image
+                const imgData = canvas.toDataURL("image/png");
+
+                // Create a new jsPDF instance
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF({
+                  orientation: "p",
+                  unit: "mm",
+                  format: "a4",
+                });
+
+                // Add the image to the PDF
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+                pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+
+                // Download the PDF
+                pdf.save("download.pdf");
+              }
+            );
+          });
+        });
+      </script>
+    </p>
+  </body>
+</html>

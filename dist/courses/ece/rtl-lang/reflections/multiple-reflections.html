@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" class="w-full">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <link
+      rel="stylesheet"
+      href="https://mv-2022-theme.netlify.app/output.css"
+    />
+    <script src="https://mv-2022-theme.netlify.app/main.js"></script>
+
+    <link
+      rel="icon"
+      href="https://michiganvirtual.org/wp-content/uploads/2021/10/cropped-mv-favicon-32x32.png"
+      sizes="32x32"
+    />
+  </head>
+  <body class="font-body w-full overflow-x-hidden rtl-language">
+    <main>
+      <div class="container mx-auto px-4 lg:px-24 py-12">
+        <h1>Lesson 1: Why Program Evaluation is Important</h1>
+        <hr class="border-t-10 border-green w-12 mb-4" />
+        <h2>Reflection</h2>
+        <p>
+          <strong
+            >Instructions: In the text boxes below, take a moment to reflect on
+            the following questions and select the Submit button.</strong
+          >
+        </p>
+        <form class="reflection-form">
+          <div>
+            <label
+              for="reflection"
+              class="block text-md font-medium text-dark-gray"
+              >What is program evaluation?</label
+            >
+            <textarea
+              class="reflection w-full p-4"
+              name="reflection"
+              rows="4"
+            ></textarea>
+          </div>
+          <div class="mb-4">
+            <button
+              type="submit"
+              class="bg-ada-orange text-white hover:bg-dark-gray font-bold py-4 px-8 rounded-md"
+            >
+              Submit
+            </button>
+          </div>
+          <h4 aria-live="polite" class="validation invisible">
+            Program evaluation is a way to carefully collect information about a
+            program or an aspect of it in order to make decisions about it.
+            There are countless different ways to evaluate a program and we will
+            learn about some of them in this course.
+          </h4>
+        </form>
+        <form class="reflection-form">
+          <div>
+            <label
+              for="reflection"
+              class="block text-md font-medium text-dark-gray"
+              >What is program evaluation?</label
+            >
+            <textarea
+              class="reflection w-full p-4"
+              name="reflection"
+              rows="4"
+            ></textarea>
+          </div>
+          <div class="mb-4">
+            <button
+              type="submit"
+              class="bg-ada-orange text-white hover:bg-dark-gray font-bold py-4 px-8 rounded-md"
+            >
+              Submit
+            </button>
+          </div>
+          <h4 aria-live="polite" class="validation invisible">
+            Program evaluation is a way to carefully collect information about a
+            program or an aspect of it in order to make decisions about it.
+            There are countless different ways to evaluate a program and we will
+            learn about some of them in this course.
+          </h4>
+        </form>
+      </div>
+    </main>
+    <p>
+      <script>
+        var interaction = {
+          id: "1", // Unique identifier for the interaction
+          type: "fill-in", // Type of interaction (fill-in is used for text input)
+          student_response: "User's response", // The learner's response from the form field
+          result: "correct", // The result of the interaction (can be "correct," "incorrect," or "neutral")
+        };
+        document.querySelectorAll(".reflection-form").forEach(function (form) {
+          form.addEventListener("submit", function (e) {
+            e.preventDefault(); // Prevents the default form submission action
+
+            // Finding the reflection textarea within this specific form
+            const reflectionTextarea = this.querySelector(".reflection");
+
+            // Check if the textarea is empty
+            if (reflectionTextarea.value.trim() === "") {
+              alert(
+                "Reflection cannot be empty. Please provide your reflection."
+              );
+              return;
+            }
+
+            // Find the validation element within this specific form
+            const validationElement = this.querySelector(".validation");
+
+            // Remove the 'invisible' class if it exists
+            validationElement.classList.remove("invisible");
+
+            // Clear the textarea
+            reflectionTextarea.value = "";
+          });
+        });
+      </script>
+    </p>
+  </body>
+</html>

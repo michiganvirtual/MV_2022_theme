@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en" class="w-full">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <link
+      rel="stylesheet"
+      href="https://mv-2022-theme.netlify.app/output.css"
+    />
+    <script src="https://mv-2022-theme.netlify.app/main.js"></script>
+
+    <link
+      rel="icon"
+      href="https://michiganvirtual.org/wp-content/uploads/2021/10/cropped-mv-favicon-32x32.png"
+      sizes="32x32"
+    />
+    <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Two-Column Checklist with Checkboxes</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .checklist-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .column {
+        width: 50%;
+        padding: 20px;
+      }
+      @media (max-width: 768px) {
+        .checklist-container {
+          display: block;
+        }
+        .column {
+          width: 100%;
+        }
+      }
+
+      .category {
+        background-color: #f2f2f2;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+      }
+
+      .question {
+        display: flex;
+        align-items: center;
+        margin: 5px 0;
+        line-height: 1.5;
+      }
+
+      .custom-checkbox {
+        margin-left: 10px;
+      }
+
+      h2 {
+        color: #333;
+      }
+
+      @media print {
+        .checklist-container {
+          margin-top: 0;
+          padding-top: 0;
+        }
+      }
+    </style>
+  </head>
+  <body class="font-body w-full overflow-x-hidden rtl-language">
+    <main>
+      <div class="container mx-auto px-4 lg:px-24 py-12">
+        <h1>Lesson 2: Scenario</h1>
+        <hr class="border-t-10 border-green w-12 mb-4" />
+        <img
+          src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Hiring%20and%20Retaining%20Staff%20Module/markus-winkler-yNh7S4FqCOQ-unsplash.jpg?ou=11632"
+          alt=" Woman holding boy during daytime"
+          class="mx-auto md:w-1/2"
+        />
+        <p class="text-sm text-center mb-8">
+          <a
+            href="https://unsplash.com/photos/white-and-black-jigsaw-puzzle-yNh7S4FqCOQ"
+            target="_blank"
+            rel="noopener"
+            >Image</a
+          >
+          by
+          <a
+            href="https://unsplash.com/@markuswinkler"
+            target="_blank"
+            rel="noopener"
+            >Markus Winkler</a
+          >
+          under
+          <a href="https://unsplash.com/license" target="_blank" rel="noopener"
+            >Unsplash</a
+          >
+        </p>
+        <p>
+          One of the strongest practices for making the right hire is looking
+          for a candidate who is both the right job fit and the right
+          organization/program fit.
+        </p>
+        <p>
+          The right job fit candidate has the right skills and experience to
+          actually do the job. The right organization/program fit is the
+          candidate whose values, communication style, and commitment to
+          teamwork match your organization’s culture. Hiring the right person
+          means looking for both of these fits.
+        </p>
+        <p>An ideal candidate will be a good job fit and a good program fit.</p>
+        <ul>
+          <li>Job fit- They have the skills and education to do this job.</li>
+          <li>
+            Organization fit- Their values, attitude, communication style, and
+            teamwork ability match the culture of our program.
+          </li>
+        </ul>
+        <p>
+          When you’re thinking about finding someone who is a job fit and an
+          organization fit, you can
+          <a
+            href="https://docs.google.com/document/d/1V_c1c0ofcUrH70a97fdvTysdZXyr8cZH9Du3dgQLDsA/edit?usp=drive_link"
+            >use this "Finding the Right Fit "resource to guide you</a
+          >.
+        </p>
+        <p>
+          <strong>
+            Instructions: Use the checklist provided below to help you respond
+            to the activity that follows it.</strong
+          >
+        </p>
+        <div style="border: 3px solid #093c44">
+          <h2 style="text-align: center; padding-top: 1em">
+            Finding the Right Fit
+          </h2>
+          <div class="checklist-container">
+            <!-- Job Fit Column -->
+            <div class="column">
+              <h3>Job Fit</h3>
+              <div class="category">
+                <strong>Skills:</strong
+                ><label class="question"
+                  ><input type="checkbox" class="custom-checkbox" /> Does this
+                  candidate have the needed skills to do the job?</label
+                >
+                <label class="question"
+                  ><input type="checkbox" class="custom-checkbox" />Will the
+                  candidate bring new skills to our program?</label
+                >
+                <label class="question"
+                  ><input type="checkbox" class="custom-checkbox" />If this
+                  candidate needs to learn the necessary skills for this job,
+                  how long would it take?</label
+                >
+              </div>
+              <div class="category">
+                <strong>Experience:</strong
+                ><label class="question"
+                  ><input type="checkbox" class="custom-checkbox" /> Has the
+                  candidate done this job before?</label
+                >
+                <label class="question"
+                  ><input type="checkbox" class="custom-checkbox" />Has the
+                  candidate done a similar job where the candidate’s experience
+                  is related?</label
+                >
+              </div>
+              <div class="category">
+                <strong>Education:</strong
+                ><label class="question"
+                  ><input type="checkbox" class="custom-checkbox" /> Does the
+                  candidate have the necessary education to do this job?</label
+                >
+                <label class="question"
+                  ><input type="checkbox" class="custom-checkbox" />If the
+                  candidate has educational requirements they need to reach, how
+                  long will it take to meet these?</label
+                >
+              </div>
+            </div>
+            <!-- Organization Fit Column -->
+            <div class="column">
+              <h3>Organization Fit</h3>
+              <div class="category">
+                <strong>Values:</strong
+                ><label class="question"
+                  ><input type="checkbox" class="custom-checkbox" /> Do the
+                  candidate’s values seem to match our program’s values?</label
+                >
+                <label class="question"
+                  ><input type="checkbox" class="custom-checkbox" />Does the
+                  candidate view work as an opportunity or a drudgery?</label
+                ><label class="question"
+                  ><input type="checkbox" class="custom-checkbox" /> Does this
+                  candidate seem to care about children and value working with
+                  families?</label
+                >
+              </div>
+              <div class="category">
+                <strong>Attitude:</strong
+                ><label class="question"
+                  ><input type="checkbox" class="custom-checkbox" /> Does this
+                  candidate have a positive attitude?</label
+                >
+                <label class="question"
+                  ><input type="checkbox" class="custom-checkbox" />Can this
+                  candidate stay calm under pressure or when things get
+                  busy?</label
+                >
+              </div>
+              <div class="category">
+                <strong>Communication:</strong
+                ><label class="question"
+                  ><input type="checkbox" class="custom-checkbox" /> Can this
+                  candidate tell me respectfully what they think and
+                  feel?</label
+                >
+                <label class="question"
+                  ><input type="checkbox" class="custom-checkbox" />Can I
+                  communicate with this candidate?</label
+                >
+                <label class="question"
+                  ><input type="checkbox" class="custom-checkbox" />If an angry
+                  parent came to this candidate to complain, would this
+                  candidate remain calm and understanding?</label
+                >
+              </div>
+              <div class="category">
+                <strong>Teamwork:</strong
+                ><label class="question"
+                  ><input type="checkbox" class="custom-checkbox" /> Does this
+                  candidate work so everyone is successful?</label
+                >
+                <label class="question"
+                  ><input type="checkbox" class="custom-checkbox" />Does this
+                  candidate thank others/ encourage those around them? Is this
+                  candidate willing to share the credit?</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2 class="mt-4">Who to Hire?</h2>
+        <p>
+          <strong
+            >Instructions: Examine the information about "123 Preschool" and
+            review each of the three candidates in the slideshow to figure out
+            who might be a good fit for them. Feel free to use the checklist
+            above to help you decide.</strong
+          >
+        </p>
+        <!-- START CARD -->
+        <div
+          class="flex flex-col md:flex-row border-10 border-dark-teal rounded-md text-2xl w-full mb-8"
+        >
+          <!-- ICON CODE - Please don't alter size styling -->
+          <div
+            class="flex justify-center items-center bg-dark-teal w-auto py-4 pr-4 pl-6 md:ml-2"
+          >
+            <img
+              src="/content/enforced/9569-SK-1-S/assets/img/users-solid-white.svg"
+              style="width: 35px; height: auto"
+              class=""
+              alt=""
+            />
+          </div>
+          <!-- CARD CONTENT -->
+          <div class="w-5/6 p-4">
+            <h3 class="text-dark-teal">123 Preschool is Hiring!</h3>
+            <p>
+              123 Preschool is looking for a Lead Teacher for the 4-year-old
+              preschool class. The center values hands-on discovery and
+              encouraging children to try new things. The Lead Teacher will be
+              working with 1 assistant teacher and 2 volunteers. Who would you
+              hire?
+            </p>
+          </div>
+        </div>
+        <!-- END CARD -->
+        <ul id="slideshow">
+          <li style="text-align: center">
+            <img
+              src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Hiring%20and%20Retaining%20Staff%20Module/ECE%20Hiring%20S1L1%20Slideshow1%20(1).png?ou=11632"
+              alt="Man in a suit smiling"
+            />
+            <p class="text-sm text-center mb-8">
+              <a
+                href="https://www.canva.com/photos/MADEOhMbB4c/"
+                target="_blank"
+                rel="noopener"
+                >Image</a
+              >
+              by @Syda Productions under
+              <a
+                href="https://www.canva.com/policies/content-license-agreement/"
+                target="_blank"
+                rel="noopener"
+                >Canva</a
+              >
+            </p>
+            <h3>Candidate 1:</h3>
+            <p>
+              <strong
+                >Mr. Abdullah taught preschool for five years at a private
+                preschool, part of a science magnet school. His references
+                describe him as a “kind teacher who wants his students and
+                co-workers to be successful.”</strong
+              >
+            </p>
+            <em
+              >Before you go to the next slide for the answer, use the checklist
+              and information about 123 Preschool to determine if he is a good
+              fit</em
+            >.
+          </li>
+          <li style="text-align: center">
+            <img
+              src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Hiring%20and%20Retaining%20Staff%20Module/ECE%20Hiring%20S1L1%20Slideshow5.png?ou=11632"
+              alt="Green checkmark"
+            />
+            <p class="text-sm text-center mb-8">
+              <a
+                href="https://www.canva.com/icons/MAE88PV8lM8/"
+                target="_blank"
+                rel="noopener"
+                >Image</a
+              >
+              by @cgdeaw under
+              <a
+                href="https://www.canva.com/policies/content-license-agreement/"
+                target="_blank"
+                rel="noopener"
+                >Canva</a
+              >
+            </p>
+            <h3>Correct!</h3>
+            <p>
+              <strong
+                >Mr. Abdullah is a good job fit and a good organization fit for
+                the preschool. He would be a good hire at 123 Preschool.</strong
+              >
+            </p>
+          </li>
+          <li style="text-align: center">
+            <img
+              src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Hiring%20and%20Retaining%20Staff%20Module/ECE%20Hiring%20S1L1%20Slideshow2.png?ou=11632"
+              alt="Woman in an interview"
+            />
+            <p class="text-sm text-center mb-8">
+              <a
+                href="https://www.canva.com/photos/MAEn5nWPxMQ/"
+                target="_blank"
+                rel="noopener"
+                >Image</a
+              >
+              by @pondsaksitphotos under
+              <a
+                href="https://www.canva.com/policies/content-license-agreement/"
+                target="_blank"
+                rel="noopener"
+                >Canva</a
+              >
+            </p>
+            <h3>Candidate 2:</h3>
+            <p>
+              <strong
+                >Ms. Badawi is a gymnastics coach who enjoyed working so much
+                with young students she decided to become a preschool teacher.
+                She’s never taught preschool before. Her references say she’s a
+                great team player who can talk to anyone.</strong
+              >
+            </p>
+            <em
+              >Before you go to the next slide for the answer, use the checklist
+              and information about 123 Preschool to determine if she is a good
+              fit</em
+            >.
+          </li>
+          <li style="text-align: center">
+            <img
+              src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Hiring%20and%20Retaining%20Staff%20Module/Hiring-Section%201%20lesson%202%20scenario.png?ou=11632"
+              alt="plus sign"
+            />
+            <p class="text-sm text-center mb-8">
+              <a
+                href="https://www.canva.com/icons/MAESm0kifzM/"
+                target="_blank"
+                rel="noopener"
+                >Image</a
+              >
+              by @icons8 under
+              <a
+                href="https://www.canva.com/policies/content-license-agreement/"
+                target="_blank"
+                rel="noopener"
+                >Canva</a
+              >
+            </p>
+            <h3>Maybe!</h3>
+            <p>
+              <strong>
+                Ms. Badawi is a good organizational fit but doesn’t have the
+                experience to be a good job fit. With training, Ms. Badawi could
+                be a good hire.</strong
+              >
+            </p>
+          </li>
+          <li style="text-align: center">
+            <img
+              src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Hiring%20and%20Retaining%20Staff%20Module/ECE%20Hiring%20S1L1%20Slideshow3.png?ou=11632"
+              alt="Man in an interview"
+            />
+            <p class="text-sm text-center mb-8">
+              <a
+                href="https://www.canva.com/photos/MADyQ7p4HR8/"
+                target="_blank"
+                rel="noopener"
+                >Image</a
+              >
+              by fauxels under
+              <a
+                href="https://www.canva.com/policies/content-license-agreement/"
+                target="_blank"
+                rel="noopener"
+                >Canva</a
+              >
+            </p>
+            <h3>Candidate 3:</h3>
+            <p>
+              <strong
+                >Mr. Chamas has a variety of work experiences, but he has never
+                taught before. A former manager describes him as “someone who
+                prefers to work alone. While he never had direct conflicts with
+                other staff, his attitude showed he’d rather not work with
+                them.”</strong
+              >
+            </p>
+            <em
+              >Before you go to the next slide for the answer, use the checklist
+              and information about 123 Preschool to determine if he is a good
+              fit</em
+            >.
+          </li>
+          <li style="text-align: center">
+            <img
+              src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Hiring%20and%20Retaining%20Staff%20Module/ECE%20Hiring%20S1L1%20Slideshow4.png?ou=11632"
+              alt="Red X"
+            />
+            <p class="text-sm text-center mb-8">
+              <a
+                href="https://www.canva.com/icons/MAFa8K-y2uk/"
+                target="_blank"
+                rel="noopener"
+                >Image</a
+              >
+              by @brand326597832 under
+              <a
+                href="https://www.canva.com/policies/content-license-agreement/"
+                target="_blank"
+                rel="noopener"
+                >Canva</a
+              >
+            </p>
+            <h3>Not a good fit!</h3>
+            <p>
+              <strong
+                >Mr. Chamas doesn’t have the skills or the right attitude to
+                work at 123 Preschool. He is not a good fit for the job or the
+                organization.</strong
+              >
+            </p>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>
