@@ -185,6 +185,7 @@ $(document).ready(function () {
   $(".tabs-white li a").on("click", function () {
     console.log("clicked");
     var t = $(this).attr("id");
+    var panel = $(this).attr("aria-controls");
     if ($(this).hasClass("inactive")) {
       // Remove tab-active from all tabs first
       $(".tabs-white li").removeClass("tab-active");
@@ -197,6 +198,7 @@ $(document).ready(function () {
 
       $(".tabs-white__content>div").addClass("hidden");
       $(".tabs-white__content>#" + t).removeClass("hidden");
+      $(".tabs-white__content>#" + panel).removeClass("hidden");
       $(".video-container iframe").each(function () {
         var el_src = $(this).attr("src");
         $(this).attr("src", el_src);
