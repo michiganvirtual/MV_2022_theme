@@ -228,6 +228,43 @@ $(document).ready(function () {
     }
   });
 
+  const tabs = document.querySelectorAll('[role="tab"]');
+  const tabPanels = document.querySelectorAll('[role="tabpanel"]');
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      // Deactivate all tabs and panels
+      tabs.forEach((t) => {
+        t.setAttribute("aria-selected", "false");
+        t.setAttribute("tabindex", "-1");
+      });
+      tabPanels.forEach((panel) => panel.setAttribute("aria-hidden", "true"));
+
+      // Activate clicked tab and corresponding panel
+      tab.setAttribute("aria-selected", "true");
+      tab.setAttribute("tabindex", "0");
+      document
+        .getElementById(tab.getAttribute("aria-controls"))
+        .setAttribute("aria-hidden", "false");
+    });
+
+    tab.addEventListener("keydown", (e) => {
+      const index = Array.prototype.indexOf.call(tabs, e.target);
+      let newIndex = null;
+
+      if (e.key === "ArrowRight") {
+        newIndex = (index + 1) % tabs.length;
+      } else if (e.key === "ArrowLeft") {
+        newIndex = (index - 1 + tabs.length) % tabs.length;
+      }
+
+      if (newIndex !== null) {
+        tabs[newIndex].focus();
+        tabs[newIndex].click();
+      }
+    });
+  });
+
   // Drag-and-drop logic
   const draggableElements = document.querySelectorAll("span.draggable");
   const droppableContainers = document.querySelectorAll(".droppable");
