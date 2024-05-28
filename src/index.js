@@ -450,7 +450,8 @@ $(document).ready(function () {
             .attr(
               "src",
               "https://mv-2022-theme.netlify.app/assets/images/icons/checkmark-icon.png"
-            );
+            )
+            .attr("alt", "Correct Answer");
           $(questions[i])
             .children(".feedback-icon")
             .removeClass("bg-ada-orange")
@@ -462,7 +463,8 @@ $(document).ready(function () {
             .attr(
               "src",
               "https://mv-2022-theme.netlify.app/assets/images/icons/x-icon.png"
-            );
+            )
+            .attr("alt", "Incorrect Answer");
           $(questions[i])
             .children(".feedback-icon")
             .removeClass("bg-ada-green")
