@@ -518,7 +518,8 @@ $(document).ready(function () {
       $(this).next("#answers-table")[0].scrollIntoView({
         behavior: "smooth",
       });
-      $(this).next("#answers-table")[0].focus();
+      $(this).next("#answers-table").attr("tabindex", "-1");
+      $(this).next("#answers-table").focus();
     }
   });
   $("#display-answers").on("click", function (e) {
@@ -527,7 +528,8 @@ $(document).ready(function () {
     $(this).next("#answers-table")[0].scrollIntoView({
       behavior: "smooth",
     });
-    $(this).next("#answers-table")[0].focus();
+    $(this).next("#answers-table").attr("tabindex", "-1");
+    $(this).next("#answers-table").focus();
   });
   /* $("#answers-table").on("click", function (e) {
     $("#answers-table").addClass("hidden");
