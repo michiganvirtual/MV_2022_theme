@@ -518,7 +518,7 @@ $(document).ready(function () {
       $(this).next("#answers-table")[0].scrollIntoView({
         behavior: "smooth",
       });
-      $(this).next("#answers-table").attr("tabindex", "-1");
+      $(this).next("#answers-table").attr("tabindex", "0");
       $(this).next("#answers-table").focus();
     }
   });
@@ -528,7 +528,7 @@ $(document).ready(function () {
     $(this).next("#answers-table")[0].scrollIntoView({
       behavior: "smooth",
     });
-    $(this).next("#answers-table").attr("tabindex", "-1");
+    $(this).next("#answers-table").attr("tabindex", "0");
     $(this).next("#answers-table").focus();
   });
   /* $("#answers-table").on("click", function (e) {

@@ -1679,6 +1679,9 @@ ol.relative{
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
+  border-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
   background-color: rgb(172 102 16 / var(--tw-bg-opacity));
   font-weight: 700;
