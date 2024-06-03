@@ -1679,7 +1679,7 @@ ol.relative{
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  border-width: 2px;
+  border-width: 4px;
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
