@@ -520,7 +520,8 @@ table tbody tr {
     display: none;
   }
 
-  table td {
+  table td,
+  table th {
     display: flex;
     justify-content: space-between;
     min-width: 100%;
@@ -534,7 +535,8 @@ table tbody tr {
     margin: 20px;
   }
 
-  table td::before {
+  table td::before,
+  table th::before {
     content: attr(data-label);
     min-width: 50%;
     text-align: left;
