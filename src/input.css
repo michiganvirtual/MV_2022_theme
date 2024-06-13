@@ -348,7 +348,7 @@ table tbody tr {
 
 /* You may need to adjust positioning */
 .slick-prev {
-  left: -25px;
+  left: -50px;
 }
 
 .slick-next {
@@ -394,7 +394,7 @@ table tbody tr {
   }
 
   .slick-prev {
-    left: -10px;
+    left: -20px;
   }
 
   .slick-next {
@@ -406,7 +406,7 @@ table tbody tr {
     max-width: 150px;
   }
   .slick-prev {
-    left: -25px;
+    left: -50px;
   }
 
   .slick-next {
