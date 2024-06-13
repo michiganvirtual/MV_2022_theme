@@ -126,6 +126,7 @@ $(document).ready(function () {
     accessibility: true,
     dots: true,
     infinite: true,
+    adaptiveHeight: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     prevArrow:
