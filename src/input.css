@@ -1,7 +1,10 @@
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
-@import url("/css/slick.css");
-@import url("/css/slick-theme.css");
+/* @import url("/css/slick.css");
+@import url("/css/slick-theme.css"); */
+
+@import url("/css/ally-slick/slick.min.css");
+@import url("/css/ally-slick/slick-theme.min.css");
 
 @font-face {
   font-family: "FontAwesome";
@@ -309,8 +312,14 @@ table tbody tr {
 }
 
 /* Dots */
-.slick-dots li button:before {
+.slick-dots li button:before,
+.slick-dots li button .slick-dot-icon:before {
   font-size: 30px;
+}
+.slick-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .slick-slide img {
   height: 250px;

@@ -7,7 +7,8 @@ require("jquery-ui/ui/widgets/droppable");
 require("jquery-ui/ui/widgets/slider");
 require("jquery-ui/ui/widgets/selectable");
 require("./js/touch-punch");
-require("./js/slick");
+//require("./js/slick");
+require("./js/ally-slick/slick");
 import Sortable from "sortablejs";
 
 $(document).ready(function () {
