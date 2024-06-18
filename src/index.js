@@ -62,12 +62,11 @@ $(document).ready(function () {
 
   if ($("ul.accordion-controls").length) {
     for (var i = 0; i < $("ul.accordion-controls").length; i++) {
-      $("ul.accordion-controls")[i].setAttribute("role", "menu");
+      //$("ul.accordion-controls")[i].setAttribute("role", "menu");
     }
   }
   if ($("ul.accordion-controls>li").length) {
     $("ul.accordion-controls>li")
-      .attr("role", "menuitem")
       .attr("aria-hidden", "false")
       .find("a.block, button.block")
       .removeAttr("aria-expanded");
@@ -75,7 +74,6 @@ $(document).ready(function () {
   var accordionButtons = $(
     "ul.accordion-controls li a, ul.accordion-controls li button"
   );
-  accordionButtons.attr("tabindex", "0");
 
   $(".accordion-controls > li > a, .accordion-controls > li > button").on(
     "click keydown",
