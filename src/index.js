@@ -69,76 +69,61 @@ $(document).ready(function () {
     $("ul.accordion-controls>li")
       .attr("role", "menuitem")
       .attr("aria-hidden", "false")
-      .find("a.block")
+      .find("a.block, button.block")
       .removeAttr("aria-expanded");
   }
-
-  var accordionButtons = $("ul.accordion-controls li a");
+  var accordionButtons = $(
+    "ul.accordion-controls li a, ul.accordion-controls li button"
+  );
   accordionButtons.attr("tabindex", "0");
 
-  /* $(".accordion-controls > li > a").on("click", function (e) {
-    e.preventDefault();
-    var $control = $(this);
-    var $content = $("#" + $control.attr("aria-controls"));
-    var $toggleIcon = $control.find("img.accordion__toggle");
-    var isExpanded = $control.attr("aria-expanded") === "true";
+  $(".accordion-controls > li > a, .accordion-controls > li > button").on(
+    "click keydown",
+    function (e) {
+      // Check if the event is a click or an Enter key press
+      if (
+        e.type === "click" ||
+        (e.type === "keydown" && (e.key === "Enter" || e.which === 13))
+      ) {
+        e.preventDefault();
+        var $control = $(this);
+        var $content = $("#" + $control.attr("aria-controls"));
+        var $toggleIcon = $control.find("img.accordion__toggle");
+        var isExpanded = $control.attr("aria-expanded") === "true";
 
-    // Close currently open accordions
-    //closeOpenAccordions($control);
+        // Close currently open accordions
+        closeOpenAccordions($control);
 
-    // Toggle aria-expanded attribute
-    $control.attr("aria-expanded", !isExpanded);
+        // Toggle aria-expanded attribute
+        $control.attr("aria-expanded", !isExpanded);
 
-    // Toggle aria-hidden attribute and max-height for content
-    $content.attr("aria-hidden", isExpanded);
-    $content.toggleClass("max-h-full");
+        // Toggle aria-hidden attribute and max-height for content
+        $content.attr("aria-hidden", isExpanded);
+        $content.toggleClass("max-h-full");
 
-    if (!isExpanded) {
-      $content.css("max-height", $content[0].scrollHeight);
-      $toggleIcon.addClass("rotate-180");
-    } else {
-      $content.css("max-height", 0);
-      $toggleIcon.removeClass("rotate-180");
-    }
-  }); */
-
-  $(".accordion-controls > li > a").on("click keydown", function (e) {
-    // Check if the event is a click or an Enter key press
-    if (e.type === "click" || (e.type === "keydown" && e.key === "Enter")) {
-      e.preventDefault();
-      var $control = $(this);
-      var $content = $("#" + $control.attr("aria-controls"));
-      var $toggleIcon = $control.find("img.accordion__toggle");
-      var isExpanded = $control.attr("aria-expanded") === "true";
-
-      // Close currently open accordions
-      //closeOpenAccordions($control);
-
-      // Toggle aria-expanded attribute
-      $control.attr("aria-expanded", !isExpanded);
-
-      // Toggle aria-hidden attribute and max-height for content
-      $content.attr("aria-hidden", isExpanded);
-      $content.toggleClass("max-h-full");
-
-      if (!isExpanded) {
-        $content.css("max-height", $content[0].scrollHeight);
-        $toggleIcon.addClass("rotate-180");
-      } else {
-        $content.css("max-height", 0);
-        $toggleIcon.removeClass("rotate-180");
+        if (!isExpanded) {
+          $content.css("max-height", $content[0].scrollHeight);
+          $toggleIcon.addClass("rotate-180");
+        } else {
+          $content.css("max-height", 0);
+          $toggleIcon.removeClass("rotate-180");
+        }
       }
     }
-  });
+  );
 
-  $(".accordion-controls > li > a").keypress(function (e) {
-    if (e.which === 13) {
-      $(this).click();
+  $(".accordion-controls > li > a, .accordion-controls > li > button").keypress(
+    function (e) {
+      if (e.which === 13) {
+        $(this).click();
+      }
     }
-  });
+  );
 
   function closeOpenAccordions(excludedControl) {
-    var allControls = $(".accordion-controls > li > a");
+    var allControls = $(
+      ".accordion-controls > li > a, .accordion-controls > li > button"
+    );
     allControls.each(function () {
       var $this = $(this);
       if (

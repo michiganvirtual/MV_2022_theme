@@ -601,6 +601,10 @@ a[target="_blank"]:after {
   .tabs li > a {
     @apply no-underline;
   }
+  li.accordion-controls > a,
+  li.accordion-controls > button {
+    @apply text-left;
+  }
 
   /* Reflection Rules */
 

@@ -1577,6 +1577,11 @@ li.accordion-controls > a,
   text-decoration-line:none
 }
 
+li.accordion-controls > a,
+  li.accordion-controls > button{
+  text-align:left
+}
+
 /* Reflection Rules */
 
 textarea{
