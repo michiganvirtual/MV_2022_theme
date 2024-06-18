@@ -73,10 +73,10 @@ $(document).ready(function () {
       .removeAttr("aria-expanded");
   }
 
-  var accordionButtons = $("ul.accordion-controls li");
+  var accordionButtons = $("ul.accordion-controls li a");
   accordionButtons.attr("tabindex", "0");
 
-  $(".accordion-controls > li > a").on("click", function (e) {
+  /* $(".accordion-controls > li > a").on("click", function (e) {
     e.preventDefault();
     var $control = $(this);
     var $content = $("#" + $control.attr("aria-controls"));
@@ -99,6 +99,35 @@ $(document).ready(function () {
     } else {
       $content.css("max-height", 0);
       $toggleIcon.removeClass("rotate-180");
+    }
+  }); */
+
+  $(".accordion-controls > li > a").on("click keydown", function (e) {
+    // Check if the event is a click or an Enter key press
+    if (e.type === "click" || (e.type === "keydown" && e.key === "Enter")) {
+      e.preventDefault();
+      var $control = $(this);
+      var $content = $("#" + $control.attr("aria-controls"));
+      var $toggleIcon = $control.find("img.accordion__toggle");
+      var isExpanded = $control.attr("aria-expanded") === "true";
+
+      // Close currently open accordions
+      //closeOpenAccordions($control);
+
+      // Toggle aria-expanded attribute
+      $control.attr("aria-expanded", !isExpanded);
+
+      // Toggle aria-hidden attribute and max-height for content
+      $content.attr("aria-hidden", isExpanded);
+      $content.toggleClass("max-h-full");
+
+      if (!isExpanded) {
+        $content.css("max-height", $content[0].scrollHeight);
+        $toggleIcon.addClass("rotate-180");
+      } else {
+        $content.css("max-height", 0);
+        $toggleIcon.removeClass("rotate-180");
+      }
     }
   });
 
