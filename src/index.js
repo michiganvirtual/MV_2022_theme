@@ -74,6 +74,7 @@ $(document).ready(function () {
   var accordionButtons = $(
     "ul.accordion-controls li a, ul.accordion-controls li button"
   );
+  accordionButtons.attr("tabindex", "0");
 
   $(".accordion-controls > li > a, .accordion-controls > li > button").on(
     "click keydown",
