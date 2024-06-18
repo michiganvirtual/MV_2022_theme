@@ -60,11 +60,8 @@ $(document).ready(function () {
     $(this).children(".flip-card-inner").toggleClass("flipped");
   });
 
-  if ($("ul.accordion-controls").length) {
-    for (var i = 0; i < $("ul.accordion-controls").length; i++) {
-      //$("ul.accordion-controls")[i].setAttribute("role", "menu");
-    }
-  }
+  /* ACCORDION RULES */
+
   if ($("ul.accordion-controls>li").length) {
     $("ul.accordion-controls>li")
       .attr("aria-hidden", "false")
@@ -75,6 +72,24 @@ $(document).ready(function () {
     "ul.accordion-controls li a, ul.accordion-controls li button"
   );
   accordionButtons.attr("tabindex", "0");
+
+  // Set tabindex to -1 for focusable elements inside closed accordions
+  $(".accordion-controls > li").each(function () {
+    var $control = $(this).find("a, button");
+    var isExpanded = $control.attr("aria-expanded") === "true";
+    var $content = $("#" + $control.attr("aria-controls"));
+    $content
+      .find("a, button, input, textarea, select, [tabindex]")
+      .each(function () {
+        $(this)[0].setAttribute("tabindex", "-1");
+      });
+
+    if (!isExpanded) {
+      $content
+        .find("a, button, input, textarea, select, [tabindex]")
+        .attr("tabindex", "-1");
+    }
+  });
 
   $(".accordion-controls > li > a, .accordion-controls > li > button").on(
     "click keydown",
@@ -89,9 +104,10 @@ $(document).ready(function () {
         var $content = $("#" + $control.attr("aria-controls"));
         var $toggleIcon = $control.find("img.accordion__toggle");
         var isExpanded = $control.attr("aria-expanded") === "true";
+        console.log($content);
 
         // Close currently open accordions
-        closeOpenAccordions($control);
+        //closeOpenAccordions($control);
 
         // Toggle aria-expanded attribute
         $control.attr("aria-expanded", !isExpanded);
@@ -103,9 +119,17 @@ $(document).ready(function () {
         if (!isExpanded) {
           $content.css("max-height", $content[0].scrollHeight);
           $toggleIcon.addClass("rotate-180");
+          // Make focusable elements tab-able
+          $content
+            .find("a, button, input, textarea, select, [tabindex]")
+            .removeAttr("tabindex");
         } else {
           $content.css("max-height", 0);
           $toggleIcon.removeClass("rotate-180");
+          // Make focusable elements non-tab-able
+          $content
+            .find("a, button, input, textarea, select, [tabindex]")
+            .attr("tabindex", "-1");
         }
       }
     }
