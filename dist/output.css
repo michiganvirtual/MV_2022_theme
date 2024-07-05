@@ -1502,13 +1502,13 @@ p + :not(p, ul, ol),
 }
 
 ul{
-  margin-left:1rem;
+  margin-left:1.5rem;
   margin-bottom:1rem;
   list-style-type:disc
 }
 
 ol{
-  margin-left:1rem;
+  margin-left:1.5rem;
   margin-bottom:1rem;
   list-style-type:decimal
 }
@@ -1519,7 +1519,7 @@ ol{
   ul > li > ul{
   margin-top:1rem;
   margin-bottom:1rem;
-  margin-left:1rem;
+  margin-left:1.5rem;
   list-style-type:square
 }
 
@@ -1527,7 +1527,7 @@ ol{
   ul > li > ul > li > ul{
   margin-top:1rem;
   margin-bottom:1rem;
-  margin-left:1rem;
+  margin-left:1.5rem;
   list-style-type:circle
 }
 
@@ -1537,7 +1537,7 @@ ol{
   ol > li > ol{
   margin-top:1rem;
   margin-bottom:1rem;
-  margin-left:1rem;
+  margin-left:1.5rem;
   list-style-type:upper-roman
 }
 
@@ -1545,7 +1545,7 @@ ol{
   ol > li > ol > li > ol{
   margin-top:1rem;
   margin-bottom:1rem;
-  margin-left:1rem;
+  margin-left:1.5rem;
   list-style-type:lower-roman
 }
 
