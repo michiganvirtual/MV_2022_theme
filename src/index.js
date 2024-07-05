@@ -558,6 +558,7 @@ $(document).ready(function () {
         behavior: "smooth",
       });
       $(this).next("#answers-table").attr("tabindex", "0");
+      $(this).next("#answers-table").attr("role", "alert");
       $(this).next("#answers-table").focus();
     }
   });
@@ -568,6 +569,7 @@ $(document).ready(function () {
       behavior: "smooth",
     });
     $(this).next("#answers-table").attr("tabindex", "0");
+    $(this).next("#answers-table").attr("role", "alert");
     $(this).next("#answers-table").focus();
   });
   /* $("#answers-table").on("click", function (e) {
@@ -738,6 +740,9 @@ $(document).ready(function () {
     ghostClass: "sortable-ghost", // Class name for the drop placeholder
   });
   $("#sortable-list+button.submit").on("click", checkOrder); */
+
+  /* Miscellaneous */
+  $(".validation").attr("role", "alert");
 });
 
 //Add keyboard navigation functionality
