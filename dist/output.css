@@ -1764,7 +1764,8 @@ ol.relative{
   outline: #020202 1px solid;
 }
 
-#tooltip h3 {
+#tooltip h2,
+  #tooltip h3 {
   width: 80%;
 }
 

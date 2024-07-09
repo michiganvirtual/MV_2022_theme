@@ -679,6 +679,7 @@ a[target="_blank"]:after {
   #tooltip .close:focus {
     outline: #020202 1px solid;
   }
+  #tooltip h2,
   #tooltip h3 {
     width: 80%;
   }
