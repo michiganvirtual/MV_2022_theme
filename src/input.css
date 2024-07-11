@@ -380,7 +380,7 @@ table tbody tr {
   content: "Next"; /* Text for "next" button */
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 680px) {
   #slideshow {
     max-width: 100%;
   }
@@ -401,6 +401,7 @@ table tbody tr {
     right: -10px;
   }
 }
+
 @media screen and (max-width: 280px) {
   #slideshow {
     max-width: 150px;
@@ -748,15 +749,6 @@ a[target="_blank"]:after {
       content: "Next"; /* Text for "next" button */
     }
 
-    @media screen and (max-width: 667px) {
-      .slick-prev {
-        right: -10px;
-      }
-
-      .slick-next {
-        left: -10px;
-      }
-    }
     @media screen and (max-width: 280px) {
       .slick-prev {
         right: -25px;
