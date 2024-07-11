@@ -748,7 +748,7 @@ a[target="_blank"]:after {
       content: "Next"; /* Text for "next" button */
     }
 
-    @media screen and (max-width: 430px) {
+    @media screen and (max-width: 667px) {
       .slick-prev {
         right: -10px;
       }
