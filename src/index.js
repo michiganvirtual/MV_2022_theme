@@ -664,11 +664,13 @@ $(document).ready(function () {
         nextBtnText = "Retry Scenario from Beginning";
       }
       $("#next-btn").text(nextBtnText).removeClass("hidden");
-      $(".ui-selected").addClass("bg-ada-green border-ada-green");
+      $(".ui-selected")
+        .removeClass("bg-deep-teal border-deep-teal")
+        .addClass("bg-ada-green border-ada-green");
     } else {
-      $(".ui-selected").addClass(
-        "bg-ada-orange border-ada-orange line-through"
-      );
+      $(".ui-selected")
+        .removeClass("bg-deep-teal border-deep-teal")
+        .addClass("bg-ada-orange border-ada-orange line-through");
       $("#next-btn").text("Try Again").removeClass("hidden");
     }
     $("#respond-btn").addClass("hidden");
