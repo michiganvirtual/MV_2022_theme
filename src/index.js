@@ -664,7 +664,7 @@ $(document).ready(function () {
         nextBtnText = "Retry Scenario from Beginning";
       }
       $("#next-btn").text(nextBtnText).removeClass("hidden");
-      $(".ui-selected").addClass("bg-light-teal border-light-teal");
+      $(".ui-selected").addClass("bg-ada-green border-ada-green");
     } else {
       $(".ui-selected").addClass(
         "bg-ada-orange border-ada-orange line-through"
