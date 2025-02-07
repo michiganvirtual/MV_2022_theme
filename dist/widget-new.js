@@ -142,7 +142,7 @@ class HelpWidget extends HTMLElement {
           }
           .help-form textarea {
             display: block;
-            width: 100%;
+            width: calc(100% - 20px);
             height: 112px;
             resize: none;
             overflow-y: scroll;
@@ -314,7 +314,7 @@ class HelpWidget extends HTMLElement {
           </svg>
         </a>
         <div class="help-header-inner">
-          <img class="icon" src="dist/assets/images/help-widget/Flag-Frame.svg" alt="" srcset="" />
+          <img class="icon" src="https://mv-2022-theme.netlify.app/assets/images/help-widget/Flag-Frame.svg" alt="" srcset="" />
           <span>Report a problem</span>
         </div>
         <a href="#" class="close-btn">
@@ -450,7 +450,7 @@ class HelpWidget extends HTMLElement {
           <button class="return-btn">Submit more feedback</button>
         </div>
         <div class="help-footer">
-          <img src="dist/assets/images/help-widget/MV-LOGO.svg" alt="" srcset="" />
+          <img src="https://mv-2022-theme.netlify.app/assets/images/help-widget/MV-LOGO.svg" alt="" srcset="" />
           <span
             >Need help from a real person?
             <a
@@ -511,7 +511,8 @@ class HelpWidget extends HTMLElement {
       heading.classList.remove("hidden");
       message.textContent = "What kind of issue are you experiencing?";
       message.classList.remove("hidden");
-      icon.src = "dist/assets/images/help-widget/Flag-Frame.svg";
+      icon.src =
+        "https://mv-2022-theme.netlify.app/assets/images/help-widget/Flag-Frame.svg";
       icon.style.marginRight = "";
       container.classList.remove("open");
       thankYou.classList.add("hidden");
@@ -527,7 +528,8 @@ class HelpWidget extends HTMLElement {
       optionsList.classList.remove("hidden");
       heading.textContent = "Report a problem";
       message.textContent = "What kind of issue are you experiencing?";
-      icon.src = "dist/assets/images/help-widget/Flag-Frame.svg";
+      icon.src =
+        "https://mv-2022-theme.netlify.app/assets/images/help-widget/Flag-Frame.svg";
       icon.style.marginRight = "16px";
     });
 
@@ -539,7 +541,8 @@ class HelpWidget extends HTMLElement {
       heading.textContent = "Report a problem";
       message.textContent = "What kind of issue are you experiencing?";
       message.classList.remove("hidden");
-      icon.src = "dist/assets/images/help-widget/Flag-Frame.svg";
+      icon.src =
+        "https://mv-2022-theme.netlify.app/assets/images/help-widget/Flag-Frame.svg";
       icon.style.marginRight = "16px";
       heading.classList.remove("hidden");
       optionsList.classList.remove("hidden");
@@ -550,8 +553,8 @@ class HelpWidget extends HTMLElement {
     // Handle form submission
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      let detail = document.getElementById("details").value;
-      let issueType = document.getElementById("dropdown-option").textContent;
+      let detail = form.querySelector("#details").value;
+      let issueType = form.querySelector("#dropdown-option").textContent;
       const formSubmissionData = {
         "issue-type": issueType,
         detail: detail,
@@ -570,42 +573,38 @@ class HelpWidget extends HTMLElement {
 
     // Attach dropdown event listeners
     function attachDropdownListeners() {
-      const dropdown = document.querySelector(".issues-dropdown");
-      if (!dropdown) return;
+      setTimeout(() => {
+        // Ensure it runs after DOM update
+        const dropdown = container.querySelector(".issues-dropdown");
+        if (!dropdown) return;
 
-      const dropdownHeader = dropdown.querySelector(".dropdown-header");
-      const dropdownOptions = dropdown.querySelector(".dropdown-options");
+        const dropdownHeader = dropdown.querySelector(".dropdown-header");
+        const dropdownOptions = dropdown.querySelector(".dropdown-options");
 
-      // Toggle dropdown visibility
-      dropdownHeader.addEventListener("click", (e) => {
-        e.stopPropagation(); // Stop event propagation
-        dropdown.classList.toggle("active");
-      });
+        if (!dropdownHeader || !dropdownOptions) return;
 
-      // Handle option selection
-      dropdownOptions.addEventListener("click", (e) => {
-        if (e.target.tagName === "LI") {
-          const selectedValue = e.target.getAttribute("data-value");
-          const selectedText = e.target.textContent;
+        // Toggle dropdown visibility
+        dropdownHeader.addEventListener("click", (e) => {
+          e.stopPropagation();
+          dropdown.classList.toggle("active");
+        });
 
-          // Update the dropdown header with the selected option
-          dropdownHeader.querySelector("span#dropdown-option").textContent =
-            selectedText;
+        // Handle option selection
+        dropdownOptions.addEventListener("click", (e) => {
+          if (e.target.tagName === "LI") {
+            dropdownHeader.querySelector("#dropdown-option").textContent =
+              e.target.textContent;
+            dropdown.classList.remove("active");
+          }
+        });
 
-          // Close the dropdown
-          dropdown.classList.remove("active");
-
-          // You can also handle the selected value (e.g., log it or use it in your app)
-          console.log("Selected value:", selectedValue);
-        }
-      });
-
-      // Close dropdown when clicking outside
-      document.addEventListener("click", (e) => {
-        if (!dropdown.contains(e.target)) {
-          dropdown.classList.remove("active");
-        }
-      });
+        // Close dropdown when clicking outside
+        document.addEventListener("click", (e) => {
+          if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove("active");
+          }
+        });
+      }, 0); // Small delay to ensure DOM updates first
     }
 
     // Attach initial dropdown event listeners
@@ -616,7 +615,8 @@ class HelpWidget extends HTMLElement {
       switch (option) {
         case "technology":
           heading.textContent = "Technology Issue";
-          icon.src = "dist/assets/images/help-widget/technology-icon-white.svg";
+          icon.src =
+            "https://mv-2022-theme.netlify.app/assets/images/help-widget/technology-icon-white.svg";
           return `
             <div class="issues-dropdown">
                 <div class="dropdown-header">
@@ -646,12 +646,15 @@ class HelpWidget extends HTMLElement {
                     <li data-value="option5">Other</li>
                 </ul>
             </div>
-            <textarea id="details" name="details" required placeholder="Describe the issue"></textarea>
+            <div>
+              <textarea id="details" name="details" required placeholder="Describe the issue"></textarea>
+            </div>
           `;
         case "course-content":
           container.style.backgroundColor = "#6A7F17";
           heading.textContent = "Content Issue";
-          icon.src = "assets/content-icon-white.svg";
+          icon.src =
+            "https://mv-2022-theme.netlify.app/assets/images/help-widget/content-icon-white.svg";
           return `
             <div class="issues-dropdown">
                 <div class="dropdown-header">
@@ -686,7 +689,8 @@ class HelpWidget extends HTMLElement {
         case "accessibility":
           container.style.backgroundColor = "#115E6E";
           heading.textContent = "Accessibility Issue";
-          icon.src = "assets/accessibility-icon-white.svg";
+          icon.src =
+            "https://mv-2022-theme.netlify.app/assets/images/help-widget/accessibility-icon-white.svg";
           return `
             <div class="issues-dropdown">
                 <div class="dropdown-header">
