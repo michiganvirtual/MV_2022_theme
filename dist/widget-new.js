@@ -19,10 +19,14 @@ class HelpWidget extends HTMLElement {
             background: #ac6610;
             box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.3);
           }
+          .help-container:hover {
+            cursor: pointer;
+          }
           .help-container.open {
             border-radius: 16px;
             box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.3);
             max-width: 337px;
+            cursor: unset;
           }
           .help-header {
             display: flex;
@@ -122,6 +126,7 @@ class HelpWidget extends HTMLElement {
           }
           .help-options li:hover {
             color: #fff;
+            cursor: pointer;
           }
           .help-options li:hover path {
             fill: #fff;
@@ -237,15 +242,18 @@ class HelpWidget extends HTMLElement {
             color: #ffffff;
             text-align: center;
             width: 100%;
-
             /* Button label - sm */
             font-family: "Inter";
             font-size: 14px;
             font-style: normal;
             font-weight: 500;
             line-height: 24px; /* 171.429% */
-
             margin-bottom: 7px;
+          }
+          .help-form button[type="submit"]:hover,
+          .return-btn:hover {
+            background-color: #89531B;
+            cursor: pointer;
           }
           .thank-you {
             display: flex;
@@ -485,19 +493,30 @@ class HelpWidget extends HTMLElement {
 
     // Load form for the selected option
     optionsList.addEventListener("click", (e) => {
-      const option = e.target.getAttribute("data-option");
-      if (!option) return;
+      // Check if the clicked element is an <svg> or any other child element
+      let targetElement = e.target;
 
-      // Generate form based on option
-      formContent.innerHTML = getFormContent(option);
-      message.textContent = "Please select the type of issue you found.";
-      optionsList.classList.add("hidden");
-      backButton.style.display = "block";
-      icon.style.marginRight = "0px";
-      form.classList.remove("hidden");
+      // Traverse up the DOM to find the parent <li> element
+      while (targetElement && targetElement.tagName !== "LI") {
+        targetElement = targetElement.parentElement;
+      }
 
-      // Reattach dropdown event listeners for dynamic content
-      attachDropdownListeners();
+      // If the parent <li> is found, proceed with the logic
+      if (targetElement && targetElement.tagName === "LI") {
+        const option = targetElement.getAttribute("data-option");
+        if (!option) return;
+
+        // Generate form based on option
+        formContent.innerHTML = getFormContent(option);
+        message.textContent = "Please select the type of issue you found.";
+        optionsList.classList.add("hidden");
+        backButton.style.display = "block";
+        icon.style.marginRight = "0px";
+        form.classList.remove("hidden");
+
+        // Reattach dropdown event listeners for dynamic content
+        attachDropdownListeners();
+      }
     });
 
     // Close button
