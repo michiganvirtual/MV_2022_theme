@@ -5,6 +5,7 @@ class HelpWidget extends HTMLElement {
     const shadow = this.attachShadow({ mode: "open" });
     const container = document.createElement("div");
     container.classList.add("help-container");
+    container.tabIndex = 0;
 
     container.innerHTML = `
         <style>
@@ -333,7 +334,7 @@ class HelpWidget extends HTMLElement {
           }
         </style>
         <div class="help-header">
-        <a href="#" class="back-btn">
+        <a href="#" class="back-btn" aria-label="Back Button">
           <svg
             width="16"
             height="16"
@@ -378,7 +379,7 @@ class HelpWidget extends HTMLElement {
           </div>
           <span>Report a problem</span>
         </div>
-        <a href="#" class="close-btn">
+        <a href="#" class="close-btn" aria-label="Close Button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -406,7 +407,7 @@ class HelpWidget extends HTMLElement {
       <div class="help-body">
         <p class="help-message">What kind of issue are you experiencing?</p>
         <ul class="help-options">
-          <li data-option="technology" class="technology">
+          <li tabindex='0' data-option="technology" class="technology">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="40"
@@ -421,7 +422,7 @@ class HelpWidget extends HTMLElement {
             </svg>
             Technology Issue
           </li>
-          <li data-option="course-content" class="course-content">
+          <li tabindex='0' data-option="course-content" class="course-content">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="40"
@@ -436,7 +437,7 @@ class HelpWidget extends HTMLElement {
             </svg>
             Course Content Issue
           </li>
-          <li data-option="accessibility" class="accessibility">
+          <li tabindex='0' data-option="accessibility" class="accessibility">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="40"
@@ -455,7 +456,7 @@ class HelpWidget extends HTMLElement {
         <form class="help-form hidden">
           <div class="form-content">
             <div class="issues-dropdown">
-              <div class="dropdown-header">
+              <div class="dropdown-header" tabindex=0>
                 <span id="dropdown-option">Select an option</span>
                 <span class="arrow">
                   <svg
@@ -550,13 +551,114 @@ class HelpWidget extends HTMLElement {
     const adaIconWhite =
       '<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 36 36" fill="none"><path d="M18 6C11.3726 6 6 11.3726 6 18C6 24.6274 11.3726 30 18 30C24.6274 30 30 24.6274 30 18C30 11.3726 24.6274 6 18 6ZM18 28.4516C12.2582 28.4516 7.54839 23.8038 7.54839 18C7.54839 12.2582 12.1962 7.54839 18 7.54839C23.7418 7.54839 28.4516 12.1962 28.4516 18C28.4516 23.7418 23.8038 28.4516 18 28.4516ZM24.7597 13.9511C24.858 14.3673 24.6002 14.7842 24.1841 14.8825C22.6838 15.2368 21.283 15.549 19.8927 15.7106C19.9186 21.268 20.5298 22.4842 21.2115 24.2285C21.406 24.7263 21.1601 25.2876 20.6622 25.482C20.164 25.6766 19.603 25.4303 19.4087 24.9327C18.9578 23.7791 18.5111 22.7763 18.2343 20.7096H17.7657C17.4885 22.7793 17.0405 23.7829 16.5913 24.9327C16.3966 25.431 15.8349 25.6763 15.3378 25.482C14.8399 25.2875 14.594 24.7263 14.7885 24.2285C15.4709 22.4825 16.0814 21.2655 16.1072 15.7106C14.7169 15.549 13.3161 15.2368 11.8158 14.8825C11.3997 14.7842 11.142 14.3673 11.2403 13.9511C11.3385 13.535 11.7555 13.2773 12.1717 13.3755C17.2631 14.5777 18.7272 14.58 23.8283 13.3755C24.2444 13.2777 24.6615 13.535 24.7597 13.9511ZM16.1519 11.8938C16.1519 10.8732 16.9793 10.0458 18 10.0458C19.0207 10.0458 19.8481 10.8732 19.8481 11.8938C19.8481 12.9145 19.0207 13.7419 18 13.7419C16.9793 13.7419 16.1519 12.9145 16.1519 11.8938Z" fill="white"/></svg>';
 
+    // // Toggle widget visibility
+    // header.addEventListener("click", () => {
+    //   container.classList.add("open");
+    // });
+
+    // // Load form for the selected option
+    // optionsList.addEventListener("click", (e) => {
+    //   // Check if the clicked element is an <svg> or any other child element
+    //   let targetElement = e.target;
+
+    //   // Traverse up the DOM to find the parent <li> element
+    //   while (targetElement && targetElement.tagName !== "LI") {
+    //     targetElement = targetElement.parentElement;
+    //   }
+
+    //   // If the parent <li> is found, proceed with the logic
+    //   if (targetElement && targetElement.tagName === "LI") {
+    //     const option = targetElement.getAttribute("data-option");
+    //     if (!option) return;
+
+    //     // Generate form based on option
+    //     formContent.innerHTML = getFormContent(option);
+    //     message.textContent = "Please select the type of issue you found.";
+    //     optionsList.classList.add("hidden");
+    //     backButton.style.display = "flex";
+    //     icon.style.marginRight = "0px";
+    //     form.classList.remove("hidden");
+    //     footer.querySelector("span").innerHTML =
+    //       "Need help now?<br><a href='https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA.' target='_blank'>Submit a ticket to our team <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d='M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z'/></svg></a> or <a href='https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA.' target='_blank'>Get Helpful tech tips <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d='M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z'/></svg></a>.";
+    //     // Reattach dropdown event listeners for dynamic content
+    //     attachDropdownListeners();
+    //   }
+    // });
+
+    // // Close button
+    // closeButton.addEventListener("click", (e) => {
+    //   e.stopPropagation(); // Stop event propagation
+
+    //   container.style.backgroundColor = "#AC6610";
+    //   heading.textContent = "Report a problem";
+    //   container.classList.remove("open");
+    //   setTimeout(function () {
+    //     backButton.style.display = "none";
+    //     form.classList.add("hidden");
+    //     optionsList.classList.remove("hidden");
+    //     heading.classList.remove("hidden");
+    //     message.textContent = "What kind of issue are you experiencing?";
+    //     message.classList.remove("hidden");
+    //     footer.querySelector("span").innerHTML =
+    //       'Need help from a real person? <a href="https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA." target="_blank">Submit a ticket to our team<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></a>.';
+    //     icon.innerHTML = flagIcon;
+    //     icon.style.marginRight = "";
+    //     thankYou.classList.add("hidden");
+    //     closeButton.classList.remove("thank-you");
+    //   }, 250);
+    // });
+
+    // // Back to options
+    // backButton.addEventListener("click", (e) => {
+    //   e.stopPropagation(); // Stop event propagation
+    //   container.style.backgroundColor = "#AC6610";
+    //   backButton.style.display = "none";
+    //   form.classList.add("hidden");
+    //   optionsList.classList.remove("hidden");
+    //   heading.textContent = "Report a problem";
+    //   message.textContent = "What kind of issue are you experiencing?";
+    //   footer.querySelector("span").innerHTML =
+    //     'Need help from a real person? <a href="https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA." target="_blank">Submit a ticket to our team<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></a>.';
+    //   icon.innerHTML = flagIcon;
+    //   icon.style.marginRight = "16px";
+    // });
+
+    // returnButton.addEventListener("click", (e) => {
+    //   e.stopPropagation();
+    //   container.style.backgroundColor = "#AC6610";
+    //   backButton.style.display = "none";
+    //   optionsList.classList.remove("hidden");
+    //   heading.textContent = "Report a problem";
+    //   message.textContent = "What kind of issue are you experiencing?";
+    //   message.classList.remove("hidden");
+    //   icon.innerHTML = flagIcon;
+    //   icon.style.marginRight = "16px";
+    //   heading.classList.remove("hidden");
+    //   optionsList.classList.remove("hidden");
+    //   thankYou.classList.add("hidden");
+    //   closeButton.classList.remove("thank-you");
+    // });
+
+    // Function to handle the Enter key event
+    const handleEnterKey = (event, callback) => {
+      if (event.key === "Enter" || event.keyCode === 13) {
+        callback(event);
+      }
+    };
+
     // Toggle widget visibility
-    header.addEventListener("click", () => {
+    container.addEventListener("click", () => {
       container.classList.add("open");
     });
 
+    container.addEventListener("keydown", (event) => {
+      handleEnterKey(event, () => {
+        container.classList.add("open");
+      });
+    });
+
     // Load form for the selected option
-    optionsList.addEventListener("click", (e) => {
+    const handleOptionClick = (e) => {
       // Check if the clicked element is an <svg> or any other child element
       let targetElement = e.target;
 
@@ -582,10 +684,16 @@ class HelpWidget extends HTMLElement {
         // Reattach dropdown event listeners for dynamic content
         attachDropdownListeners();
       }
+    };
+
+    optionsList.addEventListener("click", handleOptionClick);
+
+    optionsList.addEventListener("keydown", (event) => {
+      handleEnterKey(event, handleOptionClick);
     });
 
     // Close button
-    closeButton.addEventListener("click", (e) => {
+    const handleCloseClick = (e) => {
       e.stopPropagation(); // Stop event propagation
 
       container.style.backgroundColor = "#AC6610";
@@ -605,10 +713,16 @@ class HelpWidget extends HTMLElement {
         thankYou.classList.add("hidden");
         closeButton.classList.remove("thank-you");
       }, 250);
+    };
+
+    closeButton.addEventListener("click", handleCloseClick);
+
+    closeButton.addEventListener("keydown", (event) => {
+      handleEnterKey(event, handleCloseClick);
     });
 
     // Back to options
-    backButton.addEventListener("click", (e) => {
+    const handleBackClick = (e) => {
       e.stopPropagation(); // Stop event propagation
       container.style.backgroundColor = "#AC6610";
       backButton.style.display = "none";
@@ -620,9 +734,16 @@ class HelpWidget extends HTMLElement {
         'Need help from a real person? <a href="https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA." target="_blank">Submit a ticket to our team<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></a>.';
       icon.innerHTML = flagIcon;
       icon.style.marginRight = "16px";
+    };
+
+    backButton.addEventListener("click", handleBackClick);
+
+    backButton.addEventListener("keydown", (event) => {
+      handleEnterKey(event, handleBackClick);
     });
 
-    returnButton.addEventListener("click", (e) => {
+    // Return button
+    const handleReturnClick = (e) => {
       e.stopPropagation();
       container.style.backgroundColor = "#AC6610";
       backButton.style.display = "none";
@@ -636,6 +757,12 @@ class HelpWidget extends HTMLElement {
       optionsList.classList.remove("hidden");
       thankYou.classList.add("hidden");
       closeButton.classList.remove("thank-you");
+    };
+
+    returnButton.addEventListener("click", handleReturnClick);
+
+    returnButton.addEventListener("keydown", (event) => {
+      handleEnterKey(event, handleReturnClick);
     });
 
     // Handle form submission
@@ -708,7 +835,7 @@ class HelpWidget extends HTMLElement {
           icon.innerHTML = techIconWhite;
           return `
             <div class="issues-dropdown">
-                <div class="dropdown-header">
+                <div class="dropdown-header" tabindex=0>
                     <span id="dropdown-option">Select an option</span>
                     <span class="arrow">
                         <svg
@@ -745,7 +872,7 @@ class HelpWidget extends HTMLElement {
           icon.innerHTML = contentIconWhite;
           return `
             <div class="issues-dropdown">
-                <div class="dropdown-header">
+                <div class="dropdown-header" tabindex=0>
                     <span id="dropdown-option">Select a content issue type</span>
                     <span class="arrow">
                         <svg
@@ -780,7 +907,7 @@ class HelpWidget extends HTMLElement {
           icon.innerHTML = adaIconWhite;
           return `
             <div class="issues-dropdown">
-                <div class="dropdown-header">
+                <div class="dropdown-header" tabindex=0>
                     <span id="dropdown-option">Select an option</span>
                     <span class="arrow">
                         <svg
