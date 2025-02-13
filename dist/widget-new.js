@@ -9,6 +9,12 @@ class HelpWidget extends HTMLElement {
     container.innerHTML = `
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+        @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
+        @font-face {
+          font-family: "FontAwesome";
+          src: url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0)
+            format("woff");
+        }
           .help-container {
             position: fixed;
             bottom: 20px;
@@ -18,6 +24,9 @@ class HelpWidget extends HTMLElement {
             border-radius: 113px;
             background: #ac6610;
             box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.3);
+            transition: max-width 0.3s ease-in-out, max-height 0.3s ease-in-out;
+            max-height: 40px;
+            max-width: 200px;
           }
           .help-container:hover {
             cursor: pointer;
@@ -25,7 +34,10 @@ class HelpWidget extends HTMLElement {
           .help-container.open {
             border-radius: 16px;
             box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.3);
+            transition: max-width 0.3s ease-in-out, max-height 0.3s ease-in-out;
+            width: 337px;
             max-width: 337px;
+            max-height: 390px;
             cursor: unset;
           }
           .help-header {
@@ -39,6 +51,7 @@ class HelpWidget extends HTMLElement {
             width: 30px;
             height: 30px;
             margin-right: 5px;
+            transition: width 0.3s ease-in-out, height 0.3s ease-in-out, marin-right 0.3s ease-in-out;
           }
           .help-header span {
             color: #fff;
@@ -47,6 +60,7 @@ class HelpWidget extends HTMLElement {
             font-style: normal;
             font-weight: 600;
             line-height: normal;
+            transition: font-size 0.3s ease-in-out, font-weight 0.3s ease-in-out;
           }
           .help-header .close-btn {
             display: none;
@@ -214,9 +228,14 @@ class HelpWidget extends HTMLElement {
             margin: 0;
             padding: 0;
             list-style: none;
-            border-radius: 4px;
+            border-radius: 0px 0px 4px 4px;
             background-color: #fff;
             z-index: 10;
+            max-height: 190px;
+            overflow-y: scroll;
+            border: 1px solid #6d6e71;
+            border-top: 0px;
+            box-sizing: border-box;
           }
 
           .dropdown-options li {
@@ -287,9 +306,17 @@ class HelpWidget extends HTMLElement {
           }
           .help-footer a {
             color: #ac6610;
+            
+          }
+          .help-footer a[target="_blank"]:after {
+            font-family: "FontAwesome";
+            content: " \f08e ";
           }
           .hidden {
-            display: none;
+            visibility: hidden;
+            max-height: 0;
+            margin: 0;
+            transition: visibility 0s ease-in-out, max-height 0.3s, margin 0.3s;
           }
         </style>
         <div class="help-header">
@@ -522,20 +549,23 @@ class HelpWidget extends HTMLElement {
     // Close button
     closeButton.addEventListener("click", (e) => {
       e.stopPropagation(); // Stop event propagation
+
       container.style.backgroundColor = "#AC6610";
-      backButton.style.display = "none";
-      form.classList.add("hidden");
-      optionsList.classList.remove("hidden");
       heading.textContent = "Report a problem";
-      heading.classList.remove("hidden");
-      message.textContent = "What kind of issue are you experiencing?";
-      message.classList.remove("hidden");
-      icon.src =
-        "https://mv-2022-theme.netlify.app/assets/images/help-widget/Flag-Frame.svg";
-      icon.style.marginRight = "";
       container.classList.remove("open");
-      thankYou.classList.add("hidden");
-      closeButton.classList.remove("thank-you");
+      setTimeout(function () {
+        backButton.style.display = "none";
+        form.classList.add("hidden");
+        optionsList.classList.remove("hidden");
+        heading.classList.remove("hidden");
+        message.textContent = "What kind of issue are you experiencing?";
+        message.classList.remove("hidden");
+        icon.src =
+          "https://mv-2022-theme.netlify.app/assets/images/help-widget/Flag-Frame.svg";
+        icon.style.marginRight = "";
+        thankYou.classList.add("hidden");
+        closeButton.classList.remove("thank-you");
+      }, 250);
     });
 
     // Back to options
