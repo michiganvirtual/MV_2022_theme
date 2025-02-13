@@ -9,7 +9,7 @@ class HelpWidget extends HTMLElement {
     container.innerHTML = `
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-        @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
+                
         @font-face {
           font-family: "FontAwesome";
           src: url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0)
@@ -47,7 +47,7 @@ class HelpWidget extends HTMLElement {
             align-items: center;
             gap: 5px;
           }
-          .help-header .icon {
+          .help-header #icon-container {
             width: 30px;
             height: 30px;
             margin-right: 5px;
@@ -71,6 +71,8 @@ class HelpWidget extends HTMLElement {
           }
           .help-header .back-btn {
             display: none;
+            justify-content: center;
+            align-items: center;
           }
           .help-container.open .help-header {
             height: 51px;
@@ -86,13 +88,15 @@ class HelpWidget extends HTMLElement {
             font-weight: 700;
             line-height: 24px;
           }
-          .help-container.open .help-header-inner .icon {
+          .help-container.open .help-header-inner #icon-container {
             height: 36px;
             width: 36px;
             margin-right: 16px;
           }
           .help-container.open .help-header .close-btn {
-            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
           .help-body {
             background: white;
@@ -294,10 +298,10 @@ class HelpWidget extends HTMLElement {
           }
           .help-footer {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             color: #414042;
-            text-align: center;
+            text-align: left;
             font-family: "Inter";
             font-size: 10px;
             font-style: normal;
@@ -306,7 +310,16 @@ class HelpWidget extends HTMLElement {
           }
           .help-footer a {
             color: #ac6610;
-            
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+          }
+          .help-footer a svg {
+            width: 10px;
+            height: 10px;
+          }
+          .help-footer a svg path {
+            fill: #ac6610;
           }
           .help-footer a[target="_blank"]:after {
             font-family: "FontAwesome";
@@ -349,7 +362,20 @@ class HelpWidget extends HTMLElement {
           </svg>
         </a>
         <div class="help-header-inner">
-          <img class="icon" src="https://mv-2022-theme.netlify.app/assets/images/help-widget/Flag-Frame.svg" alt="" srcset="" />
+          <div id="icon-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none">
+              <g clip-path="url(#clip0_18_1604)">
+                <path d="M18 36C27.9411 36 36 27.9411 36 18C36 8.05888 27.9411 0 18 0C8.05888 0 0 8.05888 0 18C0 27.9411 8.05888 36 18 36Z" fill="white"/>
+                <path d="M29.628 11.3111C24.0336 17.5895 14.0688 4.16872 8.47437 10.4471C9.45357 14.8607 10.4328 19.2743 11.412 23.6951C16.0272 13.0031 25.0128 22.0103 29.628 11.3183V11.3111Z" stroke="#115E6E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7.7688 7.28638L12.9672 30.7368" stroke="#115E6E" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+              </g>
+              <defs>
+                <clipPath id="clip0_18_1604">
+                  <rect width="36" height="36" fill="white"/>
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
           <span>Report a problem</span>
         </div>
         <a href="#" class="close-btn">
@@ -491,8 +517,8 @@ class HelpWidget extends HTMLElement {
             <a
               href="https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA."
               target="_blank"
-              >Submit a ticket to our team</a
-            ></span
+              >Submit a ticket to our team <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d='M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z'/></svg></a
+            >.</span
           >
         </div>
       </div>
@@ -502,7 +528,7 @@ class HelpWidget extends HTMLElement {
 
     const header = container.querySelector(".help-header");
     const heading = container.querySelector(".help-header-inner span");
-    const icon = container.querySelector(".help-header-inner .icon");
+    const icon = container.querySelector("#icon-container");
     const body = container.querySelector(".help-body");
     const message = container.querySelector(".help-message");
     const optionsList = container.querySelector(".help-options");
@@ -512,6 +538,17 @@ class HelpWidget extends HTMLElement {
     const closeButton = container.querySelector(".close-btn");
     const thankYou = container.querySelector(".thank-you");
     const returnButton = container.querySelector(".return-btn");
+    const footer = container.querySelector(".help-footer");
+
+    //Declare SVG Icon Variables
+    const flagIcon =
+      '<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 36 36" fill="none"><g clip-path="url(#clip0_18_1604)"><path d="M18 36C27.9411 36 36 27.9411 36 18C36 8.05888 27.9411 0 18 0C8.05888 0 0 8.05888 0 18C0 27.9411 8.05888 36 18 36Z" fill="white"/><path d="M29.628 11.3111C24.0336 17.5895 14.0688 4.16872 8.47437 10.4471C9.45357 14.8607 10.4328 19.2743 11.412 23.6951C16.0272 13.0031 25.0128 22.0103 29.628 11.3183V11.3111Z" stroke="#115E6E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.7688 7.28638L12.9672 30.7368" stroke="#115E6E" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/></g><defs><clipPath id="clip0_18_1604"><rect width="36" height="36" fill="white"/></clipPath></defs></svg>';
+    const techIconWhite =
+      '<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 36 36" fill="none"><path d="M15.9878 18.7236L16.4119 18.276C16.5289 18.1525 16.5289 17.9518 16.4119 17.8283L14.6483 15.9667L16.4119 14.1051C16.5289 13.9816 16.5289 13.7809 16.4119 13.6574L15.9878 13.2097C15.8708 13.0862 15.6806 13.0862 15.5636 13.2097L13.1636 15.743C13.0466 15.8665 13.0466 16.0672 13.1636 16.1907L15.5636 18.724C15.681 18.8475 15.8708 18.8475 15.9878 18.7236ZM19.5878 18.276L20.0119 18.7236C20.1289 18.8471 20.319 18.8471 20.436 18.7236L22.836 16.1903C22.953 16.0668 22.953 15.8661 22.836 15.7426L20.436 13.2093C20.319 13.0858 20.1289 13.0858 20.0119 13.2093L19.5878 13.657C19.4708 13.7805 19.4708 13.9812 19.5878 14.1047L21.3518 15.9667L19.5881 17.8283C19.5602 17.8576 19.5381 17.8925 19.523 17.9309C19.5079 17.9693 19.5001 18.0105 19.5 18.052C19.5 18.0936 19.5077 18.1348 19.5228 18.1732C19.5378 18.2116 19.5599 18.2465 19.5878 18.276ZM29.4 22.3H27.6V11.5333C27.6 10.136 26.523 9 25.2 9H10.8C9.477 9 8.4 10.136 8.4 11.5333V22.3H6.6C6.2685 22.3 6 22.5834 6 22.9333V24.8333C6 26.5794 7.3455 28 9 28H27C28.6545 28 30 26.5794 30 24.8333V22.9333C30 22.5834 29.7315 22.3 29.4 22.3ZM9.6 11.5333C9.6 10.8339 10.1374 10.2667 10.8 10.2667H25.2C25.8626 10.2667 26.4 10.8339 26.4 11.5333V22.3H20.6674C20.5151 22.3 20.4041 22.4239 20.3704 22.5806C20.2493 23.1451 19.7711 23.5667 19.2 23.5667H16.8C16.2289 23.5667 15.7508 23.1451 15.6296 22.5806C15.5959 22.4239 15.4849 22.3 15.3326 22.3H9.6V11.5333ZM28.8 24.8333C28.8 25.8811 27.9926 26.7333 27 26.7333H9C8.00738 26.7333 7.2 25.8811 7.2 24.8333V23.5667H14.5031C14.7502 24.3037 15.4174 24.8333 16.2 24.8333H19.8C20.583 24.8333 21.2498 24.3037 21.4969 23.5667H28.8V24.8333Z" fill="white"/></svg>';
+    const contentIconWhite =
+      '<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 36 36" fill="none"><path d="M26.3391 10.5929L22.4062 6.66081C21.9844 6.23902 21.4125 6 20.8172 6H11.25C10.0078 6.00469 9 7.0123 9 8.25425V27.7504C9 28.9924 10.0078 30 11.25 30H24.75C25.9922 30 27 28.9924 27 27.7504V12.1863C27 11.5911 26.7609 11.0146 26.3391 10.5929ZM25.2797 11.6567C25.3781 11.7551 25.4438 11.8723 25.4766 12.0035H21V7.52783C21.1313 7.56063 21.2484 7.62624 21.3469 7.72466L25.2797 11.6567ZM24.75 28.5003H11.25C10.8375 28.5003 10.5 28.1629 10.5 27.7504V8.25425C10.5 7.84183 10.8375 7.50439 11.25 7.50439H19.5V12.3784C19.5 13.0018 20.0016 13.5032 20.625 13.5032H25.5V27.7504C25.5 28.1629 25.1625 28.5003 24.75 28.5003ZM21.3141 22.5062C21.5344 22.7264 21.5344 23.0826 21.3141 23.3029L21.0469 23.57C20.8266 23.7903 20.4703 23.7903 20.25 23.57L18 21.3111L15.7453 23.5653C15.525 23.7856 15.1688 23.7856 14.9484 23.5653L14.6812 23.2982C14.4609 23.0779 14.4609 22.7217 14.6812 22.5015L16.9359 20.2472L14.6812 17.993C14.4609 17.7727 14.4609 17.4165 14.6812 17.1963L14.9484 16.9291C15.1688 16.7088 15.525 16.7088 15.7453 16.9291L18 19.1834L20.2547 16.9291C20.475 16.7088 20.8313 16.7088 21.0516 16.9291L21.3187 17.1963C21.5391 17.4165 21.5391 17.7727 21.3187 17.993L19.0594 20.2519L21.3141 22.5062Z" fill="white"/></svg>';
+    const adaIconWhite =
+      '<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 36 36" fill="none"><path d="M18 6C11.3726 6 6 11.3726 6 18C6 24.6274 11.3726 30 18 30C24.6274 30 30 24.6274 30 18C30 11.3726 24.6274 6 18 6ZM18 28.4516C12.2582 28.4516 7.54839 23.8038 7.54839 18C7.54839 12.2582 12.1962 7.54839 18 7.54839C23.7418 7.54839 28.4516 12.1962 28.4516 18C28.4516 23.7418 23.8038 28.4516 18 28.4516ZM24.7597 13.9511C24.858 14.3673 24.6002 14.7842 24.1841 14.8825C22.6838 15.2368 21.283 15.549 19.8927 15.7106C19.9186 21.268 20.5298 22.4842 21.2115 24.2285C21.406 24.7263 21.1601 25.2876 20.6622 25.482C20.164 25.6766 19.603 25.4303 19.4087 24.9327C18.9578 23.7791 18.5111 22.7763 18.2343 20.7096H17.7657C17.4885 22.7793 17.0405 23.7829 16.5913 24.9327C16.3966 25.431 15.8349 25.6763 15.3378 25.482C14.8399 25.2875 14.594 24.7263 14.7885 24.2285C15.4709 22.4825 16.0814 21.2655 16.1072 15.7106C14.7169 15.549 13.3161 15.2368 11.8158 14.8825C11.3997 14.7842 11.142 14.3673 11.2403 13.9511C11.3385 13.535 11.7555 13.2773 12.1717 13.3755C17.2631 14.5777 18.7272 14.58 23.8283 13.3755C24.2444 13.2777 24.6615 13.535 24.7597 13.9511ZM16.1519 11.8938C16.1519 10.8732 16.9793 10.0458 18 10.0458C19.0207 10.0458 19.8481 10.8732 19.8481 11.8938C19.8481 12.9145 19.0207 13.7419 18 13.7419C16.9793 13.7419 16.1519 12.9145 16.1519 11.8938Z" fill="white"/></svg>';
 
     // Toggle widget visibility
     header.addEventListener("click", () => {
@@ -537,10 +574,11 @@ class HelpWidget extends HTMLElement {
         formContent.innerHTML = getFormContent(option);
         message.textContent = "Please select the type of issue you found.";
         optionsList.classList.add("hidden");
-        backButton.style.display = "block";
+        backButton.style.display = "flex";
         icon.style.marginRight = "0px";
         form.classList.remove("hidden");
-
+        footer.querySelector("span").innerHTML =
+          "Need help now?<br><a href='https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA.' target='_blank'>Submit a ticket to our team <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d='M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z'/></svg></a> or <a href='https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA.' target='_blank'>Get Helpful tech tips <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d='M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z'/></svg></a>.";
         // Reattach dropdown event listeners for dynamic content
         attachDropdownListeners();
       }
@@ -560,8 +598,9 @@ class HelpWidget extends HTMLElement {
         heading.classList.remove("hidden");
         message.textContent = "What kind of issue are you experiencing?";
         message.classList.remove("hidden");
-        icon.src =
-          "https://mv-2022-theme.netlify.app/assets/images/help-widget/Flag-Frame.svg";
+        footer.querySelector("span").innerHTML =
+          'Need help from a real person? <a href="https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA." target="_blank">Submit a ticket to our team<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></a>.';
+        icon.innerHTML = flagIcon;
         icon.style.marginRight = "";
         thankYou.classList.add("hidden");
         closeButton.classList.remove("thank-you");
@@ -577,8 +616,9 @@ class HelpWidget extends HTMLElement {
       optionsList.classList.remove("hidden");
       heading.textContent = "Report a problem";
       message.textContent = "What kind of issue are you experiencing?";
-      icon.src =
-        "https://mv-2022-theme.netlify.app/assets/images/help-widget/Flag-Frame.svg";
+      footer.querySelector("span").innerHTML =
+        'Need help from a real person? <a href="https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA." target="_blank">Submit a ticket to our team<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></a>.';
+      icon.innerHTML = flagIcon;
       icon.style.marginRight = "16px";
     });
 
@@ -590,8 +630,7 @@ class HelpWidget extends HTMLElement {
       heading.textContent = "Report a problem";
       message.textContent = "What kind of issue are you experiencing?";
       message.classList.remove("hidden");
-      icon.src =
-        "https://mv-2022-theme.netlify.app/assets/images/help-widget/Flag-Frame.svg";
+      icon.innerHTML = flagIcon;
       icon.style.marginRight = "16px";
       heading.classList.remove("hidden");
       optionsList.classList.remove("hidden");
@@ -618,6 +657,8 @@ class HelpWidget extends HTMLElement {
       backButton.style.display = "none";
       body.style.borderTop = "0px";
       closeButton.classList.add("thank-you");
+      footer.querySelector("span").innerHTML =
+        'Need help from a real person? <a href="https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA." target="_blank">Submit a ticket to our team<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></a>.';
     });
 
     // Attach dropdown event listeners
@@ -664,8 +705,7 @@ class HelpWidget extends HTMLElement {
       switch (option) {
         case "technology":
           heading.textContent = "Technology Issue";
-          icon.src =
-            "https://mv-2022-theme.netlify.app/assets/images/help-widget/technology-icon-white.svg";
+          icon.innerHTML = techIconWhite;
           return `
             <div class="issues-dropdown">
                 <div class="dropdown-header">
@@ -702,8 +742,7 @@ class HelpWidget extends HTMLElement {
         case "course-content":
           container.style.backgroundColor = "#6A7F17";
           heading.textContent = "Content Issue";
-          icon.src =
-            "https://mv-2022-theme.netlify.app/assets/images/help-widget/content-icon-white.svg";
+          icon.innerHTML = contentIconWhite;
           return `
             <div class="issues-dropdown">
                 <div class="dropdown-header">
@@ -738,8 +777,7 @@ class HelpWidget extends HTMLElement {
         case "accessibility":
           container.style.backgroundColor = "#115E6E";
           heading.textContent = "Accessibility Issue";
-          icon.src =
-            "https://mv-2022-theme.netlify.app/assets/images/help-widget/accessibility-icon-white.svg";
+          icon.innerHTML = adaIconWhite;
           return `
             <div class="issues-dropdown">
                 <div class="dropdown-header">
