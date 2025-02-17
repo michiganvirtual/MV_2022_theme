@@ -695,11 +695,9 @@ class HelpWidget extends HTMLElement {
 
       // Send data to Zapier webhook
       try {
-        await fetch("https://hooks.zapier.com/hooks/catch/21663187/2apudxd/", {
+        await fetch("https://dry-river-4e6b.rrop.workers.dev/", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formSubmissionData),
         });
       } catch (error) {
