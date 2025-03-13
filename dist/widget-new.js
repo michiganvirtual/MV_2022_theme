@@ -38,7 +38,7 @@ class HelpWidget extends HTMLElement {
             transition: max-width 0.3s ease-in-out, max-height 0.3s ease-in-out;
             width: 337px;
             max-width: 337px;
-            max-height: 390px;
+            max-height: 445px;
             cursor: unset;
           }
           .help-header {
@@ -57,7 +57,7 @@ class HelpWidget extends HTMLElement {
           .help-header span {
             color: #fff;
             font-family: "Roboto";
-            font-size: 12px;
+            font-size: 14px;
             font-style: normal;
             font-weight: 600;
             line-height: normal;
@@ -84,7 +84,7 @@ class HelpWidget extends HTMLElement {
             align-items: center;
           }
           .help-container.open .help-header-inner span {
-            font-size: 20px;
+            font-size: 22px;
             font-style: normal;
             font-weight: 700;
             line-height: 24px;
@@ -111,10 +111,20 @@ class HelpWidget extends HTMLElement {
           .help-message {
             color: #414042;
             font-family: "Inter";
-            font-size: 12px;
+            font-size: 14px;
             font-style: normal;
             font-weight: 700;
             line-height: 16px; /* 133.333% */
+            margin-bottom: 5px;
+          }
+            .help-sub-message {
+            color: #414042;
+            font-family: "Inter";
+            font-size: 12px;
+            font-style: normal;
+            font-weight: normal;
+            line-height: 12px; /* 133.333% */
+            margin-top: 0;
             margin-bottom: 18px;
           }
           .help-options {
@@ -138,10 +148,10 @@ class HelpWidget extends HTMLElement {
             background: var(--Light-surface-secondary, #f4f4f5);
             color: var(--Light-text-primary, #27272a);
             text-align: center;
-            font-size: 12px;
+            font-size: 14px;
             font-style: normal;
             font-weight: 500;
-            line-height: 12px; /* 100% */
+            line-height: 14px; /* 100% */
           }
           .help-options li:hover {
             color: #fff;
@@ -177,7 +187,7 @@ class HelpWidget extends HTMLElement {
             color: #414042;
             /* Input text */
             font-family: Inter;
-            font-size: 14px;
+            font-size: 16px;
             font-style: normal;
             font-weight: 400;
             line-height: 140%; /* 19.6px */
@@ -192,7 +202,7 @@ class HelpWidget extends HTMLElement {
             width: 100%;
             color: #313144;
             font-family: "Roboto";
-            font-size: 12px;
+            font-size: 14px;
             font-style: normal;
             font-weight: 700;
             line-height: 18px; /* 150% */
@@ -218,7 +228,7 @@ class HelpWidget extends HTMLElement {
             background-color: #e9e9e9;
           }
           .dropdown-header .arrow {
-            font-size: 12px;
+            font-size: 14px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -272,7 +282,7 @@ class HelpWidget extends HTMLElement {
             width: 100%;
             /* Button label - sm */
             font-family: "Inter";
-            font-size: 14px;
+            font-size: 16px;
             font-style: normal;
             font-weight: 500;
             line-height: 24px; /* 171.429% */
@@ -295,7 +305,7 @@ class HelpWidget extends HTMLElement {
             color: #414042;
             text-align: center;
             font-family: "Roboto";
-            font-size: 20px;
+            font-size: 22px;
             font-style: normal;
             font-weight: 700;
             line-height: 24px; /* 120% */
@@ -308,14 +318,14 @@ class HelpWidget extends HTMLElement {
             color: #414042;
             text-align: left;
             font-family: "Inter";
-            font-size: 10px;
+            font-size: 12px;
             font-style: normal;
             font-weight: 500;
             line-height: 12px; /* 120% */
           }
           .help-footer a {
             color: #ac6610;
-            display: inline-flex;
+            /* display: inline-flex; */
             align-items: center;
             gap: 2px;
           }
@@ -381,7 +391,7 @@ class HelpWidget extends HTMLElement {
               </defs>
             </svg>
           </div>
-          <span>Report a problem</span>
+          <span>Report an issue</span>
         </div>
         <a href="#" class="close-btn" aria-label="Close Button">
           <svg
@@ -410,6 +420,7 @@ class HelpWidget extends HTMLElement {
       </div>
       <div class="help-body">
         <p class="help-message">What kind of issue are you experiencing?</p>
+        <p class="help-sub-message"></p>
         <ul class="help-options">
           <li tabindex='0' data-option="technology" class="technology">
             <svg
@@ -518,12 +529,7 @@ class HelpWidget extends HTMLElement {
         <div class="help-footer">
           <img src="https://mv-2022-theme.netlify.app/assets/images/help-widget/MV-LOGO.svg" alt="" srcset="" />
           <span
-            >Need help from a real person?
-            <a
-              href="https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA."
-              target="_blank"
-              >Submit a ticket to our team <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d='M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z'/></svg></a
-            >.</span
+            >Does this issue stop you from completing the course? You may need to <a href="https://help.michiganvirtual.org/support/tickets/new" target="_blank">submit a ticket</a> instead. You can also find helpful tips in our <a href="https://help.michiganvirtual.org/support/solutions" target="_blank">Knowledge Base</a>.</span
           >
         </div>
       </div>
@@ -536,6 +542,7 @@ class HelpWidget extends HTMLElement {
     const icon = container.querySelector("#icon-container");
     const body = container.querySelector(".help-body");
     const message = container.querySelector(".help-message");
+    const subMessage = container.querySelector(".help-sub-message");
     const optionsList = container.querySelector(".help-options");
     const form = container.querySelector(".help-form");
     const formContent = container.querySelector(".form-content");
@@ -590,7 +597,9 @@ class HelpWidget extends HTMLElement {
 
         // Generate form based on option
         formContent.innerHTML = getFormContent(option);
-        message.textContent = "Please select the type of issue you found.";
+        message.textContent = "Please select the type of issue you found. ";
+        subMessage.textContent =
+          "Reporting an issue is anonymous and helps our team make improvements to our courses.";
         optionsList.classList.add("hidden");
         backButton.style.display = "flex";
         icon.style.marginRight = "0px";
@@ -613,7 +622,7 @@ class HelpWidget extends HTMLElement {
       e.stopPropagation(); // Stop event propagation
 
       container.style.backgroundColor = "#AC6610";
-      heading.textContent = "Report a problem";
+      heading.textContent = "Report an issue";
       container.classList.remove("open");
       setTimeout(function () {
         backButton.style.display = "none";
@@ -622,6 +631,7 @@ class HelpWidget extends HTMLElement {
         heading.classList.remove("hidden");
         message.textContent = "What kind of issue are you experiencing?";
         message.classList.remove("hidden");
+        subMessage.textContent = "";
         footer.querySelector("span").innerHTML =
           'Need help from a real person? <a href="https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA." target="_blank">Submit a ticket to our team<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></a>.';
         icon.innerHTML = flagIcon;
@@ -644,8 +654,9 @@ class HelpWidget extends HTMLElement {
       backButton.style.display = "none";
       form.classList.add("hidden");
       optionsList.classList.remove("hidden");
-      heading.textContent = "Report a problem";
+      heading.textContent = "Report an issue";
       message.textContent = "What kind of issue are you experiencing?";
+      subMessage.textContent = "";
       footer.querySelector("span").innerHTML =
         'Need help from a real person? <a href="https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA." target="_blank">Submit a ticket to our team<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></a>.';
       icon.innerHTML = flagIcon;
@@ -664,8 +675,9 @@ class HelpWidget extends HTMLElement {
       container.style.backgroundColor = "#AC6610";
       backButton.style.display = "none";
       optionsList.classList.remove("hidden");
-      heading.textContent = "Report a problem";
+      heading.textContent = "Report an issue";
       message.textContent = "What kind of issue are you experiencing?";
+      subMessage.textContent = "";
       message.classList.remove("hidden");
       icon.innerHTML = flagIcon;
       icon.style.marginRight = "16px";
@@ -691,6 +703,8 @@ class HelpWidget extends HTMLElement {
       const formSubmissionData = {
         "issue-type": issueType,
         detail: detail,
+        url: window.location.href,
+        "page-title": document.querySelector("h1").innerText,
       };
 
       // Send data to Zapier webhook
@@ -712,6 +726,7 @@ class HelpWidget extends HTMLElement {
       container.style.backgroundColor = "#FFFFFF";
       heading.classList.add("hidden");
       message.classList.add("hidden");
+      subMessage.textContent = "";
       backButton.style.display = "none";
       body.style.borderTop = "0px";
       closeButton.classList.add("thank-you");
@@ -823,7 +838,7 @@ class HelpWidget extends HTMLElement {
                     </span>
                 </div>
                 <ul class="dropdown-options">
-                    <li data-value="option1">Grammer / Typos</li>
+                    <li data-value="option1">Grammar / Typos</li>
                     <li data-value="option2">Incorrect / Outdated Content</li>
                     <li data-value="option3">New Content or Course Suggestion</li>
                     <li data-value="option4">Web / Downloadable Resource</li>
