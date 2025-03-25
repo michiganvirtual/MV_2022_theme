@@ -697,18 +697,41 @@ class HelpWidget extends HTMLElement {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
+      const ua = navigator.userAgent;
+
       let detail = form.querySelector("#details").value;
       let issueType = form.querySelector("#dropdown-option").textContent;
+      let os = "Unknown";
+      if (ua.includes("Win")) os = "Windows";
+      else if (ua.includes("Mac")) os = "macOS";
+      else if (ua.includes("Linux")) os = "Linux";
+      else if (/Android/.test(ua)) os = "Android";
+      else if (/iPhone|iPad/.test(ua)) os = "iOS";
+      let browser = "Unknown";
+      if (ua.includes("Firefox")) browser = "Firefox";
+      else if (ua.includes("Edg")) browser = "Edge";
+      else if (ua.includes("Chrome") && !ua.includes("Edg")) browser = "Chrome";
+      else if (ua.includes("Safari") && !ua.includes("Chrome"))
+        browser = "Safari";
+      else if (ua.includes("OPR") || ua.includes("Opera")) browser = "Opera";
+      let userId = "0";
+      let pageTitle = "";
+      let url = "";
+      let courseId = window.location.pathname.match(/\/d2l\/le\/(\d+)/)?.[1];
 
       const formSubmissionData = {
         "issue-type": issueType,
         detail: detail,
         url: window.location.href,
         "page-title": document.querySelector("h1").innerText,
+        "course-id": courseId,
+        browser: browser,
+        "operating-system": os,
       };
+      console.log(formSubmissionData);
 
       // Send data to Zapier webhook
-      try {
+      /*  try {
         await fetch("https://dry-river-4e6b.rrop.workers.dev/", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -716,7 +739,7 @@ class HelpWidget extends HTMLElement {
         });
       } catch (error) {
         console.error("Error sending data to Zapier:", error);
-      }
+      } */
 
       // Reset form and update UI
       form.reset();
@@ -885,6 +908,26 @@ class HelpWidget extends HTMLElement {
         default:
           return `<p>Unknown option selected.</p>`;
       }
+    }
+    function getBrowserAndOS() {
+      const ua = navigator.userAgent;
+
+      let browser = "Unknown";
+      if (ua.includes("Firefox")) browser = "Firefox";
+      else if (ua.includes("Edg")) browser = "Edge";
+      else if (ua.includes("Chrome") && !ua.includes("Edg")) browser = "Chrome";
+      else if (ua.includes("Safari") && !ua.includes("Chrome"))
+        browser = "Safari";
+      else if (ua.includes("OPR") || ua.includes("Opera")) browser = "Opera";
+
+      let os = "Unknown";
+      if (ua.includes("Win")) os = "Windows";
+      else if (ua.includes("Mac")) os = "macOS";
+      else if (ua.includes("Linux")) os = "Linux";
+      else if (/Android/.test(ua)) os = "Android";
+      else if (/iPhone|iPad/.test(ua)) os = "iOS";
+
+      return { browser, os };
     }
   }
 }
