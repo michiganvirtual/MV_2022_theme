@@ -727,20 +727,22 @@ class HelpWidget extends HTMLElement {
       })
         .then((res) => res.json())
         .then((data) => {
-          currentUser = data;
-        });
+          const currentUser = data;
 
-      const formSubmissionData = {
-        "issue-type": issueType,
-        detail: detail,
-        url: window.location.href,
-        "page-title": document.querySelector("h1").innerText,
-        "course-id": orgUnitId,
-        browser: browser,
-        "operating-system": os,
-      };
-      console.log(currentUser);
-      console.log(formSubmissionData);
+          const formSubmissionData = {
+            "issue-type": issueType,
+            detail: detail,
+            url: window.location.href,
+            "page-title": document.querySelector("h1").innerText,
+            "course-id": orgUnitId,
+            browser: browser,
+            "operating-system": os,
+            user: currentUser, // include user if needed
+          };
+
+          console.log("User:", currentUser);
+          console.log("Submission Data:", formSubmissionData);
+        });
 
       // Send data to Zapier webhook
       /*  try {
@@ -920,26 +922,6 @@ class HelpWidget extends HTMLElement {
         default:
           return `<p>Unknown option selected.</p>`;
       }
-    }
-    function getBrowserAndOS() {
-      const ua = navigator.userAgent;
-
-      let browser = "Unknown";
-      if (ua.includes("Firefox")) browser = "Firefox";
-      else if (ua.includes("Edg")) browser = "Edge";
-      else if (ua.includes("Chrome") && !ua.includes("Edg")) browser = "Chrome";
-      else if (ua.includes("Safari") && !ua.includes("Chrome"))
-        browser = "Safari";
-      else if (ua.includes("OPR") || ua.includes("Opera")) browser = "Opera";
-
-      let os = "Unknown";
-      if (ua.includes("Win")) os = "Windows";
-      else if (ua.includes("Mac")) os = "macOS";
-      else if (ua.includes("Linux")) os = "Linux";
-      else if (/Android/.test(ua)) os = "Android";
-      else if (/iPhone|iPad/.test(ua)) os = "iOS";
-
-      return { browser, os };
     }
   }
 }
