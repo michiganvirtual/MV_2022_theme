@@ -717,14 +717,15 @@ class HelpWidget extends HTMLElement {
       let userId = "0";
       let pageTitle = "";
       let url = "";
-      let courseId = window.location.pathname.match(/\/d2l\/le\/(\d+)/)?.[1];
+      const match = window.location.href.match(/enhancedSequenceViewer\/(\d+)/);
+      const orgUnitId = match ? match[1] : null;
 
       const formSubmissionData = {
         "issue-type": issueType,
         detail: detail,
         url: window.location.href,
         "page-title": document.querySelector("h1").innerText,
-        "course-id": courseId,
+        "course-id": orgUnitId,
         browser: browser,
         "operating-system": os,
       };
