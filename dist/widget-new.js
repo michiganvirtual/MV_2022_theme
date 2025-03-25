@@ -717,8 +717,18 @@ class HelpWidget extends HTMLElement {
       let userId = "0";
       let pageTitle = "";
       let url = "";
+      let currentUser = null;
+
       const match = window.location.href.match(/enhancedSequenceViewer\/(\d+)/);
       const orgUnitId = match ? match[1] : null;
+
+      fetch("/d2l/api/lp/1.31/users/whoami", {
+        credentials: "include",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          currentUser = data;
+        });
 
       const formSubmissionData = {
         "issue-type": issueType,
@@ -728,7 +738,9 @@ class HelpWidget extends HTMLElement {
         "course-id": orgUnitId,
         browser: browser,
         "operating-system": os,
+        "user-id": currentUser.Identifier,
       };
+
       console.log(formSubmissionData);
 
       // Send data to Zapier webhook
