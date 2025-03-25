@@ -738,9 +738,8 @@ class HelpWidget extends HTMLElement {
         "course-id": orgUnitId,
         browser: browser,
         "operating-system": os,
-        "user-id": currentUser.Identifier,
       };
-
+      console.log(currentUser);
       console.log(formSubmissionData);
 
       // Send data to Zapier webhook
