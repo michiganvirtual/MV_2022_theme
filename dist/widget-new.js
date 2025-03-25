@@ -737,7 +737,7 @@ class HelpWidget extends HTMLElement {
             "course-id": orgUnitId,
             browser: browser,
             "operating-system": os,
-            user: currentUser, // include user if needed
+            "user-id": currentUser.Identifier, // include user if needed
           };
 
           console.log("User:", currentUser);
