@@ -490,88 +490,81 @@ $(document).ready(function () {
     $(".food-allergens__answer").text(answer);
   });
 
+  $("#display-answers").on("click", function (e) {
+    e.preventDefault();
+
+    var $answersTable = $("#answers-table"); // ← Directly select by ID
+
+    if ($answersTable.length) {
+      $answersTable.removeClass("hidden");
+      $answersTable.attr({
+        tabindex: "0",
+        role: "alert",
+      });
+      $answersTable[0].scrollIntoView({ behavior: "smooth" });
+      $answersTable.focus();
+    } else {
+      console.error("Answers table not found!");
+    }
+  });
+
   /* Matching Dropdown Activity */
   $("#matching_dropdown, .matching_dropdown").on("submit", function (e) {
     e.preventDefault();
-    var questions = $(this).children(".question_wrapper");
-    var answer = "";
-    var submittedAnswer = "";
-    var numCorrect = 0;
-    var validationMessage = "";
-    var feedbackIcon;
 
-    if ($(this).hasClass("no-icons") == false) {
-      for (var i = 0; i < questions.length; i++) {
-        var answer = $(questions[i]).children("label").attr("data-answer");
-        var submittedAnswer = $(questions[i]).find("select").val();
+    const $form = $(this);
+    const $questions = $form.children(".question_wrapper");
 
-        //Add feedback icon container to each question row
-        feedbackIcon = document.createElement("div");
+    if (!$form.hasClass("no-icons")) {
+      $questions.each(function () {
+        const $question = $(this);
+        const correctAnswer = $question.find("label").data("answer");
+        const selectedAnswer = $question.find("select").val();
 
-        //Add classes to the
-        $(feedbackIcon).addClass(
-          "feedback-icon flex shrink-0 justify-center items-center w-16 h-16 rounded-full mx-auto mb-4 md:mb-0 md:mr-8 hidden"
-        );
-        $("<img class='w-1/2 h-auto' aria-hidden='true'> ").appendTo(
-          feedbackIcon
-        );
-
-        if (!$(questions)[i].children[0].classList.contains("feedback-icon")) {
-          $(questions[i]).prepend(feedbackIcon);
+        // Add feedback icon only if it doesn't already exist
+        if (!$question.children(".feedback-icon").length) {
+          const $feedbackIcon = $("<div>", {
+            class:
+              "feedback-icon flex shrink-0 justify-center items-center w-16 h-16 rounded-full mx-auto mb-4 md:mb-0 md:mr-8 hidden",
+          }).append(
+            $("<img>", {
+              class: "w-1/2 h-auto",
+              "aria-hidden": "true",
+            })
+          );
+          $question.prepend($feedbackIcon);
         }
 
-        if (answer == submittedAnswer) {
-          numCorrect++;
+        const $icon = $question.find(".feedback-icon>img");
+        const $feedbackContainer = $question.children(".feedback-icon");
 
-          $(questions[i])
-            .find(".feedback-icon>img")
+        if (selectedAnswer === correctAnswer) {
+          $icon
             .attr(
               "src",
               "https://mv-2022-theme.netlify.app/assets/images/icons/checkmark-icon.png"
             )
             .attr("alt", "Correct Answer");
-          $(questions[i])
-            .children(".feedback-icon")
-            .removeClass("bg-ada-orange")
-            .addClass("bg-ada-green")
-            .removeClass("hidden");
+          $feedbackContainer
+            .removeClass("bg-ada-orange hidden")
+            .addClass("bg-ada-green");
         } else {
-          $(questions[i])
-            .find(".feedback-icon>img")
+          $icon
             .attr(
               "src",
               "https://mv-2022-theme.netlify.app/assets/images/icons/x-icon.png"
             )
             .attr("alt", "Incorrect Answer");
-          $(questions[i])
-            .children(".feedback-icon")
-            .removeClass("bg-ada-green")
-            .addClass("bg-ada-orange")
-            .removeClass("hidden");
+          $feedbackContainer
+            .removeClass("bg-ada-green hidden")
+            .addClass("bg-ada-orange");
         }
-      }
-    }
-    if ($("#display-answers").length == 0) {
-      e.preventDefault();
-      $(this).next("#answers-table").removeClass("hidden");
-      $(this).next("#answers-table")[0].scrollIntoView({
-        behavior: "smooth",
+
+        $feedbackContainer.removeClass("hidden");
       });
-      $(this).next("#answers-table").attr("tabindex", "0");
-      $(this).next("#answers-table").attr("role", "alert");
-      $(this).next("#answers-table").focus();
     }
   });
-  $("#display-answers").on("click", function (e) {
-    e.preventDefault();
-    $(this).next("#answers-table").removeClass("hidden");
-    $(this).next("#answers-table")[0].scrollIntoView({
-      behavior: "smooth",
-    });
-    $(this).next("#answers-table").attr("tabindex", "0");
-    $(this).next("#answers-table").attr("role", "alert");
-    $(this).next("#answers-table").focus();
-  });
+
   /* $("#answers-table").on("click", function (e) {
     $("#answers-table").addClass("hidden");
   });

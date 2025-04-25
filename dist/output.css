@@ -2597,10 +2597,6 @@ body.rtl-language{
   max-width:48rem
 }
 
-.flex-shrink{
-  flex-shrink:1
-}
-
 .shrink{
   flex-shrink:1
 }
