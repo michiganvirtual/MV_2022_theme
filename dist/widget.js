@@ -491,10 +491,10 @@ class HelpWidget extends HTMLElement {
                 </span>
               </div>
               <ul class="dropdown-options">
-                <li data-value="option1">Option 1</li>
-                <li data-value="option2">Option 2</li>
-                <li data-value="option3">Option 3</li>
-                <li data-value="option4">Option 4</li>
+                <li tab-index="0" data-value="option1">Option 1</li>
+                <li tab-index="0" data-value="option2">Option 2</li>
+                <li tab-index="0" data-value="option3">Option 3</li>
+                <li tab-index="0" data-value="option4">Option 4</li>
               </ul>
             </div>
             <textarea
@@ -502,6 +502,7 @@ class HelpWidget extends HTMLElement {
               name="details"
               required
               placeholder="Describe the issue"
+              disabled
             ></textarea>
           </div>
           <button type="submit" class="submit-btn">Submit Feedback</button>
@@ -546,6 +547,7 @@ class HelpWidget extends HTMLElement {
     const optionsList = container.querySelector(".help-options");
     const form = container.querySelector(".help-form");
     const formContent = container.querySelector(".form-content");
+    const details = container.querySelector("#details");
     const backButton = container.querySelector(".back-btn");
     const closeButton = container.querySelector(".close-btn");
     const thankYou = container.querySelector(".thank-you");
@@ -697,6 +699,12 @@ class HelpWidget extends HTMLElement {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
+      // 🚨 RATE LIMIT CHECK HERE
+      if (!canSubmit(3, 10)) {
+        alert("You've reached the submission limit. Please try again later.");
+        return;
+      }
+
       const ua = navigator.userAgent;
 
       let detail = form.querySelector("#details").value;
@@ -771,44 +779,114 @@ class HelpWidget extends HTMLElement {
         'Need help from a real person? <a href="https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA." target="_blank">Submit a ticket to our team<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></a>.';
     });
 
-    // Attach dropdown event listeners
     function attachDropdownListeners() {
       setTimeout(() => {
-        // Ensure it runs after DOM update
         const dropdown = container.querySelector(".issues-dropdown");
         if (!dropdown) return;
 
         const dropdownHeader = dropdown.querySelector(".dropdown-header");
         const dropdownOptions = dropdown.querySelector(".dropdown-options");
+        const details = container.querySelector("#details");
 
         if (!dropdownHeader || !dropdownOptions) return;
 
-        // Toggle dropdown visibility
+        // Helper: toggle dropdown visibility
+        function toggleDropdown() {
+          dropdown.classList.toggle("active");
+        }
+
+        // Event: Toggle dropdown on click or Enter
         dropdownHeader.addEventListener("click", (e) => {
           e.stopPropagation();
-          dropdown.classList.toggle("active");
+          toggleDropdown();
         });
 
-        // Handle option selection
-        dropdownOptions.addEventListener("click", (e) => {
-          if (e.target.tagName === "LI") {
-            dropdownHeader.querySelector("#dropdown-option").textContent =
-              e.target.textContent;
-            dropdown.classList.remove("active");
+        dropdownHeader.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            toggleDropdown();
           }
         });
 
-        // Close dropdown when clicking outside
+        // Event: Handle option click or Enter key
+        dropdownOptions.addEventListener("click", (e) => {
+          if (e.target.tagName === "LI") {
+            selectOption(e.target);
+          }
+        });
+
+        dropdownOptions.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" && e.target.tagName === "LI") {
+            e.preventDefault();
+            selectOption(e.target);
+          }
+        });
+
+        function selectOption(option) {
+          dropdownHeader.querySelector("#dropdown-option").textContent =
+            option.textContent;
+          dropdown.classList.remove("active");
+          details.disabled = false;
+        }
+
+        // Close dropdown on outside click
         document.addEventListener("click", (e) => {
           if (!dropdown.contains(e.target)) {
             dropdown.classList.remove("active");
           }
         });
-      }, 0); // Small delay to ensure DOM updates first
+
+        // Make elements focusable
+        dropdownHeader.setAttribute("tabindex", "0");
+        dropdownOptions
+          .querySelectorAll("li")
+          .forEach((li) => li.setAttribute("tabindex", "0"));
+      }, 0);
     }
 
     // Attach initial dropdown event listeners
     attachDropdownListeners();
+
+    // Rate limit helper functions
+    function getSubmissionTimestamps() {
+      const cookie = document.cookie
+        .split("; ")
+        .find((row) => row.startsWith("submissions="));
+      if (!cookie) return [];
+      try {
+        return JSON.parse(decodeURIComponent(cookie.split("=")[1]));
+      } catch {
+        return [];
+      }
+    }
+
+    function setSubmissionTimestamps(timestamps) {
+      const cookieValue = encodeURIComponent(JSON.stringify(timestamps));
+      const expiryMinutes = 60; // Adjust as needed
+      const expiryDate = new Date(
+        Date.now() + expiryMinutes * 60 * 1000
+      ).toUTCString();
+      document.cookie = `submissions=${cookieValue}; expires=${expiryDate}; path=/`;
+    }
+
+    function canSubmit(maxSubmissions = 3, windowMinutes = 10) {
+      const now = Date.now();
+      const windowMs = windowMinutes * 60 * 1000;
+
+      let timestamps = getSubmissionTimestamps();
+
+      // Keep only timestamps within the time window
+      timestamps = timestamps.filter((t) => now - t < windowMs);
+
+      if (timestamps.length >= maxSubmissions) {
+        return false;
+      }
+
+      // Allow submission, record it
+      timestamps.push(now);
+      setSubmissionTimestamps(timestamps);
+      return true;
+    }
 
     // Generate form content based on option
     function getFormContent(option) {
@@ -838,15 +916,15 @@ class HelpWidget extends HTMLElement {
                     </span>
                 </div>
                 <ul class="dropdown-options">
-                    <li data-value="option1">Broken Link</li>
-                    <li data-value="option2">Gradebook Error</li>
-                    <li data-value="option3">Images</li>
-                    <li data-value="option4">Video</li>
-                    <li data-value="option5">Other</li>
+                    <li tab-index="0" data-value="option1">Broken Link</li>
+                    <li tab-index="0" data-value="option2">Gradebook Error</li>
+                    <li tab-index="0" data-value="option3">Images</li>
+                    <li tab-index="0" data-value="option4">Video</li>
+                    <li tab-index="0" data-value="option5">Other</li>
                 </ul>
             </div>
             <div>
-              <textarea id="details" name="details" required placeholder="Describe the issue"></textarea>
+              <textarea id="details" name="details" required placeholder="Describe the issue" disabled></textarea>
             </div>
           `;
         case "course-content":
@@ -875,14 +953,14 @@ class HelpWidget extends HTMLElement {
                     </span>
                 </div>
                 <ul class="dropdown-options">
-                    <li data-value="option1">Grammar / Typos</li>
-                    <li data-value="option2">Incorrect / Outdated Content</li>
-                    <li data-value="option3">New Content or Course Suggestion</li>
-                    <li data-value="option4">Web / Downloadable Resource</li>
-                    <li data-value="option5">Other</li>
+                    <li tab-index="0" data-value="option1">Grammar / Typos</li>
+                    <li tab-index="0" data-value="option2">Incorrect / Outdated Content</li>
+                    <li tab-index="0" data-value="option3">New Content or Course Suggestion</li>
+                    <li tab-index="0" data-value="option4">Web / Downloadable Resource</li>
+                    <li tab-index="0" data-value="option5">Other</li>
                 </ul>
             </div>
-            <textarea id="details" name="details" required placeholder="Describe the issue"></textarea>
+            <textarea id="details" name="details" required placeholder="Describe the issue" disabled></textarea>
           `;
         case "accessibility":
           container.style.backgroundColor = "#115E6E";
@@ -910,14 +988,14 @@ class HelpWidget extends HTMLElement {
                     </span>
                 </div>
                 <ul class="dropdown-options">
-                    <li data-value="option1">Alt Text</li>
-                    <li data-value="option2">Captions</li>
-                    <li data-value="option3">Color Contrast</li>
-                    <li data-value="option4">Headings Hierarchy</li>
-                    <li data-value="option5">Other</li>
+                    <li tab-index="0" data-value="option1">Alt Text</li>
+                    <li tab-index="0" data-value="option2">Captions</li>
+                    <li tab-index="0" data-value="option3">Color Contrast</li>
+                    <li tab-index="0" data-value="option4">Headings Hierarchy</li>
+                    <li tab-index="0" data-value="option5">Other</li>
                 </ul>
             </div>
-            <textarea id="details" name="details" required placeholder="Describe the issue"></textarea>
+            <textarea id="details" name="details" required placeholder="Describe the issue" disabled></textarea>
           `;
         default:
           return `<p>Unknown option selected.</p>`;
