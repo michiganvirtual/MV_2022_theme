@@ -507,6 +507,16 @@ $(document).ready(function () {
       console.error("Answers table not found!");
     }
   });
+  $("#answers-table .close-btn").on("click", function () {
+    $("#answers-table").addClass("hidden");
+  });
+
+  const removeClick = detectClickInContainerButNotInTable(
+    "#answers-table",
+    function () {
+      $("#answers-table").addClass("hidden");
+    }
+  );
 
   /* Matching Dropdown Activity */
   $("#matching_dropdown, .matching_dropdown").on("submit", function (e) {
@@ -538,7 +548,7 @@ $(document).ready(function () {
         const $icon = $question.find(".feedback-icon>img");
         const $feedbackContainer = $question.children(".feedback-icon");
 
-        if (selectedAnswer === correctAnswer) {
+        if (selectedAnswer == correctAnswer) {
           $icon
             .attr(
               "src",
@@ -804,4 +814,28 @@ function checkOrder() {
   } else {
     alert("Incorrect Order, please try again.");
   }
+}
+
+function detectClickInContainerButNotInTable(containerSelector, callback) {
+  const $container = $(containerSelector);
+  const $table = $container.find("table");
+
+  if ($container.length === 0 || $table.length === 0) {
+    console.warn("Container or child table not found");
+    return;
+  }
+
+  $container.on("click.exclusive", function (event) {
+    const $target = $(event.target);
+
+    // If the click target is the table or inside the table, ignore it
+    if ($target.closest("table").length === 0) {
+      callback(event);
+    }
+  });
+
+  // Optional: return function to remove the listener
+  return function removeListener() {
+    $container.off("click.exclusive");
+  };
 }
