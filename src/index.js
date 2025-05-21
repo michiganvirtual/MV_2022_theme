@@ -572,6 +572,20 @@ $(document).ready(function () {
 
         $feedbackContainer.removeClass("hidden");
       });
+    } else {
+      var $answersTable = $("#answers-table"); // ← Directly select by ID
+
+      if ($answersTable.length) {
+        $answersTable.removeClass("hidden");
+        $answersTable.attr({
+          tabindex: "0",
+          role: "alert",
+        });
+        $answersTable[0].scrollIntoView({ behavior: "smooth" });
+        $answersTable.focus();
+      } else {
+        console.error("Answers table not found!");
+      }
     }
   });
 

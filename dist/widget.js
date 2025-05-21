@@ -699,6 +699,16 @@ class HelpWidget extends HTMLElement {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
+      const domain = "YOUR_DOMAIN"; // e.g. 'acme'
+      const apiKey = "YOUR_API_KEY"; // your Freshdesk API key
+      const apiUrl = `https://${domain}.freshdesk.com/api/v2/tickets`;
+
+      // Basic auth header; note use of btoa for browser base64 encoding :contentReference[oaicite:0]{index=0}
+      const headers = new Headers({
+        "Content-Type": "application/json",
+        Authorization: "Basic " + btoa(apiKey + ":X"),
+      });
+
       // 🚨 RATE LIMIT CHECK HERE
       if (!canSubmit(3, 10)) {
         alert("You've reached the submission limit. Please try again later.");
