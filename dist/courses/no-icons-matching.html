@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en" class="w-full">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <link rel="stylesheet" href="../output.css" />
+    <script src="../main.js"></script>
+
+    <link
+      rel="icon"
+      href="https://michiganvirtual.org/wp-content/uploads/2021/10/cropped-mv-favicon-32x32.png"
+      sizes="32x32"
+    />
+  </head>
+  <body class="font-body w-full overflow-x-hidden">
+    <main>
+      <div class="container mx-auto px-4 lg:px-24 py-12">
+        <h1>Lesson 3: Avoiding Procrastination</h1>
+        <hr class="border-t-10 border-green w-12 mb-4" />
+        <p>
+          We’ve established the importance of setting goals and the need to
+          build in time for interruptions because they’re bound to happen and to
+          distract you from what you’re working so hard to achieve!
+        </p>
+        <p>
+          However, we know that sometimes we can make goals and lists, but never
+          get to some of the key items on the list.
+        </p>
+        <div
+          class="flex flex-col md:flex-row border-10 border-deep-teal rounded-md text-2xl w-full mb-8"
+        >
+          <div
+            class="flex justify-center items-center bg-deep-teal w-auto py-4 pl-4 pr-6 md:mr-2"
+          >
+            <img
+              src="/content/enforced/11632-ECE-BSE-DEV-24/Icons/PLS%20CA-11%20white.png"
+              style="width: 35px; height: 35px"
+              class=""
+              alt="Important Note"
+            />
+          </div>
+          <div class="w-5/6 p-4">
+            <p>
+              <strong>Procrastination can get in the way of success.</strong>
+            </p>
+          </div>
+        </div>
+        <p>
+          But don’t worry! Here are some steps you can take to get around
+          procrastination.
+        </p>
+        <h2>Step 1: Figure Out if You Are Procrastinating</h2>
+        <p>
+          <strong
+            >Instructions: Read through the following questions. Using the
+            dropdowns select Yes or No for each question. Select the Submit
+            Answers button to submit your answers.</strong
+          >
+        </p>
+        <p><strong>Are you:</strong></p>
+        <form action="" class="w-full mx-auto no-icons" id="matching_dropdown">
+          <div
+            class="flex flex-col md:flex-row justify-between md:items-center border-y border-light-teal text-lg px-4 py-8 question_wrapper"
+          >
+            <label
+              for="question-1"
+              class="grow md:mr-4 mb-4 md:mb-0"
+              data-answer="1"
+              >Filling your day with low priority tasks from your To-Do
+              List?</label
+            ><select
+              name="question-1"
+              id="question-1"
+              class="px-4 py-2 bg-deep-teal text-white rounded-md"
+              aria-label="Select Yes or No"
+            >
+              <option value="" selected="selected" disabled="disabled">
+                Select Yes or No
+              </option>
+              <option value="1">Yes</option>
+              <option value="2" aria-label="No\,">No</option>
+            </select>
+          </div>
+          <div
+            class="flex flex-col md:flex-row justify-between md:items-center border-b border-light-teal text-lg px-4 py-8 question_wrapper"
+          >
+            <label
+              for="question-2"
+              class="grow md:mr-4 mb-4 md:mb-0"
+              data-answer="1"
+              >Reading e-mails or mail several times without starting work on
+              them or deciding what you’re going to do with them or flagging
+              them to follow up on later?</label
+            ><select
+              name="question-2"
+              id="question-2"
+              class="px-4 py-2 bg-deep-teal text-white rounded-md"
+              aria-label="Select Yes or No"
+            >
+              <option value="" selected="selected" disabled="disabled">
+                Select Yes or No
+              </option>
+              <option value="1">Yes</option>
+              <option value="2" aria-label="No\,">No</option>
+            </select>
+          </div>
+          <div
+            class="flex flex-col md:flex-row justify-between md:items-center border-b border-light-teal text-lg px-4 py-8 question_wrapper"
+          >
+            <label
+              for="question-3"
+              class="grow md:mr-4 mb-4 md:mb-0"
+              data-answer="1"
+              >Sitting down to start a high-priority task and almost immediately
+              getting distracted (e.g. checking email, getting up to make some
+              coffee, etc.)?</label
+            ><select
+              name="question-3"
+              id="question-3"
+              class="px-4 py-2 bg-deep-teal text-white rounded-md"
+              aria-label="Select Yes or No"
+            >
+              <option value="" selected="selected" disabled="disabled">
+                Select Yes or No
+              </option>
+              <option value="1">Yes</option>
+              <option value="2" aria-label="No\,">No</option>
+            </select>
+          </div>
+          <div
+            class="flex flex-col md:flex-row justify-between md:items-center border-b border-light-teal text-lg px-4 py-8 question_wrapper"
+          >
+            <label for="question-4" class="grow md:mr-4 mb-4 md:mb-0"
+              >Leaving an item on your To-Do list for a long time even though
+              you know it's important?</label
+            ><select
+              name="question-4"
+              id="question-4"
+              class="px-4 py-2 bg-deep-teal text-white rounded-md"
+              aria-label="Select Yes or No"
+            >
+              <option value="" selected="selected" disabled="disabled">
+                Select Yes or No
+              </option>
+              <option value="1">Yes</option>
+              <option value="2" aria-label="No\,">No</option>
+            </select>
+          </div>
+          <div
+            class="flex flex-col md:flex-row justify-between md:items-center border-b border-light-teal text-lg px-4 py-8 question_wrapper"
+          >
+            <label
+              for="question-5"
+              class="grow md:mr-4 mb-4 md:mb-0"
+              data-answer="1"
+              >Regularly saying "Yes" to unimportant tasks that others ask you
+              to do and filling your time with these tasks instead of getting on
+              with the important tasks already on your list?</label
+            ><select
+              name="question-5"
+              id="question-5"
+              class="px-4 py-2 bg-deep-teal text-white rounded-md"
+              aria-label="Select Yes or No"
+            >
+              <option value="" selected="selected" disabled="disabled">
+                Select Yes or No
+              </option>
+              <option value="1">Yes</option>
+              <option value="2" aria-label="No\,">No</option>
+            </select>
+          </div>
+          <div
+            class="flex flex-col md:flex-row justify-between md:items-center border-b border-light-teal text-lg px-4 py-8 question_wrapper"
+          >
+            <label
+              for="question-6"
+              class="grow md:mr-4 mb-4 md:mb-0"
+              data-answer="1"
+              >Waiting for the “right mood” or the “right time” to tackle the
+              important task at hand?</label
+            ><select
+              name="question-6"
+              id="question-6"
+              class="px-4 py-2 bg-deep-teal text-white rounded-md"
+              aria-label="Select Yes or No"
+            >
+              <option value="" selected="selected" disabled="disabled">
+                Select Yes or No
+              </option>
+              <option value="1">Yes</option>
+              <option value="2" aria-label="No\,">No</option>
+            </select>
+          </div>
+          <br /><button
+            type="submit"
+            class="text-white bg-ada-orange hover:bg-dark-gray hover:underline font-bold md:text-xl rounded-md py-4 px-8 mt-4 mb-4"
+          >
+            Check Answers
+          </button>
+        </form>
+        <div
+          class="hidden mx-auto px-4 lg:px-24 py-12 container"
+          id="answers-table"
+          aria-live="polite"
+        >
+          <div class="p-4">
+            <span class="font-bold"
+              >Thank you for submitting your response! If you answered yes to
+              any of these questions you are not alone. Many people need extra
+              support to avoid procrastinating and getting through the tasks
+              they need to complete.</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="container mx-auto px-4 lg:px-24 py-12">
+        <h2>Step 2: Work Out Why You Are Procrastinating</h2>
+        <p>
+          WHY you are procrastinating can depend on both you and the task.
+          Understanding which of the two it is can help you identify how you
+          will overcome your procrastination.
+        </p>
+        <p>
+          <strong
+            >Instructions: Select each dropdown below to learn more about why
+            you may procrastinate.</strong
+          >
+        </p>
+        <ul
+          class="shadow-box mb-8 accordion-controls"
+          aria-label="Accordion Control Group Buttons"
+        >
+          <li
+            class="accordion-controls relative bg-deep-teal w-full text-left font-bold text-xl border-b border-gray-200 rounded-t-md"
+          >
+            <a
+              class="block flex items-center justify-between w-full h-full p-4"
+              aria-controls="content-1"
+              aria-expanded="false"
+              id="accordion-control-1"
+            >
+              <span class="w-3/4">Unpleasant Tasks</span>
+              <img
+                src="https://mv-2022-theme.netlify.app/assets/images/icons/expand-arrow-white.svg"
+                class="accordion__toggle transition-all ease-in-out duration-500"
+                alt=""
+                width="30px"
+                srcset=""
+              />
+            </a>
+            <div
+              class="accordion__content bg-white max-h-0 transition-all duration-300 ease-in-out overflow-hidden"
+              aria-hidden="true"
+              id="content-1"
+            >
+              <div class="px-8 py-4 border-4 border-deep-teal">
+                <p class="font-normal">
+                  One obvious reason is that people tend to avoid unpleasant
+                  tasks. Brian Tracy calls this “the frog” in his book
+                  <em>Eat That Frog</em>.
+                  <a
+                    href="https://www.youtube.com./watch?v=0W7GB5Fh2XM"
+                    target="_blank"
+                    rel="noopener"
+                    >Click here to watch "Eat That Frog!"</a
+                  >, which describes 21 ways to stop procrastinating and get
+                  more done in less time.
+                </p>
+                <ul
+                  class="text-lg text-dark-gray list-disc list-outside ml-0 font-normal"
+                >
+                  <li class="flex items-center mb-4">
+                    <img
+                      src="/content/enforced/9569-SK-1-S/assets/img/file-regular.svg?ou=11632"
+                      width="18px"
+                      class="mr-4"
+                      alt="ebook icon"
+                    /><a
+                      href="https://docs.google.com/document/d/1oFSAMkFnBVPZ6PyIJucJhpD336d03dY3vmiFaijx1G0/edit?usp=sharing"
+                      target="_blank"
+                      rel="noopener"
+                      >Download the Video Transcript</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li
+            class="accordion-controls relative bg-deep-teal w-full text-left font-bold text-xl border-b border-gray-200"
+          >
+            <a
+              class="block flex items-center justify-between w-full h-full p-4"
+              aria-controls="content-2"
+              aria-expanded="false"
+              id="accordion-control-2"
+            >
+              <span class="w-3/4">Lack of Organization</span>
+              <img
+                src="https://mv-2022-theme.netlify.app/assets/images/icons/expand-arrow-white.svg"
+                class="accordion__toggle transition-all ease-in-out duration-500"
+                alt=""
+                width="30px"
+              />
+            </a>
+            <div
+              class="accordion__content bg-white max-h-0 transition-all duration-300 ease-in-out overflow-hidden"
+              aria-hidden="true"
+              id="content-2"
+            >
+              <div class="px-8 py-4 border-4 border-deep-teal">
+                <p class="font-normal mb-2">
+                  Lack of organization is another common cause of
+                  procrastination. Organized people typically tend to have
+                  habits that help prevent procrastination like making a
+                  prioritized To-Do List. These are helpful because they can
+                  help determine how important the task is and identify
+                  precisely when it’s due. Prioritized lists often also identify
+                  how long a task will take to complete. You can avoid
+                  procrastination by breaking work down into manageable “next
+                  steps.”
+                </p>
+              </div>
+            </div>
+          </li>
+          <li
+            class="accordion-controls relative bg-deep-teal w-full text-left font-bold text-xl border-b border-gray-200 rounded-b-md"
+          >
+            <a
+              class="block flex items-center justify-between w-full h-full p-4"
+              aria-controls="content-3"
+              aria-expanded="false"
+              id="accordion-control-3"
+            >
+              <span class="w-3/4">Being Overwhelmed</span>
+              <img
+                src="https://mv-2022-theme.netlify.app/assets/images/icons/expand-arrow-white.svg"
+                class="accordion__toggle transition-all ease-in-out duration-500"
+                alt=""
+                width="30px"
+              />
+            </a>
+            <div
+              class="accordion__content bg-white max-h-0 transition-all duration-300 ease-in-out overflow-hidden rounded-b-md"
+              aria-hidden="true"
+              id="content-3"
+            >
+              <div class="px-8 py-4 border-4 border-deep-teal">
+                <p class="font-normal mb-2">
+                  Even if you’re organized, you can feel overwhelmed by the
+                  task. You may doubt that you have the skills or resources you
+                  think you need, so you seek comfort in doing tasks you know
+                  you're capable of completing. Unfortunately, the big task
+                  isn't going to go away—truly important tasks rarely do!
+                </p>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <p class="font-bold">
+          What are two of your least favorite tasks that you tend to
+          procrastinate? Place your response in the box below and then select
+          the Submit button.
+        </p>
+        <form id="reflection-form" class="space-y-4 mb-4">
+          <div>
+            <label
+              for="reflection"
+              class="block text-sm font-medium text-dark-gray"
+              >Reflection:</label
+            >
+            <textarea
+              id="reflection"
+              name="reflection"
+              class="w-full px-4 py-2 rounded border focus:outline-none focus:border-blue-400"
+              rows="4"
+            ></textarea>
+          </div>
+          <div class="mb-4">
+            <button
+              type="submit"
+              class="bg-ada-orange text-white hover:bg-dark-gray font-bold py-4 px-8 rounded-md"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+        <div>
+          <span aria-live="polite" id="validation" class="font-bold"></span>
+        </div>
+        <h2>Step 3: Adopt Anti-Procrastination Strategies</h2>
+        <img
+          src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Time%20Management%20for%20Child%20Care%20Centers%20Module/person-being-overwhelmed.jpg"
+          alt="A person being overwhelmed with all the things they have to do."
+          class="mx-auto md:w-1/2"
+        />
+        <p class="text-sm text-center mb-8">
+          <a
+            href="https://www.freepik.com/free-vector/flat-illustration-person-being-overwhelmed_24014044.htm#fromView=search&amp;page=1&amp;position=19&amp;uuid=ed10bfd5-7e03-450c-a67d-3630a8f4aeaf"
+            target="_blank"
+            rel="noopener"
+            >Image</a
+          >
+          by
+          <a
+            href="https://www.freepik.com/author/freepik"
+            target="_blank"
+            rel="noopener"
+            >freepik</a
+          >
+          under
+          <a
+            href="https://www.freepikcompany.com/legal?_gl=1*1ycdh02*_ga*Njg4NDk1NjcyLjE3MTA4NTY5ODI.*_ga_QWX66025LC*MTcxMDk0MzY4My41LjEuMTcxMDk0NTMwNS42MC4wLjA.*_ga_18B6QPTJPC*MTcxMDk0MzY4My41LjEuMTcxMDk0NTMwNS42MC4wLjA.#nav-freepik-license"
+            target="_blank"
+            rel="noopener"
+            >Freepik</a
+          >
+        </p>
+        <p class="text-sm text-center mb-8">
+          If only it were as easy as just saying no to procrastination. There is
+          a little more to it, but these tips &amp; strategies can help.
+        </p>
+        <p>
+          Procrastination is a habit—a deeply ingrained pattern of behavior.
+          That means you won’t just break it overnight. Habits only stop being
+          habits when you have persistently stopped practicing them, so use as
+          many approaches as possible to maximize your chances of beating them.
+          Some tips will work better for some people than for others and for
+          some tasks than others. Sometimes you may simply need to try a fresh
+          approach to beat the “procrastination peril!”
+        </p>
+        <h3>These general tips will help motivate you to get moving:</h3>
+        <ul>
+          <li>
+            Make up your own rewards. For example, promise yourself an ice-cream
+            cone, or extra time spent with a favorite hobby once you've
+            completed a certain task. Make note of how good it feels to finish
+            things.
+          </li>
+          <li>
+            Ask someone else to check up on you. Peer pressure works! This is
+            the principle behind many self-help groups and it is widely
+            recognized as a highly effective approach.
+          </li>
+          <li>Identify the unpleasant consequences of NOT doing the task.</li>
+          <li>
+            Work out the cost of your time. Figure out how much money you may be
+            losing in not getting things done in a timely manner. Hold yourself
+            accountable for saving your business money by completing tasks on
+            time.
+          </li>
+          <li>Make it your goal to “eat the frog” first thing, every day!</li>
+        </ul>
+      </div>
+    </main>
+    <p>
+      <script>
+        var interaction = {
+          id: "1", // Unique identifier for the interaction
+          type: "fill-in", // Type of interaction (fill-in is used for text input)
+          student_response: "User's response", // The learner's response from the form field
+          result: "correct", // The result of the interaction (can be "correct," "incorrect," or "neutral")
+        };
+        document
+          .getElementById("reflection-form")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+            const reflectionTextarea = document.getElementById("reflection");
+            if (reflectionTextarea.value.trim() === "") {
+              alert(
+                "Reflection cannot be empty. Please provide your reflection."
+              );
+              return;
+            } else {
+              interaction.student_response = reflectionTextarea.value;
+              document.getElementById("validation").innerHTML =
+                "Thank you for submitting your response! Everyone has tasks that they don’t like to do AND they tend to put them off. In the next step you will learn some strategies to help you to break the procrastination habit.";
+              reflectionTextarea.value = "";
+            }
+          });
+      </script>
+    </p>
+  </body>
+</html>

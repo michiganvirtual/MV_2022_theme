@@ -572,7 +572,7 @@ $(document).ready(function () {
 
         $feedbackContainer.removeClass("hidden");
       });
-    } else {
+    } else if ($form.hasClass("no-icons")) {
       var $answersTable = $("#answers-table"); // ← Directly select by ID
 
       if ($answersTable.length) {
