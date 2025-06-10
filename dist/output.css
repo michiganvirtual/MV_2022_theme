@@ -4,6 +4,8 @@
 
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
 
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 /* @import url("/css/slick.css");
@@ -1380,7 +1382,7 @@ body,
 }
 
 body{
-  font-family:Roboto, Noto Sans, Helvetica, Calibri
+  font-family:Figtree, Roboto, Noto Sans, Helvetica, Calibri
 }
 
 h1{
@@ -1454,7 +1456,7 @@ h4{
 
 a{
   --tw-text-opacity:1;
-  color:rgb(172 102 16 / var(--tw-text-opacity));
+  color:rgb(168 76 42 / var(--tw-text-opacity));
   text-decoration-line:underline
 }
 
@@ -1687,7 +1689,7 @@ ol.relative{
   --tw-border-opacity:1;
   border-color:rgb(255 255 255 / var(--tw-border-opacity));
   --tw-bg-opacity:1;
-  background-color:rgb(172 102 16 / var(--tw-bg-opacity));
+  background-color:rgb(168 76 42 / var(--tw-bg-opacity));
   font-weight:700;
   --tw-text-opacity:1;
   color:rgb(255 255 255 / var(--tw-text-opacity))
@@ -1862,7 +1864,7 @@ a.bg-white{
 
 .bg-white a{
   --tw-text-opacity:1;
-  color:rgb(172 102 16 / var(--tw-text-opacity));
+  color:rgb(168 76 42 / var(--tw-text-opacity));
   text-decoration-line:underline
 }
 
@@ -2916,7 +2918,7 @@ body.rtl-language{
 
 .border-ada-orange{
   --tw-border-opacity:1;
-  border-color:rgb(172 102 16 / var(--tw-border-opacity))
+  border-color:rgb(168 76 42 / var(--tw-border-opacity))
 }
 
 .border-dark-gray{
@@ -2976,7 +2978,7 @@ body.rtl-language{
 
 .bg-ada-orange{
   --tw-bg-opacity:1;
-  background-color:rgb(172 102 16 / var(--tw-bg-opacity))
+  background-color:rgb(168 76 42 / var(--tw-bg-opacity))
 }
 
 .bg-black\/50{
@@ -3171,7 +3173,7 @@ body.rtl-language{
 }
 
 .font-body{
-  font-family:Roboto, Noto Sans, Helvetica, Calibri
+  font-family:Figtree, Roboto, Noto Sans, Helvetica, Calibri
 }
 
 .text-2xl{
@@ -3270,7 +3272,7 @@ body.rtl-language{
 
 .text-ada-orange{
   --tw-text-opacity:1;
-  color:rgb(172 102 16 / var(--tw-text-opacity))
+  color:rgb(168 76 42 / var(--tw-text-opacity))
 }
 
 .text-blue-500{
@@ -3506,7 +3508,7 @@ body.rtl-language{
 
 .hover\:bg-white:hover a{
   --tw-text-opacity:1;
-  color:rgb(172 102 16 / var(--tw-text-opacity));
+  color:rgb(168 76 42 / var(--tw-text-opacity));
   text-decoration-line:underline
 }
 

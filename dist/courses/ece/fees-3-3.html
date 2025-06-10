@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" class="w-full">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <link
+      rel="stylesheet"
+      href="https://mv-2022-theme.netlify.app/output.css"
+    />
+    <script src="https://mv-2022-theme.netlify.app/main.js"></script>
+
+    <link
+      rel="icon"
+      href="https://michiganvirtual.org/wp-content/uploads/2021/10/cropped-mv-favicon-32x32.png"
+      sizes="32x32"
+    />
+  </head>
+  <body class="font-body w-full overflow-x-hidden">
+    <main>
+      <div class="container mx-auto px-4 lg:px-24 py-12">
+        <h1
+          class="text-2xl md:text-3xl font-bold text-deep-teal tracking-tighter md:mt-6 mb-4"
+        >
+          Matching Dropdown Activity
+        </h1>
+        <hr class="border-t-10 border-green w-12 mb-4" />
+        <p class="md:text-lg text-dark-gray mb-8">
+          Now we will do a participation activity to serve as a reinforcement of
+          the developmental milestones that we learned about early. Drag each of
+          the average ages to the corresponding developmental milestone.
+          Remember, in order for this course to be considered "complete," you
+          must participate in all activities throughout this course.
+        </p>
+        <form action="" class="w-full mx-auto" id="matching_dropdown">
+          <div
+            class="flex flex-col md:flex-row justify-between md:items-center border-y border-light-teal text-lg px-4 py-8 question_wrapper"
+          >
+            <label
+              for="question-1"
+              class="grow md:mr-4 mb-4 md:mb-0"
+              data-answer="2"
+            >
+              You’re at a professional development conference in your community
+              and start talking to some of the other administrators and
+              directors of other child care centers. You are all struggling with
+              one of the same dilemmas—your infant rooms are full and you have a
+              waiting list, but still you are struggling to make ends meet on
+              the budget every quarter. One administrator suggests that you
+              raise your infant prices together. Since the demand is high, you
+              might as well all start charging more for the limited spaces you
+              have available. The extra income will let everyone have a little
+              more cushion room on the budget, which is ultimately good for
+              everyone. Is this a good strategy?
+            </label>
+            <select
+              name="question-1"
+              id="question-1"
+              class="px-4 py-2 bg-deep-teal text-white rounded-md"
+            >
+              <option value="">Select Yes/No</option>
+              <option value="1">Yes</option>
+              <option value="2" aria-label="No\,">No</option>
+            </select>
+          </div>
+          <button
+            type="submit"
+            class="text-white bg-ada-orange hover:bg-dark-gray hover:underline font-bold md:text-xl rounded-md py-4 px-8 mt-4 mb-4"
+          >
+            Check Answers
+          </button>
+        </form>
+        <div
+          class="hidden mx-auto px-4 lg:px-24 py-12 container"
+          id="answers-table"
+          aria-live="polite"
+        >
+          <div class="p-4">
+            <span class="font-bold"
+              >Response Submitted. No, agreeing with a competitor to change your
+              prices is an example of price fixing and it’s illegal. Remember,
+              potential penalties include imprisonment (up to ten years) and
+              large fines up to $1 million for individuals, $100 million for
+              companies, or twice the gain or loss from the offense. Instead of
+              setting prices together, collaborate with other programs on
+              different ways you each earn additional income. Maybe one of your
+              competitors hosted a successful pancake breakfast fundraiser and
+              they are happy to share their learnings from it with you so that
+              you can host your own. It’s okay to talk about the issues you have
+              in common, but it’s not okay to price fix.</span
+            >
+          </div>
+        </div>
+        <form action="" class="w-full mx-auto" id="matching_dropdown">
+          <div
+            class="flex flex-col md:flex-row justify-between md:items-center border-y border-light-teal text-lg px-4 py-8 question_wrapper"
+          >
+            <label
+              for="question-2"
+              class="grow md:mr-4 mb-4 md:mb-0"
+              data-answer="1"
+            >
+              After working tirelessly on different budget scenarios, you’ve
+              finally established the bottom rate for your tuition to ensure
+              that you at least break even. When you start researching other
+              comparable programs in your area, you find that they are charging,
+              on average, $2 more per hour for care. Using your budgeting tool,
+              you raise all your tuition rates by $2/hour. You feel guilty
+              raising the rates so much at first, but as you continue using your
+              budgeting workbook, you realize that raising rates will allow you
+              to offer income-based discounts and scholarship slots that you
+              couldn’t otherwise afford. You will also be able to afford a small
+              raise for all employees. You decide to go through with the $2/hour
+              increase since it is in line with the market and will give your
+              program space in the budget for quality improvements. Is this a
+              good strategy?</label
+            ><select
+              name="question-2"
+              id="question-2"
+              class="px-4 py-2 bg-deep-teal text-white rounded-md"
+            >
+              <option value="">Select Yes/No</option>
+              <option value="1">Yes</option>
+              <option value="2" aria-label="No\,">No</option>
+            </select>
+          </div>
+          <button
+            type="submit"
+            class="text-white bg-ada-orange hover:bg-dark-gray hover:underline font-bold md:text-xl rounded-md py-4 px-8 mt-4 mb-4"
+          >
+            Check Answers
+          </button>
+        </form>
+        <div
+          class="hidden mx-auto px-4 lg:px-24 py-12 container"
+          id="answers-table"
+          aria-live="polite"
+        >
+          <div class="p-4">
+            <span class="font-bold"
+              >Response Submitted. Yes, this is a legally sound strategy that
+              ensures your program can make enough money to sustain itself and
+              continue offering quality services.</span
+            >
+          </div>
+        </div>
+        <form action="" class="w-full mx-auto" id="matching_dropdown">
+          <div
+            class="flex flex-col md:flex-row justify-between md:items-center border-y border-light-teal text-lg px-4 py-8 question_wrapper"
+          >
+            <label
+              for="question-3"
+              class="grow md:mr-4 mb-4 md:mb-0"
+              data-answer="1"
+            >
+              For years, your center has offered full-time care from 6 am-6 pm 5
+              days a week. Recently, you’ve seen a decline in early morning
+              attendance. It’s been difficult to find staff to cover the early
+              morning and late afternoon hours anyway, so you decide to overhaul
+              the schedule and create a shorter base day schedule with an
+              optional early bird and evening program. Base tuition will
+              decrease and early bird and evening enrollment will be an extra
+              cost commensurate with the increased cost to keep the program open
+              for extended hours. With the financial commitment from parents
+              that need extended care, you can more accurately gauge the staff
+              required and create schedules that better accommodate the needs of
+              everyone. Is this a good strategy?</label
+            ><select
+              name="question-3"
+              id="question-3"
+              class="px-4 py-2 bg-deep-teal text-white rounded-md"
+            >
+              <option value="">Select Yes/No</option>
+              <option value="1">Yes</option>
+              <option value="2" aria-label="No\,">No</option>
+            </select>
+          </div>
+          <button
+            type="submit"
+            class="text-white bg-ada-orange hover:bg-dark-gray hover:underline font-bold md:text-xl rounded-md py-4 px-8 mt-4 mb-4"
+          >
+            Check Answers
+          </button>
+        </form>
+        <div
+          class="hidden mx-auto px-4 lg:px-24 py-12 container"
+          id="answers-table"
+          aria-live="polite"
+        >
+          <div class="p-4">
+            <span class="font-bold"
+              >Response Submitted. Yes, this strategy uses strong analysis of
+              your program’s specific constraints and needs. By changing your
+              program this way, you ensure you can break even as a business and
+              continue offering high-quality care to your families.</span
+            >
+          </div>
+        </div>
+        <form action="" class="w-full mx-auto" id="matching_dropdown">
+          <div
+            class="flex flex-col md:flex-row justify-between md:items-center border-y border-light-teal text-lg px-4 py-8 question_wrapper"
+          >
+            <label
+              for="question-3"
+              class="grow md:mr-4 mb-4 md:mb-0"
+              data-answer="2"
+            >
+              An administrator from one of the child care centers across town
+              calls to share with you their plan to raise enrollment and waiting
+              list fees to make up for their budget shortfall. She knows your
+              budget is always tight and thought it would be helpful for your
+              program to match their fees. Since their fees sound reasonable for
+              the amount of work it takes to run all the administrative
+              processing for your center, too, you agree and raise your fees. Is
+              this a good strategy?</label
+            ><select
+              name="question-3"
+              id="question-3"
+              class="px-4 py-2 bg-deep-teal text-white rounded-md"
+            >
+              <option value="">Select Yes/No</option>
+              <option value="1">Yes</option>
+              <option value="2" aria-label="No\,">No</option>
+            </select>
+          </div>
+          <button
+            type="submit"
+            class="text-white bg-ada-orange hover:bg-dark-gray hover:underline font-bold md:text-xl rounded-md py-4 px-8 mt-4 mb-4"
+          >
+            Check Answers
+          </button>
+        </form>
+        <div
+          class="hidden mx-auto px-4 lg:px-24 py-12 container"
+          id="answers-table"
+          aria-live="polite"
+        >
+          <div class="p-4">
+            <span class="font-bold"
+              >Response Submitted. No, this is another example of price fixing
+              and it’s illegal. While it may be true that your budget is tight,
+              you cannot agree to set prices with another competitor. Instead,
+              consider analyzing your budget independently and deciding on
+              different ways to bridge the gap in your budget. We’ve covered
+              many different legal ways to troubleshoot this common issue. If
+              you’re still stuck on what to do, reach out to a trained
+              professional or consult with one of the many agencies built to
+              help child care centers succeed.</span
+            >
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      document.querySelectorAll("form#matching_dropdown").forEach((form) => {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // the very next sibling after this form:
+          const answers = this.nextElementSibling;
+
+          // sanity‐check that it really is your answers container
+          if (answers && answers.id === "answers-table") {
+            answers.classList.remove("hidden");
+            answers.removeAttribute("aria-hidden");
+
+            // make it focusable if it isn’t already
+            if (!answers.hasAttribute("tabindex")) {
+              answers.setAttribute("tabindex", "-1");
+            }
+            answers.focus();
+          } else {
+            console.warn(
+              'Expected next sibling with id="answers-table", but found:',
+              answers
+            );
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

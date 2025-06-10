@@ -739,10 +739,10 @@
         </div>
         <form action="" class="w-full mx-auto" id="matching_dropdown">
           <div
-            class="flex flex-col justify-between border-y border-light-teal text-lg px-4 py-8 question_wrapper"
+            class="flex justify-between border-y border-light-teal text-lg px-4 py-8 question_wrapper"
           >
             <div>
-              <img
+              <!-- <img
                 src="/content/enforced/11632-ECE-BSE-DEV-24/Pictures/Financial%20Management%20Setting%20and%20Collecting%20Fees/businesswoman-sitting-desk-work-with-financial-documents-company.jpg"
                 alt="A person sits with their laptop open while reviewing a document that includes graphs."
                 class="mx-auto md:w-1/2"
@@ -768,8 +768,13 @@
                   rel="noopener"
                   >Freepik</a
                 >
-              </p>
-              After working tirelessly on different budget scenarios, you’ve
+              </p> -->
+            </div>
+            <label
+              for="question-2"
+              class="grow md:mr-4 mb-4 md:mb-0"
+              data-answer="1"
+              >After working tirelessly on different budget scenarios, you’ve
               finally established the bottom rate for your tuition to ensure
               that you at least break even. When you start researching other
               comparable programs in your area, you find that they are charging,
@@ -782,22 +787,16 @@
               raise for all employees. You decide to go through with the $2/hour
               increase since it is in line with the market and will give your
               program space in the budget for quality improvements. Is this a
-              good strategy?
-            </div>
-            <label
-              for="question-2"
-              class="grow md:mr-4 mb-4 md:mb-0"
-              data-answer="1"
-              ><select
-                name="question-2"
-                id="question-2"
-                class="px-4 py-2 bg-deep-teal text-white rounded-md"
-              >
-                <option value="">Select Yes/No</option>
-                <option value="1">Yes</option>
-                <option value="2" aria-label="No\,">No</option>
-              </select></label
+              good strategy?</label
+            ><select
+              name="question-2"
+              id="question-2"
+              class="px-4 py-2 bg-deep-teal text-white rounded-md"
             >
+              <option value="">Select Yes/No</option>
+              <option value="1">Yes</option>
+              <option value="2" aria-label="No\,">No</option>
+            </select>
           </div>
           <br /><button
             type="submit"
@@ -996,5 +995,18 @@
         </p>
       </div>
     </main>
+    <script>
+      document
+        .getElementById("check-answers-button")
+        .addEventListener("click", function () {
+          const answersTable = document.getElementById("answers-table");
+          answersTable.classList.remove("hidden");
+          answersTable.setAttribute("aria-live", "off");
+          void answersTable.offsetHeight;
+          answersTable.setAttribute("aria-live", "polite");
+          answersTable.setAttribute("tabindex", "-1");
+          answersTable.focus();
+        });
+    </script>
   </body>
 </html>
