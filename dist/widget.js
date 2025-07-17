@@ -560,9 +560,8 @@ class HelpWidget extends HTMLElement {
       })
         .then((res) => res.json())
         .then((data) => {
-          const currentUser = data;
+          console.log(data);
         });
-      console.log(currentUser);
     }
 
     //Declare SVG Icon Variables
