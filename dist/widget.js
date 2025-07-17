@@ -554,7 +554,7 @@ class HelpWidget extends HTMLElement {
     const returnButton = container.querySelector(".return-btn");
     const footer = container.querySelector(".help-footer");
 
-    if (window.Location.hostname == "lsp.michiganvirtual.org") {
+    if (window.location.hostname == "lsp.michiganvirtual.org") {
       fetch("/d2l/api/lp/1.31/users/whoami", {
         credentials: "include",
       })
