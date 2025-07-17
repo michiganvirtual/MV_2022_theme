@@ -554,6 +554,17 @@ class HelpWidget extends HTMLElement {
     const returnButton = container.querySelector(".return-btn");
     const footer = container.querySelector(".help-footer");
 
+    if (window.Location.hostname == "lsp.michiganvirtual.org") {
+      fetch("/d2l/api/lp/1.31/users/whoami", {
+        credentials: "include",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          const currentUser = data;
+        });
+      console.log(currentUser);
+    }
+
     //Declare SVG Icon Variables
     const flagIcon =
       '<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 36 36" fill="none"><g clip-path="url(#clip0_18_1604)"><path d="M18 36C27.9411 36 36 27.9411 36 18C36 8.05888 27.9411 0 18 0C8.05888 0 0 8.05888 0 18C0 27.9411 8.05888 36 18 36Z" fill="white"/><path d="M29.628 11.3111C24.0336 17.5895 14.0688 4.16872 8.47437 10.4471C9.45357 14.8607 10.4328 19.2743 11.412 23.6951C16.0272 13.0031 25.0128 22.0103 29.628 11.3183V11.3111Z" stroke="#115E6E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.7688 7.28638L12.9672 30.7368" stroke="#115E6E" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/></g><defs><clipPath id="clip0_18_1604"><rect width="36" height="36" fill="white"/></clipPath></defs></svg>';
@@ -803,21 +814,15 @@ class HelpWidget extends HTMLElement {
       else if (ua.includes("OPR") || ua.includes("Opera")) browser = "Opera";
       let userId = "0";
       let pageTitle = "";
-      let url = "";
+      let url = window.location.href;
       let currentUser = null;
 
-      const match = window.location.href.match(/enhancedSequenceViewer\/(\d+)/);
+      const match = url.match(/enhancedSequenceViewer\/(\d+)/);
       const orgUnitId = match ? match[1] : null;
 
-      /* fetch("/d2l/api/lp/1.31/users/whoami", {
-        credentials: "include",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          const currentUser = data;
-        }); */
+      let ticketBody = `<b>Issue Type:</b> ${issueType_Tier1}<br><b>Issue Type Subcategory:</b> ${issueType_Tier2}<br><b>Message: </b>${detail}<br><b>Browser:</b> ${os}<br><b>Operating System: </b>${browser}<br><b>Page Url:</b> ${url}<br><b>User ID: </b>${userId}`;
       let formSubmissionData = {
-        description: detail,
+        description: ticketBody,
         subject: subject,
         email: "curltest@example.com",
         priority: 1,
@@ -841,7 +846,7 @@ class HelpWidget extends HTMLElement {
           body: JSON.stringify(formSubmissionData),
         });
       } catch (error) {
-        console.error("Error sending data to Zapier:", error);
+        console.error("Error sending data to Freshdesk:", error);
       }
 
       // Reset form and update UI
