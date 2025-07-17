@@ -723,7 +723,7 @@ table tbody tr {
 
 .slick-prev,
 .slick-next {
-  color: #ac6610;
+  color: #a84c2a;
   /* Chevron color */
   font-size: 40px;
   /* Chevron size */
@@ -876,7 +876,7 @@ div.pausable-gif {
 #save {
   display: inline-block;
   text-transform: uppercase;
-  background-color: #fd6000;
+  background-color: #a84c2a;
   color: #ffffff;
   font-weight: 700;
   padding: 1rem 1.5rem;
@@ -1444,7 +1444,7 @@ h4{
   font-weight:700;
   letter-spacing:-0.05em;
   --tw-text-opacity:1;
-  color:rgb(65 64 66 / var(--tw-text-opacity))
+  color:rgb(9 29 32 / var(--tw-text-opacity))
 }
 
 @media (min-width: 768px){
@@ -1471,7 +1471,7 @@ p,
   font-size:1rem;
   line-height:1.5rem;
   --tw-text-opacity:1;
-  color:rgb(65 64 66 / var(--tw-text-opacity))
+  color:rgb(9 29 32 / var(--tw-text-opacity))
 }
 
 @media (min-width: 768px){
@@ -1488,7 +1488,7 @@ span,
   font-size:1rem;
   line-height:1.5rem;
   --tw-text-opacity:1;
-  color:rgb(65 64 66 / var(--tw-text-opacity))
+  color:rgb(9 29 32 / var(--tw-text-opacity))
 }
 
 @media (min-width: 768px){
@@ -1854,7 +1854,7 @@ a.bg-deep-teal,
 
 .bg-white *{
   --tw-text-opacity:1;
-  color:rgb(65 64 66 / var(--tw-text-opacity))
+  color:rgb(9 29 32 / var(--tw-text-opacity))
 }
 
 a.bg-white{
@@ -3325,6 +3325,11 @@ body.rtl-language{
   color:rgb(255 255 255 / var(--tw-text-opacity))
 }
 
+.text-black-teal{
+  --tw-text-opacity:1;
+  color:rgb(9 29 32 / var(--tw-text-opacity))
+}
+
 .underline{
   text-decoration-line:underline
 }
@@ -3498,7 +3503,7 @@ body.rtl-language{
 
 .hover\:bg-white:hover *{
   --tw-text-opacity:1;
-  color:rgb(65 64 66 / var(--tw-text-opacity))
+  color:rgb(9 29 32 / var(--tw-text-opacity))
 }
 
 .hover\:bg-white:hovera{

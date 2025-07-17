@@ -336,7 +336,7 @@ table tbody tr {
 }
 .slick-prev,
 .slick-next {
-  color: #ac6610; /* Chevron color */
+  color: #a84c2a; /* Chevron color */
   font-size: 40px; /* Chevron size */
   line-height: 1; /* Button opacity */
   z-index: 100; /* Ensure it's above other content */
@@ -469,7 +469,7 @@ div.pausable-gif {
 #save {
   display: inline-block;
   text-transform: uppercase;
-  background-color: #fd6000;
+  background-color: #a84c2a;
   color: #ffffff;
   font-weight: 700;
   padding: 1rem 1.5rem;
@@ -538,7 +538,7 @@ a[target="_blank"]:after {
     @apply text-lg md:text-xl font-bold text-dark-teal tracking-tighter mb-2;
   }
   h4 {
-    @apply text-base md:text-lg font-bold text-dark-gray tracking-tighter mb-2;
+    @apply text-base md:text-lg font-bold text-black-teal tracking-tighter mb-2;
   }
   a {
     @apply text-ada-orange underline hover:no-underline;
@@ -546,11 +546,11 @@ a[target="_blank"]:after {
   p,
   ul,
   ol {
-    @apply text-base md:text-lg text-dark-gray mb-2;
+    @apply text-base md:text-lg text-black-teal mb-2;
   }
   span,
   label {
-    @apply text-base md:text-lg text-dark-gray;
+    @apply text-base md:text-lg text-black-teal;
   }
   p + :not(p, ul, ol),
   ul + :not(p, ul, ol),
@@ -719,7 +719,7 @@ a[target="_blank"]:after {
     @apply text-white;
   }
   .bg-white * {
-    @apply text-dark-gray;
+    @apply text-black-teal;
   }
   a.bg-white {
     @apply text-dark-gray;

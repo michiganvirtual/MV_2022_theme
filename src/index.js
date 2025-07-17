@@ -218,7 +218,7 @@ $(document).ready(function () {
   $(".tabs-white li a:not(:first)").addClass("inactive");
   $(".tabs-white li:first").addClass("tab-active");
   $(".tabs-white li a:first")
-    .addClass("bg-white text-dark-grey")
+    .addClass("bg-white text-black-teal")
     .removeClass("text-white");
   $(".tabs-white__content>div:not(:first)").addClass("hidden");
   $(".tabs-white li a").on("click", function () {
@@ -230,9 +230,9 @@ $(document).ready(function () {
       $(".tabs-white li").removeClass("tab-active");
       //this is the start of our condition
       $(".tabs-white li a")
-        .removeClass("bg-white text-dark-gray")
+        .removeClass("bg-white text-black-teal")
         .addClass("inactive");
-      $(this).removeClass("inactive").addClass("bg-white text-dark-gray");
+      $(this).removeClass("inactive").addClass("bg-white text-black-teal");
       $(this).parent().addClass("tab-active");
 
       $(".tabs-white__content>div").addClass("hidden");

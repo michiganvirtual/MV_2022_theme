@@ -709,7 +709,7 @@ class HelpWidget extends HTMLElement {
         Authorization: "Basic " + btoa(apiKey + ":X"),
       });
 
-      // 🚨 RATE LIMIT CHECK HERE
+      // RATE LIMIT CHECK HERE
       if (!canSubmit(3, 10)) {
         alert("You've reached the submission limit. Please try again later.");
         return;
@@ -718,7 +718,76 @@ class HelpWidget extends HTMLElement {
       const ua = navigator.userAgent;
 
       let detail = form.querySelector("#details").value;
-      let issueType = form.querySelector("#dropdown-option").textContent;
+      let issueType_Tier1 = heading.textContent;
+      let issueType_Tier2 = form.querySelector("#dropdown-option").textContent;
+      let subject = "Help Widget Submission: " + issueType_Tier1;
+      switch (issueType_Tier1) {
+        case "Technology Issue":
+          issueType_Tier1 = "Access to Content";
+          switch (issueType_Tier2) {
+            case "Broken Link":
+              issueType_Tier2 = "Broken Link";
+              break;
+            case "Gradebook Error":
+              issueType_Tier1 = "Gradebook Error";
+              issueType_Tier2 = null;
+              break;
+            case "Images":
+              issueType_Tier2 = "Broken Image";
+              break;
+            case "Video":
+              issueType_Tier2 = "Broken Video";
+              break;
+            case "Other":
+              issueType_Tier2 = "Other Missing or Blocked Content";
+              break;
+          }
+          break;
+        case "Content Issue":
+          issueType_Tier1 = "Content Error";
+          switch (issueType_Tier2) {
+            case "Grammar/Typos":
+              issueType_Tier2 = "Misspelling/Grammar";
+              break;
+            case "Incorrect/Outdated Content":
+              issueType_Tier2 = "Outdated Information";
+              break;
+            case "New Content or Course Suggestion":
+              issueType_Tier1 = "Course Design Issue";
+              issueType_Tier2 = "";
+              break;
+            case "Web/Downloadable Resource":
+              issueType_Tier1 = "Access to Content";
+              issueType_Tier2 = "Other Missing or Blocked Content";
+              break;
+            case "Other":
+              issueType_Tier1 = "Course Design Issue";
+              issueType_Tier2 = "";
+              break;
+          }
+          break;
+        case "Accessibility Issue":
+          issueType_Tier1 = "Access to Content";
+          switch (issueType_Tier2) {
+            case "Alt Text":
+              issueType_Tier2 = "Other Missing or Blocked Content";
+              break;
+            case "Captions":
+              issueType_Tier2 = "Other Missing or Blocked Content";
+              break;
+            case "Color Contrast":
+              issueType_Tier2 = "Other Missing or Blocked Content";
+              break;
+            case "Headings Hierarchy":
+              issueType_Tier2 = "Other Missing or Blocked Content";
+              break;
+            case "Other":
+              issueType_Tier2 = "Other Missing or Blocked Content";
+              break;
+          }
+          break;
+      }
+
       let os = "Unknown";
       if (ua.includes("Win")) os = "Windows";
       else if (ua.includes("Mac")) os = "macOS";
@@ -740,38 +809,40 @@ class HelpWidget extends HTMLElement {
       const match = window.location.href.match(/enhancedSequenceViewer\/(\d+)/);
       const orgUnitId = match ? match[1] : null;
 
-      fetch("/d2l/api/lp/1.31/users/whoami", {
+      /* fetch("/d2l/api/lp/1.31/users/whoami", {
         credentials: "include",
       })
         .then((res) => res.json())
         .then((data) => {
           const currentUser = data;
+        }); */
+      let formSubmissionData = {
+        description: detail,
+        subject: subject,
+        email: "curltest@example.com",
+        priority: 1,
+        status: 2,
+        type: "Professional Learning",
+        group_id: 159000435203,
+        responder_id: 159002698739,
+        custom_fields: {
+          cf_plp_issue_type: "Issues With PLP Course Content",
+          cf_plp_course_issue_type: issueType_Tier1,
+          cf_plp_broken_content_type: issueType_Tier2,
+        },
+      };
+      console.log(formSubmissionData);
 
-          const formSubmissionData = {
-            "issue-type": issueType,
-            detail: detail,
-            url: window.location.href,
-            "page-title": document.querySelector("h1").innerText,
-            "course-id": orgUnitId,
-            browser: browser,
-            "operating-system": os,
-            "user-id": currentUser.Identifier, // include user if needed
-          };
-
-          console.log("User:", currentUser);
-          console.log("Submission Data:", formSubmissionData);
-        });
-
-      // Send data to Zapier webhook
-      /*  try {
-        await fetch("https://dry-river-4e6b.rrop.workers.dev/", {
+      // Send data to Freshdesk
+      try {
+        await fetch("https://pls-help-widget.rrop.workers.dev/", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formSubmissionData),
         });
       } catch (error) {
         console.error("Error sending data to Zapier:", error);
-      } */
+      }
 
       // Reset form and update UI
       form.reset();
@@ -888,9 +959,9 @@ class HelpWidget extends HTMLElement {
       // Keep only timestamps within the time window
       timestamps = timestamps.filter((t) => now - t < windowMs);
 
-      if (timestamps.length >= maxSubmissions) {
+      /*  if (timestamps.length >= maxSubmissions) {
         return false;
-      }
+      } */
 
       // Allow submission, record it
       timestamps.push(now);
@@ -926,11 +997,11 @@ class HelpWidget extends HTMLElement {
                     </span>
                 </div>
                 <ul class="dropdown-options">
-                    <li tab-index="0" data-value="option1">Broken Link</li>
+                    <li tab-index="0" data-value="Broken Link">Broken Link</li>
                     <li tab-index="0" data-value="option2">Gradebook Error</li>
-                    <li tab-index="0" data-value="option3">Images</li>
-                    <li tab-index="0" data-value="option4">Video</li>
-                    <li tab-index="0" data-value="option5">Other</li>
+                    <li tab-index="0" data-value="Broken Image">Images</li>
+                    <li tab-index="0" data-value="Broken Video">Video</li>
+                    <li tab-index="0" data-value="Other Missing or Blocked Content">Other</li>
                 </ul>
             </div>
             <div>
@@ -963,10 +1034,10 @@ class HelpWidget extends HTMLElement {
                     </span>
                 </div>
                 <ul class="dropdown-options">
-                    <li tab-index="0" data-value="option1">Grammar / Typos</li>
-                    <li tab-index="0" data-value="option2">Incorrect / Outdated Content</li>
+                    <li tab-index="0" data-value="Misspelling/Grammar">Grammar / Typos</li>
+                    <li tab-index="0" data-value="Outdated Information">Incorrect / Outdated Content</li>
                     <li tab-index="0" data-value="option3">New Content or Course Suggestion</li>
-                    <li tab-index="0" data-value="option4">Web / Downloadable Resource</li>
+                    <li tab-index="0" data-value="Other Missing or Blocked Content">Web / Downloadable Resource</li>
                     <li tab-index="0" data-value="option5">Other</li>
                 </ul>
             </div>
