@@ -556,6 +556,14 @@ class HelpWidget extends HTMLElement {
 
     if (window.location.hostname == "lsp.michiganvirtual.org") {
       console.log("in brightspace");
+      fetch("https://lsp.michiganvirtual.org/d2l/api/lp/1.31/users/whoami", {
+        credentials: "include",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          let user = data;
+          console.log(user);
+        });
     } else {
       console.log("not in brightspace");
     }
