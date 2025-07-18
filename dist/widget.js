@@ -553,6 +553,7 @@ class HelpWidget extends HTMLElement {
     const thankYou = container.querySelector(".thank-you");
     const returnButton = container.querySelector(".return-btn");
     const footer = container.querySelector(".help-footer");
+    let user = {};
 
     if (window.location.hostname == "lsp.michiganvirtual.org") {
       console.log("in brightspace");
@@ -561,7 +562,7 @@ class HelpWidget extends HTMLElement {
       })
         .then((res) => res.json())
         .then((data) => {
-          let user = data;
+          user = data;
           console.log(user);
         });
     } else {
