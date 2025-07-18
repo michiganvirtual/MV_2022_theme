@@ -555,13 +555,9 @@ class HelpWidget extends HTMLElement {
     const footer = container.querySelector(".help-footer");
 
     if (window.location.hostname == "lsp.michiganvirtual.org") {
-      fetch("/d2l/api/lp/1.31/users/whoami", {
-        credentials: "include",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-        });
+      console.log("in brightspace");
+    } else {
+      console.log("not in brightspace");
     }
 
     //Declare SVG Icon Variables
