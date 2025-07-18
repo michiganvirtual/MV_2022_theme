@@ -815,10 +815,9 @@ class HelpWidget extends HTMLElement {
       else if (ua.includes("Safari") && !ua.includes("Chrome"))
         browser = "Safari";
       else if (ua.includes("OPR") || ua.includes("Opera")) browser = "Opera";
-      let userId = "0";
+      let userId = user.Identifier;
       let pageTitle = "";
       let url = window.location.href;
-      let currentUser = null;
 
       const match = url.match(/enhancedSequenceViewer\/(\d+)/);
       const orgUnitId = match ? match[1] : null;
