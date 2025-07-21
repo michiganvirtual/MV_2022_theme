@@ -714,10 +714,6 @@ class HelpWidget extends HTMLElement {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const domain = "YOUR_DOMAIN"; // e.g. 'acme'
-      const apiKey = "YOUR_API_KEY"; // your Freshdesk API key
-      const apiUrl = `https://${domain}.freshdesk.com/api/v2/tickets`;
-
       // Basic auth header; note use of btoa for browser base64 encoding :contentReference[oaicite:0]{index=0}
       const headers = new Headers({
         "Content-Type": "application/json",
@@ -820,16 +816,32 @@ class HelpWidget extends HTMLElement {
       else if (ua.includes("OPR") || ua.includes("Opera")) browser = "Opera";
       let userId = user.Identifier;
       let pageTitle = "";
-      let url = window.location.href;
+      const currentUrl = window.location.href;
+      const prefix =
+        "https://lsp.michiganvirtual.org/d2l/le/enhancedSequenceViewer/";
 
-      const match = url.match(/enhancedSequenceViewer\/(\d+)/);
-      const orgUnitId = match ? match[1] : null;
+      if (currentUrl.startsWith(prefix)) {
+        const match = currentUrl.match(
+          /^https:\/\/lsp\.michiganvirtual\.org\/d2l\/le\/enhancedSequenceViewer\/(\d+)/
+        );
+        const courseId = match ? match[1] : null;
 
+        if (courseId) {
+          console.log("Course ID:", courseId);
+          // You can now use courseId as needed
+        } else {
+          console.warn("Course ID not found in URL.");
+        }
+      } else {
+        console.log("URL does not match the expected pattern.");
+      }
+      return;
       let ticketBody = `<b>Issue Type:</b> ${issueType_Tier1}<br><b>Issue Type Subcategory:</b> ${issueType_Tier2}<br><b>Message: </b>${detail}<br><b>Browser:</b> ${os}<br><b>Operating System: </b>${browser}<br><b>Page Url:</b> ${url}<br><b>User ID: </b>${userId}`;
       let formSubmissionData = {
         description: ticketBody,
         subject: subject,
-        email: "curltest@example.com",
+        email: "helpwidget@michiganvirtual.org",
+        name: "PLS Help Widget",
         priority: 1,
         status: 2,
         type: "Professional Learning",
