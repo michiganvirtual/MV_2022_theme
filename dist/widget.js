@@ -820,6 +820,7 @@ class HelpWidget extends HTMLElement {
         "https://lsp.michiganvirtual.org/d2l/le/enhancedSequenceViewer/";
 
       if (currentUrl.startsWith(prefix)) {
+        console.log("matches the url prefix");
         const match = currentUrl.match(
           /^https:\/\/lsp\.michiganvirtual\.org\/d2l\/le\/enhancedSequenceViewer\/(\d+)/
         );
