@@ -815,26 +815,16 @@ class HelpWidget extends HTMLElement {
       else if (ua.includes("OPR") || ua.includes("Opera")) browser = "Opera";
       let userId = user.Identifier;
       let pageTitle = "";
-      const currentUrl = window.location.href;
-      const prefix =
-        "https://lsp.michiganvirtual.org/d2l/le/enhancedSequenceViewer/";
+      // Get current URL
+      const fullUrl = window.location.href;
 
-      if (currentUrl.startsWith(prefix)) {
-        console.log("matches the url prefix");
-        const match = currentUrl.match(
-          /^https:\/\/lsp\.michiganvirtual\.org\/d2l\/le\/enhancedSequenceViewer\/(\d+)/
-        );
-        const courseId = match ? match[1] : null;
+      // Strip URL parameters (everything after '?')
+      const baseUrl = fullUrl.split("?")[0];
 
-        if (courseId) {
-          console.log("Course ID:", courseId);
-          // You can now use courseId as needed
-        } else {
-          console.warn("Course ID not found in URL.");
-        }
-      } else {
-        console.log("URL does not match the expected pattern.");
-      }
+      // Isolate the string after the final forward slash
+      const finalSegment = baseUrl.substring(baseUrl.lastIndexOf("/") + 1);
+
+      console.log(finalSegment);
       return;
       let ticketBody = `<b>Issue Type:</b> ${issueType_Tier1}<br><b>Issue Type Subcategory:</b> ${issueType_Tier2}<br><b>Message: </b>${detail}<br><b>Browser:</b> ${os}<br><b>Operating System: </b>${browser}<br><b>Page Url:</b> ${url}<br><b>User ID: </b>${userId}`;
       let formSubmissionData = {
