@@ -733,6 +733,8 @@ class HelpWidget extends HTMLElement {
       const ua = navigator.userAgent;
 
       let detail = form.querySelector("#details").value;
+      detail = detail.replace(/<\/?[^>]+(>|$)/g, "");
+
       let issueType_Tier1 = heading.textContent;
       let issueType_Tier2 = form.querySelector("#dropdown-option").textContent;
       let subject = "Help Widget Submission: " + issueType_Tier1;
