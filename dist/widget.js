@@ -717,7 +717,6 @@ class HelpWidget extends HTMLElement {
       // Basic auth header; note use of btoa for browser base64 encoding :contentReference[oaicite:0]{index=0}
       const headers = new Headers({
         "Content-Type": "application/json",
-        Authorization: "Basic " + btoa(apiKey + ":X"),
       });
 
       // RATE LIMIT CHECK HERE
