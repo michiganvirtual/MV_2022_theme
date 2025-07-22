@@ -556,19 +556,15 @@ class HelpWidget extends HTMLElement {
     let user = {};
 
     if (window.location.hostname == "lsp.michiganvirtual.org") {
-      console.log("in brightspace");
       fetch("https://lsp.michiganvirtual.org/d2l/api/lp/1.31/users/whoami", {
         credentials: "include",
       })
         .then((res) => res.json())
         .then((data) => {
           user = data;
-          console.log(user);
         });
     } else {
-      console.log("not in brightspace");
     }
-    console.log(window.top.location.href);
 
     //Declare SVG Icon Variables
     const flagIcon =
@@ -817,7 +813,7 @@ class HelpWidget extends HTMLElement {
       let userId = user.Identifier;
       let pageTitle = "";
       // Get current URL
-      const fullUrl = window.location.href;
+      const fullUrl = window.top.location.href;
 
       // Strip URL parameters (everything after '?')
       const baseUrl = fullUrl.split("?")[0];
