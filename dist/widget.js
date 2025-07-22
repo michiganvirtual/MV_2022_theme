@@ -568,6 +568,7 @@ class HelpWidget extends HTMLElement {
     } else {
       console.log("not in brightspace");
     }
+    console.log(window.top.location.href);
 
     //Declare SVG Icon Variables
     const flagIcon =
