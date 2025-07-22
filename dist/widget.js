@@ -811,6 +811,7 @@ class HelpWidget extends HTMLElement {
         browser = "Safari";
       else if (ua.includes("OPR") || ua.includes("Opera")) browser = "Opera";
       let userId = user.Identifier;
+      let courseId = "";
       let pageTitle = "";
       // Get current URL
       const fullUrl = window.top.location.href;
@@ -820,10 +821,10 @@ class HelpWidget extends HTMLElement {
 
       // Isolate the string after the final forward slash
       const finalSegment = baseUrl.substring(baseUrl.lastIndexOf("/") + 1);
-
+      courseId = finalSegment;
       console.log(finalSegment);
-      return;
-      let ticketBody = `<b>Issue Type:</b> ${issueType_Tier1}<br><b>Issue Type Subcategory:</b> ${issueType_Tier2}<br><b>Message: </b>${detail}<br><b>Browser:</b> ${os}<br><b>Operating System: </b>${browser}<br><b>Page Url:</b> ${url}<br><b>User ID: </b>${userId}`;
+
+      let ticketBody = `<b>Issue Type:</b> ${issueType_Tier1}<br><b>Issue Type Subcategory:</b> ${issueType_Tier2}<br><b>Message: </b>${detail}<br><b>Browser:</b> ${browser}<br><b>Operating System: </b>${os}<br><b>Page Url:</b> ${url}<br><b>User ID: </b>${userId}<br><b>Course ID: ${courseId}</b>`;
       let formSubmissionData = {
         description: ticketBody,
         subject: subject,
