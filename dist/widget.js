@@ -824,7 +824,7 @@ class HelpWidget extends HTMLElement {
       courseId = finalSegment;
       console.log(finalSegment);
 
-      let ticketBody = `<b>Issue Type:</b> ${issueType_Tier1}<br><b>Issue Type Subcategory:</b> ${issueType_Tier2}<br><b>Message: </b>${detail}<br><b>Browser:</b> ${browser}<br><b>Operating System: </b>${os}<br><b>Page Url:</b> ${url}<br><b>User ID: </b>${userId}<br><b>Course ID: ${courseId}</b>`;
+      let ticketBody = `<b>Issue Type:</b> ${issueType_Tier1}<br><b>Issue Type Subcategory:</b> ${issueType_Tier2}<br><b>Message: </b>${detail}<br><b>Browser:</b> ${browser}<br><b>Operating System: </b>${os}<br><b>Page Url:</b> ${fullUrl}<br><b>User ID: </b>${userId}<br><b>Course ID: ${courseId}</b>`;
       let formSubmissionData = {
         description: ticketBody,
         subject: subject,
