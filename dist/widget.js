@@ -349,9 +349,11 @@ class HelpWidget extends HTMLElement {
             @media screen and (max-width: 600px) {
           /* Styles for smartphones and smaller */
           .help-container.open {
-            bottom: 2px;
-            right: 2px;
+            bottom: 0px;
+            right: 0px;
+            width: unset;
             max-width: 100%;
+            max-height: unset;
           }
           
           .help-header {
