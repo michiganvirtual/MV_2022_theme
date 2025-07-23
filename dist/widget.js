@@ -355,14 +355,15 @@ class HelpWidget extends HTMLElement {
           }
           
           .help-header {
-            padding: 5px 9px; 
+            padding: 5px; 
           }
-            
+
           .help-header-inner span {
             display: none;
           }
           .help-container.open .help-header-inner span {
             display: inline;
+            font-size: 18px;
           }
           .help-header #icon-container {
             margin-right: 0;
