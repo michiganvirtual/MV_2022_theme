@@ -346,6 +346,30 @@ class HelpWidget extends HTMLElement {
             margin: 0;
             transition: visibility 0s ease-in-out, max-height 0.3s, margin 0.3s;
           }
+            @media screen and (max-width: 600px) {
+          /* Styles for smartphones and smaller */
+          .help-container.open {
+            bottom: 2px;
+            right: 2px;
+            max-width: 100%;
+          }
+          
+          .help-header {
+            padding: 5px 9px; 
+          }
+            
+          .help-header-inner span {
+            display: none;
+          }
+          .help-container.open .help-header-inner span {
+            display: inline;
+          }
+          .help-header #icon-container {
+            margin-right: 0;
+          }
+
+          /* Add more responsive rules here */
+        }
         </style>
         <div class="help-header">
         <a href="#" class="back-btn" aria-label="Back Button">
