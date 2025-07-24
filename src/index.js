@@ -10,6 +10,7 @@ require("./js/touch-punch");
 //require("./js/slick");
 require("./js/ally-slick/slick");
 import Sortable from "sortablejs";
+import "./js/widget.js";
 
 $(document).ready(function () {
   var bsContainer = false;
