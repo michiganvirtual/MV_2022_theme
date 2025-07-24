@@ -739,7 +739,7 @@ class HelpWidget extends HTMLElement {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      // Basic auth header; note use of btoa for browser base64 encoding :contentReference[oaicite:0]{index=0}
+      // Basic auth header
       const headers = new Headers({
         "Content-Type": "application/json",
       });
@@ -755,8 +755,11 @@ class HelpWidget extends HTMLElement {
       let detail = form.querySelector("#details").value;
       detail = detail.replace(/<\/?[^>]+(>|$)/g, "");
 
-      let issueType_Tier1 = heading.textContent;
-      let issueType_Tier2 = form.querySelector("#dropdown-option").textContent;
+      let ticketIssueTier1 = heading.textContent;
+      let ticketIssueTier2 = form.querySelector("#dropdown-option").textContent;
+
+      let issueType_Tier1 = ticketIssueTier1;
+      let issueType_Tier2 = ticketIssueTier2;
       let subject = "Help Widget Submission: " + issueType_Tier1;
       switch (issueType_Tier1) {
         case "Technology Issue":
@@ -852,7 +855,7 @@ class HelpWidget extends HTMLElement {
       courseId = finalSegment;
       console.log(finalSegment);
 
-      let ticketBody = `<b>Issue Type:</b> ${issueType_Tier1}<br><b>Issue Type Subcategory:</b> ${issueType_Tier2}<br><b>Message: </b>${detail}<br><b>Browser:</b> ${browser}<br><b>Operating System: </b>${os}<br><b>Page Url:</b> ${fullUrl}<br><b>User ID: </b>${userId}<br><b>Course ID:</b> ${courseId}<br>`;
+      let ticketBody = `<b>Issue Type:</b> ${ticketIssueTier1}<br><b>Issue Type Subcategory:</b> ${ticketIssueTier2}<br><b>Message: </b>${detail}<br><br><br><b>Page Url:</b> ${fullUrl}<br><b>Course ID:</b> ${courseId}<br><b>User ID: </b>${userId}<br><br><b>Browser:</b> ${browser}<br><b>Operating System: </b>${os}<br>`;
       let formSubmissionData = {
         description: ticketBody,
         subject: subject,
