@@ -760,7 +760,7 @@ class HelpWidget extends HTMLElement {
 
       let issueType_Tier1 = ticketIssueTier1;
       let issueType_Tier2 = ticketIssueTier2;
-      let subject = "Help Widget Submission: " + issueType_Tier1;
+      let subject = "Help Widget Submission: " + ticketIssueTier1;
       switch (issueType_Tier1) {
         case "Technology Issue":
           issueType_Tier1 = "Access to Content";
@@ -853,9 +853,9 @@ class HelpWidget extends HTMLElement {
       // Isolate the string after the final forward slash
       const finalSegment = baseUrl.substring(baseUrl.lastIndexOf("/") + 1);
       courseId = finalSegment;
-      console.log(finalSegment);
 
-      let ticketBody = `<h3>Ticket Info</h3><b>Issue Type:</b> ${ticketIssueTier1}<br><b>Issue Type Subcategory:</b> ${ticketIssueTier2}<br><b>Message: </b>${detail}<br><br><h3>Page Info</h3><b>Course ID:</b> ${courseId}<br><b>Page Url:</b> ${fullUrl}<br><h3>User Info</h3><b>User ID: </b>${userId}<br><b>Browser:</b> ${browser}<br><b>Operating System: </b>${os}<br>`;
+      let ticketBody = `<h3 style\="font-size\: 20px\;">Ticket Info\:</h3><b>Issue Type:</b> ${ticketIssueTier1}<br><b>Issue Type Subcategory:</b> ${ticketIssueTier2}<br><b>Message: </b>${detail}<br><br><h3 style\="font-size\: 20px\;">Course Page Info\:</h3><b>Page Url:</b> ${fullUrl}<br><b>Course ID:</b> ${courseId}<br><br><h3 style\="font-size\: 20px\;">User Info\:</h3><b>User ID: </b>${userId}<br><b>Browser:</b> ${browser}<br><b>Operating System: </b>${os}<br>`;
+      //let ticketBody = `<b>Issue Type:</b> ${ticketIssueTier1}<br><b>Issue Type Subcategory:</b> ${ticketIssueTier2}<br><b>Message: </b>${detail}<br><br><b>Page Url:</b> ${fullUrl}<br><b>Course ID:</b> ${courseId}<br><b>User ID: </b>${userId}<br><br><b>Browser:</b> ${browser}<br><b>Operating System: </b>${os}<br>`;
       let formSubmissionData = {
         description: ticketBody,
         subject: subject,
