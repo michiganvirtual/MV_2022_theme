@@ -9,7 +9,7 @@ class HelpWidget extends HTMLElement {
 
     container.innerHTML = `
         <style>
-        /* @import url('https://mv-2022-theme.netlify.app/output.css');*/
+        @import url('https://mv-2022-theme.netlify.app/output.css');
                 
         @font-face {
           font-family: "FontAwesome";
