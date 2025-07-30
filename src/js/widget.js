@@ -9,7 +9,7 @@ class HelpWidget extends HTMLElement {
 
     container.innerHTML = `
         <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+        /* @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');*/
                 
         @font-face {
           font-family: "FontAwesome";
@@ -17,10 +17,11 @@ class HelpWidget extends HTMLElement {
             format("woff");
         }
           .help-container {
+
             position: fixed;
             bottom: 20px;
             right: 20px;
-            font-family: "Roboto", Arial, sans-serif;
+            font-family: "Figtree", "Roboto", Arial, sans-serif;
             overflow: hidden;
             border-radius: 113px;
             background: #ac6610;
