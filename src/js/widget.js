@@ -8,9 +8,8 @@ class HelpWidget extends HTMLElement {
     container.tabIndex = 0;
 
     container.innerHTML = `
+
         <style>
-        @import url('https://mv-2022-theme.netlify.app/output.css');
-                
         @font-face {
           font-family: "FontAwesome";
           src: url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0)
@@ -867,11 +866,11 @@ class HelpWidget extends HTMLElement {
         type: "Professional Learning",
         group_id: 159000435203,
         responder_id: 159002698739,
-        custom_fields: {
+        /*custom_fields: {
           cf_plp_issue_type: "Issues With PLP Course Content",
           cf_plp_course_issue_type: issueType_Tier1,
           cf_plp_broken_content_type: issueType_Tier2,
-        },
+        },*/
       };
       console.log(formSubmissionData);
 

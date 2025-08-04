@@ -8,19 +8,19 @@ class HelpWidget extends HTMLElement {
     container.tabIndex = 0;
 
     container.innerHTML = `
+
         <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-                
         @font-face {
           font-family: "FontAwesome";
           src: url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0)
             format("woff");
         }
           .help-container {
+
             position: fixed;
             bottom: 20px;
             right: 20px;
-            font-family: "Roboto", Arial, sans-serif;
+            font-family: "Figtree", "Roboto", Arial, sans-serif;
             overflow: hidden;
             border-radius: 113px;
             background: #ac6610;
@@ -739,7 +739,7 @@ class HelpWidget extends HTMLElement {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      // Basic auth header; note use of btoa for browser base64 encoding :contentReference[oaicite:0]{index=0}
+      // Basic auth header
       const headers = new Headers({
         "Content-Type": "application/json",
       });
@@ -755,9 +755,12 @@ class HelpWidget extends HTMLElement {
       let detail = form.querySelector("#details").value;
       detail = detail.replace(/<\/?[^>]+(>|$)/g, "");
 
-      let issueType_Tier1 = heading.textContent;
-      let issueType_Tier2 = form.querySelector("#dropdown-option").textContent;
-      let subject = "Help Widget Submission: " + issueType_Tier1;
+      let ticketIssueTier1 = heading.textContent;
+      let ticketIssueTier2 = form.querySelector("#dropdown-option").textContent;
+
+      let issueType_Tier1 = ticketIssueTier1;
+      let issueType_Tier2 = ticketIssueTier2;
+      let subject = "Help Widget Submission: " + ticketIssueTier1;
       switch (issueType_Tier1) {
         case "Technology Issue":
           issueType_Tier1 = "Access to Content";
@@ -840,7 +843,7 @@ class HelpWidget extends HTMLElement {
       else if (ua.includes("OPR") || ua.includes("Opera")) browser = "Opera";
       let userId = user.Identifier;
       let courseId = "";
-      let pageTitle = "";
+      let pageTitle = document.querySelector("h1").textContent;
       // Get current URL
       const fullUrl = window.top.location.href;
 
@@ -850,9 +853,9 @@ class HelpWidget extends HTMLElement {
       // Isolate the string after the final forward slash
       const finalSegment = baseUrl.substring(baseUrl.lastIndexOf("/") + 1);
       courseId = finalSegment;
-      console.log(finalSegment);
 
-      let ticketBody = `<b>Issue Type:</b> ${issueType_Tier1}<br><b>Issue Type Subcategory:</b> ${issueType_Tier2}<br><b>Message: </b>${detail}<br><b>Browser:</b> ${browser}<br><b>Operating System: </b>${os}<br><b>Page Url:</b> ${fullUrl}<br><b>User ID: </b>${userId}<br><b>Course ID:</b> ${courseId}<br>`;
+      let ticketBody = `<h3 style\="font-size\: 20px\;">Ticket Info\:</h3><b>Issue Type:</b> ${ticketIssueTier1}<br><b>Issue Type Subcategory:</b> ${ticketIssueTier2}<br><b>Message: </b>${detail}<br><br><h3 style\="font-size\: 20px\;">Course Page Info\:</h3><b>Course ID:</b> ${courseId}<br><b>Page Title: </b>${pageTitle}<br><b>Page Url:</b> ${fullUrl}<br><br><h3 style\="font-size\: 20px\;">User Info\:</h3><b>User ID: </b>${userId}<br><b>Browser:</b> ${browser}<br><b>Operating System: </b>${os}<br>`;
+      //let ticketBody = `<b>Issue Type:</b> ${ticketIssueTier1}<br><b>Issue Type Subcategory:</b> ${ticketIssueTier2}<br><b>Message: </b>${detail}<br><br><b>Page Url:</b> ${fullUrl}<br><b>Course ID:</b> ${courseId}<br><b>User ID: </b>${userId}<br><br><b>Browser:</b> ${browser}<br><b>Operating System: </b>${os}<br>`;
       let formSubmissionData = {
         description: ticketBody,
         subject: subject,
