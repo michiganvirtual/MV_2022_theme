@@ -843,8 +843,9 @@ class HelpWidget extends HTMLElement {
       else if (ua.includes("OPR") || ua.includes("Opera")) browser = "Opera";
       let userId = user.Identifier;
       let courseId = "";
+      let pageTitle = "No H1 heading on page";
       if (document.querySelector("h1") != null) {
-        let pageTitle = document.querySelector("h1").textContent;
+        pageTitle = document.querySelector("h1").textContent;
       }
       // Get current URL
       const fullUrl = window.top.location.href;
