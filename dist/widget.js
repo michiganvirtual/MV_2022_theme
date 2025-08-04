@@ -843,7 +843,9 @@ class HelpWidget extends HTMLElement {
       else if (ua.includes("OPR") || ua.includes("Opera")) browser = "Opera";
       let userId = user.Identifier;
       let courseId = "";
-      let pageTitle = document.querySelector("h1").textContent;
+      if (document.querySelector("h1").length) {
+        let pageTitle = document.querySelector("h1").textContent;
+      }
       // Get current URL
       const fullUrl = window.top.location.href;
 
@@ -866,11 +868,11 @@ class HelpWidget extends HTMLElement {
         type: "Professional Learning",
         group_id: 159000435203,
         responder_id: 159002698739,
-        custom_fields: {
+        /*custom_fields: {
           cf_plp_issue_type: "Issues With PLP Course Content",
           cf_plp_course_issue_type: issueType_Tier1,
           cf_plp_broken_content_type: issueType_Tier2,
-        },
+        },*/
       };
       console.log(formSubmissionData);
 
