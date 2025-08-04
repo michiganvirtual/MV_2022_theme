@@ -843,7 +843,7 @@ class HelpWidget extends HTMLElement {
       else if (ua.includes("OPR") || ua.includes("Opera")) browser = "Opera";
       let userId = user.Identifier;
       let courseId = "";
-      if (document.querySelector("h1").length) {
+      if (document.querySelector("h1") != null) {
         let pageTitle = document.querySelector("h1").textContent;
       }
       // Get current URL
