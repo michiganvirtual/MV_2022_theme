@@ -843,9 +843,11 @@ class HelpWidget extends HTMLElement {
       else if (ua.includes("OPR") || ua.includes("Opera")) browser = "Opera";
       let userId = user.Identifier;
       let courseId = "";
-      if (document.querySelector("h1").length) {
-        let pageTitle = document.querySelector("h1").textContent;
+      let pageTitle = "No page title. Page is missing an H1 element.";
+      if (document.querySelector("h1") != null) {
+        pageTitle = document.querySelector("h1").textContent;
       }
+
       // Get current URL
       const fullUrl = window.top.location.href;
 
@@ -874,7 +876,6 @@ class HelpWidget extends HTMLElement {
           cf_plp_broken_content_type: issueType_Tier2,
         },*/
       };
-      console.log(formSubmissionData);
 
       // Send data to Freshdesk
       try {
