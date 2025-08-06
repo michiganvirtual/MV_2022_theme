@@ -23,7 +23,7 @@ class HelpWidget extends HTMLElement {
             font-family: "Figtree", "Roboto", Arial, sans-serif;
             overflow: hidden;
             border-radius: 113px;
-            background: #ac6610;
+            background: #a84c2a;
             box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.3);
             transition: max-width 0.3s ease-in-out, max-height 0.3s ease-in-out;
             max-height: 40px;
@@ -68,7 +68,7 @@ class HelpWidget extends HTMLElement {
             padding: 4px;
           }
           .help-header .close-btn.thank-you svg path {
-            stroke: #ac6610;
+            stroke: #a84c2a;
           }
           .help-header .back-btn {
             display: none;
@@ -109,7 +109,7 @@ class HelpWidget extends HTMLElement {
             display: block;
           }
           .help-message {
-            color: #414042;
+            color: #091d20;
             font-family: "Inter";
             font-size: 14px;
             font-style: normal;
@@ -118,7 +118,7 @@ class HelpWidget extends HTMLElement {
             margin-bottom: 5px;
           }
             .help-sub-message {
-            color: #414042;
+            color: #091d20;
             font-family: "Inter";
             font-size: 12px;
             font-style: normal;
@@ -161,7 +161,7 @@ class HelpWidget extends HTMLElement {
             fill: #fff;
           }
           .help-options li.technology:hover {
-            background-color: #ac6610;
+            background-color: #a84c2a;
           }
           .help-options li.course-content:hover {
             background-color: #6a7f17;
@@ -184,7 +184,7 @@ class HelpWidget extends HTMLElement {
             border: 1px solid #6d6e71;
             padding: 8px 6px 8px 12px;
             margin-bottom: 8px;
-            color: #414042;
+            color: #091d20;
             /* Input text */
             font-family: Inter;
             font-size: 16px;
@@ -210,7 +210,7 @@ class HelpWidget extends HTMLElement {
           }
           .issues-dropdown.active .dropdown-header {
             border-radius: 4px 4px 0px 0px;
-            border: 1px solid #ac6610;
+            border: 1px solid #a84c2a;
           }
 
           .dropdown-header {
@@ -273,7 +273,7 @@ class HelpWidget extends HTMLElement {
 
           .help-form button[type="submit"],
           .return-btn {
-            background-color: #ac6610;
+            background-color: #a84c2a;
             border: 0px;
             border-radius: 4px;
             padding: 8px 24px;
@@ -302,7 +302,7 @@ class HelpWidget extends HTMLElement {
             margin-bottom: 12px;
           }
           .thank-you span {
-            color: #414042;
+            color: #091d20;
             text-align: center;
             font-family: "Roboto";
             font-size: 22px;
@@ -315,7 +315,7 @@ class HelpWidget extends HTMLElement {
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            color: #414042;
+            color: #091d20;
             text-align: left;
             font-family: "Inter";
             font-size: 12px;
@@ -324,7 +324,7 @@ class HelpWidget extends HTMLElement {
             line-height: 12px; /* 120% */
           }
           .help-footer a {
-            color: #ac6610;
+            color: #a84c2a;
             /* display: inline-flex; */
             align-items: center;
             gap: 2px;
@@ -334,7 +334,7 @@ class HelpWidget extends HTMLElement {
             height: 10px;
           }
           .help-footer a svg path {
-            fill: #ac6610;
+            fill: #a84c2a;
           }
           .help-footer a[target="_blank"]:after {
             font-family: "FontAwesome";
@@ -460,7 +460,7 @@ class HelpWidget extends HTMLElement {
             >
               <path
                 d="M16.6462 19.8649L17.3531 19.1345C17.5481 18.933 17.5481 18.6055 17.3531 18.404L14.4137 15.3667L17.3531 12.3293C17.5481 12.1278 17.5481 11.8004 17.3531 11.5989L16.6462 10.8684C16.4513 10.6669 16.1344 10.6669 15.9394 10.8684L11.9394 15.0018C11.7444 15.2033 11.7444 15.5307 11.9394 15.7322L15.9394 19.8655C16.135 20.067 16.4513 20.067 16.6462 19.8649ZM22.6462 19.1345L23.3531 19.8649C23.5481 20.0664 23.865 20.0664 24.06 19.8649L28.06 15.7316C28.255 15.5301 28.255 15.2026 28.06 15.0011L24.06 10.8678C23.865 10.6663 23.5481 10.6663 23.3531 10.8678L22.6462 11.5982C22.4513 11.7997 22.4513 12.1272 22.6462 12.3287L25.5863 15.3667L22.6469 18.404C22.6004 18.4519 22.5635 18.5088 22.5383 18.5715C22.5131 18.6341 22.5001 18.7013 22.5001 18.7691C22.5 18.8369 22.5129 18.9041 22.538 18.9668C22.5631 19.0295 22.5999 19.0865 22.6462 19.1345ZM39 25.7H36V8.13333C36 5.85354 34.205 4 32 4H8C5.795 4 4 5.85354 4 8.13333V25.7H1C0.4475 25.7 0 26.1624 0 26.7333V29.8333C0 32.6821 2.2425 35 5 35H35C37.7575 35 40 32.6821 40 29.8333V26.7333C40 26.1624 39.5525 25.7 39 25.7ZM6 8.13333C6 6.99215 6.89563 6.06667 8 6.06667H32C33.1044 6.06667 34 6.99215 34 8.13333V25.7H24.4456C24.1919 25.7 24.0069 25.9021 23.9506 26.1579C23.7487 27.0789 22.9519 27.7667 22 27.7667H18C17.0481 27.7667 16.2513 27.0789 16.0494 26.1579C15.9931 25.9021 15.8081 25.7 15.5544 25.7H6V8.13333ZM38 29.8333C38 31.5429 36.6544 32.9333 35 32.9333H5C3.34562 32.9333 2 31.5429 2 29.8333V27.7667H14.1719C14.5837 28.9692 15.6956 29.8333 17 29.8333H23C24.305 29.8333 25.4163 28.9692 25.8281 27.7667H38V29.8333Z"
-                fill="#AC6610"
+                fill="#a84c2a"
               />
             </svg>
             Technology Issue
@@ -663,7 +663,7 @@ class HelpWidget extends HTMLElement {
     const handleCloseClick = (e) => {
       e.stopPropagation(); // Stop event propagation
 
-      container.style.backgroundColor = "#AC6610";
+      container.style.backgroundColor = "#a84c2a";
       heading.textContent = "Report an issue";
       container.classList.remove("open");
       setTimeout(function () {
@@ -692,7 +692,7 @@ class HelpWidget extends HTMLElement {
     // Back to options
     const handleBackClick = (e) => {
       e.stopPropagation(); // Stop event propagation
-      container.style.backgroundColor = "#AC6610";
+      container.style.backgroundColor = "#a84c2a";
       backButton.style.display = "none";
       form.classList.add("hidden");
       optionsList.classList.remove("hidden");
@@ -714,7 +714,7 @@ class HelpWidget extends HTMLElement {
     // Return button
     const handleReturnClick = (e) => {
       e.stopPropagation();
-      container.style.backgroundColor = "#AC6610";
+      container.style.backgroundColor = "#a84c2a";
       backButton.style.display = "none";
       optionsList.classList.remove("hidden");
       heading.textContent = "Report an issue";
