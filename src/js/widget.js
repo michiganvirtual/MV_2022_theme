@@ -583,7 +583,10 @@ class HelpWidget extends HTMLElement {
     const footer = container.querySelector(".help-footer");
     let user = {};
 
-    if (window.location.hostname == "lsp.michiganvirtual.org") {
+    if (
+      window.location.hostname == "lsp.michiganvirtual.org" ||
+      window.location.hostname == "mvu.coursearc.com"
+    ) {
       fetch("https://lsp.michiganvirtual.org/d2l/api/lp/1.31/users/whoami", {
         credentials: "include",
       })
