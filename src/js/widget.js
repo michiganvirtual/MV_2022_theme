@@ -862,8 +862,6 @@ class HelpWidget extends HTMLElement {
       courseId = finalSegment;
       let courseLink = "https://lsp.michiganvirtual.org/d2l/home/" + courseId;
 
-      console.log(courseLink);
-
       let ticketBody = `<h3 style\="font-size\: 20px\;">Ticket Info\:</h3><b>Issue Type:</b> ${ticketIssueTier1}<br><b>Issue Type Subcategory:</b> ${ticketIssueTier2}<br><b>Message: </b>${detail}<br><br><h3 style\="font-size\: 20px\;">Course Page Info\:</h3><b>Course URL:</b> ${courseLink}<br><b>Page Title: </b>${pageTitle}<br><b>Page Url:</b> ${fullUrl}<br><br><h3 style\="font-size\: 20px\;">User Info\:</h3><b>User ID: </b>${userId}<br><b>Browser:</b> ${browser}<br><b>Operating System: </b>${os}<br>`;
       //let ticketBody = `<b>Issue Type:</b> ${ticketIssueTier1}<br><b>Issue Type Subcategory:</b> ${ticketIssueTier2}<br><b>Message: </b>${detail}<br><br><b>Page Url:</b> ${fullUrl}<br><b>Course ID:</b> ${courseId}<br><b>User ID: </b>${userId}<br><br><b>Browser:</b> ${browser}<br><b>Operating System: </b>${os}<br>`;
       let formSubmissionData = {
@@ -874,13 +872,13 @@ class HelpWidget extends HTMLElement {
         priority: 1,
         status: 2,
         type: "Professional Learning",
-        group_id: 159000435203,
-        responder_id: 159002698739,
-        /*custom_fields: {
-          cf_plp_issue_type: "Issues With PLP Course Content",
+        group_id: 65000162526,
+        responder_id: 65005101840,
+        custom_fields: {
+          cf_plp_issue_type327221: "Issues With PLP Course Content",
           cf_plp_course_issue_type: issueType_Tier1,
           cf_plp_broken_content_type: issueType_Tier2,
-        },*/
+        },
       };
 
       // Send data to Freshdesk
