@@ -864,9 +864,7 @@ class HelpWidget extends HTMLElement {
 
       console.log(courseLink);
 
-      return;
-
-      let ticketBody = `<h3 style\="font-size\: 20px\;">Ticket Info\:</h3><b>Issue Type:</b> ${ticketIssueTier1}<br><b>Issue Type Subcategory:</b> ${ticketIssueTier2}<br><b>Message: </b>${detail}<br><br><h3 style\="font-size\: 20px\;">Course Page Info\:</h3><b>Course ID:</b> ${courseId}<br><b>Page Title: </b>${pageTitle}<br><b>Page Url:</b> ${fullUrl}<br><br><h3 style\="font-size\: 20px\;">User Info\:</h3><b>User ID: </b>${userId}<br><b>Browser:</b> ${browser}<br><b>Operating System: </b>${os}<br>`;
+      let ticketBody = `<h3 style\="font-size\: 20px\;">Ticket Info\:</h3><b>Issue Type:</b> ${ticketIssueTier1}<br><b>Issue Type Subcategory:</b> ${ticketIssueTier2}<br><b>Message: </b>${detail}<br><br><h3 style\="font-size\: 20px\;">Course Page Info\:</h3><b>Course URL:</b> ${courseLink}<br><b>Page Title: </b>${pageTitle}<br><b>Page Url:</b> ${fullUrl}<br><br><h3 style\="font-size\: 20px\;">User Info\:</h3><b>User ID: </b>${userId}<br><b>Browser:</b> ${browser}<br><b>Operating System: </b>${os}<br>`;
       //let ticketBody = `<b>Issue Type:</b> ${ticketIssueTier1}<br><b>Issue Type Subcategory:</b> ${ticketIssueTier2}<br><b>Message: </b>${detail}<br><br><b>Page Url:</b> ${fullUrl}<br><b>Course ID:</b> ${courseId}<br><b>User ID: </b>${userId}<br><br><b>Browser:</b> ${browser}<br><b>Operating System: </b>${os}<br>`;
       let formSubmissionData = {
         description: ticketBody,
