@@ -851,6 +851,17 @@ class HelpWidget extends HTMLElement {
         pageTitle = document.querySelector("h1").textContent;
       }
 
+      if (window.location.hostname == "mvu.coursearc.com") {
+        fetch("https://lsp.michiganvirtual.org/d2l/api/lp/1.31/users/whoami", {
+          credentials: "include",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            user = data;
+          });
+      } else {
+      }
+
       // Get current URL
       const fullUrl = window.top.location.href;
 
