@@ -892,7 +892,7 @@ class HelpWidget extends HTMLElement {
 
       // Send data to Freshdesk
       try {
-        await fetch("https://pls-help-widget.rrop.workers.dev/", {
+        await fetch("https://plshelpwidget.michigan-virtual.workers.dev/", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formSubmissionData),
