@@ -540,7 +540,6 @@ $(document).ready(function () {
           }).append(
             $("<img>", {
               class: "w-1/2 h-auto",
-              "aria-hidden": "true",
             })
           );
           $question.prepend($feedbackIcon);
