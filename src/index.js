@@ -549,22 +549,40 @@ $(document).ready(function () {
         const $feedbackContainer = $question.children(".feedback-icon");
 
         if (selectedAnswer == correctAnswer) {
-          $icon
-            .attr(
-              "src",
-              "https://mv-2022-theme.netlify.app/assets/images/icons/checkmark-icon.png"
-            )
-            .attr("alt", "Correct Answer");
+          if ($("body").hasClass("spanish")) {
+            $icon
+              .attr(
+                "src",
+                "https://mv-2022-theme.netlify.app/assets/images/icons/checkmark-icon.png"
+              )
+              .attr("alt", "Respuesta Correcta");
+          } else {
+            $icon
+              .attr(
+                "src",
+                "https://mv-2022-theme.netlify.app/assets/images/icons/checkmark-icon.png"
+              )
+              .attr("alt", "Correct Answer");
+          }
           $feedbackContainer
             .removeClass("bg-ada-orange hidden")
             .addClass("bg-ada-green");
         } else {
-          $icon
-            .attr(
-              "src",
-              "https://mv-2022-theme.netlify.app/assets/images/icons/x-icon.png"
-            )
-            .attr("alt", "Incorrect Answer");
+          if ($("body").hasClass("spanish")) {
+            $icon
+              .attr(
+                "src",
+                "https://mv-2022-theme.netlify.app/assets/images/icons/x-icon.png"
+              )
+              .attr("alt", "Respuesta Incorrecta");
+          } else {
+            $icon
+              .attr(
+                "src",
+                "https://mv-2022-theme.netlify.app/assets/images/icons/x-icon.png"
+              )
+              .attr("alt", "Incorrect Answer");
+          }
           $feedbackContainer
             .removeClass("bg-ada-green hidden")
             .addClass("bg-ada-orange");
