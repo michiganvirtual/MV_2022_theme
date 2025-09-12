@@ -503,7 +503,7 @@ $(document).ready(function () {
           role: "region",
           "aria-label": "Answers Table",
         });
-        $("#answers-table table").attr("tabindex", 0);
+        $("#answers-table table").attr("tabindex", -1);
         $answersTable[0].scrollIntoView({
           behavior: "smooth",
           block: "start",
