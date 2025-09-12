@@ -505,15 +505,18 @@ $(document).ready(function () {
           role: "alert",
         });
         $answersTable[0].scrollIntoView({ behavior: "smooth" });
-        $answersTable.focus();
+        $("#answers-table table").focus();
       } else {
         console.error("Answers table not found!");
       }
     }
   });
 
-  $("#answers-table .close-btn").on("click", function () {
-    $("#answers-table").addClass("hidden");
+  $("#answers-table .close-btn").on("click keydown", function (e) {
+    if (e.type === "click" || e.key === "Enter" || e.keyCode === 13) {
+      e.preventDefault();
+      $("#answers-table").addClass("hidden");
+    }
   });
 
   const removeClick = detectClickInContainerButNotInTable(
