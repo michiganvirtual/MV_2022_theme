@@ -492,26 +492,32 @@ $(document).ready(function () {
   });
 
   $("#display-answers").on("click keydown", function (e) {
-    // Allow click or pressing Enter
     if (e.type === "click" || e.key === "Enter" || e.keyCode === 13) {
       e.preventDefault();
 
-      var $answersTable = $("#answers-table"); // Directly select by ID
+      var $answersTable = $("#answers-table"); // wrapper div
 
       if ($answersTable.length) {
-        $answersTable.removeClass("hidden");
-        $answersTable.attr({
+        // Make it visible and focusable
+        $answersTable.removeClass("hidden").attr({
           tabindex: "0",
           role: "alert",
         });
-        $answersTable[0].scrollIntoView({ behavior: "smooth" });
-        $("#answers-table table").focus();
+
+        // Ensure DOM updates before focusing
+        requestAnimationFrame(() => {
+          $answersTable.focus();
+          $answersTable[0].scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        });
       } else {
         console.error("Answers table not found!");
       }
     }
   });
-
+  $("#answers-table .close-btn").attr("tabindex", 0);
   $("#answers-table .close-btn").on("click keydown", function (e) {
     if (e.type === "click" || e.key === "Enter" || e.keyCode === 13) {
       e.preventDefault();
