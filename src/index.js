@@ -507,11 +507,11 @@ $(document).ready(function () {
 
         // Ensure DOM updates before focusing
         requestAnimationFrame(() => {
-          $answersTable.trigger(focus);
           $answersTable[0].scrollIntoView({
             behavior: "smooth",
             block: "start",
           });
+          $("#answers-table table").trigger(focus);
         });
       } else {
         console.error("Answers table not found!");
