@@ -608,6 +608,8 @@ $(document).ready(function () {
     }
   });
 
+  $("a#display-answers").attr("tabindex", 0);
+
   /* $("#answers-table").on("click", function (e) {
     $("#answers-table").addClass("hidden");
   });
