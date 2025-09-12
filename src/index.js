@@ -491,23 +491,27 @@ $(document).ready(function () {
     $(".food-allergens__answer").text(answer);
   });
 
-  $("#display-answers").on("click", function (e) {
-    e.preventDefault();
+  $("#display-answers").on("click keydown", function (e) {
+    // Allow click or pressing Enter
+    if (e.type === "click" || e.key === "Enter" || e.keyCode === 13) {
+      e.preventDefault();
 
-    var $answersTable = $("#answers-table"); // ← Directly select by ID
+      var $answersTable = $("#answers-table"); // Directly select by ID
 
-    if ($answersTable.length) {
-      $answersTable.removeClass("hidden");
-      $answersTable.attr({
-        tabindex: "0",
-        role: "alert",
-      });
-      $answersTable[0].scrollIntoView({ behavior: "smooth" });
-      $answersTable.focus();
-    } else {
-      console.error("Answers table not found!");
+      if ($answersTable.length) {
+        $answersTable.removeClass("hidden");
+        $answersTable.attr({
+          tabindex: "0",
+          role: "alert",
+        });
+        $answersTable[0].scrollIntoView({ behavior: "smooth" });
+        $answersTable.focus();
+      } else {
+        console.error("Answers table not found!");
+      }
     }
   });
+
   $("#answers-table .close-btn").on("click", function () {
     $("#answers-table").addClass("hidden");
   });
