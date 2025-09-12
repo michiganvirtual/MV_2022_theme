@@ -500,11 +500,10 @@ $(document).ready(function () {
       if ($answersTable.length) {
         // Make it visible and focusable
         $answersTable.removeClass("hidden").attr({
-          tabindex: "0",
           role: "region",
           "aria-label": "Answers Table",
         });
-
+        $("#answers-table table").attr("tabindex", 0);
         $answersTable[0].scrollIntoView({
           behavior: "smooth",
           block: "start",
