@@ -501,12 +501,13 @@ $(document).ready(function () {
         // Make it visible and focusable
         $answersTable.removeClass("hidden").attr({
           tabindex: "0",
-          role: "alert",
+          role: "region",
+          "aria-label": "Answers Table",
         });
 
         // Ensure DOM updates before focusing
         requestAnimationFrame(() => {
-          $answersTable.focus();
+          $answersTable.trigger(focus);
           $answersTable[0].scrollIntoView({
             behavior: "smooth",
             block: "start",
