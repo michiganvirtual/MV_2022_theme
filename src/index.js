@@ -505,16 +505,11 @@ $(document).ready(function () {
           "aria-label": "Answers Table",
         });
 
-        // Ensure DOM updates before focusing
-        requestAnimationFrame(() => {
-          $answersTable[0].scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-          $("#answers-table table").trigger(focus);
+        $answersTable[0].scrollIntoView({
+          behavior: "smooth",
+          block: "start",
         });
-      } else {
-        console.error("Answers table not found!");
+        $("#answers-table table").trigger(focus);
       }
     }
   });
