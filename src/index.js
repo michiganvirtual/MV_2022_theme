@@ -13,7 +13,6 @@ import Sortable from "sortablejs";
 import "./js/widget.js";
 
 $(document).ready(function () {
-  console.log("pushed to both");
   var bsContainer = false;
   var bsStyles = {
     "max-width": "1230px",
