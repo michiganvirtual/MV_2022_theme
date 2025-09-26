@@ -29,6 +29,7 @@ class HelpWidget extends HTMLElement {
             height: 40px;
             width: 148px;
             z-index: 9999;
+            contain: layout style paint;
           }
           .help-container:hover {
             cursor: pointer;
@@ -37,6 +38,7 @@ class HelpWidget extends HTMLElement {
             border-radius: 16px;
             box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.3);
             transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+            transform: translateZ(0) scale(1);
             width: 337px;
             width: 337px;
             height: 312px;
@@ -357,13 +359,23 @@ class HelpWidget extends HTMLElement {
           }
             @media screen and (max-width: 600px) {
           /* Styles for smartphones and smaller */
+
+          .help-container {
+            position: absolute !important;
+            transform: translateZ(0); /* Force hardware acceleration */
+            will-change: transform; /* Hint to browser for optimization */
+          }
+
           .help-container.open {
-            bottom: 0px;
-            right: 0px;
-            width: unset;
-            margin: 0px 2px 2px;
-            max-width: calc(100% - 4px);
-            max-height: unset;
+            position: fixed !important;
+            top: auto !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            margin: 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
           }
           
           .help-header {
@@ -680,43 +692,34 @@ class HelpWidget extends HTMLElement {
 
     // Close button
     const handleCloseClick = (e) => {
-      e.stopPropagation(); // Stop event propagation
+      e.stopPropagation();
 
-      //  Capture current scroll position
-      const savedScrollY = freezeScroll();
+      // Simplified approach - avoid scroll manipulation on mobile
+      const isMobile = window.innerWidth < 768;
 
-      // Step 2: Freeze scroll and blur widget to avoid layout jump
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${savedScrollY}px`;
-      document.body.style.left = "0";
-      document.body.style.right = "0";
-      document.body.style.width = "100%";
-      container.blur();
+      if (isMobile) {
+        // Mobile-specific handling - minimal DOM manipulation
+        container.classList.remove("open", "form", "return");
 
-      container.style.backgroundColor = "#a84c2a";
-      heading.textContent = "Report an issue";
-      container.classList.remove("open");
-      container.classList.remove("form");
-      container.classList.remove("return");
+        // Reset all states in one batch to minimize reflows
+        requestAnimationFrame(() => {
+          resetWidgetState();
+          // Reset overflow after animation completes
+          setTimeout(() => {
+            document.body.style.overflow = "";
+          }, 300);
+        });
+      } else {
+        // Desktop handling with scroll management
+        const savedScrollY = freezeScroll();
 
-      setTimeout(function () {
-        document.body.style.overflow = "";
-        backButton.style.display = "none";
-        form.classList.add("hidden");
-        optionsList.classList.remove("hidden");
-        heading.classList.remove("hidden");
-        message.textContent = "What kind of issue are you experiencing?";
-        message.classList.remove("hidden");
-        subMessage.textContent = "";
-        footer.querySelector("span").innerHTML =
-          'Does this issue stop you from completing the course? You may need to <a href="https://help.michiganvirtual.org/support/tickets/new" target="_blank">submit a ticket</a> instead. You can also find helpful tips in our <a href="https://help.michiganvirtual.org/support/solutions" target="_blank">Knowledge Base</a>.';
-        icon.innerHTML = flagIcon;
-        icon.style.marginRight = "";
-        thankYou.classList.add("hidden");
-        closeButton.classList.remove("thank-you");
+        container.classList.remove("open", "form", "return");
 
-        setTimeout(() => unfreezeScroll(savedScrollY), 1);
-      }, 300);
+        setTimeout(() => {
+          resetWidgetState();
+          unfreezeScroll(savedScrollY);
+        }, 300);
+      }
     };
 
     closeButton.addEventListener("click", handleCloseClick);
@@ -1078,28 +1081,42 @@ class HelpWidget extends HTMLElement {
       return true;
     }
 
+    // Improved freeze/unfreeze functions with mobile detection
     function freezeScroll() {
+      const isMobile = window.innerWidth < 768;
       const scrollY = window.scrollY;
 
-      // Measure scrollbar width
+      if (isMobile) {
+        // Minimal approach for mobile - just prevent scrolling
+        document.body.style.overflow = "hidden";
+        return scrollY;
+      }
+
+      // Full approach for desktop
       const scrollbarWidth =
         window.innerWidth - document.documentElement.clientWidth;
 
-      // Apply styles
       document.body.style.position = "fixed";
       document.body.style.top = `-${scrollY}px`;
       document.body.style.left = "0";
       document.body.style.right = "0";
       document.body.style.width = "100%";
       document.body.style.overflow = "hidden";
-
-      // 🧠 Add padding to prevent content shift from scrollbar disappearance
       document.body.style.paddingRight = `${scrollbarWidth}px`;
 
       return scrollY;
     }
 
     function unfreezeScroll(savedScrollY) {
+      const isMobile = window.innerWidth < 768;
+
+      if (isMobile) {
+        // Simple reset for mobile
+        document.body.style.overflow = "";
+        return;
+      }
+
+      // Full reset for desktop
       document.body.style.position = "";
       document.body.style.top = "";
       document.body.style.left = "";
@@ -1109,6 +1126,31 @@ class HelpWidget extends HTMLElement {
       document.body.style.paddingRight = "";
 
       window.scrollTo({ top: savedScrollY, behavior: "auto" });
+    }
+
+    // New helper function to batch all state resets
+    function resetWidgetState() {
+      // Batch all DOM changes to minimize reflows
+      const changes = () => {
+        container.style.backgroundColor = "#a84c2a";
+        heading.textContent = "Report an issue";
+        backButton.style.display = "none";
+        form.classList.add("hidden");
+        optionsList.classList.remove("hidden");
+        heading.classList.remove("hidden");
+        message.textContent = "What kind of issue are you experiencing?";
+        message.classList.remove("hidden");
+        subMessage.textContent = "";
+        footer.querySelector("span").innerHTML =
+          'Does this issue stop you from completing the course? You may need to <a href="https://help.michiganvirtual.org/support/tickets/new" target="_blank">submit a ticket</a> instead. You can also find helpful tips in our <a href="https://help.michiganvirtual.org/support/solutions" target="_blank">Knowledge Base</a>.';
+        icon.innerHTML = flagIcon;
+        icon.style.marginRight = "";
+        thankYou.classList.add("hidden");
+        closeButton.classList.remove("thank-you");
+      };
+
+      // Use requestAnimationFrame to ensure changes happen in next frame
+      requestAnimationFrame(changes);
     }
 
     // Generate form content based on option
