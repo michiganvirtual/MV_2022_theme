@@ -27,7 +27,7 @@ class HelpWidget extends HTMLElement {
             box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.3);
             transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
             height: 40px;
-            width: 200px;
+            width: 148px;
             z-index: 9999;
           }
           .help-container:hover {
@@ -39,9 +39,17 @@ class HelpWidget extends HTMLElement {
             transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
             width: 337px;
             width: 337px;
-            height: 445px;
+            height: 312px;
             cursor: unset;
           }
+            .help-container.open.form {
+            transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+            height: 416px;
+            }
+            .help-container.open.return {
+            transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+            height: 296px;
+            }
           .help-header {
             display: flex;
             padding: 5px 9px 5px 6px;
@@ -352,11 +360,10 @@ class HelpWidget extends HTMLElement {
           .help-container.open {
             bottom: 0px;
             right: 0px;
-            width: 100vw;
-            height: 100vh;
+            width: unset;
             margin: 0px 2px 2px;
-            max-width: none;
-            max-height: none;
+            max-width: calc(100% - 4px);
+            max-height: unset;
           }
           
           .help-header {
@@ -649,6 +656,7 @@ class HelpWidget extends HTMLElement {
         if (!option) return;
 
         // Generate form based on option
+        container.classList.add("form");
         formContent.innerHTML = getFormContent(option);
         message.textContent = "Please select the type of issue you found. ";
         subMessage.textContent =
@@ -688,6 +696,8 @@ class HelpWidget extends HTMLElement {
       container.style.backgroundColor = "#a84c2a";
       heading.textContent = "Report an issue";
       container.classList.remove("open");
+      container.classList.remove("form");
+      container.classList.remove("return");
 
       setTimeout(function () {
         document.body.style.overflow = "";
@@ -699,7 +709,7 @@ class HelpWidget extends HTMLElement {
         message.classList.remove("hidden");
         subMessage.textContent = "";
         footer.querySelector("span").innerHTML =
-          'Need help from a real person? <a href="https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA." target="_blank">Submit a ticket to our team<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></a>.';
+          'Does this issue stop you from completing the course? You may need to <a href="https://help.michiganvirtual.org/support/tickets/new" target="_blank">submit a ticket</a> instead. You can also find helpful tips in our <a href="https://help.michiganvirtual.org/support/solutions" target="_blank">Knowledge Base</a>.';
         icon.innerHTML = flagIcon;
         icon.style.marginRight = "";
         thankYou.classList.add("hidden");
@@ -722,6 +732,7 @@ class HelpWidget extends HTMLElement {
       const savedScrollY = freezeScroll();
 
       container.style.backgroundColor = "#a84c2a";
+      container.classList.remove("form");
       backButton.style.display = "none";
       form.classList.add("hidden");
       optionsList.classList.remove("hidden");
@@ -729,7 +740,7 @@ class HelpWidget extends HTMLElement {
       message.textContent = "What kind of issue are you experiencing?";
       subMessage.textContent = "";
       footer.querySelector("span").innerHTML =
-        'Need help from a real person? <a href="https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA." target="_blank">Submit a ticket to our team<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></a>.';
+        'Does this issue stop you from completing the course? You may need to <a href="https://help.michiganvirtual.org/support/tickets/new" target="_blank">submit a ticket</a> instead. You can also find helpful tips in our <a href="https://help.michiganvirtual.org/support/solutions" target="_blank">Knowledge Base</a>.';
       icon.innerHTML = flagIcon;
       icon.style.marginRight = "16px";
 
@@ -749,6 +760,7 @@ class HelpWidget extends HTMLElement {
       const savedScrollY = freezeScroll();
 
       container.style.backgroundColor = "#a84c2a";
+      container.classList.remove("return");
       backButton.style.display = "none";
       optionsList.classList.remove("hidden");
       heading.textContent = "Report an issue";
@@ -761,6 +773,8 @@ class HelpWidget extends HTMLElement {
       optionsList.classList.remove("hidden");
       thankYou.classList.add("hidden");
       closeButton.classList.remove("thank-you");
+      footer.querySelector("span").innerHTML =
+        'Does this issue stop you from completing the course? You may need to <a href="https://help.michiganvirtual.org/support/tickets/new" target="_blank">submit a ticket</a> instead. You can also find helpful tips in our <a href="https://help.michiganvirtual.org/support/solutions" target="_blank">Knowledge Base</a>.';
 
       setTimeout(() => unfreezeScroll(savedScrollY), 1);
     };
@@ -941,6 +955,8 @@ class HelpWidget extends HTMLElement {
       thankYou.classList.remove("hidden");
 
       container.style.backgroundColor = "#FFFFFF";
+      container.classList.remove("form");
+      container.classList.add("return");
       heading.classList.add("hidden");
       message.classList.add("hidden");
       subMessage.textContent = "";
@@ -948,7 +964,7 @@ class HelpWidget extends HTMLElement {
       body.style.borderTop = "0px";
       closeButton.classList.add("thank-you");
       footer.querySelector("span").innerHTML =
-        'Need help from a real person? <a href="https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA." target="_blank">Submit a ticket to our team<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></a>.';
+        "Need help now?<br><a href='https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA.' target='_blank'>Submit a ticket to our team <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d='M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z'/></svg></a> or <a href='https://help.michiganvirtual.org/support/solutions' target='_blank'>Get Helpful tech tips <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d='M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z'/></svg></a>.";
 
       setTimeout(() => unfreezeScroll(savedScrollY), 1);
     });
@@ -1077,7 +1093,7 @@ class HelpWidget extends HTMLElement {
       document.body.style.width = "100%";
       document.body.style.overflow = "hidden";
 
-      // Add padding to prevent content shift from scrollbar disappearance
+      // 🧠 Add padding to prevent content shift from scrollbar disappearance
       document.body.style.paddingRight = `${scrollbarWidth}px`;
 
       return scrollY;
