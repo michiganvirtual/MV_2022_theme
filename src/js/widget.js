@@ -726,7 +726,10 @@ class HelpWidget extends HTMLElement {
       // 🧠 Save current scroll position
       const savedScrollY = window.scrollY;
 
-      console.log(savedScrollY);
+      console.log("Before back click:", window.scrollY);
+      setTimeout(() => {
+        console.log("After back click:", window.scrollY);
+      }, 10);
 
       // 🧼 Clear focus
 
