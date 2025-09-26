@@ -617,11 +617,17 @@ class HelpWidget extends HTMLElement {
     // Toggle widget visibility
     container.addEventListener("click", () => {
       container.classList.add("open");
+      if (window.innerWidth < 768) {
+        document.body.style.overflow = "hidden";
+      }
     });
 
     container.addEventListener("keydown", (event) => {
       handleEnterKey(event, () => {
         container.classList.add("open");
+        if (window.innerWidth < 768) {
+          document.body.style.overflow = "hidden";
+        }
       });
     });
 
@@ -666,10 +672,18 @@ class HelpWidget extends HTMLElement {
     const handleCloseClick = (e) => {
       e.stopPropagation(); // Stop event propagation
 
+      //  Capture current scroll position
+      const savedScrollY = window.scrollY;
+
+      //  Prevent autofocus triggering scroll
+      container.blur();
+
       container.style.backgroundColor = "#a84c2a";
       heading.textContent = "Report an issue";
       container.classList.remove("open");
       setTimeout(function () {
+        window.scrollTo({ top: savedScrollY, behavior: "auto" });
+        document.body.style.overflow = "";
         backButton.style.display = "none";
         form.classList.add("hidden");
         optionsList.classList.remove("hidden");
@@ -683,7 +697,7 @@ class HelpWidget extends HTMLElement {
         icon.style.marginRight = "";
         thankYou.classList.add("hidden");
         closeButton.classList.remove("thank-you");
-      }, 250);
+      }, 300);
     };
 
     closeButton.addEventListener("click", handleCloseClick);
