@@ -670,20 +670,38 @@ class HelpWidget extends HTMLElement {
 
     // Close button
     const handleCloseClick = (e) => {
-      e.stopPropagation(); // Stop event propagation
+      e.stopPropagation();
 
-      //  Capture current scroll position
+      // Step 1: Save scroll position immediately
       const savedScrollY = window.scrollY;
 
-      //  Prevent autofocus triggering scroll
+      // Step 2: Freeze scroll and blur widget to avoid layout jump
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${savedScrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.style.width = "100%";
       container.blur();
 
-      container.style.backgroundColor = "#a84c2a";
+      // Step 3: Collapse the widget visually
+      container.style.backgroundColor = "#AC6610";
       heading.textContent = "Report an issue";
       container.classList.remove("open");
-      setTimeout(function () {
-        window.scrollTo({ top: savedScrollY, behavior: "auto" });
+
+      // Step 4: Wait for animation to finish, then restore scroll
+      setTimeout(() => {
+        // Unfreeze scroll
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.left = "";
+        document.body.style.right = "";
+        document.body.style.width = "";
         document.body.style.overflow = "";
+
+        // Restore scroll position instantly
+        window.scrollTo({ top: savedScrollY, behavior: "auto" });
+
+        // Reset widget content
         backButton.style.display = "none";
         form.classList.add("hidden");
         optionsList.classList.remove("hidden");
@@ -691,13 +709,12 @@ class HelpWidget extends HTMLElement {
         message.textContent = "What kind of issue are you experiencing?";
         message.classList.remove("hidden");
         subMessage.textContent = "";
-        footer.querySelector("span").innerHTML =
-          'Need help from a real person? <a href="https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA." target="_blank">Submit a ticket to our team<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></a>.';
+        footer.querySelector("span").innerHTML = "...";
         icon.innerHTML = flagIcon;
         icon.style.marginRight = "";
         thankYou.classList.add("hidden");
         closeButton.classList.remove("thank-you");
-      }, 300);
+      }, 300); // Match transition timing
     };
 
     closeButton.addEventListener("click", handleCloseClick);
