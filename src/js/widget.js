@@ -350,7 +350,7 @@ class HelpWidget extends HTMLElement {
           /* Styles for smartphones and smaller */
 
           .help-container {
-            
+            display: none;
             transform: translateZ(0); /* Force hardware acceleration */
             will-change: transform; /* Hint to browser for optimization */
           }
@@ -941,7 +941,7 @@ class HelpWidget extends HTMLElement {
           cf_plp_broken_content_type: issueType_Tier2,
         },
       };
-      /*
+
       // Send data to Freshdesk
       try {
         await fetch("https://plshelpwidget.michigan-virtual.workers.dev/", {
@@ -952,7 +952,7 @@ class HelpWidget extends HTMLElement {
       } catch (error) {
         console.error("Error sending data to Freshdesk:", error);
       }
-*/
+
       // Reset form and update UI
       form.reset();
       form.classList.add("hidden");
