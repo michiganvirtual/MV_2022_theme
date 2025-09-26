@@ -1079,6 +1079,39 @@ class HelpWidget extends HTMLElement {
       return true;
     }
 
+    function freezeScroll() {
+      const scrollY = window.scrollY;
+
+      // Measure scrollbar width
+      const scrollbarWidth =
+        window.innerWidth - document.documentElement.clientWidth;
+
+      // Apply styles
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.style.width = "100%";
+      document.body.style.overflow = "hidden";
+
+      // 🧠 Add padding to prevent content shift from scrollbar disappearance
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+
+      return scrollY;
+    }
+
+    function unfreezeScroll(savedScrollY) {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+
+      window.scrollTo({ top: savedScrollY, behavior: "auto" });
+    }
+
     // Generate form content based on option
     function getFormContent(option) {
       switch (option) {
