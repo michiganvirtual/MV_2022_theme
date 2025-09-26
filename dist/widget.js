@@ -726,11 +726,6 @@ class HelpWidget extends HTMLElement {
       // 🧠 Save current scroll position
       const savedScrollY = window.scrollY;
 
-      console.log("Before back click:", window.scrollY);
-      setTimeout(() => {
-        console.log("After back click:", window.scrollY);
-      }, 10);
-
       // 🧼 Clear focus
 
       // 🧊 Freeze scroll before layout changes
@@ -753,14 +748,17 @@ class HelpWidget extends HTMLElement {
       icon.innerHTML = flagIcon;
       icon.style.marginRight = "16px";
 
-      // ✅ Restore scroll *immediately* (no timeout needed)
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
-      document.body.style.width = "";
-      document.body.style.overflow = "";
-      window.scrollTo({ top: savedScrollY, behavior: "auto" });
+      // 🧼 Restore scroll (ASAP)
+      setTimeout(() => {
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.left = "";
+        document.body.style.right = "";
+        document.body.style.width = "";
+        document.body.style.overflow = "";
+
+        window.scrollTo({ top: savedScrollY, behavior: "auto" });
+      }, 1); // Tiny delay to avoid conflict
     };
 
     backButton.addEventListener("click", handleBackClick);
