@@ -26,7 +26,6 @@ class HelpWidget extends HTMLElement {
             background: #a84c2a;
             box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.3);
             transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
-            height: 40px;
             width: 148px;
             z-index: 9999;
             contain: layout style paint;
@@ -40,18 +39,8 @@ class HelpWidget extends HTMLElement {
             transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
             transform: translateZ(0) scale(1);
             width: 337px;
-            width: 337px;
-            height: 312px;
             cursor: unset;
           }
-            .help-container.open.form {
-            transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
-            height: 416px;
-            }
-            .help-container.open.return {
-            transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
-            height: 296px;
-            }
           .help-header {
             display: flex;
             padding: 5px 9px 5px 6px;
@@ -357,11 +346,11 @@ class HelpWidget extends HTMLElement {
             margin: 0;
             transition: visibility 0s ease-in-out, max-height 0.3s, margin 0.3s;
           }
-            @media screen and (max-width: 600px) {
+            @media screen and (max-width: 768px) {
           /* Styles for smartphones and smaller */
 
           .help-container {
-            
+            display: none;
             transform: translateZ(0); /* Force hardware acceleration */
             will-change: transform; /* Hint to browser for optimization */
           }
@@ -602,6 +591,12 @@ class HelpWidget extends HTMLElement {
     const thankYou = container.querySelector(".thank-you");
     const returnButton = container.querySelector(".return-btn");
     const footer = container.querySelector(".help-footer");
+
+    const HEIGHT_COMPACT = "40px"; // default collapsed
+    const HEIGHT_OPEN = "312px"; // for main issue list
+    const HEIGHT_FORM = "415px"; // taller for textarea + dropdown
+    const HEIGHT_THANK_YOU = "296px"; // thank-you is often smaller
+
     let user = {};
 
     if (
@@ -637,7 +632,10 @@ class HelpWidget extends HTMLElement {
 
     // Toggle widget visibility
     container.addEventListener("click", () => {
-      container.classList.add("open");
+      if (!container.classList.contains("open")) {
+        container.classList.add("open");
+        container.style.height = HEIGHT_OPEN;
+      }
       if (window.innerWidth < 768) {
         document.body.style.overflow = "hidden";
       }
@@ -645,7 +643,10 @@ class HelpWidget extends HTMLElement {
 
     container.addEventListener("keydown", (event) => {
       handleEnterKey(event, () => {
-        container.classList.add("open");
+        if (!container.classList.contains("open")) {
+          container.classList.add("open");
+          container.style.height = HEIGHT_OPEN;
+        }
         if (window.innerWidth < 768) {
           document.body.style.overflow = "hidden";
         }
@@ -666,10 +667,11 @@ class HelpWidget extends HTMLElement {
       if (targetElement && targetElement.tagName === "LI") {
         const option = targetElement.getAttribute("data-option");
         if (!option) return;
-
         // Generate form based on option
-        container.classList.add("form");
         formContent.innerHTML = getFormContent(option);
+
+        container.style.height = HEIGHT_FORM;
+        console.log("option click");
         message.textContent = "Please select the type of issue you found. ";
         subMessage.textContent =
           "Reporting an issue is anonymous and helps our team make improvements to our courses.";
@@ -699,7 +701,6 @@ class HelpWidget extends HTMLElement {
 
       if (isMobile) {
         // Mobile-specific handling - minimal DOM manipulation
-        container.classList.remove("open", "form", "return");
 
         // Reset all states in one batch to minimize reflows
         requestAnimationFrame(() => {
@@ -712,8 +713,8 @@ class HelpWidget extends HTMLElement {
       } else {
         // Desktop handling with scroll management
         const savedScrollY = freezeScroll();
-
-        container.classList.remove("open", "form", "return");
+        container.style.height = HEIGHT_COMPACT;
+        container.classList.remove("open");
 
         setTimeout(() => {
           resetWidgetState();
@@ -735,7 +736,7 @@ class HelpWidget extends HTMLElement {
       const savedScrollY = freezeScroll();
 
       container.style.backgroundColor = "#a84c2a";
-      container.classList.remove("form");
+      container.style.height = HEIGHT_OPEN;
       backButton.style.display = "none";
       form.classList.add("hidden");
       optionsList.classList.remove("hidden");
@@ -958,8 +959,7 @@ class HelpWidget extends HTMLElement {
       thankYou.classList.remove("hidden");
 
       container.style.backgroundColor = "#FFFFFF";
-      container.classList.remove("form");
-      container.classList.add("return");
+      container.style.height = HEIGHT_THANK_YOU;
       heading.classList.add("hidden");
       message.classList.add("hidden");
       subMessage.textContent = "";
