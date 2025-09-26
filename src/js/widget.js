@@ -25,9 +25,10 @@ class HelpWidget extends HTMLElement {
             border-radius: 113px;
             background: #a84c2a;
             box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.3);
-            transition: max-width 0.3s ease-in-out, max-height 0.3s ease-in-out;
-            max-height: 40px;
-            max-width: 200px;
+            transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+            height: 40px;
+            width: 200px;
+            z-index: 9999;
           }
           .help-container:hover {
             cursor: pointer;
@@ -35,10 +36,10 @@ class HelpWidget extends HTMLElement {
           .help-container.open {
             border-radius: 16px;
             box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.3);
-            transition: max-width 0.3s ease-in-out, max-height 0.3s ease-in-out;
+            transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
             width: 337px;
-            max-width: 337px;
-            max-height: 445px;
+            width: 337px;
+            height: 445px;
             cursor: unset;
           }
           .help-header {
@@ -351,10 +352,11 @@ class HelpWidget extends HTMLElement {
           .help-container.open {
             bottom: 0px;
             right: 0px;
-            width: unset;
+            width: 100vw;
+            height: 100vh;
             margin: 0px 2px 2px;
-            max-width: calc(100% - 4px);
-            max-height: unset;
+            max-width: none;
+            max-height: none;
           }
           
           .help-header {
@@ -1075,7 +1077,7 @@ class HelpWidget extends HTMLElement {
       document.body.style.width = "100%";
       document.body.style.overflow = "hidden";
 
-      // 🧠 Add padding to prevent content shift from scrollbar disappearance
+      // Add padding to prevent content shift from scrollbar disappearance
       document.body.style.paddingRight = `${scrollbarWidth}px`;
 
       return scrollY;
