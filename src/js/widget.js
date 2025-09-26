@@ -361,7 +361,7 @@ class HelpWidget extends HTMLElement {
           /* Styles for smartphones and smaller */
 
           .help-container {
-            position: absolute !important;
+            
             transform: translateZ(0); /* Force hardware acceleration */
             will-change: transform; /* Hint to browser for optimization */
           }
