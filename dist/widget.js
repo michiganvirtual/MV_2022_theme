@@ -727,7 +727,6 @@ class HelpWidget extends HTMLElement {
       const savedScrollY = window.scrollY;
 
       // 🧼 Clear focus
-      container.blur();
 
       // 🧊 Freeze scroll before layout changes
       document.body.style.position = "fixed";
@@ -735,6 +734,7 @@ class HelpWidget extends HTMLElement {
       document.body.style.left = "0";
       document.body.style.right = "0";
       document.body.style.width = "100%";
+      container.blur();
 
       container.style.backgroundColor = "#a84c2a";
       backButton.style.display = "none";
