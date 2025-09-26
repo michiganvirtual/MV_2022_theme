@@ -726,6 +726,8 @@ class HelpWidget extends HTMLElement {
       // 🧠 Save current scroll position
       const savedScrollY = window.scrollY;
 
+      console.log(savedScrollY);
+
       // 🧼 Clear focus
 
       // 🧊 Freeze scroll before layout changes
