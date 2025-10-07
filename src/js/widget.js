@@ -679,7 +679,7 @@ class HelpWidget extends HTMLElement {
         container.style.setProperty("--header-h", "51px");
       }
       if (window.innerWidth < 768) {
-        document.body.style.overflow = "hidden";
+        //document.body.style.overflow = "hidden";
       }
     });
 
@@ -692,7 +692,7 @@ class HelpWidget extends HTMLElement {
           container.style.setProperty("--header-h", "51px");
         }
         if (window.innerWidth < 768) {
-          document.body.style.overflow = "hidden";
+          //document.body.style.overflow = "hidden";
         }
       });
     });
@@ -740,6 +740,7 @@ class HelpWidget extends HTMLElement {
       e.stopPropagation();
       resetWidgetState();
       collapseWidget();
+      ensureScrollUnlocked();
     };
 
     closeButton.addEventListener("click", handleCloseClick);
@@ -1259,6 +1260,29 @@ class HelpWidget extends HTMLElement {
       container.style.setProperty("--open-h", "40px");
       container.style.setProperty("--open-w", "148px");
       container.style.setProperty("--header-h", "unset");
+    }
+
+    function ensureScrollUnlocked(savedY) {
+      // remove any locks
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.width = "";
+      document.body.style.paddingRight = "";
+
+      // restore scroll if you had previously fixed body with top:-Ypx
+      if (typeof savedY === "number") {
+        window.scrollTo({ top: savedY, behavior: "auto" });
+      } else if (document.body.dataset.scrollY) {
+        window.scrollTo({
+          top: parseInt(document.body.dataset.scrollY, 10) || 0,
+          behavior: "auto",
+        });
+        delete document.body.dataset.scrollY;
+      }
     }
   }
 }
