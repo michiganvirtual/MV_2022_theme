@@ -32,6 +32,7 @@ class HelpWidget extends HTMLElement {
             height: var(--open-h, 40px); 
             will-change: transform;
             z-index: 9999;
+            --header-h: unset;
           }
 
           /* optional: clip so the hidden portion doesn’t eat clicks */
@@ -67,8 +68,9 @@ class HelpWidget extends HTMLElement {
             padding: 5px 9px 5px 6px;
             justify-content: space-between;
             align-items: center;
+            box-sizing: border-box;
             gap: 5px;
-            --header-h: 51px; /* whatever your header actually is */
+            height: var(--header-h);
           }
           .help-header #icon-container {
             width: 30px;
@@ -100,6 +102,7 @@ class HelpWidget extends HTMLElement {
           .help-container.open .help-header {
             /*height: 51px;*/
             padding: 0px 21px 0px 10px;
+            height: var(--header-h);
           }
           .help-header-inner {
             display: flex;
@@ -658,7 +661,7 @@ class HelpWidget extends HTMLElement {
         container.classList.add("open");
         setOpenHeight(H_OPTIONS);
         setOpenWidth(W_OPEN);
-        console.log(W_OPEN);
+        container.style.setProperty("--header-h", "51px");
       }
       if (window.innerWidth < 768) {
         document.body.style.overflow = "hidden";
@@ -670,7 +673,7 @@ class HelpWidget extends HTMLElement {
         if (!container.classList.contains("open")) {
           setOpenHeight(H_OPTIONS);
           setOpenWidth(W_OPEN);
-          console.log(W_OPEN);
+          container.style.setProperty("--header-h", "51px");
         }
         if (window.innerWidth < 768) {
           document.body.style.overflow = "hidden";
@@ -719,7 +722,7 @@ class HelpWidget extends HTMLElement {
     // Close button
     const handleCloseClick = (e) => {
       e.stopPropagation();
-
+      resetWidgetState();
       collapseWidget();
     };
 
@@ -1237,6 +1240,7 @@ class HelpWidget extends HTMLElement {
       container.classList.remove("open");
       container.style.setProperty("--open-h", "40px");
       container.style.setProperty("--open-w", "148px");
+      container.style.setProperty("--header-h", "unset");
     }
   }
 }
