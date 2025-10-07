@@ -21,25 +21,46 @@ class HelpWidget extends HTMLElement {
             bottom: 20px;
             right: 20px;
             font-family: "Figtree", "Roboto", Arial, sans-serif;
-            overflow: hidden;
+            overflow: visible;
             border-radius: 113px;
             background: #a84c2a;
             box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.3);
-            transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
-            width: 148px;
+            /* transform: translateY(var(--y, 0));   animate collapse/expand via translate */
+            transform: translate(var(--x, 0));
+            transition: transform .3s ease, height .3s ease, width .3s ease;
+            width: var(--open-w, 148px);
+            height: var(--open-h, 40px); 
+            will-change: transform;
             z-index: 9999;
-            contain: layout style paint;
           }
+
+          /* optional: clip so the hidden portion doesn’t eat clicks */
+
+          .help-container.is-collapsed {
+
+            /* show only the top --header-h of the box, but keep layout height unchanged */
+            clip-path: inset(calc(var(--open-h) - var(--header-h)) 0 0 0);
+
+            /* slide the box down so that the header sits at the bottom-right corner */
+            --y: calc(var(--open-h) - var(--header-h));
+          }
+
           .help-container:hover {
             cursor: pointer;
           }
           .help-container.open {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             border-radius: 16px;
             box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.3);
             transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
             transform: translateZ(0) scale(1);
-            width: 337px;
             cursor: unset;
+            --y: 0;
+            clip-path: inset(0 0 0 0);
+            max-height: none !important;
+            height: var(--open-h, 445px) !important;
           }
           .help-header {
             display: flex;
@@ -47,6 +68,7 @@ class HelpWidget extends HTMLElement {
             justify-content: space-between;
             align-items: center;
             gap: 5px;
+            --header-h: 51px; /* whatever your header actually is */
           }
           .help-header #icon-container {
             width: 30px;
@@ -76,7 +98,7 @@ class HelpWidget extends HTMLElement {
             align-items: center;
           }
           .help-container.open .help-header {
-            height: 51px;
+            /*height: 51px;*/
             padding: 0px 21px 0px 10px;
           }
           .help-header-inner {
@@ -634,7 +656,9 @@ class HelpWidget extends HTMLElement {
     container.addEventListener("click", () => {
       if (!container.classList.contains("open")) {
         container.classList.add("open");
-        container.style.height = HEIGHT_OPEN;
+        setOpenHeight(H_OPTIONS);
+        setOpenWidth(W_OPEN);
+        console.log(W_OPEN);
       }
       if (window.innerWidth < 768) {
         document.body.style.overflow = "hidden";
@@ -644,8 +668,9 @@ class HelpWidget extends HTMLElement {
     container.addEventListener("keydown", (event) => {
       handleEnterKey(event, () => {
         if (!container.classList.contains("open")) {
-          container.classList.add("open");
-          container.style.height = HEIGHT_OPEN;
+          setOpenHeight(H_OPTIONS);
+          setOpenWidth(W_OPEN);
+          console.log(W_OPEN);
         }
         if (window.innerWidth < 768) {
           document.body.style.overflow = "hidden";
@@ -669,9 +694,8 @@ class HelpWidget extends HTMLElement {
         if (!option) return;
         // Generate form based on option
         formContent.innerHTML = getFormContent(option);
-
-        container.style.height = HEIGHT_FORM;
-        console.log("option click");
+        setOpenHeight(H_FORM);
+        setOpenWidth(W_OPEN);
         message.textContent = "Please select the type of issue you found. ";
         subMessage.textContent =
           "Reporting an issue is anonymous and helps our team make improvements to our courses.";
@@ -696,31 +720,7 @@ class HelpWidget extends HTMLElement {
     const handleCloseClick = (e) => {
       e.stopPropagation();
 
-      // Simplified approach - avoid scroll manipulation on mobile
-      const isMobile = window.innerWidth < 768;
-
-      if (isMobile) {
-        // Mobile-specific handling - minimal DOM manipulation
-
-        // Reset all states in one batch to minimize reflows
-        requestAnimationFrame(() => {
-          resetWidgetState();
-          // Reset overflow after animation completes
-          setTimeout(() => {
-            document.body.style.overflow = "";
-          }, 300);
-        });
-      } else {
-        // Desktop handling with scroll management
-        const savedScrollY = freezeScroll();
-        container.style.height = HEIGHT_COMPACT;
-        container.classList.remove("open");
-
-        setTimeout(() => {
-          resetWidgetState();
-          unfreezeScroll(savedScrollY);
-        }, 300);
-      }
+      collapseWidget();
     };
 
     closeButton.addEventListener("click", handleCloseClick);
@@ -733,10 +733,10 @@ class HelpWidget extends HTMLElement {
     const handleBackClick = (e) => {
       e.stopPropagation(); // Stop event propagation
       // 🧠 Save current scroll position
-      const savedScrollY = freezeScroll();
 
       container.style.backgroundColor = "#a84c2a";
-      container.style.height = HEIGHT_OPEN;
+      setOpenHeight(H_OPTIONS);
+      setOpenWidth(W_OPEN);
       backButton.style.display = "none";
       form.classList.add("hidden");
       optionsList.classList.remove("hidden");
@@ -747,8 +747,6 @@ class HelpWidget extends HTMLElement {
         'Does this issue stop you from completing the course? You may need to <a href="https://help.michiganvirtual.org/support/tickets/new" target="_blank">submit a ticket</a> instead. You can also find helpful tips in our <a href="https://help.michiganvirtual.org/support/solutions" target="_blank">Knowledge Base</a>.';
       icon.innerHTML = flagIcon;
       icon.style.marginRight = "16px";
-
-      setTimeout(() => unfreezeScroll(savedScrollY), 1);
     };
 
     backButton.addEventListener("click", handleBackClick);
@@ -761,8 +759,8 @@ class HelpWidget extends HTMLElement {
     const handleReturnClick = (e) => {
       e.stopPropagation();
 
-      const savedScrollY = freezeScroll();
-
+      setOpenHeight(H_OPTIONS);
+      setOpenWidth(W_OPEN);
       container.style.backgroundColor = "#a84c2a";
       container.classList.remove("return");
       backButton.style.display = "none";
@@ -779,8 +777,6 @@ class HelpWidget extends HTMLElement {
       closeButton.classList.remove("thank-you");
       footer.querySelector("span").innerHTML =
         'Does this issue stop you from completing the course? You may need to <a href="https://help.michiganvirtual.org/support/tickets/new" target="_blank">submit a ticket</a> instead. You can also find helpful tips in our <a href="https://help.michiganvirtual.org/support/solutions" target="_blank">Knowledge Base</a>.';
-
-      setTimeout(() => unfreezeScroll(savedScrollY), 1);
     };
 
     returnButton.addEventListener("click", handleReturnClick);
@@ -792,7 +788,6 @@ class HelpWidget extends HTMLElement {
     // Handle form submission
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const savedScrollY = freezeScroll();
 
       // Basic auth header
       const headers = new Headers({
@@ -961,7 +956,7 @@ class HelpWidget extends HTMLElement {
       thankYou.classList.remove("hidden");
 
       container.style.backgroundColor = "#FFFFFF";
-      container.style.height = HEIGHT_THANK_YOU;
+      setOpenHeight(H_THANKYOU);
       heading.classList.add("hidden");
       message.classList.add("hidden");
       subMessage.textContent = "";
@@ -970,8 +965,6 @@ class HelpWidget extends HTMLElement {
       closeButton.classList.add("thank-you");
       footer.querySelector("span").innerHTML =
         "Need help now?<br><a href='https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA.' target='_blank'>Submit a ticket to our team <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d='M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z'/></svg></a> or <a href='https://help.michiganvirtual.org/support/solutions' target='_blank'>Get Helpful tech tips <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d='M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z'/></svg></a>.";
-
-      setTimeout(() => unfreezeScroll(savedScrollY), 1);
     });
 
     function attachDropdownListeners() {
@@ -1081,53 +1074,6 @@ class HelpWidget extends HTMLElement {
       timestamps.push(now);
       setSubmissionTimestamps(timestamps);
       return true;
-    }
-
-    // Improved freeze/unfreeze functions with mobile detection
-    function freezeScroll() {
-      const isMobile = window.innerWidth < 768;
-      const scrollY = window.scrollY;
-
-      if (isMobile) {
-        // Minimal approach for mobile - just prevent scrolling
-        document.body.style.overflow = "hidden";
-        return scrollY;
-      }
-
-      // Full approach for desktop
-      const scrollbarWidth =
-        window.innerWidth - document.documentElement.clientWidth;
-
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.left = "0";
-      document.body.style.right = "0";
-      document.body.style.width = "100%";
-      document.body.style.overflow = "hidden";
-      document.body.style.paddingRight = `${scrollbarWidth}px`;
-
-      return scrollY;
-    }
-
-    function unfreezeScroll(savedScrollY) {
-      const isMobile = window.innerWidth < 768;
-
-      if (isMobile) {
-        // Simple reset for mobile
-        document.body.style.overflow = "";
-        return;
-      }
-
-      // Full reset for desktop
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
-      document.body.style.width = "";
-      document.body.style.overflow = "";
-      document.body.style.paddingRight = "";
-
-      window.scrollTo({ top: savedScrollY, behavior: "auto" });
     }
 
     // New helper function to batch all state resets
@@ -1267,6 +1213,30 @@ class HelpWidget extends HTMLElement {
         default:
           return `<p>Unknown option selected.</p>`;
       }
+    }
+    // choose heights you like per view
+    const H_OPTIONS = 312; // px
+    const H_FORM = 415; // px
+    const H_THANKYOU = 296; // px
+    const W_OPEN = 337;
+
+    function setOpenHeight(px) {
+      container.style.setProperty("--open-h", px + "px");
+    }
+    function setOpenWidth(px) {
+      container.style.setProperty("--open-w", px + "px");
+    }
+
+    // open/close toggles (no layout jump)
+    function openWidget() {
+      container.classList.remove("is-collapsed");
+    }
+
+    function collapseWidget() {
+      container.classList.add("is-collapsed");
+      container.classList.remove("open");
+      container.style.setProperty("--open-h", "40px");
+      container.style.setProperty("--open-w", "148px");
     }
   }
 }
