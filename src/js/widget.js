@@ -72,6 +72,20 @@ class HelpWidget extends HTMLElement {
             gap: 5px;
             height: var(--header-h);
           }
+
+          .help-container button {
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 0;
+            font: inherit;                /* inherit font & size from parent */
+            color: inherit;               /* inherit text color */
+            line-height: normal;
+            cursor: pointer;
+            -webkit-appearance: none;     /* remove default iOS button look */
+            -moz-appearance: none;
+            appearance: none;
+          }
           .help-header #icon-container {
             width: 30px;
             height: 30px;
@@ -375,7 +389,6 @@ class HelpWidget extends HTMLElement {
           /* Styles for smartphones and smaller */
 
           .help-container {
-            display: none;
             transform: translateZ(0); /* Force hardware acceleration */
             will-change: transform; /* Hint to browser for optimization */
           }
@@ -411,7 +424,7 @@ class HelpWidget extends HTMLElement {
         }
         </style>
         <div class="help-header">
-        <a href="#" class="back-btn" aria-label="Back Button">
+        <button href="#" class="back-btn" aria-label="Back Button">
           <svg
             width="16"
             height="16"
@@ -438,7 +451,7 @@ class HelpWidget extends HTMLElement {
               />
             </g>
           </svg>
-        </a>
+        </button>
         <div class="help-header-inner">
           <div id="icon-container">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none">
@@ -456,7 +469,7 @@ class HelpWidget extends HTMLElement {
           </div>
           <span>Report an issue</span>
         </div>
-        <a href="#" class="close-btn" aria-label="Close Button">
+        <button href="#" class="close-btn" aria-label="Close Button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -479,7 +492,7 @@ class HelpWidget extends HTMLElement {
               stroke-linejoin="round"
             />
           </svg>
-        </a>
+        </button>
       </div>
       <div class="help-body">
         <p class="help-message">What kind of issue are you experiencing?</p>
@@ -656,8 +669,10 @@ class HelpWidget extends HTMLElement {
     };
 
     // Toggle widget visibility
-    container.addEventListener("click", () => {
+    container.addEventListener("click", (e) => {
       if (!container.classList.contains("open")) {
+        e.preventDefault();
+        e.stopPropagation();
         container.classList.add("open");
         setOpenHeight(H_OPTIONS);
         setOpenWidth(W_OPEN);
@@ -671,6 +686,7 @@ class HelpWidget extends HTMLElement {
     container.addEventListener("keydown", (event) => {
       handleEnterKey(event, () => {
         if (!container.classList.contains("open")) {
+          event.preventDefault();
           setOpenHeight(H_OPTIONS);
           setOpenWidth(W_OPEN);
           container.style.setProperty("--header-h", "51px");
@@ -734,6 +750,7 @@ class HelpWidget extends HTMLElement {
 
     // Back to options
     const handleBackClick = (e) => {
+      e.preventDefault();
       e.stopPropagation(); // Stop event propagation
       // 🧠 Save current scroll position
 
@@ -760,6 +777,7 @@ class HelpWidget extends HTMLElement {
 
     // Return button
     const handleReturnClick = (e) => {
+      e.preventDefault();
       e.stopPropagation();
 
       setOpenHeight(H_OPTIONS);
