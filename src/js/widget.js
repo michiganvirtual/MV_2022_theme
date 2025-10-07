@@ -942,6 +942,7 @@ class HelpWidget extends HTMLElement {
         },
       };
 
+      /*
       // Send data to Freshdesk
       try {
         await fetch("https://plshelpwidget.michigan-virtual.workers.dev/", {
@@ -952,6 +953,7 @@ class HelpWidget extends HTMLElement {
       } catch (error) {
         console.error("Error sending data to Freshdesk:", error);
       }
+      */
 
       // Reset form and update UI
       form.reset();
