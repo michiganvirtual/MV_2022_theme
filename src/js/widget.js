@@ -691,6 +691,7 @@ class HelpWidget extends HTMLElement {
           setOpenWidth(W_OPEN);
         }
         wrapper.style.setProperty("--header-h", "51px");
+        openWidget();
       }
       if (window.innerWidth < 768) {
         //document.body.style.overflow = "hidden";
@@ -704,6 +705,7 @@ class HelpWidget extends HTMLElement {
           setOpenHeight(H_OPTIONS);
           setOpenWidth(W_OPEN);
           wrapper.style.setProperty("--header-h", "51px");
+          openWidget();
         }
         if (window.innerWidth < 768) {
           //document.body.style.overflow = "hidden";
