@@ -3,6 +3,10 @@ class HelpWidget extends HTMLElement {
     super();
 
     const shadow = this.attachShadow({ mode: "open" });
+
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("help-anchor"); // NEW
+
     const container = document.createElement("div");
     container.classList.add("help-container");
     container.tabIndex = 0;
@@ -15,34 +19,41 @@ class HelpWidget extends HTMLElement {
           src: url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0)
             format("woff");
         }
-          .help-container {
-
+          .help-anchor {
             position: fixed;
             bottom: 20px;
             right: 20px;
+
+            /* size via CSS vars – all your JS setters will now target the wrapper */
+            width: var(--open-w, 148px);
+            height: var(--open-h, 40px);
+
+            /* collapse/expand behavior lives here now */
+            transform: translateY(var(--y, 0)) translateX(var(--x, 0));
+            transition: transform .3s ease, height .3s ease, width .3s ease;
+            will-change: transform;
+
+            /* collapse math uses header height */
+            --header-h: unset;
+
+            z-index: 9999;
+
+            filter: drop-shadow(-1px 6px 3px rgba(0, 0, 0, 0.3));
+
+            /* collapse state */
+          }
+          .help-container {
+
+            
             font-family: "Figtree", "Roboto", Arial, sans-serif;
             overflow: visible;
             border-radius: 113px;
             background: #a84c2a;
-            box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.3);
-            /* transform: translateY(var(--y, 0));   animate collapse/expand via translate */
-            transform: translate(var(--x, 0));
-            transition: transform .3s ease, height .3s ease, width .3s ease;
-            width: var(--open-w, 148px);
-            height: var(--open-h, 40px); 
-            will-change: transform;
-            z-index: 9999;
-            --header-h: unset;
+            
           }
 
-          /* optional: clip so the hidden portion doesn’t eat clicks */
-
-          .help-container.is-collapsed {
-
-            /* show only the top --header-h of the box, but keep layout height unchanged */
+          .help-anchor.is-collapsed {
             clip-path: inset(calc(var(--open-h) - var(--header-h)) 0 0 0);
-
-            /* slide the box down so that the header sits at the bottom-right corner */
             --y: calc(var(--open-h) - var(--header-h));
           }
 
@@ -55,13 +66,15 @@ class HelpWidget extends HTMLElement {
             justify-content: space-between;
             border-radius: 16px;
             box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.3);
+            filter: drop-shadow(4px 4px 15px 0px rgba(0, 0, 0, 0.3));
+            clip-path: inset(0 0 0 0 round 16px);
             transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
             transform: translateZ(0) scale(1);
             cursor: unset;
             --y: 0;
-            clip-path: inset(0 0 0 0);
             max-height: none !important;
             height: var(--open-h, 445px) !important;
+            overflow: visible;
           }
           .help-header {
             display: flex;
@@ -311,7 +324,7 @@ class HelpWidget extends HTMLElement {
           }
 
           .help-form button[type="submit"],
-          .return-btn {
+          button.return-btn {
             background-color: #a84c2a;
             border: 0px;
             border-radius: 4px;
@@ -388,12 +401,12 @@ class HelpWidget extends HTMLElement {
             @media screen and (max-width: 768px) {
           /* Styles for smartphones and smaller */
 
-          .help-container {
-            transform: translateZ(0); /* Force hardware acceleration */
-            will-change: transform; /* Hint to browser for optimization */
+          
+          .help-anchor {
+            transform: translateZ(0); /* perf hint */
+            will-change: transform;
           }
-
-          .help-container.open {
+          .help-anchor.open {
             position: fixed !important;
             top: auto !important;
             bottom: 0 !important;
@@ -612,7 +625,8 @@ class HelpWidget extends HTMLElement {
       </div>
       `;
 
-    shadow.appendChild(container);
+    wrapper.appendChild(container); // NEW
+    shadow.appendChild(wrapper);
 
     const header = container.querySelector(".help-header");
     const heading = container.querySelector(".help-header-inner span");
@@ -629,11 +643,6 @@ class HelpWidget extends HTMLElement {
     const thankYou = container.querySelector(".thank-you");
     const returnButton = container.querySelector(".return-btn");
     const footer = container.querySelector(".help-footer");
-
-    const HEIGHT_COMPACT = "40px"; // default collapsed
-    const HEIGHT_OPEN = "312px"; // for main issue list
-    const HEIGHT_FORM = "415px"; // taller for textarea + dropdown
-    const HEIGHT_THANK_YOU = "296px"; // thank-you is often smaller
 
     let user = {};
 
@@ -676,7 +685,7 @@ class HelpWidget extends HTMLElement {
         container.classList.add("open");
         setOpenHeight(H_OPTIONS);
         setOpenWidth(W_OPEN);
-        container.style.setProperty("--header-h", "51px");
+        wrapper.style.setProperty("--header-h", "51px");
       }
       if (window.innerWidth < 768) {
         //document.body.style.overflow = "hidden";
@@ -689,7 +698,7 @@ class HelpWidget extends HTMLElement {
           event.preventDefault();
           setOpenHeight(H_OPTIONS);
           setOpenWidth(W_OPEN);
-          container.style.setProperty("--header-h", "51px");
+          wrapper.style.setProperty("--header-h", "51px");
         }
         if (window.innerWidth < 768) {
           //document.body.style.overflow = "hidden";
@@ -1243,23 +1252,26 @@ class HelpWidget extends HTMLElement {
     const W_OPEN = 337;
 
     function setOpenHeight(px) {
-      container.style.setProperty("--open-h", px + "px");
+      wrapper.style.setProperty("--open-h", px + "px");
     }
     function setOpenWidth(px) {
-      container.style.setProperty("--open-w", px + "px");
+      wrapper.style.setProperty("--open-w", px + "px");
     }
 
     // open/close toggles (no layout jump)
     function openWidget() {
-      container.classList.remove("is-collapsed");
+      wrapper.classList.add("open"); // CHANGED
+      wrapper.classList.remove("is-collapsed"); // CHANGED
+      container.classList.add("open");
     }
 
     function collapseWidget() {
       container.classList.add("is-collapsed");
       container.classList.remove("open");
-      container.style.setProperty("--open-h", "40px");
-      container.style.setProperty("--open-w", "148px");
-      container.style.setProperty("--header-h", "unset");
+      wrapper.classList.remove("open");
+      wrapper.style.setProperty("--open-h", "40px");
+      wrapper.style.setProperty("--open-w", "148px");
+      wrapper.style.setProperty("--header-h", "unset");
     }
 
     function ensureScrollUnlocked(savedY) {
