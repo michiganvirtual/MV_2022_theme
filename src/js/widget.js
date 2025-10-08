@@ -403,6 +403,7 @@ class HelpWidget extends HTMLElement {
 
           
           .help-anchor {
+            width: var(--open-w, unset);
             transform: translateZ(0); /* perf hint */
             will-change: transform;
           }
@@ -684,7 +685,11 @@ class HelpWidget extends HTMLElement {
         e.stopPropagation();
         container.classList.add("open");
         setOpenHeight(H_OPTIONS);
-        setOpenWidth(W_OPEN);
+        if (window.innerWidth <= 768) {
+          setOpenWidth("unset");
+        } else {
+          setOpenWidth(W_OPEN);
+        }
         wrapper.style.setProperty("--header-h", "51px");
       }
       if (window.innerWidth < 768) {
@@ -1270,7 +1275,11 @@ class HelpWidget extends HTMLElement {
       container.classList.remove("open");
       wrapper.classList.remove("open");
       wrapper.style.setProperty("--open-h", "40px");
-      wrapper.style.setProperty("--open-w", "148px");
+      if (window.innerWidth <= 768) {
+        wrapper.style.setProperty("--open-w", "unset");
+      } else {
+        wrapper.style.setProperty("--open-w", "148px");
+      }
       wrapper.style.setProperty("--header-h", "unset");
     }
 
