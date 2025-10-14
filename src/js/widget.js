@@ -411,10 +411,10 @@ class HelpWidget extends HTMLElement {
             position: fixed !important;
             top: auto !important;
             bottom: 0 !important;
-            left: 0 !important;
-            right: 0 !important;
+            left: auto !important;
+            right: auto !important;
             margin: 0 !important;
-            width: 100% !important;
+            width: calc(100% - 10px) !important;
             max-width: 100% !important;
             box-sizing: border-box !important;
           }
