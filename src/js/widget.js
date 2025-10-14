@@ -66,14 +66,20 @@ class HelpWidget extends HTMLElement {
           .help-header .close-btn {
             display: none;
             padding: 4px;
-          }
-          .help-header .close-btn.thank-you svg path {
-            stroke: #a84c2a;
-          }
-          .help-header .back-btn {
-            display: none;
-            justify-content: center;
-            align-items: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            }
+            .help-header .close-btn.thank-you svg path {
+              stroke: #a84c2a;
+              }
+              .help-header .back-btn {
+                display: none;
+                justify-content: center;
+                align-items: center;
+                background: none;
+                border: none;
+                cursor: pointer;
           }
           .help-container.open .help-header {
             height: 51px;
@@ -350,19 +356,15 @@ class HelpWidget extends HTMLElement {
           /* Styles for smartphones and smaller */
 
           .help-container {
-            display: none;
-            transform: translateZ(0); /* Force hardware acceleration */
-            will-change: transform; /* Hint to browser for optimization */
+            width: unset;
+            height: uset;
           }
 
           .help-container.open {
             position: fixed !important;
-            top: auto !important;
-            bottom: 0 !important;
-            left: 0 !important;
-            right: 0 !important;
-            margin: 0 !important;
-            width: 100% !important;
+            right: 5px !important;
+            left: 5px !important;
+            width: calc(100% - 10px) !important;
             max-width: 100% !important;
             box-sizing: border-box !important;
           }
@@ -386,7 +388,7 @@ class HelpWidget extends HTMLElement {
         }
         </style>
         <div class="help-header">
-        <a href="#" class="back-btn" aria-label="Back Button">
+        <button type="button" class="back-btn" aria-label="Back Button">
           <svg
             width="16"
             height="16"
@@ -413,7 +415,7 @@ class HelpWidget extends HTMLElement {
               />
             </g>
           </svg>
-        </a>
+        </button>
         <div class="help-header-inner">
           <div id="icon-container">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none">
@@ -431,7 +433,7 @@ class HelpWidget extends HTMLElement {
           </div>
           <span>Report an issue</span>
         </div>
-        <a href="#" class="close-btn" aria-label="Close Button">
+        <button type="button" class="close-btn" aria-label="Close Button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -454,7 +456,7 @@ class HelpWidget extends HTMLElement {
               stroke-linejoin="round"
             />
           </svg>
-        </a>
+        </button>
       </div>
       <div class="help-body">
         <p class="help-message">What kind of issue are you experiencing?</p>
@@ -592,11 +594,6 @@ class HelpWidget extends HTMLElement {
     const returnButton = container.querySelector(".return-btn");
     const footer = container.querySelector(".help-footer");
 
-    const HEIGHT_COMPACT = "40px"; // default collapsed
-    const HEIGHT_OPEN = "312px"; // for main issue list
-    const HEIGHT_FORM = "415px"; // taller for textarea + dropdown
-    const HEIGHT_THANK_YOU = "296px"; // thank-you is often smaller
-
     let user = {};
 
     if (
@@ -634,10 +631,6 @@ class HelpWidget extends HTMLElement {
     container.addEventListener("click", () => {
       if (!container.classList.contains("open")) {
         container.classList.add("open");
-        container.style.height = HEIGHT_OPEN;
-      }
-      if (window.innerWidth < 768) {
-        document.body.style.overflow = "hidden";
       }
     });
 
@@ -645,10 +638,6 @@ class HelpWidget extends HTMLElement {
       handleEnterKey(event, () => {
         if (!container.classList.contains("open")) {
           container.classList.add("open");
-          container.style.height = HEIGHT_OPEN;
-        }
-        if (window.innerWidth < 768) {
-          document.body.style.overflow = "hidden";
         }
       });
     });
@@ -669,9 +658,6 @@ class HelpWidget extends HTMLElement {
         if (!option) return;
         // Generate form based on option
         formContent.innerHTML = getFormContent(option);
-
-        container.style.height = HEIGHT_FORM;
-        console.log("option click");
         message.textContent = "Please select the type of issue you found. ";
         subMessage.textContent =
           "Reporting an issue is anonymous and helps our team make improvements to our courses.";
@@ -695,6 +681,9 @@ class HelpWidget extends HTMLElement {
     // Close button
     const handleCloseClick = (e) => {
       e.stopPropagation();
+      e.preventDefault();
+      container.classList.remove("open");
+      resetWidgetState();
 
       // Simplified approach - avoid scroll manipulation on mobile
       const isMobile = window.innerWidth < 768;
@@ -713,7 +702,6 @@ class HelpWidget extends HTMLElement {
       } else {
         // Desktop handling with scroll management
         const savedScrollY = freezeScroll();
-        container.style.height = HEIGHT_COMPACT;
         container.classList.remove("open");
 
         setTimeout(() => {
@@ -732,11 +720,8 @@ class HelpWidget extends HTMLElement {
     // Back to options
     const handleBackClick = (e) => {
       e.stopPropagation(); // Stop event propagation
-      // 🧠 Save current scroll position
-      const savedScrollY = freezeScroll();
 
       container.style.backgroundColor = "#a84c2a";
-      container.style.height = HEIGHT_OPEN;
       backButton.style.display = "none";
       form.classList.add("hidden");
       optionsList.classList.remove("hidden");
@@ -747,8 +732,6 @@ class HelpWidget extends HTMLElement {
         'Does this issue stop you from completing the course? You may need to <a href="https://help.michiganvirtual.org/support/tickets/new" target="_blank">submit a ticket</a> instead. You can also find helpful tips in our <a href="https://help.michiganvirtual.org/support/solutions" target="_blank">Knowledge Base</a>.';
       icon.innerHTML = flagIcon;
       icon.style.marginRight = "16px";
-
-      setTimeout(() => unfreezeScroll(savedScrollY), 1);
     };
 
     backButton.addEventListener("click", handleBackClick);
@@ -760,8 +743,6 @@ class HelpWidget extends HTMLElement {
     // Return button
     const handleReturnClick = (e) => {
       e.stopPropagation();
-
-      const savedScrollY = freezeScroll();
 
       container.style.backgroundColor = "#a84c2a";
       container.classList.remove("return");
@@ -779,8 +760,6 @@ class HelpWidget extends HTMLElement {
       closeButton.classList.remove("thank-you");
       footer.querySelector("span").innerHTML =
         'Does this issue stop you from completing the course? You may need to <a href="https://help.michiganvirtual.org/support/tickets/new" target="_blank">submit a ticket</a> instead. You can also find helpful tips in our <a href="https://help.michiganvirtual.org/support/solutions" target="_blank">Knowledge Base</a>.';
-
-      setTimeout(() => unfreezeScroll(savedScrollY), 1);
     };
 
     returnButton.addEventListener("click", handleReturnClick);
@@ -792,7 +771,6 @@ class HelpWidget extends HTMLElement {
     // Handle form submission
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const savedScrollY = freezeScroll();
 
       // Basic auth header
       const headers = new Headers({
@@ -941,7 +919,7 @@ class HelpWidget extends HTMLElement {
           cf_plp_broken_content_type: issueType_Tier2,
         },
       };
-
+      /*
       // Send data to Freshdesk
       try {
         await fetch("https://plshelpwidget.michigan-virtual.workers.dev/", {
@@ -952,14 +930,13 @@ class HelpWidget extends HTMLElement {
       } catch (error) {
         console.error("Error sending data to Freshdesk:", error);
       }
-
+      */
       // Reset form and update UI
       form.reset();
       form.classList.add("hidden");
       thankYou.classList.remove("hidden");
 
       container.style.backgroundColor = "#FFFFFF";
-      container.style.height = HEIGHT_THANK_YOU;
       heading.classList.add("hidden");
       message.classList.add("hidden");
       subMessage.textContent = "";
@@ -968,8 +945,6 @@ class HelpWidget extends HTMLElement {
       closeButton.classList.add("thank-you");
       footer.querySelector("span").innerHTML =
         "Need help now?<br><a href='https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA.' target='_blank'>Submit a ticket to our team <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d='M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z'/></svg></a> or <a href='https://help.michiganvirtual.org/support/solutions' target='_blank'>Get Helpful tech tips <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d='M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z'/></svg></a>.";
-
-      setTimeout(() => unfreezeScroll(savedScrollY), 1);
     });
 
     function attachDropdownListeners() {
@@ -1079,53 +1054,6 @@ class HelpWidget extends HTMLElement {
       timestamps.push(now);
       setSubmissionTimestamps(timestamps);
       return true;
-    }
-
-    // Improved freeze/unfreeze functions with mobile detection
-    function freezeScroll() {
-      const isMobile = window.innerWidth < 768;
-      const scrollY = window.scrollY;
-
-      if (isMobile) {
-        // Minimal approach for mobile - just prevent scrolling
-        document.body.style.overflow = "hidden";
-        return scrollY;
-      }
-
-      // Full approach for desktop
-      const scrollbarWidth =
-        window.innerWidth - document.documentElement.clientWidth;
-
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.left = "0";
-      document.body.style.right = "0";
-      document.body.style.width = "100%";
-      document.body.style.overflow = "hidden";
-      document.body.style.paddingRight = `${scrollbarWidth}px`;
-
-      return scrollY;
-    }
-
-    function unfreezeScroll(savedScrollY) {
-      const isMobile = window.innerWidth < 768;
-
-      if (isMobile) {
-        // Simple reset for mobile
-        document.body.style.overflow = "";
-        return;
-      }
-
-      // Full reset for desktop
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
-      document.body.style.width = "";
-      document.body.style.overflow = "";
-      document.body.style.paddingRight = "";
-
-      window.scrollTo({ top: savedScrollY, behavior: "auto" });
     }
 
     // New helper function to batch all state resets

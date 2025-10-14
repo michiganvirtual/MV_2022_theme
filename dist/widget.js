@@ -26,9 +26,9 @@ class HelpWidget extends HTMLElement {
             background: #a84c2a;
             box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.3);
             transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
-            height: 40px;
             width: 148px;
             z-index: 9999;
+            contain: layout style paint;
           }
           .help-container:hover {
             cursor: pointer;
@@ -37,19 +37,10 @@ class HelpWidget extends HTMLElement {
             border-radius: 16px;
             box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.3);
             transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+            transform: translateZ(0) scale(1);
             width: 337px;
-            width: 337px;
-            height: 312px;
             cursor: unset;
           }
-            .help-container.open.form {
-            transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
-            height: 416px;
-            }
-            .help-container.open.return {
-            transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
-            height: 296px;
-            }
           .help-header {
             display: flex;
             padding: 5px 9px 5px 6px;
@@ -75,14 +66,20 @@ class HelpWidget extends HTMLElement {
           .help-header .close-btn {
             display: none;
             padding: 4px;
-          }
-          .help-header .close-btn.thank-you svg path {
-            stroke: #a84c2a;
-          }
-          .help-header .back-btn {
-            display: none;
-            justify-content: center;
-            align-items: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            }
+            .help-header .close-btn.thank-you svg path {
+              stroke: #a84c2a;
+              }
+              .help-header .back-btn {
+                display: none;
+                justify-content: center;
+                align-items: center;
+                background: none;
+                border: none;
+                cursor: pointer;
           }
           .help-container.open .help-header {
             height: 51px;
@@ -355,15 +352,21 @@ class HelpWidget extends HTMLElement {
             margin: 0;
             transition: visibility 0s ease-in-out, max-height 0.3s, margin 0.3s;
           }
-            @media screen and (max-width: 600px) {
+            @media screen and (max-width: 768px) {
           /* Styles for smartphones and smaller */
-          .help-container.open {
-            bottom: 0px;
-            right: 0px;
+
+          .help-container {
             width: unset;
-            margin: 0px 2px 2px;
-            max-width: calc(100% - 4px);
-            max-height: unset;
+            height: uset;
+          }
+
+          .help-container.open {
+            position: fixed !important;
+            right: 5px !important;
+            left: 5px !important;
+            width: calc(100% - 10px) !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
           }
           
           .help-header {
@@ -385,7 +388,7 @@ class HelpWidget extends HTMLElement {
         }
         </style>
         <div class="help-header">
-        <a href="#" class="back-btn" aria-label="Back Button">
+        <button type="button" class="back-btn" aria-label="Back Button">
           <svg
             width="16"
             height="16"
@@ -412,7 +415,7 @@ class HelpWidget extends HTMLElement {
               />
             </g>
           </svg>
-        </a>
+        </button>
         <div class="help-header-inner">
           <div id="icon-container">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none">
@@ -430,7 +433,7 @@ class HelpWidget extends HTMLElement {
           </div>
           <span>Report an issue</span>
         </div>
-        <a href="#" class="close-btn" aria-label="Close Button">
+        <button type="button" class="close-btn" aria-label="Close Button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -453,7 +456,7 @@ class HelpWidget extends HTMLElement {
               stroke-linejoin="round"
             />
           </svg>
-        </a>
+        </button>
       </div>
       <div class="help-body">
         <p class="help-message">What kind of issue are you experiencing?</p>
@@ -590,6 +593,7 @@ class HelpWidget extends HTMLElement {
     const thankYou = container.querySelector(".thank-you");
     const returnButton = container.querySelector(".return-btn");
     const footer = container.querySelector(".help-footer");
+
     let user = {};
 
     if (
@@ -625,17 +629,15 @@ class HelpWidget extends HTMLElement {
 
     // Toggle widget visibility
     container.addEventListener("click", () => {
-      container.classList.add("open");
-      if (window.innerWidth < 768) {
-        document.body.style.overflow = "hidden";
+      if (!container.classList.contains("open")) {
+        container.classList.add("open");
       }
     });
 
     container.addEventListener("keydown", (event) => {
       handleEnterKey(event, () => {
-        container.classList.add("open");
-        if (window.innerWidth < 768) {
-          document.body.style.overflow = "hidden";
+        if (!container.classList.contains("open")) {
+          container.classList.add("open");
         }
       });
     });
@@ -654,9 +656,7 @@ class HelpWidget extends HTMLElement {
       if (targetElement && targetElement.tagName === "LI") {
         const option = targetElement.getAttribute("data-option");
         if (!option) return;
-
         // Generate form based on option
-        container.classList.add("form");
         formContent.innerHTML = getFormContent(option);
         message.textContent = "Please select the type of issue you found. ";
         subMessage.textContent =
@@ -680,43 +680,35 @@ class HelpWidget extends HTMLElement {
 
     // Close button
     const handleCloseClick = (e) => {
-      e.stopPropagation(); // Stop event propagation
-
-      //  Capture current scroll position
-      const savedScrollY = freezeScroll();
-
-      // Step 2: Freeze scroll and blur widget to avoid layout jump
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${savedScrollY}px`;
-      document.body.style.left = "0";
-      document.body.style.right = "0";
-      document.body.style.width = "100%";
-      container.blur();
-
-      container.style.backgroundColor = "#a84c2a";
-      heading.textContent = "Report an issue";
+      e.stopPropagation();
+      e.preventDefault();
       container.classList.remove("open");
-      container.classList.remove("form");
-      container.classList.remove("return");
+      resetWidgetState();
 
-      setTimeout(function () {
-        document.body.style.overflow = "";
-        backButton.style.display = "none";
-        form.classList.add("hidden");
-        optionsList.classList.remove("hidden");
-        heading.classList.remove("hidden");
-        message.textContent = "What kind of issue are you experiencing?";
-        message.classList.remove("hidden");
-        subMessage.textContent = "";
-        footer.querySelector("span").innerHTML =
-          'Does this issue stop you from completing the course? You may need to <a href="https://help.michiganvirtual.org/support/tickets/new" target="_blank">submit a ticket</a> instead. You can also find helpful tips in our <a href="https://help.michiganvirtual.org/support/solutions" target="_blank">Knowledge Base</a>.';
-        icon.innerHTML = flagIcon;
-        icon.style.marginRight = "";
-        thankYou.classList.add("hidden");
-        closeButton.classList.remove("thank-you");
+      // Simplified approach - avoid scroll manipulation on mobile
+      const isMobile = window.innerWidth < 768;
 
-        setTimeout(() => unfreezeScroll(savedScrollY), 1);
-      }, 300);
+      if (isMobile) {
+        // Mobile-specific handling - minimal DOM manipulation
+
+        // Reset all states in one batch to minimize reflows
+        requestAnimationFrame(() => {
+          resetWidgetState();
+          // Reset overflow after animation completes
+          setTimeout(() => {
+            document.body.style.overflow = "";
+          }, 300);
+        });
+      } else {
+        // Desktop handling with scroll management
+        const savedScrollY = freezeScroll();
+        container.classList.remove("open");
+
+        setTimeout(() => {
+          resetWidgetState();
+          unfreezeScroll(savedScrollY);
+        }, 300);
+      }
     };
 
     closeButton.addEventListener("click", handleCloseClick);
@@ -728,11 +720,8 @@ class HelpWidget extends HTMLElement {
     // Back to options
     const handleBackClick = (e) => {
       e.stopPropagation(); // Stop event propagation
-      // 🧠 Save current scroll position
-      const savedScrollY = freezeScroll();
 
       container.style.backgroundColor = "#a84c2a";
-      container.classList.remove("form");
       backButton.style.display = "none";
       form.classList.add("hidden");
       optionsList.classList.remove("hidden");
@@ -743,8 +732,6 @@ class HelpWidget extends HTMLElement {
         'Does this issue stop you from completing the course? You may need to <a href="https://help.michiganvirtual.org/support/tickets/new" target="_blank">submit a ticket</a> instead. You can also find helpful tips in our <a href="https://help.michiganvirtual.org/support/solutions" target="_blank">Knowledge Base</a>.';
       icon.innerHTML = flagIcon;
       icon.style.marginRight = "16px";
-
-      setTimeout(() => unfreezeScroll(savedScrollY), 1);
     };
 
     backButton.addEventListener("click", handleBackClick);
@@ -756,8 +743,6 @@ class HelpWidget extends HTMLElement {
     // Return button
     const handleReturnClick = (e) => {
       e.stopPropagation();
-
-      const savedScrollY = freezeScroll();
 
       container.style.backgroundColor = "#a84c2a";
       container.classList.remove("return");
@@ -775,8 +760,6 @@ class HelpWidget extends HTMLElement {
       closeButton.classList.remove("thank-you");
       footer.querySelector("span").innerHTML =
         'Does this issue stop you from completing the course? You may need to <a href="https://help.michiganvirtual.org/support/tickets/new" target="_blank">submit a ticket</a> instead. You can also find helpful tips in our <a href="https://help.michiganvirtual.org/support/solutions" target="_blank">Knowledge Base</a>.';
-
-      setTimeout(() => unfreezeScroll(savedScrollY), 1);
     };
 
     returnButton.addEventListener("click", handleReturnClick);
@@ -788,7 +771,6 @@ class HelpWidget extends HTMLElement {
     // Handle form submission
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const savedScrollY = freezeScroll();
 
       // Basic auth header
       const headers = new Headers({
@@ -948,15 +930,13 @@ class HelpWidget extends HTMLElement {
       } catch (error) {
         console.error("Error sending data to Freshdesk:", error);
       }
-*/
+      */
       // Reset form and update UI
       form.reset();
       form.classList.add("hidden");
       thankYou.classList.remove("hidden");
 
       container.style.backgroundColor = "#FFFFFF";
-      container.classList.remove("form");
-      container.classList.add("return");
       heading.classList.add("hidden");
       message.classList.add("hidden");
       subMessage.textContent = "";
@@ -965,8 +945,6 @@ class HelpWidget extends HTMLElement {
       closeButton.classList.add("thank-you");
       footer.querySelector("span").innerHTML =
         "Need help now?<br><a href='https://help.michiganvirtual.org/support/tickets/new?_gl=1*qedl0u*_gcl_au*NjEzMTY3MTc4LjE3MzgyNzQyMjI.*_ga*MTQ3ODQ2NzcxOC4xNzM4Mjc0MjIy*_ga_VG58GV15BV*MTczODI3NDIyMS4xLjAuMTczODI3NDIyMS42MC4wLjA.' target='_blank'>Submit a ticket to our team <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d='M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z'/></svg></a> or <a href='https://help.michiganvirtual.org/support/solutions' target='_blank'>Get Helpful tech tips <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d='M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z'/></svg></a>.";
-
-      setTimeout(() => unfreezeScroll(savedScrollY), 1);
     });
 
     function attachDropdownListeners() {
@@ -1078,37 +1056,29 @@ class HelpWidget extends HTMLElement {
       return true;
     }
 
-    function freezeScroll() {
-      const scrollY = window.scrollY;
+    // New helper function to batch all state resets
+    function resetWidgetState() {
+      // Batch all DOM changes to minimize reflows
+      const changes = () => {
+        container.style.backgroundColor = "#a84c2a";
+        heading.textContent = "Report an issue";
+        backButton.style.display = "none";
+        form.classList.add("hidden");
+        optionsList.classList.remove("hidden");
+        heading.classList.remove("hidden");
+        message.textContent = "What kind of issue are you experiencing?";
+        message.classList.remove("hidden");
+        subMessage.textContent = "";
+        footer.querySelector("span").innerHTML =
+          'Does this issue stop you from completing the course? You may need to <a href="https://help.michiganvirtual.org/support/tickets/new" target="_blank">submit a ticket</a> instead. You can also find helpful tips in our <a href="https://help.michiganvirtual.org/support/solutions" target="_blank">Knowledge Base</a>.';
+        icon.innerHTML = flagIcon;
+        icon.style.marginRight = "";
+        thankYou.classList.add("hidden");
+        closeButton.classList.remove("thank-you");
+      };
 
-      // Measure scrollbar width
-      const scrollbarWidth =
-        window.innerWidth - document.documentElement.clientWidth;
-
-      // Apply styles
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.left = "0";
-      document.body.style.right = "0";
-      document.body.style.width = "100%";
-      document.body.style.overflow = "hidden";
-
-      // 🧠 Add padding to prevent content shift from scrollbar disappearance
-      document.body.style.paddingRight = `${scrollbarWidth}px`;
-
-      return scrollY;
-    }
-
-    function unfreezeScroll(savedScrollY) {
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
-      document.body.style.width = "";
-      document.body.style.overflow = "";
-      document.body.style.paddingRight = "";
-
-      window.scrollTo({ top: savedScrollY, behavior: "auto" });
+      // Use requestAnimationFrame to ensure changes happen in next frame
+      requestAnimationFrame(changes);
     }
 
     // Generate form content based on option
