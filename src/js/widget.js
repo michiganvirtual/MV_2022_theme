@@ -694,7 +694,9 @@ class HelpWidget extends HTMLElement {
     // Close button
     const handleCloseClick = (e) => {
       e.stopPropagation();
-
+      e.preventDefault();
+      container.classList.remove("open");
+      /*
       // Simplified approach - avoid scroll manipulation on mobile
       const isMobile = window.innerWidth < 768;
 
@@ -719,7 +721,7 @@ class HelpWidget extends HTMLElement {
           resetWidgetState();
           unfreezeScroll(savedScrollY);
         }, 300);
-      }
+      } */
     };
 
     closeButton.addEventListener("click", handleCloseClick);
