@@ -684,7 +684,7 @@ class HelpWidget extends HTMLElement {
       e.preventDefault();
       container.classList.remove("open");
       resetWidgetState();
-      /*
+
       // Simplified approach - avoid scroll manipulation on mobile
       const isMobile = window.innerWidth < 768;
 
@@ -708,7 +708,7 @@ class HelpWidget extends HTMLElement {
           resetWidgetState();
           unfreezeScroll(savedScrollY);
         }, 300);
-      } */
+      }
     };
 
     closeButton.addEventListener("click", handleCloseClick);
