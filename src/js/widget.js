@@ -1196,4 +1196,4 @@ class HelpWidget extends HTMLElement {
     }
   }
 }
-customElements.define("new-help-widget", HelpWidget);
+customElements.define("help-widget", HelpWidget);
