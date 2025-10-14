@@ -386,7 +386,7 @@ class HelpWidget extends HTMLElement {
         }
         </style>
         <div class="help-header">
-        <a href="#" class="back-btn" aria-label="Back Button">
+        <button type="button" class="back-btn" aria-label="Back Button">
           <svg
             width="16"
             height="16"
@@ -413,7 +413,7 @@ class HelpWidget extends HTMLElement {
               />
             </g>
           </svg>
-        </a>
+        </button>
         <div class="help-header-inner">
           <div id="icon-container">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none">
@@ -431,7 +431,7 @@ class HelpWidget extends HTMLElement {
           </div>
           <span>Report an issue</span>
         </div>
-        <a href="#" class="close-btn" aria-label="Close Button">
+        <button type="button" class="close-btn" aria-label="Close Button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -454,7 +454,7 @@ class HelpWidget extends HTMLElement {
               stroke-linejoin="round"
             />
           </svg>
-        </a>
+        </button>
       </div>
       <div class="help-body">
         <p class="help-message">What kind of issue are you experiencing?</p>
@@ -941,7 +941,7 @@ class HelpWidget extends HTMLElement {
           cf_plp_broken_content_type: issueType_Tier2,
         },
       };
-
+      /*
       // Send data to Freshdesk
       try {
         await fetch("https://plshelpwidget.michigan-virtual.workers.dev/", {
@@ -952,7 +952,7 @@ class HelpWidget extends HTMLElement {
       } catch (error) {
         console.error("Error sending data to Freshdesk:", error);
       }
-
+      */
       // Reset form and update UI
       form.reset();
       form.classList.add("hidden");
