@@ -66,14 +66,20 @@ class HelpWidget extends HTMLElement {
           .help-header .close-btn {
             display: none;
             padding: 4px;
-          }
-          .help-header .close-btn.thank-you svg path {
-            stroke: #a84c2a;
-          }
-          .help-header .back-btn {
-            display: none;
-            justify-content: center;
-            align-items: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            }
+            .help-header .close-btn.thank-you svg path {
+              stroke: #a84c2a;
+              }
+              .help-header .back-btn {
+                display: none;
+                justify-content: center;
+                align-items: center;
+                background: none;
+                border: none;
+                cursor: pointer;
           }
           .help-container.open .help-header {
             height: 51px;
