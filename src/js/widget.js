@@ -356,7 +356,9 @@ class HelpWidget extends HTMLElement {
 
           .help-container.open {
             position: fixed !important;
-            width: 100% !important;
+            right: 5px !important;
+            left: 5px !important;
+            width: calc(100% - 10px) !important;
             max-width: 100% !important;
             box-sizing: border-box !important;
           }
@@ -586,11 +588,6 @@ class HelpWidget extends HTMLElement {
     const returnButton = container.querySelector(".return-btn");
     const footer = container.querySelector(".help-footer");
 
-    const HEIGHT_COMPACT = "40px"; // default collapsed
-    const HEIGHT_OPEN = "312px"; // for main issue list
-    const HEIGHT_FORM = "415px"; // taller for textarea + dropdown
-    const HEIGHT_THANK_YOU = "296px"; // thank-you is often smaller
-
     let user = {};
 
     if (
@@ -629,18 +626,12 @@ class HelpWidget extends HTMLElement {
       if (!container.classList.contains("open")) {
         container.classList.add("open");
       }
-      if (window.innerWidth < 768) {
-        document.body.style.overflow = "hidden";
-      }
     });
 
     container.addEventListener("keydown", (event) => {
       handleEnterKey(event, () => {
         if (!container.classList.contains("open")) {
           container.classList.add("open");
-        }
-        if (window.innerWidth < 768) {
-          document.body.style.overflow = "hidden";
         }
       });
     });
@@ -705,7 +696,6 @@ class HelpWidget extends HTMLElement {
       } else {
         // Desktop handling with scroll management
         const savedScrollY = freezeScroll();
-        container.style.height = HEIGHT_COMPACT;
         container.classList.remove("open");
 
         setTimeout(() => {
