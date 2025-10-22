@@ -504,10 +504,6 @@ $(document).ready(function () {
           "aria-label": "Answers Table",
         });
         $("#answers-table table").attr("tabindex", -1);
-        $answersTable[0].scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
         $("#answers-table table").trigger(focus);
       }
     }
@@ -608,7 +604,7 @@ $(document).ready(function () {
           tabindex: "0",
           role: "alert",
         });
-        $answersTable[0].scrollIntoView({ behavior: "smooth" });
+        //$answersTable[0].scrollIntoView({ behavior: "smooth" });
         $answersTable.focus();
       } else {
         console.error("Answers table not found!");
@@ -617,6 +613,7 @@ $(document).ready(function () {
   });
 
   $("a#display-answers").attr("tabindex", 0);
+  $("button#display-answers").attr("tabindex", 0);
 
   /* $("#answers-table").on("click", function (e) {
     $("#answers-table").addClass("hidden");
