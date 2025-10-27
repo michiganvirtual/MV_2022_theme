@@ -792,7 +792,7 @@ $(document).ready(function () {
   const isMobile = matchMedia("(max-width: 768px)").matches;
   const form = document.querySelector("form#matching_dropdown");
 
-  if (form.classList.contains("test") && isMobile) {
+  if (isMobile) {
     // Polyfill :has(select) for Firefox/older browsers
     const containers = Array.from(form.querySelectorAll("div")).filter((div) =>
       div.querySelector("select")
