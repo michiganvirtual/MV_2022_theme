@@ -3490,10 +3490,10 @@ body.rtl-language{
 .pe-listbox {
   max-height: 14rem;
   overflow: auto;
-  background: #0d3b3f;
   border: 1px solid #6d6e71;
   border-radius: 0.375rem;
   margin-top: 0.25rem;
+  background: #ffffff;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 

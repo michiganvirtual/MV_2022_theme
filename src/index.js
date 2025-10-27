@@ -841,10 +841,10 @@ $(document).ready(function () {
       list.className = "pe-listbox select-hide"; // default hidden
       list.tabIndex = -1; // programmatic focus
       list.style.position = "absolute";
-      list.style.top = "56%";
+      list.style.top = "50%";
       list.style.left = "0";
       list.style.right = "0";
-      list.style.zIndex = "50";
+      list.style.zIndex = "99";
       list.style.margin = "0 1rem";
 
       // Create options
