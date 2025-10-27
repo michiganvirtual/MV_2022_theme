@@ -788,7 +788,234 @@ $(document).ready(function () {
 
   /* Miscellaneous */
   $(".validation").attr("role", "alert");
+
+  const isMobile = matchMedia("(max-width: 768px)").matches;
+  const form = document.querySelector("form#matching_dropdown");
+
+  if (form.classList.contains("test") && isMobile) {
+    // Polyfill :has(select) for Firefox/older browsers
+    const containers = Array.from(form.querySelectorAll("div")).filter((div) =>
+      div.querySelector("select")
+    );
+
+    containers.forEach((div, idx) => {
+      const sel = div.querySelector("select");
+      if (!sel || sel.dataset.enhanced === "1") return;
+      sel.dataset.enhanced = "1";
+
+      // Make the container the positioning context for the popup
+      if (getComputedStyle(div).position === "static") {
+        div.style.position = "relative";
+      }
+
+      // Build trigger button
+      const label =
+        form.querySelector(`label[for="${sel.id}"]`) ||
+        div.querySelector("label");
+      const labelText = label ? label.textContent.trim() : "Choose an option";
+
+      const trigger = document.createElement("button");
+      trigger.type = "button";
+      trigger.className = "pe-trigger";
+      trigger.setAttribute("aria-haspopup", "listbox");
+      trigger.setAttribute("aria-expanded", "false");
+      const popupId = `pe-listbox-${idx}`;
+      trigger.setAttribute("aria-controls", popupId);
+      if (label && label.id) {
+        trigger.setAttribute("aria-labelledby", `${label.id} ${popupId}-value`);
+      }
+
+      const currentText = () =>
+        sel.selectedIndex >= 0 ? sel.options[sel.selectedIndex].text : "Select";
+      trigger.innerHTML = `
+      <span id="${popupId}-value">${currentText()}</span>
+      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M6 9l6 6 6-6"/>
+      </svg>
+    `;
+
+      // Build listbox directly beneath trigger
+      const list = document.createElement("ul");
+      list.id = popupId;
+      list.setAttribute("role", "listbox");
+      list.className = "pe-listbox select-hide"; // default hidden
+      list.tabIndex = -1; // programmatic focus
+      list.style.position = "absolute";
+      list.style.top = "56%";
+      list.style.left = "0";
+      list.style.right = "0";
+      list.style.zIndex = "50";
+      list.style.margin = "0 1rem";
+
+      // Create options
+      const options = Array.from(sel.options);
+      const optionEls = options.map((opt, i) => {
+        const li = document.createElement("li");
+        li.className = "pe-option";
+        li.id = `${popupId}-opt-${i}`;
+        li.setAttribute("role", "option");
+        li.setAttribute("data-index", String(i));
+        li.textContent = opt.text;
+        if (i === sel.selectedIndex) {
+          li.setAttribute("aria-selected", "true");
+        }
+        return li;
+      });
+      optionEls.forEach((li) => list.appendChild(li));
+
+      // Insert trigger right after the select, and list after trigger
+      sel.insertAdjacentElement("afterend", trigger);
+      trigger.insertAdjacentElement("afterend", list);
+
+      // Visually hide the native select but keep it in the DOM for form submit
+      sel.style.position = "absolute";
+      sel.style.opacity = "0";
+      sel.style.pointerEvents = "none";
+      sel.style.width = "0";
+      sel.style.height = "0";
+
+      // State
+      let open = false;
+      let activeIndex = sel.selectedIndex >= 0 ? sel.selectedIndex : 0;
+
+      const openList = () => {
+        if (open) return;
+        open = true;
+        trigger.setAttribute("aria-expanded", "true");
+        list.classList.remove("select-hide");
+        list.classList.add("select-open");
+        setActive(activeIndex, true);
+        list.focus({ preventScroll: true });
+        document.addEventListener("click", onDocClick, { once: true });
+      };
+
+      const closeList = () => {
+        if (!open) return;
+        open = false;
+        trigger.setAttribute("aria-expanded", "false");
+        list.classList.add("select-hide");
+        list.classList.remove("select-open");
+        trigger.focus({ preventScroll: true });
+      };
+
+      const setActive = (index, scrollIntoView = false) => {
+        activeIndex = Math.max(0, Math.min(index, optionEls.length - 1));
+        optionEls.forEach((li, i) => {
+          if (i === activeIndex) {
+            li.classList.add("pe-active");
+          } else {
+            li.classList.remove("pe-active");
+          }
+        });
+        list.setAttribute("aria-activedescendant", optionEls[activeIndex].id);
+        if (scrollIntoView) {
+          optionEls[activeIndex].scrollIntoView({ block: "nearest" });
+        }
+      };
+
+      const commitSelection = (index) => {
+        sel.selectedIndex = index;
+        sel.dispatchEvent(new Event("change", { bubbles: true }));
+        optionEls.forEach((li, i) => {
+          if (i === index) {
+            li.setAttribute("aria-selected", "true");
+          } else {
+            li.removeAttribute("aria-selected");
+          }
+        });
+        trigger.querySelector(`#${popupId}-value`).textContent =
+          options[index].text;
+        closeList();
+      };
+
+      // Events
+      trigger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        open ? closeList() : openList();
+      });
+
+      trigger.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+          e.preventDefault();
+          openList();
+          setActive(e.key === "ArrowDown" ? activeIndex : activeIndex, true);
+        } else if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          open ? closeList() : openList();
+        }
+      });
+
+      list.addEventListener("keydown", (e) => {
+        switch (e.key) {
+          case "ArrowDown":
+            e.preventDefault();
+            setActive(activeIndex + 1, true);
+            break;
+          case "ArrowUp":
+            e.preventDefault();
+            setActive(activeIndex - 1, true);
+            break;
+          case "Home":
+            e.preventDefault();
+            setActive(0, true);
+            break;
+          case "End":
+            e.preventDefault();
+            setActive(optionEls.length - 1, true);
+            break;
+          case "Enter":
+          case " ":
+            e.preventDefault();
+            commitSelection(activeIndex);
+            break;
+          case "Escape":
+            e.preventDefault();
+            closeList();
+            break;
+        }
+      });
+
+      list.addEventListener("click", (e) => {
+        const li = e.target.closest(".pe-option");
+        if (!li) return;
+        commitSelection(Number(li.dataset.index));
+      });
+
+      function onDocClick(ev) {
+        if (!div.contains(ev.target)) closeList();
+      }
+    });
+
+    document.addEventListener("click", closeAllSelect);
+  }
 });
+
+function closeAllSelect(elmnt) {
+  /* A function that will close all select boxes in the document,
+  except the current select box: */
+  var x,
+    y,
+    i,
+    xl,
+    yl,
+    arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  xl = x.length;
+  yl = y.length;
+  for (i = 0; i < yl; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i);
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < xl; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
 
 //Add keyboard navigation functionality
 window.addEventListener(

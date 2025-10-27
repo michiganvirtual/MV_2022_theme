@@ -828,3 +828,53 @@ a[target="_blank"]:after {
   cursor: pointer;
   z-index: 1001;
 }
+
+/* trigger button */
+.pe-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 12rem; /* match your select width */
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid #6d6e71;
+  background: #0d3b3f; /* deep teal */
+  color: #ffffff !important;
+  font: inherit;
+}
+.pe-trigger span {
+  color: #ffffff;
+}
+
+/* popup */
+.pe-listbox {
+  max-height: 14rem;
+  overflow: auto;
+  background: #0d3b3f;
+  border: 1px solid #6d6e71;
+  border-radius: 0.375rem;
+  margin-top: 0.25rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.select-hide {
+  display: none;
+}
+.select-open {
+  display: block;
+}
+
+/* options */
+.pe-option {
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+}
+.pe-option[aria-selected="true"] {
+  font-weight: 600;
+  background: #f2f4f5;
+}
+.pe-active {
+  outline: 2px solid #a84c2a; /* focus highlight */
+  outline-offset: -2px;
+}
