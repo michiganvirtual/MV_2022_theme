@@ -910,7 +910,7 @@ class HelpWidget extends HTMLElement {
         priority: 1,
         status: 2,
         type: "Professional Learning",
-        group_id: 65000163247,
+        group_id: null,
         responder_id: 65013200024,
         tags: ["Help Widget"],
         custom_fields: {
