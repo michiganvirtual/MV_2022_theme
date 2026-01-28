@@ -269,7 +269,6 @@
 .slick-sr-only{
   border:0!important;
   clip:rect(1px,1px,1px,1px)!important;
-  -webkit-clip-path:inset(50%)!important;
   clip-path:inset(50%)!important;
   height:1px!important;
   margin:-1px!important;
@@ -3414,9 +3413,7 @@ body.rtl-language{
 }
 
 .transition{
-  transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration:150ms
 }
@@ -3523,8 +3520,8 @@ body.rtl-language{
   outline-offset: -2px;
 }
 
-.tabs li > a.hover\:text-white:hover,
-  .tabs-white li > a.hover\:text-white:hover {
+.tabs li > .hover\:text-white:hovera,
+  .tabs-white li > .hover\:text-white:hovera {
   color: #ffffff;
 }
 
@@ -3558,25 +3555,25 @@ body.rtl-language{
   color:rgb(255 255 255 / var(--tw-text-opacity))
 }
 
-.tabs li > aa.hover\:bg-deep-teal:hover,
-  .tabs-white li > aa.hover\:bg-deep-teal:hover {
+.tabs li > a.hover\:bg-deep-teal:hovera,
+  .tabs-white li > a.hover\:bg-deep-teal:hovera {
   color: #ffffff;
 }
 
-a.hover\:bg-deep-teal:hover{
+.hover\:bg-deep-teal:hovera{
   --tw-text-opacity:1;
   color:rgb(255 255 255 / var(--tw-text-opacity))
 }
 
-.tabs li > a
-  a.hover\:bg-dark-teal:hover,
-  .tabs-white li > a
-  a.hover\:bg-dark-teal:hover {
+.tabs li > a.hover\:bg-dark-teal:hover
+  a,
+  .tabs-white li > a.hover\:bg-dark-teal:hover
+  a {
   color: #ffffff;
 }
 
-
-  a.hover\:bg-dark-teal:hover{
+.hover\:bg-dark-teal:hover
+  a{
   --tw-text-opacity:1;
   color:rgb(255 255 255 / var(--tw-text-opacity))
 }
@@ -3586,7 +3583,7 @@ a.hover\:bg-deep-teal:hover{
   color:rgb(9 29 32 / var(--tw-text-opacity))
 }
 
-a.hover\:bg-white:hover{
+.hover\:bg-white:hovera{
   --tw-text-opacity:1;
   color:rgb(65 64 66 / var(--tw-text-opacity))
 }

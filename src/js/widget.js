@@ -911,7 +911,6 @@ class HelpWidget extends HTMLElement {
         status: 2,
         type: "Professional Learning",
         group_id: 65000162526,
-        responder_id: 65005101840,
         tags: ["Help Widget"],
         custom_fields: {
           cf_plp_issue_type327221: "Issues With PLP Course Content",
