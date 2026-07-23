@@ -593,10 +593,8 @@ $(document).ready(function () {
         }
 
         $feedbackContainer.removeClass("hidden");
-      });
-    } else if ($form.hasClass("no-icons")) {
-      console.log("has no icons class");
-      var $answersTable = $("#answers-table"); // ← Directly select by ID
+
+        var $answersTable = $("#answers-table"); // ← Directly select by ID
 
       if ($answersTable.length) {
         $answersTable.removeClass("hidden");
@@ -609,6 +607,10 @@ $(document).ready(function () {
       } else {
         console.error("Answers table not found!");
       }
+      });
+    } else if ($form.hasClass("no-icons")) {
+      console.log("has no icons class");
+      
     }
   });
 
