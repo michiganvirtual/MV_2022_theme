@@ -595,6 +595,7 @@ $(document).ready(function () {
         $feedbackContainer.removeClass("hidden");
 
         var $answersTable = $("#answers-table"); // ← Directly select by ID
+        console.log($answersTable);
 
       if ($answersTable.length) {
         $answersTable.removeClass("hidden");
