@@ -611,7 +611,19 @@ $(document).ready(function () {
       });
     } else if ($form.hasClass("no-icons")) {
       console.log("has no icons class");
+      var $answersTable = $('#answers-table'); // ← Directly select by ID
+        console.log($answersTable);
+
+      if ($answersTable.length) {
+        $answersTable.removeClass("hidden");
+        $answersTable.attr({
+          tabindex: "0",
+          role: "alert",
+        });
+        //$answersTable[0].scrollIntoView({ behavior: "smooth" });
+        $answersTable.focus();
       
+      }
     }
   });
 

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" class="w-full"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <link rel="stylesheet" href="../output.css">
+    <script src="../main.js"></script>
+
+    <link rel="icon" href="https://michiganvirtual.org/wp-content/uploads/2021/10/cropped-mv-favicon-32x32.png" sizes="32x32">
+  </head><body class="font-body w-full overflow-x-hidden"><main>
+    <div class="container mx-auto px-4 lg:px-24 py-12">
+    <h1>Lesson 3: Taxes</h1>
+    <hr class="border-t-10 border-green w-12 mb-4">
+    <img src="/content/enforced/12948-MCABS-DEV-26/Pictures/Financial%20Management%20Setting%20and%20Collecting%20Fees/v991-a-28.jpg" alt="Five hands reach up from the bottom of the graphic. The first holds a magnifying glass, the second holds a stack of paper, the third holds a calculator, the fourth hand holds a lengthy receipt, and the last holds a clock." class="mx-auto md:w-1/2">
+    <p class="text-sm text-center mb-8"><a href="https://www.freepik.com/free-vector/tax-audit-doodle-vector-debt-concept_17222070.htm#query=taxes&amp;position=1&amp;from_view=search&amp;track=sph" target="_blank" rel="noopener">Image</a> by <a href="https://www.freepik.com/author/rawpixel-com" target="_blank" rel="noopener"> rawpixel.com</a> under <a href="https://www.freepikcompany.com/legal?_gl=1*1ycdh02*_ga*Njg4NDk1NjcyLjE3MTA4NTY5ODI.*_ga_QWX66025LC*MTcxMDk0MzY4My41LjEuMTcxMDk0NTMwNS42MC4wLjA.*_ga_18B6QPTJPC*MTcxMDk0MzY4My41LjEuMTcxMDk0NTMwNS42MC4wLjA.#nav-freepik-license" target="_blank" rel="noopener">Freepik</a> modified from the original</p>
+    <p>Taxes are another non-negotiable duty in operating a child care center. Though we cannot cover everything you need to know about taxes in this course, now is a good time to review some of the key components of basic tax protocols.</p>
+    <p>The <a href="https://www.sba.gov/" target="_blank" rel="noopener">U.S. Small Business Administration</a> lays out five key points to remember when it comes to managing taxes:</p>
+    <ol style="padding-left: 40px;">
+            <li>Get qualified advice.</li>
+<li>Learn your business tax liability, including income, employment, self-employment, sales, and social taxes.</li>
+<li>Set money aside to cover your taxes and avoid commingling funds.</li>
+<li>Have an accounting system in place to track income and expenses.</li>
+<li>Use an accountant, as needed, to help you manage your business.</li>
+</ol>
+<p>Basic legal compliance starts with good record keeping. Completing all the necessary paperwork now and creating systems to organize it will help ensure you don’t get audited later. For more information on basic steps for bookkeeping, see the <a href="https://docs.google.com/document/d/1M_OMgXMvOKps4GziPnJTAdzyPWL2dlki/view" target="_blank" rel="noopener">Taxes for Child Care Providers Tip Sheet</a>.</p>
+<p><strong>Instructions: For the question below, identify how confident you are. Using the dropdown select Very Confident, Confident, Unsure, Not Very Confident, or Feeling Overwhelmed. Select the Submit Answer button to submit your answer.</strong></p>
+<form action="" class="w-full mx-auto no-icons" id="matching_dropdown">
+<div class="flex flex-col md:flex-row justify-between md:items-center border-y border-light-teal text-lg px-4 py-8 question_wrapper"><label for="question-1" class="grow md:mr-4 mb-4 md:mb-0" data-answer="1">How confident are you in filing the paperwork necessary to complete your taxes?</label><select name="question-1" id="question-1" class="px-4 py-2 bg-deep-teal text-white rounded-md">
+<option value="">Select Confidence</option>
+<option value="1">Very Confident</option>
+<option value="1">Confident</option>
+<option value="1">Unsure</option>
+<option value="1">Not Very Confident</option>
+<option value="1">Feeling Overwhelmed</option>
+</select>
+</div>
+<br><button type="submit" class="text-white bg-ada-orange hover:bg-dark-gray hover:underline font-bold md:text-xl rounded-md py-4 px-8 mb-4"> Submit Answer </button></form>
+<div class="hidden mx-auto px-4 lg:px-24 py-12 container" id="answers-table" aria-live="polite">
+<div class="p-4"><span class="font-bold">Thank you, your response has been submitted. If you selected "Unsure," "Not Very Confident," or "Feeling Overwhelmed," Taxes could be an area that you decide to gain more knowledge of through professional development or finding professional services to help you in this area. </span></div>
+</div>
+<div class="">
+<p><strong>Instructions: Identify a growth area for yourself in basic tax accounting. What’s the next step you need to take to ensure your tax filing season is as smooth and easy as possible? Place your response in the text box below and then select the Submit button.</strong></p>
+<form id="reflection-form" class="space-y-4 mb-4">
+<div><label for="reflection" class="block text-sm font-medium text-dark-gray">Reflection:</label> <textarea id="reflection" name="reflection" class="w-full px-4 py-2 rounded border focus:outline-none focus:border-blue-400" rows="4"></textarea></div>
+<div class="mb-4"><button type="submit" class="bg-ada-orange text-white hover:bg-dark-gray font-bold py-4 px-8 rounded-md"> Submit </button></div>
+</form>
+<div><span aria-live="polite" id="validation" class="font-bold"></span></div>
+</div>
+</div>
+</main>
+
+<p><script>
+      var interaction = {
+        id: "1", // Unique identifier for the interaction
+        type: "fill-in", // Type of interaction (fill-in is used for text input)
+        student_response: "User's response", // The learner's response from the form field
+        result: "correct", // The result of the interaction (can be "correct," "incorrect," or "neutral")
+      };
+      document
+        .getElementById("reflection-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const reflectionTextarea = document.getElementById("reflection");
+          if (reflectionTextarea.value.trim() === "") {
+            alert(
+              "Reflection cannot be empty. Please provide your reflection."
+            );
+            return;
+          } else {
+            interaction.student_response = reflectionTextarea.value;
+            document.getElementById("validation").innerHTML = "Thank you, your response has been submitted. Now choose a deadline for yourself to ensure you meet the milestones necessary to have a successful tax filing season.";
+            reflectionTextarea.value = "";
+          }
+        });
+    </script></p></body></html>
