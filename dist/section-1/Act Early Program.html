@@ -13,137 +13,150 @@
     <script defer src="../main.js"></script>
   </head>
   <body class="font-body w-full overflow-x-hidden">
-    <header
-      class="flex justify-center"
-      style="
-        background-image: linear-gradient(180deg, #115e6e 0%, #093c44 100%);
-      "
-    >
-      <div class="text-white container p-12 mx-auto">
-        <span>Michigan Initial Health & Safety Training Module B </span><br />
-        <span class="text-lg md:text-xlfont-body font-extrabold lg:w-2/3">
-          Section 1: Child Development
-        </span>
-      </div>
-    </header>
     <main>
       <div class="container mx-auto px-4 lg:px-24 py-12">
-        <div class="grid md:grid-cols-2 gap-x-2 mb-8">
-          <div class="flex flex-col justify-center">
-            <h1
-              class="text-3xl md:text-4xl font-bold text-deep-teal tracking-tighter uppercase md:mt-6 mb-4"
-            >
-              Act Early Program
-            </h1>
-            <hr class="border-4 border-green w-12 mb-4" />
-            <p class="text-lg text-dark-gray mb-8 lg:w-3/4">
-              A federal program, ‘Act Early’ is a great resource for providers
-              and families.
-            </p>
+        <h1 aria-hidden="true">Module Wrap Up Activity</h1>
+        <hr class="border-t-10 border-green w-12 mb-4">
+        <!----------------Dropdown Activity------------------>
+        <h2>Are You Prepared?</h2>
+        <p class="md:text-lg text-dark-gray mb-8">
+          <strong>Instructions: Do you feel prepared to do the following things? Use
+            the dropdowns below to respond with Yes, No, or Somewhat.</strong>
+        </p>
+        <form action="" class="w-full mx-auto no-icons" id="matching_dropdown">
+          <div class="flex flex-col md:flex-row justify-between md:items-center border-t border-light-teal text-lg px-4 py-8 question_wrapper">
+            <label for="question-1" class="grow md:mr-4 mb-4 md:mb-0" data-answer="2,4,3">Understanding brain development basics.</label><select name="question-1" id="question-1" class="px-4 py-2 bg-deep-teal text-white rounded-md" style="min-width: 210px">
+              <option value disabled selected>Select a Response</option>
+              <option value="2">Yes</option>
+              <option value="4">No</option>
+              <option value="3">Somewhat</option>
+            </select>
           </div>
-          <div class="flex justify-center items-center mb-4">
-            <img
-              src="../assets/images/section-1/act-early-program.png"
-              class="w-full h-auto md:w-3/4 rounded-md shadow-md"
-              alt=""
-            />
+          <div class="flex flex-col md:flex-row justify-between md:items-center border-y border-light-teal text-lg px-4 py-8 question_wrapper">
+            <label for="question-2" class="grow md:mr-4 mb-4 md:mb-0" data-answer="2,4,3">Selecting and using an appropriate curriculum.</label><select name="question-2" id="question-2" class="px-4 py-2 bg-deep-teal text-white rounded-md" style="min-width: 210px">
+              <option value disabled selected>Select a Response</option>
+              <option value="2">Yes</option>
+              <option value="4">No</option>
+              <option value="3">Somewhat</option>
+            </select>
           </div>
+          <div class="mb-4 mt-4">
+            <button type="submit" class="bg-ada-orange text-white hover:bg-dark-gray hover:underline font-bold py-4 px-8 rounded-md">
+              Check Answers
+            </button>
+          </div>
+        </form>
+        <!--Feedback for dropdown activity-->
+        <div style="padding: 1em 0 1em 1em" class="hidden mx-auto px-4 lg:px-24 py-4 container" id="answers-table" aria-live="polite">
+          <span class="font-bold inline-block">Response submitted. It is ok if you answered "No" or "Somewhat" to
+            one or more of these questions. That tells you it is something that
+            you might want to spend some more time researching and developing
+            tools for. Consider choosing one of these to write a goal
+            around.</span>
         </div>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center mb-12">
-          <div
-            class="flex flex-col h-full bg-ada-orange text-white font-bold rounded-md text-2xl p-8 mb-4 w-full"
-          >
-            <div class="flex justify-between items-center w-full mb-6">
-              <h3 class="w-3/4">Center for Disease Control National Program</h3>
-            </div>
-            <p class="text-lg text-white font-normal">
-              The program is under the Center for Disease Control, which
-              partnered with the US Department of Education and the US
-              Department of Health & Human Services to create this program.
-            </p>
+        <!------------Reflection------------->
+        <h2 style="margin-top: 1.5em">Reflection</h2>
+        <p>
+          <strong>Instructions: Before you go, share with us one goal you are setting
+            for yourself as an outcome of this training. Use the following
+            sentence starter as a guide to write your reflection.</strong>
+        </p>
+        <form id="reflection-form" class="space-y-4 mb-4">
+          <div>
+            <label for="reflection" class="block text-sm font-medium text-dark-gray">I would like to (task)__________ by (when)__________ and share my
+              success with (who)__________.
+            </label>
+            <textarea id="reflection" name="reflection" class="w-full px-4 py-2 rounded border focus:outline-none focus:border-blue-400" rows="4"></textarea>
           </div>
-          <div
-            class="flex flex-col h-full bg-deep-teal text-white font-bold rounded-md text-2xl p-8 mb-4 w-full"
-          >
-            <div class="flex justify-between items-center w-full mb-6">
-              <h3 class="w-3/4">
-                Free Tools for Child Care Providers to Track Milestones & Engage
-                Families
-              </h3>
-            </div>
-            <p class="text-lg text-white font-normal">
-              This program offers free tools for child care providers to track
-              development milestones for the children in their care. In
-              addition, it provides suggestions for engaging families.
-            </p>
+          <div class="mb-4">
+            <button type="submit" class="bg-ada-orange text-white hover:bg-dark-gray font-bold py-4 px-8 rounded-md">
+              Submit
+            </button>
           </div>
-          <div
-            class="flex justify-evenly flex-col h-full bg-ada-green text-white font-bold rounded-md text-2xl p-8 mb-4 w-full"
-          >
-            <div class="flex justify-between items-center w-full mb-6">
-              <h3 class="w-3/4">
-                Resources to Help Families Track Their Child’s Development,
-                Including Apps for Smart Phones
-              </h3>
-            </div>
-            <p class="text-lg text-white font-normal">
-              Act Early also provides free resources to help families track
-              their children’s development. These include a mobile app milestone
-              tracker.
-            </p>
-          </div>
-          <div
-            class="flex flex-col h-full bg-dark-teal text-white font-bold rounded-md text-2xl p-8 mb-4 w-full"
-          >
-            <div class="flex justify-between items-center w-full mb-6">
-              <h3 class="w-3/4">Milestones: 2 months to 5 years</h3>
-            </div>
-            <p class="text-lg text-white font-normal">
-              It provides information of developmental milestones for children 2
-              months to 5 years.
-            </p>
-          </div>
-          <div
-            class="flex flex-col h-full bg-deep-teal text-white font-bold rounded-md text-2xl p-8 mb-4 w-full"
-          >
-            <div class="flex justify-between items-center w-full mb-6">
-              <h3 class="w-3/4">Material in English & Spanish</h3>
-            </div>
-            <p class="text-lg text-white font-normal">
-              The material is available in both English and Spanish.
-            </p>
-          </div>
-          <div
-            class="flex flex-col h-full bg-ada-orange text-white font-bold rounded-md text-2xl p-8 mb-4 w-full"
-          >
-            <div class="flex justify-between items-center w-full mb-6">
-              <h3 class="w-3/4">Pharmacy label with all information intact</h3>
-            </div>
-            <p class="text-lg text-white font-normal">
-              The pharmacy label must be intact on the bottle and it must
-              include the physician's name, child's first and last name,
-              administration instructions and the name and strength of the
-              medicine.
-            </p>
-          </div>
-
-          <div
-            class="flex flex-col h-full bg-dark-teal text-white font-bold rounded-md text-2xl p-8 mb-4 w-full"
-          >
-            <div class="flex justify-between items-center w-full mb-6">
-              <h3 class="w-3/4">
-                Connect to Birth to 5: Watch Them Thrive Initiative
-              </h3>
-            </div>
-            <p class="text-lg text-white font-normal">
-              Act Early is also connected with the ‘Birth to Five: Watch Them
-              Thrive” initiative that encourages healthy development, universal
-              developmental screening for young children and provides support
-              for providers and families.
-            </p>
-          </div>
+        </form>
+        <div>
+          <span aria-live="polite" id="validation" class="font-bold"></span>
         </div>
+        <p></p>
       </div>
     </main>
-  </body>
+    <p>
+      <script>
+        document
+          .getElementById("matching_dropdown")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+            const answersTable = document.getElementById("answers-table");
+            const selects = this.querySelectorAll("select");
+            const unanswered = Array.from(selects).filter((s) => s.value === "");
+
+            if (unanswered.length > 0) {
+              answersTable.classList.add("hidden");
+              alert("Please select a response for every question before continuing.");
+              unanswered[0].focus();
+              return;
+            } else {
+              //answersTable.classList.remove("hidden");
+              answersTable.removeAttribute("aria-hidden");
+              answersTable.setAttribute("tabindex", "-1");
+              answersTable.focus();
+            }
+
+          });
+        var scorm = pipwerks.SCORM;
+        var interaction = {
+          id: "1", // Unique identifier for the interaction
+          type: "fill-in", // Type of interaction (fill-in is used for text input)
+          student_response: "User's response", // The learner's response from the form field
+          result: "correct", // The result of the interaction (can be "correct," "incorrect," or "neutral")
+        };
+
+        scorm.init();
+
+        document
+          .getElementById("reflection-form")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+            const reflectionTextarea = document.getElementById("reflection");
+            if (reflectionTextarea.value.trim() === "") {
+              alert(
+                "Reflection cannot be empty. Please provide your reflection."
+              );
+              return;
+            } else {
+              interaction.student_response = reflectionTextarea.value;
+              scorm.set("cmi.core.score.raw", "100");
+              scorm.set("cmi.core.lesson_status", "passed");
+              // Set the interaction data
+              scorm.set("cmi.interactions.0.id", interaction.id);
+              scorm.set("cmi.interactions.0.type", interaction.type);
+              scorm.set(
+                "cmi.interactions.0.student_response",
+                interaction.student_response
+              );
+              scorm.set("cmi.interactions.0.result", interaction.result);
+              document.getElementById("validation").innerHTML =
+                "Response submitted. Be sure to record this goal somewhere where you can remind yourself and hold yourself accountable to meeting it.";
+              reflectionTextarea.value = "";
+            }
+          });
+
+        document
+          .getElementById("check-answers-button")
+          .addEventListener("click", function () {
+            const answersTable = document.getElementById("answers-table");
+            answersTable.classList.remove("hidden");
+
+            // To ensure the screen reader reads the content immediately
+            answersTable.setAttribute("aria-live", "off"); // Temporarily disable aria-live
+            void answersTable.offsetHeight; // Trigger a reflow
+            answersTable.setAttribute("aria-live", "polite"); // Re-enable aria-live
+
+            // Optionally, set focus on the answers table for better accessibility
+            answersTable.setAttribute("tabindex", "-1");
+            answersTable.focus();
+          });
+      </script>
+    </p>
+</body>
 </html>

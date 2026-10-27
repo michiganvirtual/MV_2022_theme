@@ -594,36 +594,39 @@ $(document).ready(function () {
 
         $feedbackContainer.removeClass("hidden");
 
-        var $answersTable = $("#answers-table"); // ← Directly select by ID
-        console.log($answersTable);
+        const answersTable = document.getElementById("answers-table");
+            const selects = this.querySelectorAll("select");
+            const unanswered = Array.from(selects).filter((s) => s.value === "");
 
-      if ($answersTable.length) {
-        $answersTable.removeClass("hidden");
-        $answersTable.attr({
-          tabindex: "0",
-          role: "alert",
-        });
-        //$answersTable[0].scrollIntoView({ behavior: "smooth" });
-        $answersTable.focus();
-      } else {
-        console.error("Answers table not found!");
-      }
+            if (unanswered.length > 0) {
+              answersTable.classList.add("hidden");
+              alert("Please select a response for every question before continuing.");
+              unanswered[0].focus();
+              return;
+            } else {
+              //answersTable.classList.remove("hidden");
+              answersTable.removeAttribute("aria-hidden");
+              answersTable.setAttribute("tabindex", "-1");
+              answersTable.focus();
+            }
       });
     } else if ($form.hasClass("no-icons")) {
       console.log("has no icons class");
-      var $answersTable = $('#answers-table'); // ← Directly select by ID
-        console.log($answersTable);
+      const answersTable = document.getElementById("answers-table");
+            const selects = this.querySelectorAll("select");
+            const unanswered = Array.from(selects).filter((s) => s.value === "");
 
-      if ($answersTable.length) {
-        $answersTable.removeClass("hidden");
-        $answersTable.attr({
-          tabindex: "0",
-          role: "alert",
-        });
-        //$answersTable[0].scrollIntoView({ behavior: "smooth" });
-        $answersTable.focus();
-      
-      }
+            if (unanswered.length > 0) {
+              answersTable.classList.add("hidden");
+              alert("Please select a response for every question before continuing.");
+              unanswered[0].focus();
+              return;
+            } else {
+              //answersTable.classList.remove("hidden");
+              answersTable.removeAttribute("aria-hidden");
+              answersTable.setAttribute("tabindex", "-1");
+              answersTable.focus();
+            }
     }
   });
 
